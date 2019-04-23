@@ -2589,7 +2589,7 @@ gText_PokemonCenterSign:: @ 8272B9E
 	.string "“Rejuvenate your tired partners!”\nPOKéMON CENTER$"
 
 gUnknown_08272BCF:: @ 8272BCF
-	.string "{STR_VAR_1} might like this program.\n… … … … … … … … … … … … … … … …\pBetter get going!$"
+	.string "DAD might like this program.\n… … … … … … … … … … … … … … … …\pBetter get going!$"
 
 gUnknown_08272C1D:: @ 8272C1D
 	.string "Welcome to LILYCOVE DEPARTMENT STORE.\pWhich floor would you like?$"
@@ -7112,3 +7112,15 @@ gText_082C877B:: @ 82C877B
 	.align 2
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+
+	.include "data/maps/PalletTown/scripts.inc"
+
+	.include "data/maps/PalletTown_RedsHouse1F/scripts.inc"
+
+	.include "data/maps/PalletTown_RedsHouse2F/scripts.inc"
+
+	.include "data/maps/PalletTown_GreensHouse1F/scripts.inc"
+
+	.include "data/maps/PalletTown_GreensHouse2F/scripts.inc"
+
+	.include "data/maps/PalletTown_OaksLab/scripts.inc"

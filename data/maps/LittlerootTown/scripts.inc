@@ -918,7 +918,7 @@ LittlerootTown_EventScript_1E8693:: @ 81E8693
 	playfanfare MUS_FANFA4
 	message LittlerootTown_Text_1E8925
 	waitfanfare
-	setflag FLAG_RECEIVED_RUNNING_SHOES
+	setflag FLAG_SYS_B_DASH
 	msgbox LittlerootTown_Text_1E894F, MSGBOX_DEFAULT
 	msgbox LittlerootTown_Text_1E8A03, MSGBOX_DEFAULT
 	closemessage
