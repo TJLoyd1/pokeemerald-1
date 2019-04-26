@@ -348,6 +348,9 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectMatBlock
 	.4byte BattleScript_EffectStompingTantrum
 	.4byte BattleScript_EffectCoreEnforcer
+	.4byte BattleScript_EffectInstruct
+	.4byte BattleScript_EffectThroatChop
+	.4byte BattleScript_EffectLaserFocus
 
 BattleScript_EffectCoreEnforcer:
 	setmoveeffect MOVE_EFFECT_CORE_ENFORCER | MOVE_EFFECT_CERTAIN
@@ -360,6 +363,17 @@ BattleScript_MoveEffectCoreEnforcer::
 BattleScript_CoreEnforcerRet:
 	return
 
+BattleScript_EffectLaserFocus:
+	attackcanceler
+	attackstring
+	ppreduce
+	setuserstatus3 STATUS3_LASER_FOCUS BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_LASERFOCUS
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+	
 BattleScript_EffectVCreate:
 	setmoveeffect MOVE_EFFECT_V_CREATE | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
@@ -774,6 +788,20 @@ BattleScript_EffectCopycat:
 BattleScript_CopycatFail:
 	ppreduce
 	goto BattleScript_ButItFailed
+
+BattleScript_EffectInstruct:
+	attackcanceler
+	attackstring
+	ppreduce
+	pause 0x5
+	tryinstruct BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_USEDINSTRUCTEDMOVE
+	waitmessage 0x40
+	setbyte sB_ANIM_TURN, 0x0
+	setbyte sB_ANIM_TARGETS_HIT, 0x0
+	jumptocalledmove TRUE
 	
 BattleScript_EffectAutonomize:
 	setstatchanger STAT_SPEED, 2, FALSE
@@ -1685,7 +1713,12 @@ BattleScript_EffectHealBlock:
 	printstring STRINGID_PKMNPREVENTEDFROMHEALING
 	waitmessage 0x40
 	goto BattleScript_MoveEnd
-	
+
+BattleScript_EffectThroatChop:
+	jumpifsubstituteblocks BattleScript_EffectHit
+	setmoveeffect MOVE_EFFECT_THROAT_CHOP | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
+
 BattleScript_EffectHitEscape:
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
@@ -5391,7 +5424,25 @@ BattleScript_MoveUsedIsTaunted::
 BattleScript_SelectingNotAllowedMoveTauntInPalace::
 	printstring STRINGID_PKMNCANTUSEMOVETAUNT
 	goto BattleScript_SelectingUnusableMoveInPalace
+    
+BattleScript_SelectingNotAllowedMoveThroatChop::
+	printselectionstring STRINGID_PKMNCANTUSEMOVETHROATCHOP
+	endselectionscript
+
+BattleScript_MoveUsedIsThroatChopPrevented::
+	printstring STRINGID_PKMNCANTUSEMOVETHROATCHOP
+	waitmessage 0x40
+	goto BattleScript_MoveEnd
+
+BattleScript_SelectingNotAllowedMoveThroatChopInPalace::
+	printstring STRINGID_PKMNCANTUSEMOVETHROATCHOP
+	goto BattleScript_SelectingUnusableMoveInPalace
 	
+BattleScript_ThroatChopEndTurn::
+	printstring STRINGID_THROATCHOPENDS
+	waitmessage 0x40
+	end2
+
 BattleScript_SelectingNotAllowedMoveGravity::
 	printselectionstring STRINGID_GRAVITYPREVENTSUSAGE
 	endselectionscript
