@@ -10,7 +10,7 @@
             "script": "PalletTown_EventScript_OaksLab",
             "type": "sign",
             "x": 16,
-            "y": 17
+            "y": 16
         },
         {
             "elevation": 3,
@@ -78,7 +78,7 @@
             "dest_warp_id": 0,
             "elevation": 3,
             "x": 17,
-            "y": 15
+            "y": 14
         }
     ],
     "weather": "WEATHER_SUNNY"
