@@ -309,5 +309,19 @@ extern const u8 BattleScript_SelectingNotAllowedMoveThroatChop[];
 extern const u8 BattleScript_MoveUsedIsThroatChopPrevented[];
 extern const u8 BattleScript_SelectingNotAllowedMoveThroatChopInPalace[];
 extern const u8 BattleScript_ThroatChopEndTurn[];
+extern const u8 BattleScript_GemActivates[];
+extern const u8 BattleScript_BerryReduceDmg[];
+extern const u8 BattleScript_PrintBerryReduceString[];
+extern const u8 BattleScript_WeaknessPolicy[];
+extern const u8 BattleScript_TargetItemStatRaise[];
+extern const u8 BattleScript_RockyHelmetActivates[];
+extern const u8 BattleScript_ItemHurtEnd2[];
+extern const u8 BattleScript_AirBaloonMsgIn[];
+extern const u8 BattleScript_AirBaloonMsgPop[];
+extern const u8 BattleScript_ItemHurtRet[];
+extern const u8 BattleScript_ToxicOrb[];
+extern const u8 BattleScript_FlameOrb[];
+extern const u8 BattleScript_MoveEffectIncinerate[];
+extern const u8 BattleScript_MoveEffectBugBite[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

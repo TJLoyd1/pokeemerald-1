@@ -1525,8 +1525,9 @@
 	.4byte \ptr
 	.endm
 	
-	.macro handlemegaevo battler:req
+	.macro handlemegaevo battler:req, case:req
 	various \battler, VARIOUS_HANDLE_MEGA_EVO
+	.byte \case
 	.endm
 	
 	.macro jumpifcantuselastresort battler:req, ptr:req
@@ -1639,6 +1640,11 @@
 	.4byte \ptr
 	.endm
 	
+	.macro jumpifnotberry battler:req, ptr:req
+	various \battler, VARIOUS_JUMP_IF_NOT_BERRY
+	.4byte \ptr
+	.endm
+	
 	.macro jumpifroarfails ptr:req
 	various BS_ATTACKER, VARIOUS_JUMP_IF_ROAR_FAILS
 	.4byte \ptr
@@ -1747,5 +1753,14 @@
 	jumpifnottype BS_TARGET, TYPE_GRASS, 1f
 	jumpifability BS_TARGET_SIDE, ABILITY_FLOWER_VEIL, \jumpptr
 	1:
+	.endm
+
+	.macro setallytonexttarget jumpptr:req
+	jumpifbyte CMP_GREATER_THAN, gBattlerTarget, 0x1, 1f
+	addbyte gBattlerTarget, 0x2
+	goto \jumpptr
+	1:
+	subbyte gBattlerTarget, 0x2
+	goto \jumpptr
 	.endm
 

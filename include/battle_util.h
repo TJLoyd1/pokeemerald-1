@@ -25,10 +25,22 @@
 #define ITEMEFFECT_ON_SWITCH_IN                 0x0
 #define ITEMEFFECT_MOVE_END                     0x3
 #define ITEMEFFECT_KINGSROCK_SHELLBELL          0x4
+#define ITEMEFFECT_TARGET                       0x5
+#define ITEMEFFECT_ORBS                         0x6
 
 #define WEATHER_HAS_EFFECT ((!IsAbilityOnField(ABILITY_CLOUD_NINE) && !IsAbilityOnField(ABILITY_AIR_LOCK)))
 
 #define IS_WHOLE_SIDE_ALIVE(battler)((IsBattlerAlive(battler) && IsBattlerAlive(BATTLE_PARTNER(battler))))
+
+// for Natural Gift and Fling
+struct TypePower
+{
+    u8 type;
+    u8 power;
+    u16 effect;
+};
+
+extern const struct TypePower gNaturalGiftTable[];
 
 u8 GetBattlerForBattleScript(u8 caseId);
 void PressurePPLose(u8 target, u8 attacker, u16 move);

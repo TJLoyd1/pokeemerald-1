@@ -165,7 +165,12 @@ struct SpecialStatus
     u8 sturdied:1;
     u8 stormDrainRedirected:1;
     u8 switchInAbilityDone:1;
+    u8 switchInItemDone:1;
     u8 instructedChosenTarget:3;
+    u8 berryReduced:1;
+    u8 gemBoost:1;
+    u8 gemParam;
+    u8 damagedMons:4; // Mons that have been damaged directly by using a move, includes substitute.
     s32 dmg;
     s32 physicalDmg;
     s32 specialDmg;

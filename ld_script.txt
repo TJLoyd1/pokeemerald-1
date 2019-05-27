@@ -68,6 +68,7 @@ SECTIONS {
         src/berry_crush.o(.text);
         asm/berry_crush.o(.text);
         src/berry_powder.o(.text);
+        src/dodrio_berry_picking.o(.text);
         asm/dodrio_berry_picking.o(.text);
         src/pokemon_jump.o(.text);
         asm/pokemon_jump.o(.text);
@@ -303,11 +304,11 @@ SECTIONS {
         src/pokenav.o(.text);
         src/pokenav_main_menu.o(.text);
         src/pokenav_match_call_ui.o(.text);
-        asm/pokenav_unk_1.o(.text);
+        src/pokenav_unk_1.o(.text);
         asm/pokenav_unk_2.o(.text);
-        asm/pokenav_unk_3.o(.text);
-        asm/pokenav_unk_4.o(.text);
-        asm/pokenav_unk_5.o(.text);
+        src/pokenav_unk_3.o(.text);
+        src/pokenav_unk_4.o(.text);
+        src/pokenav_unk_5.o(.text);
         asm/pokenav_unk_6.o(.text);
         asm/pokenav_unk_7.o(.text);
         asm/pokenav_unk_8.o(.text);
@@ -434,6 +435,7 @@ SECTIONS {
         src/union_room_chat.o(.rodata);
         data/berry_crush.o(.rodata);
         data/berry_powder.o(.rodata);
+        src/dodrio_berry_picking.o(.rodata);
         data/dodrio_berry_picking.o(.rodata);
         src/pokemon_jump.o(.rodata);
         data/pokemon_jump.o(.rodata);
@@ -633,6 +635,7 @@ SECTIONS {
         src/pokenav.o(.rodata);
         src/pokenav_main_menu.o(.rodata);
         src/pokenav_match_call_ui.o(.rodata);
+        src/pokenav_unk_1.o(.rodata);
         data/pokenav.o(.rodata);
         src/pokenav_match_call_data.o(.rodata);
         src/menu_specialized.o(.rodata);

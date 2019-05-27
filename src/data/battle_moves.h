@@ -1061,7 +1061,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGSROCK_AFFECTED | FLAG_HIGH_CRIT,
-        .split = SPLIT_SPECIAL,
+        .split = SPLIT_PHYSICAL,
     },
 
     [MOVE_SOLAR_BEAM] =
@@ -3223,7 +3223,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SWEET_SCENT] =
     {
-        .effect = EFFECT_EVASION_DOWN,
+        .effect = EFFECT_EVASION_DOWN_2,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -5069,7 +5069,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = 0,
+        .flags = FLAG_SNATCH_AFFECTED,
         .split = SPLIT_STATUS,
     },
 
@@ -5117,7 +5117,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_PLUCK] =
     {
-        .effect = EFFECT_PLACEHOLDER, // Needs a custom move effect (Bug Bite and Pluck should have the same move effect)
+        .effect = EFFECT_BUG_BITE,
         .power = 60,
         .type = TYPE_FLYING,
         .accuracy = 100,
@@ -6311,7 +6311,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BUG_BITE] =
     {
-        .effect = EFFECT_PLACEHOLDER, // Needs a custom move effect (Bug Bite and Pluck should have the same move effect)
+        .effect = EFFECT_BUG_BITE,
         .power = 60,
         .type = TYPE_BUG,
         .accuracy = 100,
@@ -6473,7 +6473,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
         .priority = 0,
-        .flags = FLAG_DANCE,
+        .flags = FLAG_DANCE | FLAG_SNATCH_AFFECTED,
         .split = SPLIT_STATUS,
     },
 
@@ -6521,7 +6521,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SEED_FLARE] =
     {
-        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_2,
+        .effect = EFFECT_SPECIAL_DEFENSE_DOWN_HIT_2,
         .power = 120,
         .type = TYPE_GRASS,
         .accuracy = 85,
@@ -7153,7 +7153,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_INCINERATE] =
     {
-        .effect = EFFECT_PLACEHOLDER, // Needs a custom move effect
+        .effect = EFFECT_INCINERATE,
         .power = 60,
         .type = TYPE_FIRE,
         .accuracy = 100,
@@ -8450,7 +8450,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_MAGNETIC_FLUX] =
     {
-        .effect = EFFECT_PLACEHOLDER, // Needs a custom move effect
+        .effect = EFFECT_MAGNETIC_FLUX,
         .power = 0,
         .type = TYPE_ELECTRIC,
         .accuracy = 0,
@@ -8942,13 +8942,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_GEAR_UP] =
     {
-        .effect = EFFECT_PLACEHOLDER,
+        .effect = EFFECT_GEAR_UP,
         .power = 0,
         .type = TYPE_STEEL,
         .accuracy = 0,
         .pp = 20,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
         .split = SPLIT_STATUS,
