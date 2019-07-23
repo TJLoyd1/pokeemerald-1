@@ -61,6 +61,16 @@ PalletTown_RedsHouse2F_NoClock::
 	walk_down
 	step_end
 
+PalletTown_RedsHouse2F_PC::
+	setvar VAR_0x8004, 1
+	special DoPCTurnOnEffect
+	playse SE_PC_ON
+	msgbox gText_PlayerHouseBootPC, MSGBOX_DEFAULT
+	special BedroomPC
+	waitstate
+	releaseall
+	end
+
 PalletTown_RedsHouse2F_Text_DoIt:
 	.string "I haven't set the clock yet.$"
 
