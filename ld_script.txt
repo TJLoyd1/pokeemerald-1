@@ -3,6 +3,12 @@ ENTRY(Start)
 gNumMusicPlayers = 4;
 gMaxLines = 0;
 
+/* Modify the following load addresses as needed to make more room. Alternately, delete both the
+   declarations below and their references further down to get rid of the gaps.                  */
+
+__anim_mon_load_address = 0x8b00000;
+__gfx_load_address = 0x8c00000;
+
 SECTIONS {
     . = 0x2000000;
 
@@ -305,6 +311,7 @@ SECTIONS {
         src/pokenav_main_menu.o(.text);
         src/pokenav_match_call_ui.o(.text);
         src/pokenav_unk_1.o(.text);
+        src/pokenav_unk_2.o(.text);
         asm/pokenav_unk_2.o(.text);
         src/pokenav_unk_3.o(.text);
         src/pokenav_unk_4.o(.text);
@@ -314,6 +321,7 @@ SECTIONS {
         asm/pokenav_unk_8.o(.text);
         asm/pokenav_unk_9.o(.text);
         asm/pokenav_unk_10.o(.text);
+        src/pokenav_unk_10.o(.text);
         src/pokenav_match_call_data.o(.text);
         src/menu_specialized.o(.text);
         src/ereader_helpers.o(.text);
@@ -637,6 +645,7 @@ SECTIONS {
         src/pokenav_match_call_ui.o(.rodata);
         src/pokenav_unk_1.o(.rodata);
         data/pokenav.o(.rodata);
+        src/pokenav_unk_10.o(.rodata);
         src/pokenav_match_call_data.o(.rodata);
         src/menu_specialized.o(.rodata);
         data/ereader_helpers.o(.rodata);
@@ -1216,27 +1225,13 @@ SECTIONS {
         data/multiboot_pokemon_colosseum.o(.rodata);
     } =0
 
-    gap1 :
-    {
-        gap1_start = ABSOLUTE(.);
-        BYTE(0x00)
-        . = 0x8B00000 - gap1_start;
-    } =0
-
-    anim_mon_front_pic_data :
+    anim_mon_front_pic_data __anim_mon_load_address :
     ALIGN(4)
     {
         src/anim_mon_front_pics.o(.rodata);
     } =0
 
-    gap2 :
-    {
-        gap2_start = ABSOLUTE(.);
-        BYTE(0x00)
-        . = 0x8C00000 - gap2_start;
-    } =0
-
-    gfx_data :
+    gfx_data __gfx_load_address :
     ALIGN(4)
     {
         src/graphics.o(.rodata);
