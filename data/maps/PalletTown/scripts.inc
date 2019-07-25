@@ -3,15 +3,10 @@ PalletTown_MapScripts::
 	.byte 0
 
 PalletTown_EventScript_SpokeWithGirl:
-	call_if_set FLAG_SPOKE_WITH_GIRL, PalletTown_EventScript_ReallySpokeWithGirl
-	end
-
-PalletTown_EventScript_ReallySpokeWithGirl:
-	setflag FLAG_GIRL_RAISING
-	setvar VAR_TRAINER_TIPS, 0
+	setvar VAR_INFLAG1, 3
 	setobjectxyperm 1, 3, 10
 	setobjectmovementtype 1, MOVEMENT_TYPE_WANDER_AROUND
-	return
+	end
 
 PalletTown_EventScript_MCsHouseSign::
 	lockall
@@ -31,7 +26,7 @@ PalletTown_EventScript_OaksLab::
 
 PalletTown_EventScript_TrainerTips::
 	msgbox PalletTown_Text_TrainerTips, MSGBOX_SIGN
-	setvar VAR_TRAINER_TIPS, 1
+	setvar VAR_INFLAG1, 2
 	end
 
 PalletTown_EventScript_Description::
@@ -40,19 +35,19 @@ PalletTown_EventScript_Description::
 
 PalletTown_Girl::
 	lock
-	compare VAR_TRAINER_TIPS, 1
+	compare VAR_INFLAG1, 2
 	goto_if_eq PalletTown_Girl3
-	checkflag FLAG_GIRL_RAISING
-	vgoto_if 1, PalletTown_Girl4
-	checkflag FLAG_SPOKE_WITH_GIRL
-	vgoto_if 1, PalletTown_Girl2
+	compare VAR_INFLAG1, 3
+	goto_if_eq PalletTown_Girl4
+	compare VAR_INFLAG1, 1
+	goto_if_eq PalletTown_Girl2
 	msgbox PalletTown_Text_Girl1, MSGBOX_SIGN
 	applymovement 1, PalletTown_GirlMovement1
 	waitmovement 0
 	msgbox PalletTown_Text_Girl2, MSGBOX_SIGN
 	applymovement 1, PalletTown_GirlMovement2
 	waitmovement 0
-	setflag FLAG_SPOKE_WITH_GIRL
+	setvar VAR_INFLAG1, 1
 	release
 	end
 PalletTown_Girl2:
