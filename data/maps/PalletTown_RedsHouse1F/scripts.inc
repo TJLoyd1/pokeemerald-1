@@ -9,12 +9,12 @@ RedsHouse1F_EventScript_BigDay_Start:
 RedsHouse1F_EventScript_BigDay::
 	applymovement 1, RedsHouse1F_MotherMovement1
 	waitmovement 0
-	msgbox RedsHouse1F_Text_RedPresent, 6
+	msgbox RedsHouse1F_Text_RedPresent, MSGBOX_DEFAULT
 	playfanfare MUS_FANFA4
 	message RedsHouse1F_Text_EquippedRunningShoes
 	waitfanfare
 	setflag FLAG_SYS_B_DASH
-	msgbox RedsHouse1F_Text_MomSpeech, MSGBOX_NPC
+	msgbox RedsHouse1F_Text_MomSpeech, MSGBOX_DEFAULT
 	applymovement 1, RedsHouse1F_MotherMovement2
 	waitmovement 0
 	setvar VAR_0x402E, 2
@@ -25,20 +25,20 @@ RedsHouse1F_EventScript_Mom::
 	faceplayer
 	checkflag FLAG_SYS_POKEMON_GET
 	vgoto_if 1, RedsHouse1F_EventScript_Mom_Heal
-	msgbox RedsHouse1F_Text_MomCommon, MSGBOX_NPC
+	msgbox RedsHouse1F_Text_MomCommon, MSGBOX_DEFAULT
 	releaseall
 	end
 
 RedsHouse1F_EventScript_Mom_Heal::
 	lockall
 	faceplayer
-	msgbox RedsHouse1F_Text_WorriedMom, 6
+	msgbox RedsHouse1F_Text_WorriedMom, MSGBOX_DEFAULT
 	fadescreen 1
 	playfanfare MUS_ME_ASA
 	special HealPlayerParty
 	waitfanfare
 	fadescreen 0
-	msgbox RedsHouse1F_Text_PlayerHealed, 6
+	msgbox RedsHouse1F_Text_PlayerHealed, MSGBOX_DEFAULT
 	releaseall
 	end
 

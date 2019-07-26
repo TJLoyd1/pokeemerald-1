@@ -7127,3 +7127,5 @@ gText_082C877B:: @ 82C877B
 	.include "data/maps/PalletTown_GreensHouse2F/scripts.inc"
 
 	.include "data/maps/PalletTown_OaksLab/scripts.inc"
+
+	.include "data/maps/Route1/scripts.inc"

@@ -525,7 +525,8 @@
         "PalletTown_RedsHouse2F",
         "PalletTown_GreensHouse1F",
         "PalletTown_GreensHouse2F",
-        "PalletTown_OaksLab"
+        "PalletTown_OaksLab",
+        "Route1"
     ],
     "gMapGroup4": [
         "LavaridgeTown_HerbShop",

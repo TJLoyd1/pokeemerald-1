@@ -9,15 +9,11 @@ PalletTown_EventScript_SpokeWithGirl:
 	end
 
 PalletTown_EventScript_MCsHouseSign::
-	lockall
-	msgbox PalletTown_Text_MCsHouseSign, MSGBOX_DEFAULT
-	releaseall
+	msgbox PalletTown_Text_MCsHouseSign, MSGBOX_SIGN
 	end
 
 PalletTown_EventScript_RivalsHouseSign::
-	lockall
-	msgbox PalletTown_Text_RivalsHouseSign, MSGBOX_DEFAULT
-	releaseall
+	msgbox PalletTown_Text_RivalsHouseSign, MSGBOX_SIGN
 	end
 
 PalletTown_EventScript_OaksLab::
@@ -41,35 +37,35 @@ PalletTown_Girl::
 	goto_if_eq PalletTown_Girl4
 	compare VAR_INFLAG1, 1
 	goto_if_eq PalletTown_Girl2
-	msgbox PalletTown_Text_Girl1, MSGBOX_SIGN
+	msgbox PalletTown_Text_Girl1, MSGBOX_DEFAULT
 	applymovement 1, PalletTown_GirlMovement1
 	waitmovement 0
-	msgbox PalletTown_Text_Girl2, MSGBOX_SIGN
+	msgbox PalletTown_Text_Girl2, MSGBOX_DEFAULT
 	applymovement 1, PalletTown_GirlMovement2
 	waitmovement 0
 	setvar VAR_INFLAG1, 1
 	release
 	end
 PalletTown_Girl2:
-	msgbox PalletTown_Text_Girl3, MSGBOX_SIGN
+	msgbox PalletTown_Text_Girl3, MSGBOX_DEFAULT
 	release
 	end
 PalletTown_Girl3:
 	faceplayer
-	msgbox PalletTown_Text_Girl4, MSGBOX_SIGN
+	msgbox PalletTown_Text_Girl4, MSGBOX_DEFAULT
 	release
 	end
 PalletTown_Girl4:
 	lock
 	faceplayer
-	msgbox PalletTown_Text_Girl5, MSGBOX_SIGN
+	msgbox PalletTown_Text_Girl5, MSGBOX_DEFAULT
 	release
 	end
 
 PalletTown_FatMan::
 	lock
 	faceplayer
-	msgbox PalletTown_Text_FatMan, MSGBOX_SIGN
+	msgbox PalletTown_Text_FatMan, MSGBOX_DEFAULT
 	release
 	end
 

@@ -2,33 +2,23 @@ PalletTown_OaksLab_MapScripts::
 	.byte 0
 
 PalletTown_OaksLab_GenericAides::
-	lock
-	faceplayer
-	msgbox PalletTown_OaksLab_Text_GenericAides, MSGBOX_SIGN
-	release
+	msgbox PalletTown_OaksLab_Text_GenericAides, MSGBOX_NPC
 	end
 
 PalletTown_OaksLab_DifferentAide::
-	lock
-	faceplayer
-	msgbox PalletTown_OaksLab_Text_DifferentAide, MSGBOX_SIGN
-	release
+	msgbox PalletTown_OaksLab_Text_DifferentAide, MSGBOX_NPC
 	end
 
 PalletTown_OaksLab_Rival::
-	lock
-	faceplayer
-	msgbox PalletTown_OaksLab_Text_Rival, MSGBOX_SIGN
-	release
+	msgbox PalletTown_OaksLab_Text_Rival, MSGBOX_NPC
 	end
 
 PalletTown_OaksLab_Box::
 	lock
-	faceplayer
-	msgbox PalletTown_OaksLab_Text_Box1, MSGBOX_SIGN
+	msgbox PalletTown_OaksLab_Text_Box1, MSGBOX_DEFAULT
 	applymovement 4, OaksLab_RivalMovement1
 	waitmovement 0
-	msgbox PalletTown_OaksLab_Text_Box2, MSGBOX_SIGN
+	msgbox PalletTown_OaksLab_Text_Box2, MSGBOX_DEFAULT
 	applymovement 4, OaksLab_RivalMovement2
 	waitmovement 0
 	release

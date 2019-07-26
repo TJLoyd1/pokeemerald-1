@@ -592,6 +592,7 @@
 #define MAP_PALLET_TOWN_GREENS_HOUSE1F             (3 | (33 << 8))
 #define MAP_PALLET_TOWN_GREENS_HOUSE2F             (4 | (33 << 8))
 #define MAP_PALLET_TOWN_OAKS_LAB                   (5 | (33 << 8))
+#define MAP_ROUTE1                                 (6 | (33 << 8))
 
 #define MAP_GROUPS_COUNT 34
 

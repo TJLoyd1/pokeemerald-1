@@ -57,10 +57,6 @@ PalletTown_RedsHouse2F_Notebook::
 	msgbox PalletTown_RedsHouse2F_Text_Notebook, MSGBOX_SIGN
 	end
 
-PalletTown_RedsHouse2F_NoClock::
-	walk_down
-	step_end
-
 PalletTown_RedsHouse2F_PC::
 	setvar VAR_0x8004, 1
 	special DoPCTurnOnEffect
@@ -70,6 +66,10 @@ PalletTown_RedsHouse2F_PC::
 	waitstate
 	releaseall
 	end
+
+PalletTown_RedsHouse2F_NoClock::
+	walk_down
+	step_end
 
 PalletTown_RedsHouse2F_Text_DoIt:
 	.string "I haven't set the clock yet.$"

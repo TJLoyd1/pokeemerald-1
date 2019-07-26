@@ -2,17 +2,11 @@ PalletTown_GreensHouse1F_MapScripts::
 	.byte 0
 
 PalletTown_GreensHouse1F_Daisy::
-	lock
-	faceplayer
-	msgbox PalletTown_GreensHouse1F_Text_Daisy, MSGBOX_SIGN
-	release
+	msgbox PalletTown_GreensHouse1F_Text_Daisy, MSGBOX_NPC
 	end
 
 PalletTown_GreensHouse1F_Box::
-	lock
-	faceplayer
-	msgbox PalletTown_GreensHouse1F_Text_Box, MSGBOX_SIGN
-	release
+	msgbox PalletTown_GreensHouse1F_Text_Box, MSGBOX_NPC
 	end
 
 PalletTown_GreensHouse1F_Text_Daisy:
