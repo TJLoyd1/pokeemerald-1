@@ -76,13 +76,15 @@ PalletTown_FatMan::
 PalletTown_Trigger1::
 	lock
 	setvar VAR_INFLAG2, 1
+	clearflag FLAG_HIDE_OAK_PALLET_TOWN
 	applymovement 255, PalletTown_PlayerExclamation
 	waitmovement 0
 	msgbox PalletTown_Text_ProfOak1, MSGBOX_DEFAULT
 	applymovement 3, PalletTown_ProfOakToPlayer
 	waitmovement 0
-	msgbox PalletTown_Text_ProfOak2, MSGBOX_DEFAULT
+	msgbox PalletTown_Text_ProfOak2, MSGBOX_NPC
 	applymovement 255, PalletTown_PlayerToOak
+	waitmovement 0
 	applymovement 3, PalletTown_ProfOakToLab
 	waitmovement 0
 	release
@@ -194,8 +196,6 @@ PalletTown_PlayerToOak:
 	walk_down
 	walk_down
 	walk_left
-	walk_left
-	walk_down
 	walk_down
 	walk_down
 	walk_down
@@ -214,7 +214,5 @@ PalletTown_PlayerToOak:
 	walk_right
 	walk_right
 	walk_right
-	walk_right
-	walk_up
 	walk_up
 	step_end
