@@ -14,10 +14,11 @@ RedsHouse1F_EventScript_BigDay::
 	message RedsHouse1F_Text_EquippedRunningShoes
 	waitfanfare
 	setflag FLAG_SYS_B_DASH
-	msgbox RedsHouse1F_Text_MomSpeech, MSGBOX_DEFAULT
+	msgbox RedsHouse1F_Text_MomSpeech, MSGBOX_NPC
 	applymovement 1, RedsHouse1F_MotherMovement2
 	waitmovement 0
 	setvar VAR_0x402E, 2
+	setflag FLAG_HIDE_OAK_PALLET_TOWN
 	end
 
 RedsHouse1F_EventScript_Mom::

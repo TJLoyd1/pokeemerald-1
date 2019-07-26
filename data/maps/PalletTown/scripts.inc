@@ -3,6 +3,10 @@ PalletTown_MapScripts::
 	.byte 0
 
 PalletTown_EventScript_SpokeWithGirl:
+	compare VAR_INFLAG1, 2
+	goto_if_eq PalletTown_EventScript_MoveTheGirl
+	end
+PalletTown_EventScript_MoveTheGirl:
 	setvar VAR_INFLAG1, 3
 	setobjectxyperm 1, 3, 10
 	setobjectmovementtype 1, MOVEMENT_TYPE_WANDER_AROUND
@@ -69,15 +73,20 @@ PalletTown_FatMan::
 	release
 	end
 
-PalletTown_GirlMovement1:
-	face_right
-	emote_exclamation_mark
-	step_end
-
-PalletTown_GirlMovement2:
-	walk_left
-	face_right
-	step_end
+PalletTown_Trigger1::
+	lock
+	setvar VAR_INFLAG2, 1
+	applymovement 255, PalletTown_PlayerExclamation
+	waitmovement 0
+	msgbox PalletTown_Text_ProfOak1, MSGBOX_DEFAULT
+	applymovement 3, PalletTown_ProfOakToPlayer
+	waitmovement 0
+	msgbox PalletTown_Text_ProfOak2, MSGBOX_DEFAULT
+	applymovement 255, PalletTown_PlayerToOak
+	applymovement 3, PalletTown_ProfOakToLab
+	waitmovement 0
+	release
+	end
 
 PalletTown_Text_OaksLab:
 	.string "OAK POKéMON RESEARCH LAB$"
@@ -119,3 +128,93 @@ PalletTown_Text_FatMan:
 	.string "Technology is incredible!\p"
 	.string "You can now store and recall items\n"
 	.string "and POKéMON as data via PC.$"
+
+PalletTown_Text_ProfOak1:
+	.string "OAK: Hey! Wait!\n"
+	.string "Don't go out!$"
+
+PalletTown_Text_ProfOak2:
+	.string "OAK: It's unsafe!\n"
+	.string "Wild POKéMON live in tall grass!\p"
+	.string "You need your own POKéMON for\n"
+	.string "your protection.\p"
+	.string "I know!\n"
+	.string "Here, come with me!$"
+
+PalletTown_GirlMovement1:
+	face_right
+	emote_exclamation_mark
+	step_end
+
+PalletTown_GirlMovement2:
+	walk_left
+	face_right
+	step_end
+
+PalletTown_PlayerExclamation:
+	face_down
+	emote_exclamation_mark
+	step_end
+
+PalletTown_ProfOakToPlayer:
+	walk_up
+	walk_right
+	walk_up
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+PalletTown_ProfOakToLab:
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+PalletTown_PlayerToOak:
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	step_end

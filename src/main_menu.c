@@ -2084,7 +2084,7 @@ static void NewGameBirchSpeech_SetDefaultPlayerName(u8 nameId)
         name = gMalePresetNames[nameId];
     else
         name = gFemalePresetNames[nameId];
-    for (i = 0; i < 2; i++)
+    for (i = 0; i < 7; i++)
         gSaveBlock2Ptr->playerName[i] = name[i];
     gSaveBlock2Ptr->playerName[7] = 0xFF;
 }
