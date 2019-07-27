@@ -76,19 +76,23 @@ PalletTown_FatMan::
 PalletTown_Trigger1::
 	lock
 	setvar VAR_INFLAG2, 1
-	clearflag FLAG_HIDE_OAK_PALLET_TOWN
 	playbgm MUS_RG_OHKIDO, 1
-	msgbox PalletTown_Text_ProfOak1, MSGBOX_DEFAULT
+	message PalletTown_Text_ProfOak1
+	waitmessage
+	delay 30
 	closemessage
-	playse SE_PIN
 	applymovement 255, Common_Movement_ExclamationMark
 	waitmovement 0
-	delay 14
+	playse SE_PIN
 	applymovement 255, Common_Movement_FaceDown
 	waitmovement 0
+	delay 85
+	addobject 3
 	applymovement 3, PalletTown_ProfOakToPlayer
 	waitmovement 0
-	msgbox PalletTown_Text_ProfOak2, MSGBOX_DEFAULT
+	message PalletTown_Text_ProfOak2
+	waitmessage
+	delay 85
 	closemessage
 	applymovement 3, PalletTown_ProfOakToLab
 	applymovement 255, PalletTown_PlayerToOak
@@ -96,10 +100,14 @@ PalletTown_Trigger1::
 	opendoor 17, 14
 	waitdooranim
 	applymovement 3, PalletTown_ProfOakEntersTheLab
+	waitmovement 0
+	removeobject 3
 	applymovement 255, PalletTown_PlayerEntersTheLab
 	waitmovement 0
 	closedoor 16, 13
 	waitdooranim
+	setflag FLAG_HIDE_OAK_PALLET_TOWN
+	hideobjectat 255, MAP_PALLET_TOWN
 	warp MAP_PALLET_TOWN_OAKS_LAB, 255, 6, 12
 	waitstate
 	release
