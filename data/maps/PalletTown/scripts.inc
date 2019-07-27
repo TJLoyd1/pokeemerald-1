@@ -77,15 +77,19 @@ PalletTown_Trigger1::
 	lock
 	setvar VAR_INFLAG2, 1
 	clearflag FLAG_HIDE_OAK_PALLET_TOWN
-	playbgm MUS_RG_OHKIDO, 0
+	playbgm MUS_RG_OHKIDO, 1
 	msgbox PalletTown_Text_ProfOak1, MSGBOX_DEFAULT
-	applymovement 255, PalletTown_PlayerExclamation
-	waitmovement 0
+	closemessage
 	playse SE_PIN
+	applymovement 255, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 14
+	applymovement 255, Common_Movement_FaceDown
+	waitmovement 0
 	applymovement 3, PalletTown_ProfOakToPlayer
 	waitmovement 0
-	faceplayer
-	msgbox PalletTown_Text_ProfOak2, MSGBOX_NPC
+	msgbox PalletTown_Text_ProfOak2, MSGBOX_DEFAULT
+	closemessage
 	applymovement 3, PalletTown_ProfOakToLab
 	applymovement 255, PalletTown_PlayerToOak
 	waitmovement 0
@@ -94,9 +98,10 @@ PalletTown_Trigger1::
 	applymovement 3, PalletTown_ProfOakEntersTheLab
 	applymovement 255, PalletTown_PlayerEntersTheLab
 	waitmovement 0
-	closedoor 17, 14
+	closedoor 16, 13
 	waitdooranim
-	setflag FLAG_HIDE_OAK_PALLET_TOWN
+	warp MAP_PALLET_TOWN_OAKS_LAB, 255, 6, 12
+	waitstate
 	release
 	end
 
@@ -161,11 +166,6 @@ PalletTown_GirlMovement1:
 PalletTown_GirlMovement2:
 	walk_left
 	face_right
-	step_end
-
-PalletTown_PlayerExclamation:
-	face_down
-	emote_exclamation_mark
 	step_end
 
 PalletTown_ProfOakToPlayer:

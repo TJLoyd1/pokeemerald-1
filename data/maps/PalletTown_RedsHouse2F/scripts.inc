@@ -12,6 +12,7 @@ RedsHouse2F_EventScript_GetUp::
 	lockall
 	msgbox PalletTown_RedsHouse2F_Mother, MSGBOX_DEFAULT
 	setvar VAR_0x402E, 1
+	setrespawn HEAL_LOCATION_PALLET_TOWN
 	releaseall
 	end
 
