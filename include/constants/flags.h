@@ -38,10 +38,10 @@
 #define FLAG_TEMP_1F    0x1F
 
 #define FLAG_HIDE_OAK_PALLET_TOWN            0x20 // Originally Unused Flag
-#define FLAG_UNUSED_0x021                    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022                    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023                    0x23 // Unused Flag
-#define FLAG_UNUSED_0x024                    0x24 // Unused Flag
+#define FLAG_CHOSE_BULBASAUR                 0x21 // Originally Unused Flag
+#define FLAG_CHOSE_CHARMANDER                0x22 // Originally Unused Flag
+#define FLAG_CHOSE_SQUIRTLE                  0x23 // Originally Unused Flag
+#define FLAG_HIDE_RIVAL_OAKS_LAB             0x24 // Originally Unused Flag
 #define FLAG_UNUSED_0x025                    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026                    0x26 // Unused Flag
 #define FLAG_UNUSED_0x027                    0x27 // Unused Flag
