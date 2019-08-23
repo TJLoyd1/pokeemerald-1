@@ -1,3 +1,9 @@
+# About this branch
+
+This is a backup of the delta branch of [cfmnephrite's pokeemerald repository](https://github.com/cfmnephrite/pokeemerald) for archival purposes.
+
+The main appeal is the latest commit which expands the amount of PC Boxes in the game from 14 to 18.
+
 # Pokémon Emerald
 
 [![Build Status][travis-badge]][travis]
