@@ -554,6 +554,8 @@ AI_CBM_AttackDown: @ 82DC387
 
 AI_CBM_DefenseDown: @ 82DC39C
 	if_stat_level_equal AI_TARGET, STAT_DEF, 0, Score_Minus10
+	get_ability AI_TARGET
+	if_equal ABILITY_BIG_PECKS, Score_Minus10
 	goto CheckIfAbilityBlocksStatChange
 
 AI_CBM_SpeedDown: @ 82DC3A9
@@ -620,6 +622,7 @@ AI_CBM_Toxic: @ 82DC48C
 	if_equal TYPE_POISON, Score_Minus10
 	get_ability AI_TARGET
 	if_equal ABILITY_IMMUNITY, Score_Minus10
+	if_equal ABILITY_TOXIC_BOOST, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
 	end
@@ -818,6 +821,7 @@ AI_CBM_Torment: @ 82DC6A9
 AI_CBM_WillOWisp: @ 82DC6B4
 	get_ability AI_TARGET
 	if_equal ABILITY_WATER_VEIL, Score_Minus10
+	if_equal ABILITY_FLARE_BOOST, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
 	if_type_effectiveness AI_EFFECTIVENESS_x0_5, Score_Minus10
@@ -2848,7 +2852,13 @@ AI_CV_Fly_TypesToEncourage:
     .byte -1
 
 AI_CV_FakeOut:
+	if_ability AI_TARGET, ABILITY_INNER_FOCUS, AI_CV_FakeOut_End
+	if_double_battle AI_CV_FakeOut_Double
+	score +5
+	end
+AI_CV_FakeOut_Double:
 	score +2
+AI_CV_FakeOut_End:
 	end
 
 AI_CV_SpitUp:
@@ -2914,9 +2924,8 @@ AI_CV_Sandstorm_End:
 	end
 
 AI_CV_Facade:
-	if_not_status AI_TARGET, STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON, AI_CV_Facade_End
+	if_not_status AI_USER, STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON, AI_CV_Facade_End
 	score +1
-
 AI_CV_Facade_End:
 	end
 

@@ -683,6 +683,7 @@ gBattleAnims_General::
 	.4byte General_TerrainElectric
 	.4byte General_TerrainPsychic
 	.4byte General_IllusionOff
+	.4byte General_FormChange
 
 	.align 2
 gBattleAnims_Special::
@@ -2123,40 +2124,38 @@ Move_DRAGON_RUSH:
 	blendoff 
 	end
 	
-Move_POWER_GEM:
-	createsprite gSimplePaletteBlendSpriteTemplate, 2, 5, 1, 1, 0, 7, 0
-	waitforvisualfinish 
+Move_POWER_GEM: @ Copy of Hidden Power with background blackened
 	loadspritegfx ANIM_TAG_POWER_GEM 
-	playsewithpan 152, SOUND_PAN_ATTACKER
-	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, 0, 0
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 5, 1, 1, 0, 7, RGB_BLACK
 	waitforvisualfinish 
+	playsewithpan SE_W036, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, ANIM_ATTACKER, 0
+	waitforvisualfinish
 	delay 30
-	createvisualtask AnimTask_BlendMonInAndOut 5, 5, 0, RGB(31, 31, 31), 12, 5, 1
-	delay 4 
-	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, 0, 0
+	createvisualtask AnimTask_BlendMonInAndOut, 5, ANIM_ATTACKER, RGB_WHITE, 12, 5, 1
+	delay 4
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, ANIM_ATTACKER, 0
 	playsewithpan SE_W179, SOUND_PAN_ATTACKER
-	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 0 
-	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 42  
-	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 84  
-	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 126  
-	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 168  
-	createsprite gPowerGemOrbSpriteTemplate 2, 2, 26, 210  
+	createsprite gPowerGemOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 0
+	createsprite gPowerGemOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 42
+	createsprite gPowerGemOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 84
+	createsprite gPowerGemOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 126
+	createsprite gPowerGemOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 168
+	createsprite gPowerGemOrbSpriteTemplate, ANIM_ATTACKER, 2, 26, 210
 	delay 52
-	setarg 7, -1 
+	setarg 7, -1
 	playsewithpan SE_W115, SOUND_PAN_ATTACKER
-	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, 0, 0
-	createsprite gPowerGemScatterSpriteTemplate 130, 1, 0
-	createsprite gPowerGemScatterSpriteTemplate 130, 1, 32
-	createsprite gPowerGemScatterSpriteTemplate 130, 1, 64
-	createsprite gPowerGemScatterSpriteTemplate 130, 1, 96
-	createsprite gPowerGemScatterSpriteTemplate 130, 1, 128
-	createsprite gPowerGemScatterSpriteTemplate 130, 1, 160
-	createsprite gPowerGemScatterSpriteTemplate 130, 1, SOUND_PAN_ATTACKER
-	createsprite gPowerGemScatterSpriteTemplate 130, 1, 224
-	waitforvisualfinish 
-	clearmonbg ANIM_DEF_PARTNER 
-	createsprite gSimplePaletteBlendSpriteTemplate 2, 5, 1, 1, 7, 0, 0
-	blendoff
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -7, -7, 11, ANIM_ATTACKER, 0
+	createsprite gPowerGemOrbScatterSpriteTemplate, ANIM_TARGET, 2, 0
+	createsprite gPowerGemOrbScatterSpriteTemplate, ANIM_TARGET, 2, 32
+	createsprite gPowerGemOrbScatterSpriteTemplate, ANIM_TARGET, 2, 64
+	createsprite gPowerGemOrbScatterSpriteTemplate, ANIM_TARGET, 2, 96
+	createsprite gPowerGemOrbScatterSpriteTemplate, ANIM_TARGET, 2, 128
+	createsprite gPowerGemOrbScatterSpriteTemplate, ANIM_TARGET, 2, 160
+	createsprite gPowerGemOrbScatterSpriteTemplate, ANIM_TARGET, 2, 192
+	createsprite gPowerGemOrbScatterSpriteTemplate, ANIM_TARGET, 2, 224 
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 5, 1, 1, 7, 0, RGB_BLACK
+	waitforvisualfinish
 	end
 	
 Move_DRAIN_PUNCH:
@@ -2972,8 +2971,10 @@ Move_DISCHARGE:
 Move_LAVA_PLUME:
 	loadspritegfx ANIM_TAG_FIRE_PLUME 
 	loopsewithpan 152, SOUND_PAN_ATTACKER, 9, 2
-	createvisualtask sub_8115A04, 2, 2, 2, 2, 0, 11, 31 
-	createvisualtask AnimTask_ShakeMon2 2, 5, 0, 1, 0, 32, 1  
+	createvisualtask sub_8115A04, 2, 2, 2, 2, 0, 11, RGB_RED 
+	createvisualtask AnimTask_ShakeMon2 2, ANIM_TARGET, 1, 0, 32, 1
+	createvisualtask AnimTask_ShakeMon2 2, ANIM_DEF_PARTNER, 1, 0, 32, 1
+	createvisualtask AnimTask_ShakeMon2 2, ANIM_ATK_PARTNER, 1, 0, 32, 1
 	waitforvisualfinish 
 	createsprite gLavaPlumeSpriteTemplate, 130, 1, 0
 	createsprite gLavaPlumeSpriteTemplate, 130, 1, 32
@@ -2981,7 +2982,7 @@ Move_LAVA_PLUME:
 	createsprite gLavaPlumeSpriteTemplate, 130, 1, 96  
 	createsprite gLavaPlumeSpriteTemplate, 130, 1, 128  
 	createsprite gLavaPlumeSpriteTemplate, 130, 1, 160  
-	createsprite gLavaPlumeSpriteTemplate, 130, 1, SOUND_PAN_ATTACKER  
+	createsprite gLavaPlumeSpriteTemplate, 130, 1, 192 
 	createsprite gLavaPlumeSpriteTemplate, 130, 1, 224
 	playsewithpan SE_W221, SOUND_PAN_ATTACKER
 	waitforvisualfinish 
@@ -14762,6 +14763,13 @@ General_IllusionOff:
 	createvisualtask AnimTask_TransformMon, 2, 0, 1
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
+	end
+	
+General_FormChange:
+	monbg ANIM_ATTACKER
+	createvisualtask AnimTask_TransformMon, 2, 0, 1
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
 	end
 
 General_MegaEvolution:
