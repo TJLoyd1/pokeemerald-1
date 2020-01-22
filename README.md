@@ -1,8 +1,6 @@
 # About this branch
 
-This branch is my attempt at merging the different projects of [DizzyEgg](https://github.com/dizzyeggg) without any other changes.
-
-Right now, it contains his [item_expansion](https://github.com/DizzyEggg/pokeemerald/tree/item_expansion), [battle_engine_v2](https://github.com/dizzyeggg/pokeemerald/tree/battle_engine_v2) and [pokemon_expansion](https://github.com/DizzyEggg/pokeemerald/tree/pokemon_expansion) branches.
+This branch is a combination of [DizzyEgg's](https://github.com/dizzyeggg) different projects ([item_expansion](https://github.com/DizzyEggg/pokeemerald/tree/item_expansion), [battle_engine_v2](https://github.com/dizzyeggg/pokeemerald/tree/battle_engine_v2) and [pokemon_expansion](https://github.com/DizzyEggg/pokeemerald/tree/pokemon_expansion)) without any other changes.
 
 # Pokémon Emerald
 
