@@ -17,10 +17,13 @@ EventScript_ObtainItemMessage:: @ 8271AE3
 EventScript_BufferPocketNameAndTryFanfare:: @ 8271B08
 	switch VAR_RESULT
 	case POCKET_ITEMS, EventScript_BufferItemsPocket
-	case POCKET_KEY_ITEMS, EventScript_BufferKeyItemsPocket
+	case POCKET_MEDICINE, EventScript_BufferMedicinePocket
 	case POCKET_POKE_BALLS, EventScript_BufferPokeballsPocket
-	case POCKET_TM_HM, EventScript_BufferTMHMsPocket
+	case POCKET_BATTLE_ITEMS, EventScript_BufferBattleItemsPocket
 	case POCKET_BERRIES, EventScript_BufferBerriesPocket
+	case POCKET_POWER_UP, EventScript_BufferPowerUpPocket
+	case POCKET_TM_HM, EventScript_BufferTMHMsPocket
+	case POCKET_KEY_ITEMS, EventScript_BufferKeyItemsPocket
 	end
 
 EventScript_BufferItemsPocket:: @ 8271B45
@@ -29,8 +32,8 @@ EventScript_BufferItemsPocket:: @ 8271B45
 	call_if_eq EventScript_PlayFanfareObtainedItem
 	return
 
-EventScript_BufferKeyItemsPocket:: @ 8271B55
-	bufferstdstring 2, STDSTRING_KEYITEMS
+EventScript_BufferMedicinePocket::
+	bufferstdstring 2, STDSTRING_MEDICINE
 	compare VAR_0x8007, 1
 	call_if_eq EventScript_PlayFanfareObtainedItem
 	return
@@ -41,14 +44,32 @@ EventScript_BufferPokeballsPocket:: @ 8271B65
 	call_if_eq EventScript_PlayFanfareObtainedItem
 	return
 
+EventScript_BufferBattleItemsPocket::
+	bufferstdstring 2, STDSTRING_BATTLEITEMS
+	compare VAR_0x8007, 1
+	call_if_eq EventScript_PlayFanfareObtainedItem
+	return
+
+EventScript_BufferBerriesPocket:: @ 8271B85
+	bufferstdstring 2, STDSTRING_BERRIES
+	compare VAR_0x8007, 1
+	call_if_eq EventScript_PlayFanfareObtainedItem
+	return
+
+EventScript_BufferPowerUpPocket::
+	bufferstdstring 2, STDSTRING_POWERUPITEMS
+	compare VAR_0x8007, 1
+	call_if_eq EventScript_PlayFanfareObtainedItem
+	return
+
 EventScript_BufferTMHMsPocket:: @ 8271B75
 	bufferstdstring 2, STDSTRING_TMHMS
 	compare VAR_0x8007, 1
 	call_if_eq EventScript_PlayFanfareObtainedTMHM
 	return
 
-EventScript_BufferBerriesPocket:: @ 8271B85
-	bufferstdstring 2, STDSTRING_BERRIES
+EventScript_BufferKeyItemsPocket:: @ 8271B55
+	bufferstdstring 2, STDSTRING_KEYITEMS
 	compare VAR_0x8007, 1
 	call_if_eq EventScript_PlayFanfareObtainedItem
 	return
