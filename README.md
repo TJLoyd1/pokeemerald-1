@@ -4,7 +4,7 @@ This is my personal attempt at translating Pokeemerald, the decompilation projec
 
 ## Bugs
 
-- When nicknaming a Pokémon, the string of text that should appear is "*¿Mote de [POKÉMON]?*". Instead, what shows up is "*[POKÉMON]¿Mote de ?*"
+- None so far!
 
 # Pokémon Emerald
 
