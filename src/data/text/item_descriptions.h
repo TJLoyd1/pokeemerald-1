@@ -4,7 +4,7 @@ static const u8 sDummyDesc[] = _(
 // Pokeballs
 static const u8 sMasterBallDesc[] = _(
     "Es la mejor.\n"
-    "Atrapa siempre a\n"
+    "Atrapa siempre al\n"
     "POKéMON. No falla.");
 
 static const u8 sUltraBallDesc[] = _(
