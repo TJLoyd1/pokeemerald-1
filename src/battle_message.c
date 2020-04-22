@@ -57,7 +57,7 @@ EWRAM_DATA struct BattleMsgData *gBattleMsgDataPtr = NULL;
 static const u8 sText_Trainer1LoseText[] = _("{B_TRAINER1_LOSE_TEXT}");
 static const u8 sText_PkmnGainedEXP[] = _("¡{B_BUFF1} ganó{B_BUFF2}\n{B_BUFF3} puntos de EXP.!\p");
 static const u8 sText_EmptyString4[] = _("");
-static const u8 sText_ABoosted[] = _(" a boosted");
+static const u8 sText_ABoosted[] = _(" adicionales");
 static const u8 sText_PkmnGrewToLv[] = _("¡{B_BUFF1} subió al\nnivel {B_BUFF2}!{UNKNOWN_A}\p");
 static const u8 sText_PkmnLearnedMove[] = _("¡{B_BUFF1} aprendió\n{B_BUFF2}!{UNKNOWN_A}\p");
 static const u8 sText_TryToLearnMove1[] = _("{B_BUFF1} is trying to\nlearn {B_BUFF2}.\p");
@@ -155,8 +155,8 @@ static const u8 sText_PkmnProtectedByMist[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}
 const u8 gText_PkmnGettingPumped[] = _("¡{B_ATK_NAME_WITH_PREFIX} se está\npreparando para luchar!");
 static const u8 sText_PkmnHitWithRecoil[] = _("{B_ATK_NAME_WITH_PREFIX} is hit\nwith recoil!");
 static const u8 sText_PkmnProtectedItself2[] = _("{B_ATK_NAME_WITH_PREFIX} protected\nitself!");
-static const u8 sText_PkmnBuffetedBySandstorm[] = _("{B_ATK_NAME_WITH_PREFIX} is buffeted\nby the sandstorm!");
-static const u8 sText_PkmnPeltedByHail[] = _("{B_ATK_NAME_WITH_PREFIX} is pelted\nby HAIL!");
+static const u8 sText_PkmnBuffetedBySandstorm[] = _("¡TORMENTA ARENA zarandea\na {B_ATK_NAME_WITH_PREFIX}!");
+static const u8 sText_PkmnPeltedByHail[] = _("¡GRANIZO golpea\na {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnsXWoreOff[] = _("{B_ATK_PREFIX1}'s {B_BUFF1}\nwore off!");
 static const u8 sText_PkmnSeeded[] = _("{B_DEF_NAME_WITH_PREFIX} was seeded!");
 static const u8 sText_PkmnEvadedAttack[] = _("{B_DEF_NAME_WITH_PREFIX} evaded\nthe attack!");
@@ -336,20 +336,20 @@ static const u8 sText_ButNothingHappened[] = _("But nothing happened!");
 static const u8 sText_ButItFailed[] = _("¡Pero falló!");
 static const u8 sText_ItHurtConfusion[] = _("It hurt itself in its\nconfusion!");
 static const u8 sText_MirrorMoveFailed[] = _("The MIRROR MOVE failed!");
-static const u8 sText_StartedToRain[] = _("It started to rain!");
+static const u8 sText_StartedToRain[] = _("¡Ha empezado a llover!");
 static const u8 sText_DownpourStarted[] = _("A downpour started!");
-static const u8 sText_RainContinues[] = _("Rain continues to fall.");
+static const u8 sText_RainContinues[] = _("Sigue lloviendo…");
 static const u8 sText_DownpourContinues[] = _("The downpour continues.");
-static const u8 sText_RainStopped[] = _("The rain stopped.");
-static const u8 sText_SandstormBrewed[] = _("A sandstorm brewed!");
-static const u8 sText_SandstormRages[] = _("The sandstorm rages.");
-static const u8 sText_SandstormSubsided[] = _("The sandstorm subsided.");
-static const u8 sText_SunlightGotBright[] = _("The sunlight got bright!");
-static const u8 sText_SunlightStrong[] = _("The sunlight is strong.");
-static const u8 sText_SunlightFaded[] = _("The sunlight faded.");
-static const u8 sText_StartedHail[] = _("It started to hail!");
-static const u8 sText_HailContinues[] = _("Hail continues to fall.");
-static const u8 sText_HailStopped[] = _("The hail stopped.");
+static const u8 sText_RainStopped[] = _("Ha dejado de llover.");
+static const u8 sText_SandstormBrewed[] = _("¡Se acerca una tormenta de arena!");
+static const u8 sText_SandstormRages[] = _("La tormenta de arena arrecia…");
+static const u8 sText_SandstormSubsided[] = _("La tormenta de arena amainó.");
+static const u8 sText_SunlightGotBright[] = _("¡El sol está brillando!");
+static const u8 sText_SunlightStrong[] = _("Hace mucho sol…");
+static const u8 sText_SunlightFaded[] = _("Se ha ido el sol.");
+static const u8 sText_StartedHail[] = _("¡Ha empezado a granizar!");
+static const u8 sText_HailContinues[] = _("Sigue granizando…");
+static const u8 sText_HailStopped[] = _("Ha dejado de granizar.");
 static const u8 sText_FailedToSpitUp[] = _("But it failed to SPIT UP\na thing!");
 static const u8 sText_FailedToSwallow[] = _("But it failed to SWALLOW\na thing!");
 static const u8 sText_WindBecameHeatWave[] = _("The wind turned into a\nHEAT WAVE!");
@@ -2777,17 +2777,20 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
         case B_BUFF_MON_NICK_WITH_PREFIX: // poke nick with prefix
             if (GetBattlerSide(src[srcID + 1]) == B_SIDE_PLAYER)
             {
-                if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-                    StringAppend(dst, sText_FoePkmnPrefix);
-                else
-                    StringAppend(dst, sText_WildPkmnPrefix);
+                GetMonData(&gPlayerParty[src[srcID + 2]], MON_DATA_NICKNAME, text);
+                StringGetEnd10(text);
+                StringAppend(dst, text);
             }
             else
             {
                 GetMonData(&gEnemyParty[src[srcID + 2]], MON_DATA_NICKNAME, text);
+                StringGetEnd10(text);
+                StringAppend(dst, text);
             }
-            StringGetEnd10(text);
-            StringAppend(dst, text);
+            if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                StringAppend(dst, sText_FoePkmnPrefix);
+            else
+                StringAppend(dst, sText_WildPkmnPrefix);
             srcID += 3;
             break;
         case B_BUFF_STAT: // stats
