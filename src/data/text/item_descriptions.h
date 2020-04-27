@@ -556,27 +556,27 @@ static const u8 sIapapaBerryDesc[] = _(
 static const u8 sRazzBerryDesc[] = _(
     "En suelo fértil da\n"
     "FRAMBU. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sBlukBerryDesc[] = _(
     "En suelo fértil da\n"
     "ORAM. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sNanabBerryDesc[] = _(
     "En suelo fértil da\n"
     "LATANO. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sWepearBerryDesc[] = _(
     "En suelo fértil da\n"
     "PERAGU. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sPinapBerryDesc[] = _(
     "En suelo fértil da\n"
     "PINIA. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sPomegBerryDesc[] = _(
     "Hace amable al\n"
@@ -611,47 +611,47 @@ static const u8 sTamatoBerryDesc[] = _(
 static const u8 sCornnBerryDesc[] = _(
     "En suelo fértil da\n"
     "MAIS. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sMagostBerryDesc[] = _(
     "En suelo fértil da\n"
     "AOSTAN. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sRabutaBerryDesc[] = _(
     "En suelo fértil da\n"
     "RAUTAN. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sNomelBerryDesc[] = _(
     "En suelo fértil da\n"
     "MONLI. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sSpelonBerryDesc[] = _(
     "En suelo fértil da\n"
     "WIKANO. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sPamtreBerryDesc[] = _(
     "En suelo fértil da\n"
     "PLAMA. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sWatmelBerryDesc[] = _(
     "En suelo fértil da\n"
     "SAMBIA. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sDurinBerryDesc[] = _(
     "En suelo fértil da\n"
     "RUDION. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sBelueBerryDesc[] = _(
     "En suelo fértil da\n"
     "ANDANO. Sirve para\n"
-    "hacer {POKEBLOCK}.");
+    "hacer {POKEBLOCK}S.");
 
 static const u8 sLiechiBerryDesc[] = _(
     "Al llevarla, subirá\n"
@@ -691,7 +691,7 @@ static const u8 sStarfBerryDesc[] = _(
 static const u8 sEnigmaBerryDesc[] = _(
     "En suelo fértil da\n"
     "algo raro. De ella\n"
-    "se hacen {POKEBLOCK}.");
+    "se hacen {POKEBLOCK}S.");
 
 // Hold items
 static const u8 sBrightPowderDesc[] = _(
