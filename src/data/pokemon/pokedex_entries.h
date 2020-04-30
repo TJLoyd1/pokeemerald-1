@@ -2,7 +2,7 @@ const struct PokedexEntry gPokedexEntries[] =
 {
     [NATIONAL_DEX_NONE] =
     {
-        .categoryName = _("UNKNOWN"),
+        .categoryName = _("DESCON."),
         .height = 0,
         .weight = 0,
         .description = gDummyPokedexText,
@@ -206,7 +206,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_PIDGEOTTO] =
     {
-        .categoryName = _("PAJARO"),
+        .categoryName = _("PÁJARO"),
         .height = 11,
         .weight = 300,
         .description = gPidgeottoPokedexText,
@@ -218,7 +218,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_PIDGEOT] =
     {
-        .categoryName = _("PAJARO"),
+        .categoryName = _("PÁJARO"),
         .height = 15,
         .weight = 395,
         .description = gPidgeotPokedexText,
