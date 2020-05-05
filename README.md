@@ -6,8 +6,6 @@ This is my personal attempt at translating Pokeemerald, the decompilation projec
 
 - The big button in the middle of the PokéNav's sprite on the left side of the screen is not being animated, even though it should. 
 
-- When going to Pokénav > Perfil Pkmn > Buscar > Contest Category and you select a Pokémnon, the graphics get a bit fucky.
-
 # Pokémon Emerald
 
 [![Build Status][travis-badge]][travis]
