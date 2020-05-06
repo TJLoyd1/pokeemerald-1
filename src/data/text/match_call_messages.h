@@ -8,10 +8,10 @@ const u8 gText_MatchCallRuinManiac_Andres_Pokemon[] = _("Ruin-exploration partne
 const u8 gText_MatchCallRuinManiac_Andres_Intro1[] = _("I am searching for undersea");
 const u8 gText_MatchCallRuinManiac_Andres_Intro2[] = _("ruins and relics.");
 
-const u8 gText_MatchCallRuinManiac_Dusty_Strategy[] = _("Overwhelm with power!");
-const u8 gText_MatchCallRuinManiac_Dusty_Pokemon[] = _("Craggy ROCK POKéMON.");
-const u8 gText_MatchCallRuinManiac_Dusty_Intro1[] = _("In search of ancient lore,");
-const u8 gText_MatchCallRuinManiac_Dusty_Intro2[] = _("I travel the world.");
+const u8 gText_MatchCallRuinManiac_Dusty_Strategy[] = _("¡Arrollar con fuerza!");
+const u8 gText_MatchCallRuinManiac_Dusty_Pokemon[] = _("Los toscos POKéMON ROCA.");
+const u8 gText_MatchCallRuinManiac_Dusty_Intro1[] = _("Viajo por el mundo en busca");
+const u8 gText_MatchCallRuinManiac_Dusty_Intro2[] = _("de ruinas ancestrales.");
 
 const u8 gText_MatchCallTuber_Lola_Strategy[] = _("I'm going to try hard!");
 const u8 gText_MatchCallTuber_Lola_Pokemon[] = _("Good swimmer POKéMON.");
