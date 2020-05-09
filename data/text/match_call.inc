@@ -1,13 +1,13 @@
 MatchCall_WildBattleText1:: @ 82A971C
-	.string "Hi! {PLAYER}{KUN}, hello!\n"
-	.string "This is {STR_VAR_1}.\p"
-	.string "I saw this {STR_VAR_2} a while back\n"
-	.string "but I couldn't catch it.\p"
-	.string "It was so close, too!\n"
-	.string "Well, see you again!$"
+	.string "¡Eh! ¡Hola, {PLAYER}!\n"
+	.string "Soy {STR_VAR_1}.\p"
+	.string "Hace un rato, vi un {STR_VAR_2}\n"
+	.string "pero no pude hacerme con él.\p"
+	.string "¡Me faltó tan poco!\n"
+	.string "¡En fin, hasta luego!$"
 
 MatchCall_WildBattleText2:: @ 82A9798
-	.string "¡Eh! ¡Hello, {PLAYER}!\n"
+	.string "¡Eh! ¡Hola, {PLAYER}!\n"
 	.string "Soy {STR_VAR_1}.\p"
 	.string "Intenté atrapar un {STR_VAR_2}\n"
 	.string "ideal hace un rato.\p"
@@ -1341,18 +1341,18 @@ MatchCall_PersonalizedText60:: @ 82AF671
 	.string "Never be discouraged!$"
 
 MatchCall_PersonalizedText61:: @ 82AF7D8
-	.string "Hi, this is {STR_VAR_1}!\n"
-	.string "We just won a battle!\p"
-	.string "We don't win often, but it was this\n"
-	.string "cool SWIMMER guy.\p"
-	.string "My sister was steamed!\p"
-	.string "She wanted to pretend that she\n"
-	.string "was weak to make an impression!\p"
-	.string "She always chews me out whether\n"
-	.string "we win or lose!\p"
-	.string "{PLAYER}{KUN}, can you say something\n"
-	.string "to her next time?\p"
-	.string "Okay, see you!$"
+	.string "¡Hola, aquí {STR_VAR_1}!\n"
+	.string "¡Acabamos de ganar un combate!\p"
+	.string "No solemos ganar, pero ha sido\n"
+	.string "contra un NADADOR muy guay.\p"
+	.string "¡Mi hermana echaba chispas!\p"
+	.string "¡Se hizo la débil para llamar\n"
+	.string "la atención!\p"
+	.string "Da igual que ganemos o perdamos,\n"
+	.string "¡siempre me echa el sermón!\p"
+	.string "{PLAYER}, ¿por qué no le das\n"
+	.string "un toque la próxima vez?\p"
+	.string "¡Venga, hasta pronto!$"
 
 MatchCall_PersonalizedText62:: @ 82AF8F7
 	.string "Soy {STR_VAR_1}, sí.\n"
@@ -1401,12 +1401,12 @@ MatchCall_BattleFrontierStreakText1:: @ 82AFC07
 	.string "¡Pues sigue, sigue así!$"
 
 MatchCall_BattleFrontierStreakText2:: @ 82AFC78
-	.string "Hello, it's {STR_VAR_1}!\n"
-	.string "I heard about you!\p"
-	.string "They said you won {STR_VAR_3} straight\n"
-	.string "battles at the {STR_VAR_2}.\p"
-	.string "That's special! I should try\n"
-	.string "harder, too! See you!$"
+	.string "¡Hola, soy {STR_VAR_1}!\n"
+	.string "¡Se habla mucho de ti!\p"
+	.string "¡Y de tus {STR_VAR_3} victorias\n"
+	.string "seguidas en {STR_VAR_2}!\p"
+	.string "¡Guau! ¡A ver si me animo algún día!\n"
+	.string "¡Cuídate!$"
 
 MatchCall_BattleFrontierStreakText3:: @ 82AFCFF
 	.string "Hey there, {PLAYER}!\n"
@@ -1894,13 +1894,13 @@ MatchCall_BattlePikeText14:: @ 82B1A4C
 	.string "See you again!$"
 
 MatchCall_BattlePyramidText1:: @ 82B1ACA
-	.string "Hi! {PLAYER}?\n"
-	.string "Hello, this is {STR_VAR_1}!\l"
-	.string "I heard the news!\p"
-	.string "You climbed {STR_VAR_3} floors inside\n"
-	.string "the {STR_VAR_2}, right?\p"
-	.string "That's awesome!\n"
-	.string "I should try that challenge.$"
+	.string "¡Hola! ¿{PLAYER}?\n"
+	.string "Hola, soy {STR_VAR_1}.\l"
+	.string "¡Ya me ha llegado la noticia!\p"
+	.string "Has subido {STR_VAR_3} niveles\n"
+	.string "dentro de {STR_VAR_2}, ¿eh?\p"
+	.string "¡A-lu-ci-nan-te!!\n"
+	.string "¡Debería probar yo!$"
 
 MatchCall_BattlePyramidText2:: @ 82B1B50
 	.string "¡Hola, soy {STR_VAR_1}!\n"
