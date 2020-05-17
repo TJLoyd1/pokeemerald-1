@@ -70,22 +70,22 @@ MatchCall_WildBattleText8:: @ 82A9AE8
 	.string "¡Nos vemos!$"
 
 MatchCall_WildBattleText9:: @ 82A9BA7
-	.string "Oh, {PLAYER}{KUN}, hi there!\n"
-	.string "This is {STR_VAR_1}!\p"
-	.string "So? Are you getting more POKéMON\n"
-	.string "together?\p"
-	.string "I'm having a rotten time of it!\n"
-	.string "They all get away from me!\p"
-	.string "See you!$"
+	.string "¡Anda, {PLAYER}, hola!\n"
+	.string "¡Soy {STR_VAR_1}!\p"
+	.string "¿Qué?\n"
+	.string "¿Tienes ya muchos POKéMON?\p"
+	.string "¡Yo me estoy cansando un poco ya!\n"
+	.string "¡Se me escapan todos!\p"
+	.string "¡Nos vemos!$"
 
 MatchCall_WildBattleText10:: @ 82A9C36
-	.string "Oh, {PLAYER}{KUN}, hello…\n"
-	.string "This is {STR_VAR_1}.\p"
-	.string "Listen, I came within a whisker of\n"
-	.string "catching this {STR_VAR_2}…\p"
-	.string "But, it gave me the slip…\p"
-	.string "I need to try harder.\n"
-	.string "See you around.$"
+	.string "Eh, {PLAYER}, hola…\n"
+	.string "Soy {STR_VAR_1}.\p"
+	.string "Mira, he estado a nada de pillar\n"
+	.string "un {STR_VAR_2}…\p"
+	.string "Pero me he quedado sin él…\p"
+	.string "Tendré que intentarlo de nuevo.\n"
+	.string "Nos vemos.$"
 
 MatchCall_WildBattleText11:: @ 82A9CC8
 	.string "Ah, {PLAYER}{KUN}.\n"
@@ -197,21 +197,21 @@ MatchCall_NegativeBattleText8:: @ 82AA31B
 	.string "¡Nos vemos!$"
 
 MatchCall_NegativeBattleText9:: @ 82AA3A8
-	.string "Oh, {PLAYER}{KUN}, hi there!\n"
-	.string "This is {STR_VAR_1}!\p"
-	.string "Listen, listen, you have to hear\n"
-	.string "this!\p"
-	.string "I had a POKéMON battle earlier,\n"
-	.string "but I lost at the last second.\p"
-	.string "Oh, it burns me up!$"
+	.string "¡Eh, {PLAYER}!\n"
+	.string "¡Soy {STR_VAR_1}!\p"
+	.string "Oye, oye, ¡no te lo vas a creer!\p"
+	.string "Acabo de luchar en un combate\n"
+	.string "POKéMON, ¡y he perdido\l"
+	.string "en el último segundo!\p"
+	.string "¡No sabes cómo me fastidia!$"
 
 MatchCall_NegativeBattleText10:: @ 82AA442
-	.string "Oh, {PLAYER}{KUN}, hello…\n"
-	.string "This is {STR_VAR_1}.\p"
-	.string "A little earlier, I was in a battle.\n"
-	.string "I lost, though.\p"
-	.string "I need to raise my POKéMON more.\n"
-	.string "See you around.$"
+	.string "Eh, {PLAYER}, hola…\n"
+	.string "Soy {STR_VAR_1}.\p"
+	.string "Acabo de participar en un combate,\n"
+	.string "pero he perdido.\p"
+	.string "Tengo que dedicarle más tiempo\n"
+	.string "a mis POKéMON. ¡Adiós!$"
 
 MatchCall_NegativeBattleText11:: @ 82AA4C5
 	.string "Ah, {PLAYER}{KUN}.\n"
@@ -315,23 +315,24 @@ MatchCall_PositiveBattleText8:: @ 82AAA40
 	.string "¡Nos vemos!$"
 
 MatchCall_PositiveBattleText9:: @ 82AAAE4
-	.string "Oh, {PLAYER}{KUN}, hi there!\n"
-	.string "This is {STR_VAR_1}!\p"
-	.string "How are your POKéMON holding up?\n"
-	.string "Mine just won a battle!\p"
-	.string "My {STR_VAR_2} was spectacular,\n"
-	.string "I must say!\p"
-	.string "I wish I could've shown you!\n"
-	.string "See you again!$"
+	.string "¡Eh, {PLAYER}, hola!\n"
+	.string "¡Soy {STR_VAR_1}!\p"
+	.string "¿Qué tal lo llevan tus POKéMON?\n"
+	.string "¡Los míos acaban de ganar\l"
+	.string "un combate!\p"
+	.string "Mi {STR_VAR_2} ha estado\n"
+	.string "espectacular, las cosas como son.\p"
+	.string "¡Me hubiera encantado que\n"
+	.string "lo vieras! ¡Nos vemos!$"
 
 MatchCall_PositiveBattleText10:: @ 82AAB8C
-	.string "Oh, {PLAYER}{KUN}, hello…\n"
-	.string "This is {STR_VAR_1}.\p"
-	.string "How has life been treating you?\p"
-	.string "My POKéMON appear to be charged\n"
-	.string "with energy.\p"
-	.string "I just won a battle with them.\n"
-	.string "See you around.$"
+	.string "Eh, {PLAYER}, hola…\n"
+	.string "Soy {STR_VAR_1}.\p"
+	.string "¿Qué tal te va la vida?\p"
+	.string "Mis POKéMON están llenos\n"
+	.string "de energía.\p"
+	.string "Acabo de ganar un combate\n"
+	.string "con ellos. A ver si nos vemos.$"
 
 MatchCall_PositiveBattleText11:: @ 82AAC25
 	.string "Ah, {PLAYER}{KUN}.\n"
@@ -718,14 +719,14 @@ MatchCall_PersonalizedText7:: @ 82AC446
 	.string "don't worry, I won't whine!$"
 
 MatchCall_PersonalizedText8:: @ 82AC5C7
-	.string "Yahoo, it's {STR_VAR_1}!\n"
-	.string "How do you do?\p"
-	.string "I've been raising my POKéMON with\n"
-	.string "you as the target.\p"
-	.string "I don't intend to lose when we\n"
-	.string "battle again.\p"
-	.string "Isn't it great to have TRAINER\n"
-	.string "friends? Let's meet again!$"
+	.string "¡Ey, soy {STR_VAR_1}!\n"
+	.string "¿Qué pasa, eh?\p"
+	.string "He estado entrenando mis POKéMON\n"
+	.string "para ganarte.\p"
+	.string "No pienso perder cuando\n"
+	.string "nos enfrentemos de nuevo.\p"
+	.string "¿No es guay tener amigos\n"
+	.string "ENTRENADORES? ¡A ver si nos vemos!$"
 
 MatchCall_PersonalizedText9:: @ 82AC682
 	.string "It's {STR_VAR_1}…\n"
@@ -1382,14 +1383,14 @@ MatchCall_PersonalizedText63:: @ 82AFA39
 	.string "Brought to you by {STR_VAR_1}!$"
 
 MatchCall_PersonalizedText64:: @ 82AFB26
-	.string "It's {STR_VAR_1}!\p"
-	.string "I'm kind of busy, but I figured\n"
-	.string "I should let you know that I've\l"
-	.string "beaten five TRAINERS again today.\p"
-	.string "If I keep this pace up, I can\n"
-	.string "probably beat you next time.\p"
-	.string "I think we'll be good rivals,\n"
-	.string "you and I. Good-bye for now!$"
+	.string "¡Soy {STR_VAR_1}!\p"
+	.string "Hoy estoy un pelín ocupada, pero\n"
+	.string "supuse que querrías saber que\l"
+	.string "¡He ganado a cinco ENTRENADORES!\p"
+	.string "Si sigo así, creo que te voy a ganar\n"
+	.string "la próxima vez que nos veamos.\p"
+	.string "¡Será un combate digno de ver!\n"
+	.string "¡Cuídate hasta ese día!$"
 
 MatchCall_BattleFrontierStreakText1:: @ 82AFC07
 	.string "¡Hola! Soy {STR_VAR_1}.\n"
@@ -1519,12 +1520,13 @@ MatchCall_BattleFrontierStreakText14:: @ 82B0366
 	.string "Bye-bye!$"
 
 MatchCall_BattleFrontierRecordStreakText1:: @ 82B03E6
-	.string "Hi! This is {STR_VAR_1}.\n"
-	.string "I heard the news!\p"
-	.string "They say you did excellent at\n"
-	.string "the {STR_VAR_2}.\p"
-	.string "It's awesome--{STR_VAR_3} straight wins?\n"
-	.string "See you!$"
+	.string "¡Hola! Soy {STR_VAR_1}.\n"
+	.string "¡Ya me ha llegado la noticia!\p"
+	.string "¡Dicen que te has salido\n"
+	.string "en {STR_VAR_2}!\p"
+	.string "¡Es impresionante!\n"
+	.string "¡¿{STR_VAR_3} victorias seguidas?!\l"
+	.string "¡Pues sigue, sigue así!$"
 
 MatchCall_BattleFrontierRecordStreakText2:: @ 82B0457
 	.string "Hello, it's {STR_VAR_1}!\n"
@@ -1770,13 +1772,13 @@ MatchCall_BattleDomeText14:: @ 82B12D0
 	.string "See you again!$"
 
 MatchCall_BattlePikeText1:: @ 82B1347
-	.string "Hi! {PLAYER}?\n"
-	.string "Hello, this is {STR_VAR_1}!\l"
-	.string "I heard the news!\p"
-	.string "You got through {STR_VAR_3} rooms\n"
-	.string "at the {STR_VAR_2}!\p"
-	.string "That's awesome!\n"
-	.string "See you!$"
+	.string "¡Hola! ¿{PLAYER}?\n"
+	.string "Hola, soy {STR_VAR_1}.\l"
+	.string "¡Ya me ha llegado la noticia!\p"
+	.string "¡Has pasado {STR_VAR_3} salas\n"
+	.string "en {STR_VAR_2}!\p"
+	.string "¡Impresionante!\n"
+	.string "¡Hasta luego!$"
 
 MatchCall_BattlePikeText2:: @ 82B13B1
 	.string "Hello, it's {STR_VAR_1}!\n"
@@ -1899,7 +1901,7 @@ MatchCall_BattlePyramidText1:: @ 82B1ACA
 	.string "¡Ya me ha llegado la noticia!\p"
 	.string "Has subido {STR_VAR_3} niveles\n"
 	.string "dentro de {STR_VAR_2}, ¿eh?\p"
-	.string "¡A-lu-ci-nan-te!!\n"
+	.string "¡A-lu-ci-nan-te!\n"
 	.string "¡Debería probar yo!$"
 
 MatchCall_BattlePyramidText2:: @ 82B1B50
