@@ -33,7 +33,7 @@ gText_NoticesGoldCard:: @ 8272860
     .string "{PLAYER}, ¡nunca antes había visto\l"
     .string "a nadie con una FICHA de color ORO!\p"
     .string "Muy bien, {PLAYER}, concédeme\n"
-    .string "el honor de curar a tus POKéMON!$"
+    .string "el honor de curar a tus POKéMON.$"
 
 gText_YouWantTheUsual:: @ 8272982
     .string "¡Qué alegría verte, {PLAYER}!\n"
