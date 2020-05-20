@@ -249,7 +249,7 @@ const u8 gText_PowderQty[] = _("POWDER QTY: {STR_VAR_1}{PAUSE_UNTIL_PRESS}");
 const u8 gText_TheField[] = _("al juego");
 const u8 gText_TheBattle[] = _("al combate");
 const u8 gText_ThePokemonList[] = _("a la LISTA POKéMON");
-const u8 gText_TheShop[] = _("the shop");
+const u8 gText_TheShop[] = _("a la tienda");
 const u8 gText_ThePC[] = _("al PC");
 
 const u8 *const gReturnToXStringsTable[] =
