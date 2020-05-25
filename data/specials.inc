@@ -535,3 +535,9 @@ gSpecials:: @ 81DBA64
 	def_special RemoveRecordsWindow
 	def_special CloseDeptStoreElevatorWindow
 	def_special TrySetBattleTowerLinkType
+	def_special SetHpEvs
+	def_special SetAtkEvs
+	def_special SetDefEvs
+	def_special SetSpdEvs
+	def_special SetSpAtkEvs
+	def_special SetSpDefEvs
