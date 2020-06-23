@@ -2284,8 +2284,8 @@ static const u8* TryGetStatusString(u8 *src)
     else                                                                \
     {                                                                   \
         GetMonData(&gPlayerParty[monIndex], MON_DATA_NICKNAME, text);   \
-        StringGetEnd10(text);                                               \
-        toCpy = text;                                                       \
+        StringGetEnd10(text);                                           \
+        toCpy = text;                                                   \
     }                                                                   \
 
 u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
