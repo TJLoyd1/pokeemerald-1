@@ -1,4 +1,4 @@
-OaksLab_Text_RivalsMonTougherOaksLab_MapScripts::
+PalletTown_OaksLab_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, OaksLab_EventScript_Journey
 	.byte 0
 
@@ -61,10 +61,18 @@ OaksLab_RivalsMonTougher:
 	msgbox OaksLab_Text_RivalsMonTougher, MSGBOX_NPC
 	end
 
+OaksLab_AdventureStarted:
+	lock
+	faceplayer
+	message OaksLab_Text_Something
+	closemessage
+	release
+	end
+
 PickAStarter_Bulbasaur::
 	bufferspeciesname 0, SPECIES_BULBASAUR
 	applymovement 6, OakToBalls
-	drawmonpic SPECIES_BULBASAUR, 10, 3
+	showmonpic SPECIES_BULBASAUR, 10, 3
 	msgbox OaksLab_Text_BulbasaurBall, MSGBOX_YESNO
 	compare VAR_RESULT, 1
 	goto_if_eq PickAStarter_ChoseBulbasaur
@@ -72,7 +80,7 @@ PickAStarter_Bulbasaur::
 PickAStarter_Charmander::
 	bufferspeciesname 0, SPECIES_CHARMANDER
 	applymovement 6, OakToBalls
-	drawmonpic SPECIES_CHARMANDER, 10, 3
+	showmonpic SPECIES_CHARMANDER, 10, 3
 	msgbox OaksLab_Text_CharmanderBall, MSGBOX_YESNO
 	compare VAR_RESULT, 1
 	goto_if_eq PickAStarter_ChoseCharmander
@@ -80,7 +88,7 @@ PickAStarter_Charmander::
 PickAStarter_Squirtle::
 	bufferspeciesname 0, SPECIES_SQUIRTLE
 	applymovement 6, OakToBalls
-	drawmonpic SPECIES_SQUIRTLE, 10, 3
+	showmonpic SPECIES_SQUIRTLE, 10, 3
 	msgbox OaksLab_Text_SquirtleBall, MSGBOX_YESNO
 	compare VAR_RESULT, 1
 	goto_if_eq PickAStarter_ChoseSquirtle
@@ -91,14 +99,14 @@ PickAStarter_ChoseBulbasaur:
 	setvar VAR_STARTER_MON, 1
 	setflag FLAG_SYS_POKEMON_GET
 	removeobject 9
-	erasemonpic
+	hidemonpic
 	msgbox OaksLab_Text_Energetic, MSGBOX_DEFAULT
 	msgbox OaksLab_Text_ObtainedMon, MSGBOX_DEFAULT
 	msgbox OaksLab_Text_Nickname, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_eq OaksLab_ReadyToGo1
-	call LittlerootTown_ProfessorBirchsLab_EventScript_27378B
-	call Common_EventScript_NameReceivedPokemon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
 	setflag FLAG_CHOSE_BULBASAUR
 	goto_if_eq OaksLab_ReadyToGo1
 PickAStarter_ChoseCharmander:
@@ -106,14 +114,14 @@ PickAStarter_ChoseCharmander:
 	setvar VAR_STARTER_MON, 2
 	setflag FLAG_SYS_POKEMON_GET
 	removeobject 8
-	erasemonpic
+	hidemonpic
 	msgbox OaksLab_Text_Energetic, MSGBOX_DEFAULT
 	msgbox OaksLab_Text_ObtainedMon, MSGBOX_DEFAULT
 	msgbox OaksLab_Text_Nickname, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_eq OaksLab_ReadyToGo2
-	call LittlerootTown_ProfessorBirchsLab_EventScript_27378B
-	call Common_EventScript_NameReceivedPokemon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
 	setflag FLAG_CHOSE_CHARMANDER
 	goto_if_eq OaksLab_ReadyToGo2
 PickAStarter_ChoseSquirtle:
@@ -121,14 +129,14 @@ PickAStarter_ChoseSquirtle:
 	setvar VAR_STARTER_MON, 3
 	setflag FLAG_SYS_POKEMON_GET
 	removeobject 7
-	erasemonpic
+	hidemonpic
 	msgbox OaksLab_Text_Energetic, MSGBOX_DEFAULT
 	msgbox OaksLab_Text_ObtainedMon, MSGBOX_DEFAULT
 	msgbox OaksLab_Text_Nickname, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_eq OaksLab_ReadyToGo3
-	call LittlerootTown_ProfessorBirchsLab_EventScript_27378B
-	call Common_EventScript_NameReceivedPokemon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
 	setflag FLAG_CHOSE_SQUIRTLE
 	goto_if_eq OaksLab_ReadyToGo3
 
@@ -175,15 +183,15 @@ FirstRivalBattle1:
 	msgbox OaksLab_Text_RivalApproaching, MSGBOX_DEFAULT
 	applymovement 4, RivalToPlayer1
 	waitmovement 0
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_WALLY_1, 0, OaksLab_RivalBattleIntroText, OaksLab_RivalBattleVictoryText, OaksLab_RivalBattle_MovingOn
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_WALLY_VR_1, 0, OaksLab_RivalBattleIntroText, OaksLab_RivalBattleVictoryText, OaksLab_RivalBattle_MovingOn
 FirstRivalBattle2:
 	applymovement 4, RivalToPlayer2
 	waitmovement 0
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_WALLY_2, 0, OaksLab_RivalBattleIntroText, OaksLab_RivalBattleVictoryText, OaksLab_RivalBattle_MovingOn
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_WALLY_VR_2, 0, OaksLab_RivalBattleIntroText, OaksLab_RivalBattleVictoryText, OaksLab_RivalBattle_MovingOn
 FirstRivalBattle3:
 	applymovement 4, RivalToPlayer3
 	waitmovement 0
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_WALLY_3, 0, OaksLab_RivalBattleIntroText, OaksLab_RivalBattleVictoryText, OaksLab_RivalBattle_MovingOn
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_WALLY_VR_3, 0, OaksLab_RivalBattleIntroText, OaksLab_RivalBattleVictoryText, OaksLab_RivalBattle_MovingOn
 
 OaksLab_RivalBattle_MovingOn:
 	msgbox OaksLab_RivalBattleFinished, MSGBOX_DEFAULT
@@ -329,6 +337,9 @@ OaksLab_RivalBattleFinished:
 	.string "POKéMON battle to toughen it up!\p"
 	.string "{PLAYER}! Gramps!\n"
 	.string "Smell you later!$"
+
+OaksLab_Text_Something:
+	.string "Idr what to put here LOL.$"
 
 OakToPlace:
 	walk_up

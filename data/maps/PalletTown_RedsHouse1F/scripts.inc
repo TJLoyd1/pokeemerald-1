@@ -85,7 +85,7 @@ RedsHouse1F_Text_MomSpeech:
 RedsHouse1F_Text_RedPresent:
 	.string "MOM: Are you ready {PLAYER}?\n"
 	.string "Today you will get your first\l"
-	.string "pokémon, honey!\p"
+	.string "POKéMON, honey!\p"
 	.string "MOM: To celebrate it, I bought you\n"
 	.string "a brand new pair of shoes. Try them,\l"
 	.string "I'm sure you will like them.$"

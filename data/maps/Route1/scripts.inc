@@ -11,7 +11,7 @@ Route1_MartEmployee::
 	compare VAR_INFLAG1, 4
 	goto_if_ge Route1_MartEmployee2
 	msgbox Route1_Text_MartEmployee, MSGBOX_DEFAULT
-	giveitem_std ITEM_POTION
+	giveitem ITEM_POTION, 1
 	setvar VAR_INFLAG1, 4
 	release
 	end
