@@ -353,4 +353,26 @@
 #define EFFECT_ALLY_SWITCH 347
 #define EFFECT_SLEEP_HIT 348 // Relic Song
 
+// Z Move effects
+#define Z_EFFECT_NONE           0
+#define Z_EFFECT_ATK_UP_1       1
+#define Z_EFFECT_ATK_UP_2       2
+#define Z_EFFECT_ATK_UP_3       3
+#define Z_EFFECT_DEF_UP_1       4
+#define Z_EFFECT_SPATK_UP_1     5
+#define Z_EFFECT_SPATK_UP_2     6
+#define Z_EFFECT_SPDEF_UP_1     7
+#define Z_EFFECT_SPDEF_UP_2     8
+#define Z_EFFECT_SPD_UP_1       9
+#define Z_EFFECT_SPD_UP_2       10
+#define Z_EFFECT_ACC_UP_1       11
+#define Z_EFFECT_EVSN_UP_1      12
+#define Z_EFFECT_ALL_STATS_UP_1 13
+#define Z_EFFECT_BOOST_CRITS    14
+#define Z_EFFECT_RESET_STATS    15
+#define Z_EFFECT_RECOVER_HP     16
+#define Z_EFFECT_RESTORE_REPLACEMENT_HP 17
+#define Z_EFFECT_FOLLOW_ME      18
+#define Z_EFFECT_CURSE          19
+
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

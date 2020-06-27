@@ -217,6 +217,8 @@ struct BattleMove
     u32 flags;
     u8 split;
     u8 argument;
+    u8 z_move_power;
+    u8 z_move_effect;
 };
 
 struct SpindaSpot
