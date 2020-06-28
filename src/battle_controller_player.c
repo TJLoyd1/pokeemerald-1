@@ -382,6 +382,7 @@ static void HandleInputChooseTarget(void)
             BtlController_EmitTwoReturnValues(1, 10, gMoveSelectionCursor[gActiveBattler] | (gMultiUsePlayerCursor << 8));
         EndBounceEffect(gMultiUsePlayerCursor, BOUNCE_HEALTHBOX);
         HideMegaTriggerSprite();
+        HideZMoveTriggerSprite();
         PlayerBufferExecCompleted();
     }
     else if (gMain.newKeys & B_BUTTON || gPlayerDpadHoldFrames > 59)
@@ -556,6 +557,7 @@ static void HandleInputChooseMove(void)
             else
                 BtlController_EmitTwoReturnValues(1, 10, gMoveSelectionCursor[gActiveBattler] | (gMultiUsePlayerCursor << 8));
             HideMegaTriggerSprite();
+            HideZMoveTriggerSprite();
             PlayerBufferExecCompleted();
         }
         else
@@ -576,8 +578,10 @@ static void HandleInputChooseMove(void)
     {
         PlaySE(SE_SELECT);
         gBattleStruct->mega.playerSelect = FALSE;
+        gBattleStruct->zmove.playerSelect = FALSE;
         BtlController_EmitTwoReturnValues(1, 10, 0xFFFF);
         HideMegaTriggerSprite();
+        HideZMoveTriggerSprite();
         PlayerBufferExecCompleted();
     }
     else if (gMain.newKeys & DPAD_LEFT)
@@ -652,6 +656,12 @@ static void HandleInputChooseMove(void)
         {
             gBattleStruct->mega.playerSelect ^= 1;
             ChangeMegaTriggerSprite(gBattleStruct->mega.triggerSpriteId, gBattleStruct->mega.playerSelect);
+            PlaySE(SE_SELECT);
+        }
+        if (CanUseZMove(gActiveBattler))
+        {
+            gBattleStruct->zmove.playerSelect ^= 1;
+            ChangeMegaTriggerSprite(gBattleStruct->zmove.triggerSpriteId, gBattleStruct->zmove.playerSelect);
             PlaySE(SE_SELECT);
         }
     }
@@ -2659,6 +2669,10 @@ static void PlayerHandleChooseMove(void)
             gBattleStruct->mega.triggerSpriteId = 0xFF;
         if (CanMegaEvolve(gActiveBattler))
             CreateMegaTriggerSprite(gActiveBattler, 0);
+        if (!IsZMoveTriggerSpriteActive())
+            gBattleStruct->zmove.triggerSpriteId = 0xFF;
+        if (CanUseZMove(gActiveBattler))
+            CreateZMoveTriggerSprite(gActiveBattler, 0);
         gBattlerControllerFuncs[gActiveBattler] = HandleChooseMoveAfterDma3;
     }
 }
