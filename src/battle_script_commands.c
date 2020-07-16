@@ -77,6 +77,7 @@ static void DrawLevelUpWindow2(void);
 static bool8 sub_804F344(void);
 static void PutMonIconOnLvlUpBox(void);
 static void PutLevelAndGenderOnLvlUpBox(void);
+static bool32 CriticalCapture(u32 odds);
 
 static void SpriteCB_MonIconOnLvlUpBox(struct Sprite* sprite);
 
@@ -4782,6 +4783,7 @@ static void Cmd_moveend(void)
                     gHitMarker &= ~(HITMARKER_NO_PPDEDUCT);
                 }
             }
+            RecordLastUsedMoveBy(gBattlerAttacker, gCurrentMove);
             gBattleScripting.moveendState++;
             break;
         case MOVEEND_LIFE_ORB:
@@ -4827,6 +4829,33 @@ static void Cmd_moveend(void)
                     }
                     if (nextDancer && AbilityBattleEffects(ABILITYEFFECT_MOVE_END_OTHER, nextDancer & 0x3, 0, 0, 0))
                         effect = TRUE;
+                }
+            }
+            gBattleScripting.moveendState++;
+            break;
+        case MOVEEND_EMERGENCY_EXIT: // Special case, because moves hitting multiple opponents stop after switching out
+            for (i = 0; i < gBattlersCount; i++)
+            {
+                if (gBattleResources->flags->flags[i] & RESOURCE_FLAG_EMERGENCY_EXIT)
+                {
+                    gBattleResources->flags->flags[i] &= ~(RESOURCE_FLAG_EMERGENCY_EXIT);
+                    gBattlerTarget = gBattlerAbility = i;
+                    BattleScriptPushCursor();
+                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER || GetBattlerSide(i) == B_SIDE_PLAYER)
+                    {
+                        if (B_ABILITY_POP_UP >= GEN_6)
+                            gBattlescriptCurrInstr = BattleScript_EmergencyExit;
+                        else
+                            gBattlescriptCurrInstr = BattleScript_EmergencyExitNoPopUp;
+                    }
+                    else
+                    {
+                        if (B_ABILITY_POP_UP >= GEN_6)
+                            gBattlescriptCurrInstr = BattleScript_EmergencyExitWild;
+                        else
+                            gBattlescriptCurrInstr = BattleScript_EmergencyExitWildNoPopUp;
+                    }
+                    return;
                 }
             }
             gBattleScripting.moveendState++;
@@ -11722,23 +11751,41 @@ static void Cmd_handleballthrow(void)
         else // mon may be caught, calculate shakes
         {
             u8 shakes;
+            u8 maxShakes;
 
-            odds = Sqrt(Sqrt(16711680 / odds));
-            odds = 1048560 / odds;
-
-            for (shakes = 0; shakes < BALL_3_SHAKES_SUCCESS && Random() < odds; shakes++);
+            gBattleSpritesDataPtr->animationData->isCriticalCapture = 0;    //initialize
+            gBattleSpritesDataPtr->animationData->criticalCaptureSuccess = 0;
+            if (CriticalCapture(odds))
+            {
+                maxShakes = 1;  //critical capture doesn't gauarantee capture
+                gBattleSpritesDataPtr->animationData->isCriticalCapture = 1;
+            }
+            else
+            {
+                maxShakes = 4;
+            }
 
             if (gLastUsedItem == ITEM_MASTER_BALL)
-                shakes = BALL_3_SHAKES_SUCCESS; // why calculate the shakes before that check?
+            {
+                shakes = maxShakes;
+            }
+            else
+            {
+                odds = Sqrt(Sqrt(16711680 / odds));
+                odds = 1048560 / odds;
+                for (shakes = 0; shakes < maxShakes && Random() < odds; shakes++);
+            }
 
             BtlController_EmitBallThrowAnim(0, shakes);
             MarkBattlerForControllerExec(gActiveBattler);
 
-            if (shakes == BALL_3_SHAKES_SUCCESS) // mon caught, copy of the code above
+            if (shakes == maxShakes) // mon caught, copy of the code above
             {
+                if (IsCriticalCapture())
+                    gBattleSpritesDataPtr->animationData->criticalCaptureSuccess = 1;
+
                 gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
                 SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &gLastUsedItem);
-
                 if (CalculatePlayerPartyCount() == PARTY_SIZE)
                     gBattleCommunication[MULTISTRING_CHOOSER] = 0;
                 else
@@ -11754,7 +11801,11 @@ static void Cmd_handleballthrow(void)
             }
             else // not caught
             {
-                gBattleCommunication[MULTISTRING_CHOOSER] = shakes;
+                if (IsCriticalCapture())
+                    gBattleCommunication[MULTISTRING_CHOOSER] = shakes + 3;
+                else
+                    gBattleCommunication[MULTISTRING_CHOOSER] = shakes;
+
                 gBattlescriptCurrInstr = BattleScript_ShakeBallThrow;
             }
         }
@@ -12156,3 +12207,28 @@ static void Cmd_metalburstdamagecalculator(void)
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
     }
 }
+
+static bool32 CriticalCapture(u32 odds)
+{
+    u16 numCaught = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+
+    if (numCaught <= 30)
+        odds = 0;
+    else if (numCaught <= 150)
+        odds /= 2;
+    else if (numCaught <= 300)
+        ;
+    else if (numCaught <= 450)
+        odds = (odds * 150) / 100;
+    else if (numCaught <= 600)
+        odds *= 2;
+    else
+        odds = (odds * 250) / 100;
+
+    odds /= 6;
+    if ((Random() % 255) < odds)
+        return TRUE;
+
+    return FALSE;
+}
+

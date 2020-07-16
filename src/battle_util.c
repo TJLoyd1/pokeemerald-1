@@ -2860,7 +2860,7 @@ static u8 ForewarnChooseMove(u32 battler)
 
     gBattlerTarget = data[bestId].battlerId;
     PREPARE_MOVE_BUFFER(gBattleTextBuff1, data[bestId].moveId)
-    RecordMoveBattle(gBattlerTarget, data[bestId].moveId);
+    RecordKnownMove(gBattlerTarget, data[bestId].moveId);
 
     free(data);
 }
@@ -3554,6 +3554,23 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 SET_STATCHANGER(STAT_SPATK, 1, FALSE);
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_TargetAbilityStatRaise;
+                effect++;
+            }
+            break;
+        case ABILITY_EMERGENCY_EXIT:
+        case ABILITY_WIMP_OUT:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             && TARGET_TURN_DAMAGED
+             && IsBattlerAlive(battler)
+            // Had more than half of hp before, now has less
+             && gBattleStruct->hpBefore[battler] > gBattleMons[battler].maxHP / 2
+             && gBattleMons[battler].hp < gBattleMons[battler].maxHP / 2
+             && (gMultiHitCounter == 0 || gMultiHitCounter == 1)
+             && !(GetBattlerAbility(gBattlerAttacker) == ABILITY_SHEER_FORCE && gBattleMoves[gCurrentMove].flags & FLAG_SHEER_FORCE_BOOST)
+             && (CanBattlerSwitch(battler) || !(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+             && !(gBattleTypeFlags & BATTLE_TYPE_ARENA))
+            {
+                gBattleResources->flags->flags[battler] |= RESOURCE_FLAG_EMERGENCY_EXIT;
                 effect++;
             }
             break;
