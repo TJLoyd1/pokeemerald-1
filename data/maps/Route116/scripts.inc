@@ -57,7 +57,6 @@ Route116_EventScript_DevonEmployee:: @ 81F2CA2
 	end
 
 Route116_EventScript_GiveRepeatBall:: @ 81F2CBB
-	setflag FLAG_MET_DEVON_EMPLOYEE
 	giveitem ITEM_REPEAT_BALL
 	compare VAR_RESULT, FALSE
 	goto_if_eq Route116_EventScript_NoRoomForRepeatBall
@@ -73,7 +72,8 @@ Route116_EventScript_GiveRepeatBall:: @ 81F2CBB
 	call_if_eq Route116_EventScript_DevonEmployeeExitEast
 	removeobject VAR_LAST_TALKED
 	clearflag FLAG_HIDE_RUSTBORO_CITY_DEVON_CORP_3F_EMPLOYEE
-	setflag FLAG_RECEIVED_REPEAT_BALL
+	clearflag FLAG_LOCK_DEVONBALLS_SELLER
+	setflag FLAG_MET_DEVON_EMPLOYEE
 	release
 	end
 

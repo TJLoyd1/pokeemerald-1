@@ -7,6 +7,7 @@ InsideOfTruck_OnLoad: @ 823BEE5
 	setmetatile 4, 1, METATILE_InsideOfTruck_ExitLight_Top, 0
 	setmetatile 4, 2, METATILE_InsideOfTruck_ExitLight_Mid, 0
 	setmetatile 4, 3, METATILE_InsideOfTruck_ExitLight_Bottom, 0
+	setflag FLAG_LOCK_DEVONBALLS_SELLER
 	end
 
 InsideOfTruck_OnResume: @ 823BF01

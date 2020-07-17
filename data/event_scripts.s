@@ -1021,6 +1021,7 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/text/tv.inc"
 	.include "data/scripts/interview.inc"
 	.include "data/scripts/gabby_and_ty.inc"
+	.include "data/scripts/general_pokemon_mart.inc"
 	.include "data/text/pokemon_news.inc"
 	.include "data/scripts/mauville_man.inc"
 	.include "data/scripts/field_move_scripts.inc"
