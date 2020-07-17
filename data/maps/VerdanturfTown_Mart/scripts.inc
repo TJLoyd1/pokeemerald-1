@@ -1,33 +1,6 @@
 VerdanturfTown_Mart_MapScripts:: @ 8202586
 	.byte 0
 
-VerdanturfTown_Mart_EventScript_Clerk:: @ 8202587
-	lock
-	faceplayer
-	message gText_HowMayIServeYou
-	waitmessage
-	pokemart VerdanturfTown_Mart_Pokemart
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-
-	.align 2
-VerdanturfTown_Mart_Pokemart: @ 82025A0
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_NEST_BALL
-	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_ICE_HEAL
-	.2byte ITEM_REPEL
-	.2byte ITEM_X_SP_ATK
-	.2byte ITEM_FLUFFY_TAIL
-	.2byte ITEM_NONE
-	release
-	end
-
 VerdanturfTown_Mart_EventScript_Boy:: @ 82025BA
 	msgbox VerdanturfTown_Mart_Text_XSpecialIsCrucial, MSGBOX_NPC
 	end

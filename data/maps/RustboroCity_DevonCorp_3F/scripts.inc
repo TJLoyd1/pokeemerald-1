@@ -185,7 +185,7 @@ RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor:: @ 82125CC
 RustboroCity_DevonCorp_3F_EventScript_Employee:: @ 82125E1
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_REPEAT_BALL, RustboroCity_DevonCorp_3F_EventScript_EmployeeBalls
+	goto_if_unset FLAG_HIDE_SPECIAL_BALLS_SELLER, RustboroCity_DevonCorp_3F_EventScript_EmployeeBalls
 	msgbox RustboroCity_DevonCorp_3F_Text_VisitCaptSternShipyard, MSGBOX_DEFAULT
 	release
 	end
@@ -302,7 +302,10 @@ RustboroCity_DevonCorp_3F_Text_VisitCaptSternShipyard: @ 8212E41
 RustboroCity_DevonCorp_3F_Text_RepeatAndTimerHugelyPopular: @ 8212E88
 	.string "DEVON's new products, the REPEAT BALL\n"
 	.string "and TIMER BALL, have become hugely\l"
-	.string "popular among TRAINERS.$"
+	.string "popular among TRAINERS.\p"
+	.string "The new POKé BALLS that we imported\n"
+	.string "from other parts of the region are\l"
+	.string "being well received as well.$"
 
 RustboroCity_DevonCorp_3F_Text_RareRocksDisplay: @ 8212EE9
 	.string "It's a collection of rare rocks and\n"
