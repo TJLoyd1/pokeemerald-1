@@ -2,13 +2,9 @@
 
 This branch contains [DizzyEgg](https://github.com/dizzyeggg)'s projects *([battle_engine_v2](https://github.com/dizzyeggg/pokeemerald/tree/battle_engine_v2), [item_expansion](https://github.com/DizzyEggg/pokeemerald/tree/item_expansion) and [pokemon_expansion](https://github.com/DizzyEggg/pokeemerald/tree/pokemon_expansion))*.
 
-I try to keep this branch as clean as possible, so the only additional changes that I've done to it are:
+I made it for my own personal use. It contains many QoL features that make the game easier to enjoy for me nowadays, and naturally, it's the branch I utilize to play Pokémon Emerald nowadays.
 
-*- Uncommented the held items at src/data/pokemon/base_stats.h
-
-*- Uncommented the evolution parameters at src/data/pokemon/evolution.h
-
-*- Replaced the Level Up Learnsets with my own set which is a modification of [BuffelSaft](https://github.com/BuffelSaft)'s
+I wouldn't suggest anyone to use it. I'll update it and make changes to it at my own pace and if I see the need to, but its commits can definitely be used as a point of reference to implement X or Y feature.
 
 # Pokémon Emerald
 
