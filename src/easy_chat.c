@@ -122,6 +122,7 @@ static u8 sub_811B960(u8);
 static void sub_811B9A0(void);
 static u8 sub_811BA1C(void);
 static int DidPlayerInputMysteryGiftPhrase(void);
+static int DidPlayerInputQuestionnaireBonus1Phrase(void);
 static u16 DidPlayerInputABerryMasterWifePhrase(void);
 static bool8 sub_811CE94(void);
 static void sub_811CF64(void);
@@ -528,6 +529,13 @@ static const u16 sMysteryGiftPhrase[] = {
     EC_WORD_TOGETHER,
     EC_WORD_WITH,
     EC_WORD_ALL,
+};
+
+static const u16 sQuestionnaireBonus1Phrase[] = {
+    EC_POKEMON(ABRA),
+    EC_POKEMON(ARON),
+    EC_POKEMON(AZURILL),
+    EC_POKEMON(BALTOY),
 };
 
 static const u16 sBerryMasterWifePhrases[][2] = {
@@ -2732,6 +2740,8 @@ static void sub_811BE9C(void)
     case EASY_CHAT_TYPE_QUESTIONNAIRE:
         if (DidPlayerInputMysteryGiftPhrase())
             gSpecialVar_0x8004 = 2;
+        if (DidPlayerInputQuestionnaireBonus1Phrase())
+            gSpecialVar_0x8004 = 3;
         else
             gSpecialVar_0x8004 = 0;
         break;
@@ -2748,6 +2758,11 @@ static void sub_811BE9C(void)
 static int DidPlayerInputMysteryGiftPhrase(void)
 {
     return !IsPhraseDifferentThanPlayerInput(sMysteryGiftPhrase, ARRAY_COUNT(sMysteryGiftPhrase));
+}
+
+static int DidPlayerInputQuestionnaireBonus1Phrase(void)
+{
+    return !IsPhraseDifferentThanPlayerInput(sQuestionnaireBonus1Phrase, ARRAY_COUNT(sQuestionnaireBonus1Phrase));
 }
 
 static u16 DidPlayerInputABerryMasterWifePhrase(void)

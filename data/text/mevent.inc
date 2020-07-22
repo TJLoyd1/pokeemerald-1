@@ -41,3 +41,21 @@ Mevent_Text_TryUsingItAtLilycovePort:: @ 82735F2
 	.string "the LILYCOVE CITY port.\p"
 	.string "Why not give it a try and see what\n"
 	.string "it is about?$"
+
+Mevent_Text_YouAreTheChosenOne::
+	.string "Oh! You know those words!\p"
+	.string "Congratulations! You have\n"
+	.string "won our giveaway!\p"
+	.string "Here's your prize.$"
+
+Mevent_Text_ObtainedMudkip::
+	.string "{PLAYER} obtained a Mudkip!$"
+Mevent_Text_ObtainedTreecko::
+	.string "{PLAYER} obtained a Treecko!$"
+Mevent_Text_ObtainedTorchic::
+	.string "{PLAYER} obtained a Torchic!$"
+
+Mevent_Text_WereDoneHere::
+	.string "That is a very rare Pokémon.\p"
+	.string "It can't be found normally,\n"
+	.string "so please take care of it.$"
