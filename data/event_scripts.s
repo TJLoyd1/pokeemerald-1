@@ -837,12 +837,12 @@ Common_EventScript_PlayerHandedOverTheItem:: @ 82723E4
 
 @ The below and surf.inc could be split into some text/notices.inc
 gText_PokemartSign:: @ 8272B6A
-	.string "“Selected items for your convenience!”\n"
-	.string "POKéMON MART$"
+	.string "TIENDA POKÉMON\n"
+	.string "“¡Gran gama de artículos selectos!”$"
 
 gText_PokemonCenterSign:: @ 8272B9E
-	.string "“Rejuvenate your tired partners!”\n"
-	.string "POKéMON CENTER$"
+	.string "CENTRO POKéMON\n"
+	.string "“¡Rejuvenece a tus cansados amigos!”$"
 
 gText_MomOrDadMightLikeThisProgram:: @ 8272BCF
 	.string "{STR_VAR_1} might like this program.\n"
@@ -881,8 +881,10 @@ gText_UnusedNicknameReceivedPokemon:: @ 8272DB3
 	.string "the {STR_VAR_2} you received?$"
 
 gText_PlayerWhitedOut:: @ 8272DE3
-	.string "{PLAYER} is out of usable\n"
-	.string "POKéMON!\p{PLAYER} whited out!$"
+	.string "¡A {PLAYER} no le\n"
+	.string "quedan POKéMON!\p"
+	.string "¡{PLAYER} está fuera\n"
+	.string "de combate!$"
 
 gText_RegisteredTrainerinPokeNav:: @ 8272E0F
 	.string "Registered {STR_VAR_1} {STR_VAR_2}\n"

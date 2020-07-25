@@ -2,7 +2,7 @@ gText_ObtainedTheItem:: @ 8272A78
 	.string "Obtained the {STR_VAR_2}!$"
 
 gText_TheBagIsFull:: @ 8272A89
-	.string "The BAG is full…$"
+	.string "La MOCHILA está llena…$"
 
 gText_PutItemInPocket:: @ 8272A9A
 	.string "{PLAYER} put away the {STR_VAR_2}\n"

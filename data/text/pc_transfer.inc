@@ -5,7 +5,7 @@ gText_PkmnTransferredSomeonesPC:: @ 8273216
 	.string "“{STR_VAR_1}.”$"
 
 gText_PkmnTransferredLanettesPC:: @ 8273256
-	.string "{STR_VAR_2} fue enviado al PC\nde AREDIA.\p"
+	.string "{STR_VAR_2} fue enviado al PC\nde LANETTE.\p"
 	.string "Se ha guardado en la CAJA\n"
 	.string "“{STR_VAR_1}”.$"
 
@@ -17,7 +17,7 @@ gText_PkmnTransferredSomeonesPCBoxFull:: @ 8273296
 
 gText_PkmnTransferredLanettesPCBoxFull:: @ 82732D9
 	.string "La CAJA “{STR_VAR_3}” del PC\n"
-	.string "de AREDIA estaba llena.\p"
+	.string "de LANETTE estaba llena.\p"
 	.string "{STR_VAR_2} fue enviado a la CAJA\n"
 	.string "“{STR_VAR_1}”.$"
 
