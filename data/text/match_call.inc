@@ -2275,7 +2275,7 @@ MatchCall_Text_Sidney:: @ 82B34CC
 	.string "¡Aquí te espero!$"
 
 MatchCall_Text_Phoebe:: @ 82B3561
-	.string "PHOEBE:Hola, {PLAYER}!\p"
+	.string "PHOEBE: Hola, {PLAYER}!\p"
 	.string "¿Por qué no vuelves por aquí?\p"
 	.string "Me encantaría ver cómo\n"
 	.string "has estrechado el lazo\l"
