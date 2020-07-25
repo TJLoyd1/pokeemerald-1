@@ -1573,7 +1573,7 @@ const u8 gEasyChatGroupName_TrendySaying[] = _("TRENDY SAYING");
 const u8 gEasyChatGroupName_Pokemon2[] = _("POKéMON2");
 
 const u8 gText_ThreeQuestionMarks[] = _("???");
-const u8 gText_MaxHP[] = _("MAX. HP");
+const u8 gText_MaxHP[] = _("MÁX. HP");
 const u8 gText_Attack[] = _("ATTACK");
 const u8 gText_Defense[] = _("DEFENSE");
 const u8 gText_Speed[] = _("SPEED");
