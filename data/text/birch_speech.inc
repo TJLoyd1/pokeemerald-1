@@ -3,9 +3,9 @@ gText_Birch_Welcome:: @ 82C897B
 	.string "hecho esperar.\p"
 	.string "¡Te doy la bienvenida al fabuloso\n"
 	.string "mundo de los POKéMON!\p"
-	.string "Me llamo BIRCH.\p"
+	.string "Me llamo ABEDUL.\p"
 	.string "Pero todo el mundo me llama\n"
-	.string "PROFESOR BIRCH.\p"
+	.string "PROFESOR ABEDUL.\p"
 	.string "$"
 
 gText_Birch_MainSpeech:: @ 82C8A1F

@@ -15,4 +15,4 @@ gText_AccessedPlayersPC:: @ 82726C2
 	.string "Accedido al PC de {PLAYER}.$"
 
 gText_AccessedLanettesPC:: @ 82726D4
-	.string "Accedido al PC de LANETTE.$"
+	.string "Accedido al PC de AREDIA.$"

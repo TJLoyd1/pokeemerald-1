@@ -1024,7 +1024,7 @@ static const u8 sPokeblockCaseDesc[] = _(
     "con la LICUABAYAS.");
 
 static const u8 sLetterDesc[] = _(
-    "Carta para STEVEN,\n"
+    "Carta para MÁXIMO,\n"
     "del PRESIDENTE\n"
     "de DEVON S.A.");
 

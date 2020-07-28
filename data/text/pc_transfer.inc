@@ -17,7 +17,7 @@ gText_PkmnTransferredSomeonesPCBoxFull:: @ 8273296
 
 gText_PkmnTransferredLanettesPCBoxFull:: @ 82732D9
 	.string "La CAJA “{STR_VAR_3}” del PC\n"
-	.string "de LANETTE estaba llena.\p"
+	.string "de AREDIA estaba llena.\p"
 	.string "{STR_VAR_2} fue enviado a la CAJA\n"
 	.string "“{STR_VAR_1}”.$"
 
