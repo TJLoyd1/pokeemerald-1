@@ -18,7 +18,6 @@
 #include "task.h"
 #include "text_window.h"
 #include "window.h"
-#include "constants/flags.h"
 #include "constants/songs.h"
 
 #define DLG_WINDOW_PALETTE_NUM 15
@@ -2107,7 +2106,7 @@ void sub_819A27C(u8 windowId, u16 speciesId, u32 personality, u16 x, u16 y)
     BlitBitmapToWindow(windowId, GetMonIconPtr(speciesId, personality, 1), x, y, 32, 32);
 }
 
-void sub_819A2BC(u8 palOffset, u8 palId)
+void ListMenuLoadStdPalAt(u8 palOffset, u8 palId)
 {
     const u16 *palette;
 
