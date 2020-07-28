@@ -5,7 +5,7 @@ Underwater_SealedChamber_Braille_GoUpHere: @ 82A6B15
 	.byte 13
 	.byte 7
 	.byte 9
-	.braille "SUBE AQUI.$"
+	.braille "SUBE AHORA.$"
 
 SealedChamber_OuterRoom_Braille_ABC: @ 82A6B27
 	.byte 7
@@ -104,7 +104,7 @@ SealedChamber_OuterRoom_Braille_DigHere: @ 82A6B89
 	.byte 15
 	.byte 10
 	.byte 7
-	.braille "EXCAVAR.$"
+	.braille "CAVA AHORA.$"
 
 SealedChamber_InnerRoom_Braille_FirstWailordLastRelicanth: @ 82A6B99
 	.byte 0
@@ -115,7 +115,7 @@ SealedChamber_InnerRoom_Braille_FirstWailordLastRelicanth: @ 82A6B99
 	.byte 3
 	.braille "PRIMERO\n"
 	.braille "WAILORD.\n"
-	.braille "ULTIMO\n"
+	.braille "AL FINAL\n"
 	.braille "RELICANTH.$"
 
 SealedChamber_InnerRoom_Braille_InThisCaveWeHaveLived: @ 82A6BCA
@@ -126,9 +126,9 @@ SealedChamber_InnerRoom_Braille_InThisCaveWeHaveLived: @ 82A6BCA
 	.byte 5
 	.byte 3
 	.braille "ESTA CUEVA\n"
-	.braille "FUE\n"
+	.braille "HA SIDO\n"
 	.braille "NUESTRO\n"
-	.braille "HOGAR.$"
+	.braille "HOGAR$"
 
 SealedChamber_InnerRoom_Braille_WeOweAllToThePokemon: @ 82A6BEC
 	.byte 7
@@ -137,9 +137,9 @@ SealedChamber_InnerRoom_Braille_WeOweAllToThePokemon: @ 82A6BEC
 	.byte 17
 	.byte 10
 	.byte 5
-	.braille "LE DEBEMOS\n"
-	.braille "TODO A LOS\n"
-	.braille "POKEMON.$"
+	.braille "LO QUE SOMOS\n"
+	.braille "SE LO DEBEMOS\n"
+	.braille "A LOS POKEMON.$"
 
 SealedChamber_InnerRoom_Braille_ButWeSealedThePokemonAway: @ 82A6C0D
 	.byte 3
@@ -148,10 +148,10 @@ SealedChamber_InnerRoom_Braille_ButWeSealedThePokemonAway: @ 82A6C0D
 	.byte 19
 	.byte 6
 	.byte 3
-	.braille "PERO, HEMOS\n"
-	.braille "SELLADO\n"
-	.braille "A LOS\n"
-	.braille "POKEMON.$"
+	.braille "PERO LOS\n"
+	.braille "ENCERRAMOS\n"
+	.braille "PARA\n"
+	.braille "SIEMPRE.$"
 
 SealedChamber_InnerRoom_Braille_WeFearedIt: @ 82A6C34
 	.byte 5
@@ -169,10 +169,10 @@ SealedChamber_InnerRoom_Braille_ThoseWithCourageHope: @ 82A6C48
 	.byte 19
 	.byte 9
 	.byte 3
-	.braille "AQUELLOS\n"
-	.braille "CON VALOR,\n"
-	.braille "AQUELLOS\n"
-	.braille "CON FE.$"
+	.braille "QUIENES\n"
+	.braille "POSEEEN\n"
+	.braille "VALOR Y\n"
+	.braille "ESPERANZA$"
 
 SealedChamber_InnerRoom_Braille_OpenDoorEternalPokemonWaits: @ 82A6C73
 	.byte 3
@@ -181,10 +181,10 @@ SealedChamber_InnerRoom_Braille_OpenDoorEternalPokemonWaits: @ 82A6C73
 	.byte 17
 	.byte 6
 	.byte 5
-	.braille "LOS\n"
-	.braille "POKEMON\n"
-	.braille "ETERNOS\n"
-	.braille "ESPERAN.$"
+	.braille "ABREN LA\n"
+	.braille "PUERTA HACIA\n"
+	.braille "UN POKEMON\n"
+	.braille "ETERNO.$"
 
 DesertRuins_Braille_UseRockSmash: @ 82A6CA0
 	.byte 1
@@ -193,9 +193,9 @@ DesertRuins_Braille_UseRockSmash: @ 82A6CA0
 	.byte 19
 	.byte 4
 	.byte 3
-	.braille "IZQ, IZQ,\n"
-	.braille "ABAJO, ABAJO.\n"
-	.braille "Y USA\n"
+	.braille "IZDA IZDA\n"
+	.braille "ABAJO ABAJO.\n"
+	.braille "ENTONCES, USA\n"
 	.braille "GOLPE ROCA.$"
 
 IslandCave_Braille_RunLapAroundWall: @ 82A6CD4
@@ -205,10 +205,10 @@ IslandCave_Braille_RunLapAroundWall: @ 82A6CD4
 	.byte 19
 	.byte 8
 	.byte 3
-	.braille "CERCA DE\n"
-	.braille "LA MURALLA.\n"
-	.braille "DA UNA\n"
-	.braille "VUELTA.$"
+	.braille "PONTE JUNTO\n"
+	.braille "AL MURO. DA\n"
+	.braille "UNA VUELTA\n"
+	.braille "COMPLETA.$"
 
 AncientTomb_Braille_ShineInTheMiddle: @ 82A6D06
 	.byte 3
@@ -217,7 +217,7 @@ AncientTomb_Braille_ShineInTheMiddle: @ 82A6D06
 	.byte 19
 	.byte 6
 	.byte 3
-	.braille "QUIEN SIGA\n"
-	.braille "NUESTRO LEGADO\n"
-	.braille "QUE DESTELLE\n"
+	.braille "QUIEN DESEE LO\n"
+	.braille "QUE NOSOTROS\n"
+	.braille "QUE BRILLE\n"
 	.braille "EN EL MEDIO.$"
