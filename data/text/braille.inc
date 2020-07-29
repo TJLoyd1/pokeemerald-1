@@ -139,7 +139,8 @@ SealedChamber_InnerRoom_Braille_WeOweAllToThePokemon: @ 82A6BEC
 	.byte 5
 	.braille "LO QUE SOMOS\n"
 	.braille "SE LO DEBEMOS\n"
-	.braille "A LOS POKEMON.$"
+	.braille "A LOS\n"
+	.braille "POKEMON.$"
 
 SealedChamber_InnerRoom_Braille_ButWeSealedThePokemonAway: @ 82A6C0D
 	.byte 3
