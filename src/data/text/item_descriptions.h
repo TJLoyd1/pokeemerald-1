@@ -1424,7 +1424,7 @@ static const u8 sCardKeyDesc[] = _(
 static const u8 sLiftKeyDesc[] = _(
     "Abre el ascensor\n"
     "de la GUARIDA\n"
-    "del TEAM ROCKET.");
+    "del EQUIPO ROCKET.");
 
 static const u8 sHelixFossilDesc[] = _(
     "Concha marina de un\n"
