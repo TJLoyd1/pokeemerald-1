@@ -207,8 +207,8 @@ IslandCave_Braille_RunLapAroundWall: @ 82A6CD4
 	.byte 8
 	.byte 3
 	.braille "PONTE JUNTO\n"
-	.braille "AL MURO. DA\n"
-	.braille "UNA VUELTA\n"
+	.braille "AL MURO.\n"
+	.braille "DA UNA VUELTA\n"
 	.braille "COMPLETA.$"
 
 AncientTomb_Braille_ShineInTheMiddle: @ 82A6D06
@@ -221,4 +221,4 @@ AncientTomb_Braille_ShineInTheMiddle: @ 82A6D06
 	.braille "QUIEN DESEE LO\n"
 	.braille "QUE NOSOTROS\n"
 	.braille "QUE BRILLE\n"
-	.braille "EN EL MEDIO.$"
+	.braille "EN EL CENTRO.$"
