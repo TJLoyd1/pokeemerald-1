@@ -75,7 +75,6 @@ PalletTown_FatMan::
 
 PalletTown_Trigger1::
 	lock
-	setvar VAR_INFLAG2, 1
 	playbgm MUS_RG_OHKIDO, 1
 	message PalletTown_Text_ProfOak1
 	waitmessage
@@ -101,70 +100,18 @@ PalletTown_Trigger1::
 	waitdooranim
 	applymovement 3, PalletTown_ProfOakEntersTheLab
 	waitmovement 0
-	removeobject 3
+	hideobjectat 3, MAP_PALLET_TOWN
 	applymovement 255, PalletTown_PlayerEntersTheLab
 	waitmovement 0
 	closedoor 16, 13
 	waitdooranim
 	setflag FLAG_HIDE_OAK_PALLET_TOWN
 	hideobjectat 255, MAP_PALLET_TOWN
+	setvar VAR_INFLAG2, 1
 	warp MAP_PALLET_TOWN_OAKS_LAB, 255, 6, 12
 	waitstate
 	release
 	end
-
-PalletTown_Text_OaksLab:
-	.string "OAK POKéMON RESEARCH LAB$"
-
-PalletTown_Text_MCsHouseSign:
-	.string "{PLAYER}'s HOUSE$"
-
-PalletTown_Text_RivalsHouseSign:
-	.string "{RIVAL}'s HOUSE$"
-
-PalletTown_Text_TrainerTips:
-	.string "TRAINER TIPS\p"
-	.string "Press START to open the MENU!$"
-
-PalletTown_Text_Description:
-	.string "PALLET TOWN\n"
-	.string "“Shades of your journey await!”$"
-
-PalletTown_Text_Girl1:
-	.string "Hmm…\n"
-	.string "Is that right…$"
-
-PalletTown_Text_Girl2:
-	.string "Oh!\n"
-	.string "Look, look!$"
-
-PalletTown_Text_Girl3:
-	.string "Read it, read it!$"
-
-PalletTown_Text_Girl4:
-	.string "Signs are useful, aren't they?$"
-
-PalletTown_Text_Girl5:
-	.string "I'm raising POKéMON, too.\p"
-	.string "When they get strong, they can\n"
-	.string "protect me.$"
-
-PalletTown_Text_FatMan:
-	.string "Technology is incredible!\p"
-	.string "You can now store and recall items\n"
-	.string "and POKéMON as data via PC.$"
-
-PalletTown_Text_ProfOak1:
-	.string "OAK: Hey! Wait!\n"
-	.string "Don't go out!$"
-
-PalletTown_Text_ProfOak2:
-	.string "OAK: It's unsafe!\n"
-	.string "Wild POKéMON live in tall grass!\p"
-	.string "You need your own POKéMON for\n"
-	.string "your protection.\p"
-	.string "I know!\n"
-	.string "Here, come with me!$"
 
 PalletTown_GirlMovement1:
 	face_right
@@ -241,3 +188,56 @@ PalletTown_PlayerEntersTheLab:
 	walk_right
 	walk_up
 	step_end
+
+PalletTown_Text_OaksLab:
+	.string "OAK POKéMON RESEARCH LAB$"
+
+PalletTown_Text_MCsHouseSign:
+	.string "{PLAYER}'s HOUSE$"
+
+PalletTown_Text_RivalsHouseSign:
+	.string "{RIVAL}'s HOUSE$"
+
+PalletTown_Text_TrainerTips:
+	.string "TRAINER TIPS\p"
+	.string "Press START to open the MENU!$"
+
+PalletTown_Text_Description:
+	.string "PALLET TOWN\n"
+	.string "“Shades of your journey await!”$"
+
+PalletTown_Text_Girl1:
+	.string "Hmm…\n"
+	.string "Is that right…$"
+
+PalletTown_Text_Girl2:
+	.string "Oh!\n"
+	.string "Look, look!$"
+
+PalletTown_Text_Girl3:
+	.string "Read it, read it!$"
+
+PalletTown_Text_Girl4:
+	.string "Signs are useful, aren't they?$"
+
+PalletTown_Text_Girl5:
+	.string "I'm raising POKéMON, too.\p"
+	.string "When they get strong, they can\n"
+	.string "protect me.$"
+
+PalletTown_Text_FatMan:
+	.string "Technology is incredible!\p"
+	.string "You can now store and recall items\n"
+	.string "and POKéMON as data via PC.$"
+
+PalletTown_Text_ProfOak1:
+	.string "OAK: Hey! Wait!\n"
+	.string "Don't go out!$"
+
+PalletTown_Text_ProfOak2:
+	.string "OAK: It's unsafe!\n"
+	.string "Wild POKéMON live in tall grass!\p"
+	.string "You need your own POKéMON for\n"
+	.string "your protection.\p"
+	.string "I know!\n"
+	.string "Here, come with me!$"

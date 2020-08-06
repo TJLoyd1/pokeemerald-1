@@ -7,8 +7,6 @@ RedsHouse2F_EventScript_WakeUp::
 	.2byte 0
 
 RedsHouse2F_EventScript_GetUp::
-	compare VAR_0x402E, 1
-	goto_if_eq RedsHouse2F_EventScript_End
 	lockall
 	msgbox PalletTown_RedsHouse2F_Mother, MSGBOX_DEFAULT
 	setvar VAR_0x402E, 1
@@ -16,13 +14,8 @@ RedsHouse2F_EventScript_GetUp::
 	releaseall
 	end
 
-RedsHouse2F_EventScript_End::
-	end
-
 RedsHouse2F_EventScript_DoIt::
 	lockall
-	checkflag FLAG_SET_WALL_CLOCK
-	goto_if_set FLAG_SET_WALL_CLOCK, RedsHouse2F_EventScript_End
 	applymovement 0xFF, PalletTown_RedsHouse2F_NoClock
 	waitmovement 0
 	msgbox PalletTown_RedsHouse2F_Text_DoIt, MSGBOX_DEFAULT
@@ -39,6 +32,7 @@ PalletTown_RedsHouse2F_SetClock::
 	waitstate
 	setvar VAR_LITTLEROOT_INTRO_STATE, 6
 	setflag FLAG_SET_WALL_CLOCK
+	setvar VAR_0x402E, 2
 	releaseall
 	end
 

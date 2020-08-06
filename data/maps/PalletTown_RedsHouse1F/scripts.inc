@@ -3,7 +3,7 @@ PalletTown_RedsHouse1F_MapScripts::
 	.byte 0
 
 RedsHouse1F_EventScript_BigDay_Start:
-	map_script_2 VAR_0x402E, 1, RedsHouse1F_EventScript_BigDay
+	map_script_2 VAR_0x402E, 2, RedsHouse1F_EventScript_BigDay
 	.2byte 0
 
 RedsHouse1F_EventScript_BigDay::
@@ -17,7 +17,7 @@ RedsHouse1F_EventScript_BigDay::
 	msgbox RedsHouse1F_Text_MomSpeech, MSGBOX_NPC
 	applymovement 1, RedsHouse1F_MotherMovement2
 	waitmovement 0
-	setvar VAR_0x402E, 2
+	setvar VAR_0x402E, 3
 	setflag FLAG_HIDE_OAK_PALLET_TOWN
 	end
 
