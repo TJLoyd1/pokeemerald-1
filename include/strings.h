@@ -338,6 +338,9 @@ extern const u8 gText_DefaultNameAsh[];
 extern const u8 gText_DefaultNameBlue[];
 extern const u8 gText_DefaultNameLeaf[];
 
+extern const u8 gText_BirchInTrouble[];
+extern const u8 gText_ConfirmStarterChoice[];
+
 // mystery event menu text
 extern const u8 gText_EventSafelyLoaded[];
 extern const u8 gText_LoadErrorEndingSession[];
@@ -926,7 +929,7 @@ extern const u8 gText_TwoDashes[];
 
 extern const u8 *const gReturnToXStringsTable2[];
 
-extern const u8 gText_XPLink[];
+extern const u8 gText_NumPlayerLink[];
 extern const u8 gText_ConfirmLinkWhenPlayersReady[];
 extern const u8 gText_ConfirmStartLinkWithXPlayers[];
 extern const u8 gText_AwaitingLinkup[];
@@ -2458,7 +2461,7 @@ extern const u8 gText_CommunicationStandby[];
 extern const u8 gText_AnnouncingResults[];
 extern const u8 gText_PreliminaryResults[];
 extern const u8 gText_Round2Results[];
-extern const u8 gText_Var1sVar2Won[];
+extern const u8 gText_ContestantsMonWon[];
 
 // Trainer Card
 extern const u8 gText_LinkCableBattles[];
@@ -2779,10 +2782,10 @@ extern const u8 gText_RegisterTextHere[];
 extern const u8 gText_InputText[];
 extern const u8 gText_ExitingChat[];
 extern const u8 gText_LeaderLeftEndingChat[];
-extern const u8 gText_RegisteredTextChanged[];
-extern const u8 gText_AlreadySavedFile_Unused[];
-extern const u8 gText_SavingDontTurnOff_Unused[];
-extern const u8 gText_PlayerSavedGame_Unused[];
+extern const u8 gText_RegisteredTextChangedOKToSave[];
+extern const u8 gText_AlreadySavedFile_Chat[];
+extern const u8 gText_SavingDontTurnOff_Chat[];
+extern const u8 gText_PlayerSavedGame_Chat[];
 extern const u8 gText_IfLeaderLeavesChatEnds[];
 extern const u8 gText_Upper[];
 extern const u8 gText_Lower[];
