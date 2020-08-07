@@ -103,10 +103,11 @@ PalletTown_TriggerLeft::
 	hideobjectat 3, MAP_PALLET_TOWN
 	applymovement 255, PalletTown_PlayerEntersTheLab
 	waitmovement 0
-	closedoor 16, 13
+	hideobjectat 255, MAP_PALLET_TOWN
+	closedoor 17, 14
 	waitdooranim
 	setflag FLAG_HIDE_OAK_PALLET_TOWN
-	hideobjectat 255, MAP_PALLET_TOWN
+	clearflag FLAG_HIDE_OAK_OAKS_LAB
 	setvar VAR_INFLAG2, 1
 	warp MAP_PALLET_TOWN_OAKS_LAB, 255, 6, 12
 	waitstate
@@ -143,10 +144,11 @@ PalletTown_TriggerRight::
 	hideobjectat 3, MAP_PALLET_TOWN
 	applymovement 255, PalletTown_PlayerEntersTheLab
 	waitmovement 0
-	closedoor 16, 13
+	hideobjectat 255, MAP_PALLET_TOWN
+	closedoor 17, 14
 	waitdooranim
 	setflag FLAG_HIDE_OAK_PALLET_TOWN
-	hideobjectat 255, MAP_PALLET_TOWN
+	clearflag FLAG_HIDE_OAK_OAKS_LAB
 	setvar VAR_INFLAG2, 1
 	warp MAP_PALLET_TOWN_OAKS_LAB, 255, 6, 12
 	waitstate

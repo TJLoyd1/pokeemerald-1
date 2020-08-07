@@ -19,6 +19,7 @@ RedsHouse1F_EventScript_BigDay::
 	waitmovement 0
 	setvar VAR_0x402E, 3
 	setflag FLAG_HIDE_OAK_PALLET_TOWN
+	setflag FLAG_HIDE_OAK_OAKS_LAB
 	end
 
 RedsHouse1F_EventScript_Mom::
