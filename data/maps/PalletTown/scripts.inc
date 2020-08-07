@@ -73,7 +73,7 @@ PalletTown_FatMan::
 	release
 	end
 
-PalletTown_Trigger1::
+PalletTown_TriggerLeft::
 	lock
 	playbgm MUS_RG_OHKIDO, 1
 	message PalletTown_Text_ProfOak1
@@ -95,6 +95,46 @@ PalletTown_Trigger1::
 	closemessage
 	applymovement 3, PalletTown_ProfOakToLab
 	applymovement 255, PalletTown_PlayerToOak
+	waitmovement 0
+	opendoor 17, 14
+	waitdooranim
+	applymovement 3, PalletTown_ProfOakEntersTheLab
+	waitmovement 0
+	hideobjectat 3, MAP_PALLET_TOWN
+	applymovement 255, PalletTown_PlayerEntersTheLab
+	waitmovement 0
+	closedoor 16, 13
+	waitdooranim
+	setflag FLAG_HIDE_OAK_PALLET_TOWN
+	hideobjectat 255, MAP_PALLET_TOWN
+	setvar VAR_INFLAG2, 1
+	warp MAP_PALLET_TOWN_OAKS_LAB, 255, 6, 12
+	waitstate
+	release
+	end
+
+PalletTown_TriggerRight::
+	lock
+	playbgm MUS_RG_OHKIDO, 1
+	message PalletTown_Text_ProfOak1
+	waitmessage
+	delay 30
+	closemessage
+	applymovement 255, Common_Movement_ExclamationMark
+	waitmovement 0
+	playse SE_PIN
+	applymovement 255, Common_Movement_FaceDown
+	waitmovement 0
+	delay 85
+	addobject 3
+	applymovement 3, PalletTown_ProfOakToPlayerFromTheRight
+	waitmovement 0
+	message PalletTown_Text_ProfOak2
+	waitmessage
+	delay 85
+	closemessage
+	applymovement 3, PalletTown_ProfOakToLabFromTheRight
+	applymovement 255, PalletTown_PlayerToOakFromTheRight
 	waitmovement 0
 	opendoor 17, 14
 	waitdooranim
@@ -159,6 +199,67 @@ PalletTown_ProfOakToLab:
 
 PalletTown_PlayerToOak:
 	walk_down
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+PalletTown_ProfOakToPlayerFromTheRight:
+	walk_up
+	walk_right
+	walk_up
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	face_up
+	step_end
+
+PalletTown_ProfOakToLabFromTheRight:
+	walk_left
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	face_up
+	step_end
+
+PalletTown_PlayerToOakFromTheRight:
+	walk_down
+	walk_left
 	walk_down
 	walk_left
 	walk_down
