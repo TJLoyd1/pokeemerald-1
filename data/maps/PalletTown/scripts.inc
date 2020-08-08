@@ -109,6 +109,7 @@ PalletTown_TriggerLeft::
 	setflag FLAG_HIDE_OAK_PALLET_TOWN
 	clearflag FLAG_HIDE_OAK_OAKS_LAB
 	setvar VAR_INFLAG2, 1
+	setflag FLAG_DONT_TRANSITION_MUSIC
 	warp MAP_PALLET_TOWN_OAKS_LAB, 255, 6, 12
 	waitstate
 	release
@@ -150,6 +151,7 @@ PalletTown_TriggerRight::
 	setflag FLAG_HIDE_OAK_PALLET_TOWN
 	clearflag FLAG_HIDE_OAK_OAKS_LAB
 	setvar VAR_INFLAG2, 1
+	setflag FLAG_DONT_TRANSITION_MUSIC
 	warp MAP_PALLET_TOWN_OAKS_LAB, 255, 6, 12
 	waitstate
 	release
@@ -334,11 +336,11 @@ PalletTown_Text_FatMan:
 	.string "and POKéMON as data via PC.$"
 
 PalletTown_Text_ProfOak1:
-	.string "OAK: Hey! Wait!\n"
+	.string "Oak: Hey! Wait!\n"
 	.string "Don't go out!$"
 
 PalletTown_Text_ProfOak2:
-	.string "OAK: It's unsafe!\n"
+	.string "Oak: It's unsafe!\n"
 	.string "Wild POKéMON live in tall grass!\p"
 	.string "You need your own POKéMON for\n"
 	.string "your protection.\p"
