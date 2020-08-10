@@ -1004,6 +1004,8 @@ static bool32 IsPlayerDefeated(u32 battleOutcome)
     switch (battleOutcome)
     {
     case B_OUTCOME_LOST:
+        if (FlagGet(FLAG_DISABLE_WHITE_OUT) == TRUE)
+            return FALSE;
     case B_OUTCOME_DREW:
         return TRUE;
     case B_OUTCOME_WON:
@@ -1497,6 +1499,9 @@ void SetUpTrainerEncounterMusic(void)
             break;
         case TRAINER_ENCOUNTER_MUSIC_RICH:
             music = MUS_TEST;
+            break;
+        case TRAINER_ENCOUNTER_MUSIC_RIVAL:
+            music = MUS_RG_RIVAL1;
             break;
         default:
             music = MUS_AYASII;

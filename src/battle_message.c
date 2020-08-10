@@ -672,8 +672,13 @@ static const u8 sText_NoOneWillBeAbleToRun[] = _("No one will be able to run awa
 static const u8 sText_DestinyKnotActivates[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} fell in love\nfrom the {B_LAST_ITEM}!");
 static const u8 sText_CloakedInAFreezingLight[] = _("{B_ATK_NAME_WITH_PREFIX} became cloaked\nin a freezing light!");
 
+static const u8 sText_PlayerLostAgainstRival1[] = _("Green: {B_OPPONENT_MON1_NAME}, come back!");
+static const u8 sText_PlayerLostAgainstRival2[] = _("Green: Yeah!\nAm I great or what?\p");
+
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_PLAYERLOSTAGAINSTRIVAL2 - 12] = sText_PlayerLostAgainstRival2,
+    [STRINGID_PLAYERLOSTAGAINSTRIVAL1 - 12] = sText_PlayerLostAgainstRival1,
     [STRINGID_CLOAKEDINAFREEZINGLIGHT - 12] = sText_CloakedInAFreezingLight,
     [STRINGID_DESTINYKNOTACTIVATES - 12] = sText_DestinyKnotActivates,
     [STRINGID_NOONEWILLBEABLETORUNAWAY - 12] = sText_NoOneWillBeAbleToRun,

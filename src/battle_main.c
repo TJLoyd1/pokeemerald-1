@@ -4741,8 +4741,19 @@ static void HandleEndTurn_BattleLost(void)
     }
     else
     {
-        gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
+        switch (gTrainerBattleOpponent_A | gTrainerBattleOpponent_B)
+        {
+        case TRAINER_RIVAL1_CHARMANDER:
+        case TRAINER_RIVAL1_SQUIRTLE:
+        case TRAINER_RIVAL1_BULBASAUR:
+            if (FlagGet(FLAG_DISABLE_WHITE_OUT) == TRUE)
+                gBattlescriptCurrInstr = BattleScript_FirstRivalBattleLostEnd;
+            break;
+        }
     }
+
+    if (FlagGet(FLAG_DISABLE_WHITE_OUT) != TRUE)
+        gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
 
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }

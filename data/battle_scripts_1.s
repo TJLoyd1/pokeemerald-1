@@ -5079,6 +5079,16 @@ BattleScript_LocalBattleLostDoTrainer2WinText::
 	printstring STRINGID_TRAINER2WINTEXT
 BattleScript_LocalBattleLostEnd_::
 	end2
+BattleScript_FirstRivalBattleLostEnd::
+	printstring STRINGID_PLAYERLOSTAGAINSTRIVAL1
+	waitmessage 0x40
+	returnopponentmon1toball BS_ATTACKER
+	waitstate
+	trainerslidein BS_ATTACKER
+	waitstate
+	printstring STRINGID_PLAYERLOSTAGAINSTRIVAL2
+	waitmessage 0x40
+	end2
 
 BattleScript_82DAA0B::
 	returnopponentmon1toball BS_ATTACKER

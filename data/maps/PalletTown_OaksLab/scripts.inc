@@ -1,17 +1,23 @@
 PalletTown_OaksLab_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, OaksLab_OnLoad
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, OaksLab_OnWarp
+	map_script MAP_SCRIPT_ON_LOAD, OaksLab_OnLoad
 	.byte 0
-
-OaksLab_OnLoad:
-	setobjectxyperm 5, 6, 11
-	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_UP
-	savebgm MUS_RG_OHKIDO
-	end
 
 OaksLab_OnWarp:
 	map_script_2 VAR_INFLAG2, 1, OaksLab_StartMovement
 	.2byte 0
+
+OaksLab_OnLoad:
+	compare VAR_INFLAG3, 0
+	goto_if_eq OaksLab_EventScript_BeginningSetup
+	end
+
+OaksLab_EventScript_BeginningSetup:
+	setobjectxyperm 5, 6, 11
+	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_UP
+	savebgm MUS_RG_OHKIDO
+	setvar VAR_INFLAG3, 1
+	end
 
 OaksLab_StartMovement:
 	applymovement 5, OaksLab_Movement_Oak
@@ -83,7 +89,7 @@ OaksLab_EventScript_OakSuggestsYouToBattleALot:
 
 OaksLab_EventScript_BulbasaursPokeBall::
 	compare VAR_INFLAG2, 3
-	goto_if_eq OaksLab_EventScript_OaksLastPokemon
+	goto_if_ge OaksLab_EventScript_OaksLastPokemon
 	compare VAR_INFLAG2, 2
 	goto_if_eq OaksLab_EventScript_PlayerInspectsBulbasaursBall
 	msgbox OaksLab_Text_TheseArePokeBalls
@@ -91,7 +97,7 @@ OaksLab_EventScript_BulbasaursPokeBall::
 	end
 OaksLab_EventScript_CharmandersPokeBall::
 	compare VAR_INFLAG2, 3
-	goto_if_eq OaksLab_EventScript_OaksLastPokemon
+	goto_if_ge OaksLab_EventScript_OaksLastPokemon
 	compare VAR_INFLAG2, 2
 	goto_if_eq OaksLab_EventScript_PlayerInspectsCharmandersBall
 	msgbox OaksLab_Text_TheseArePokeBalls
@@ -99,7 +105,7 @@ OaksLab_EventScript_CharmandersPokeBall::
 	end
 OaksLab_EventScript_SquirtlesPokeBall::
 	compare VAR_INFLAG2, 3
-	goto_if_eq OaksLab_EventScript_OaksLastPokemon
+	goto_if_ge OaksLab_EventScript_OaksLastPokemon
 	compare VAR_INFLAG2, 2
 	goto_if_eq OaksLab_EventScript_PlayerInspectsSquirtlesBall
 	msgbox OaksLab_Text_TheseArePokeBalls
@@ -262,7 +268,109 @@ OaksLab_EventScript_NotReady::
 	end
 
 OaksLab_EventScript_FirstRivalBattle::
-@	TODO: Conversation between the Rival and the Player, and first battle against the rival
+	setflag FLAG_DISABLE_WHITE_OUT
+	applymovement 4, Common_Movement_WalkInPlaceFastestDown
+	waitmovement 0
+	playbgm MUS_RG_RIVAL1, 0
+	msgbox OaksLab_Text_RivalIntro
+	closemessage
+	playse SE_PIN
+	applymovement 255, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 255, Common_Movement_FaceUp
+	waitmovement 0
+	delay 60
+	getplayerxy VAR_0x8004, VAR_0x8005
+	compare VAR_0x8004, 7
+	goto_if_eq OaksLab_EventScript_FirstRivalBattle_Right
+	switch VAR_STARTER_MON
+	case 0, OaksLab_EventScript_FirstRivalBattleCharmander
+	case 1, OaksLab_EventScript_FirstRivalBattleSquirtle
+	case 2, OaksLab_EventScript_FirstRivalBattleBulbasaur
+	end
+
+OaksLab_EventScript_FirstRivalBattleCharmander:
+	msgbox OaksLab_Text_RivalWantsToBattle
+	closemessage
+	applymovement 4, OaksLab_Movement_RivalWalksToYouCharmander_Left
+	waitmovement 0
+	trainerbattle_no_intro TRAINER_RIVAL1_CHARMANDER, OaksLab_Text_RivalDefeat
+	goto OaksLab_EventScript_RivalWalksOut
+OaksLab_EventScript_FirstRivalBattleSquirtle:
+	msgbox OaksLab_Text_RivalWantsToBattle
+	closemessage
+	applymovement 4, OaksLab_Movement_RivalWalksToYouSquirtle_Left
+	waitmovement 0
+	trainerbattle_no_intro TRAINER_RIVAL1_SQUIRTLE, OaksLab_Text_RivalDefeat
+	goto OaksLab_EventScript_RivalWalksOut
+OaksLab_EventScript_FirstRivalBattleBulbasaur:
+	msgbox OaksLab_Text_RivalWantsToBattle
+	closemessage
+	applymovement 4, OaksLab_Movement_RivalWalksToYouBulbasaur_Left
+	waitmovement 0
+	trainerbattle_no_intro TRAINER_RIVAL1_BULBASAUR, OaksLab_Text_RivalDefeat
+	goto OaksLab_EventScript_RivalWalksOut
+
+OaksLab_EventScript_FirstRivalBattle_Right:
+	switch VAR_STARTER_MON
+	case 0, OaksLab_EventScript_FirstRivalBattleCharmander_Right
+	case 1, OaksLab_EventScript_FirstRivalBattleSquirtle_Right
+	case 2, OaksLab_EventScript_FirstRivalBattleBulbasaur_Right
+
+OaksLab_EventScript_FirstRivalBattleCharmander_Right:
+	msgbox OaksLab_Text_RivalWantsToBattle
+	closemessage
+	applymovement 4, OaksLab_Movement_RivalWalksToYouCharmander_Right
+	waitmovement 0
+	trainerbattle_no_intro TRAINER_RIVAL1_CHARMANDER, OaksLab_Text_RivalDefeat
+	goto OaksLab_EventScript_RivalWalksOut
+OaksLab_EventScript_FirstRivalBattleSquirtle_Right:
+	msgbox OaksLab_Text_RivalWantsToBattle
+	closemessage
+	applymovement 4, OaksLab_Movement_RivalWalksToYouSquirtle_Right
+	waitmovement 0
+	trainerbattle_no_intro TRAINER_RIVAL1_SQUIRTLE, OaksLab_Text_RivalDefeat
+	goto OaksLab_EventScript_RivalWalksOut
+OaksLab_EventScript_FirstRivalBattleBulbasaur_Right:
+	msgbox OaksLab_Text_RivalWantsToBattle
+	closemessage
+	applymovement 4, OaksLab_Movement_RivalWalksToYouBulbasaur_Right
+	waitmovement 0
+	trainerbattle_no_intro TRAINER_RIVAL1_BULBASAUR, OaksLab_Text_RivalDefeat
+	goto OaksLab_EventScript_RivalWalksOut
+	end
+
+OaksLab_EventScript_RivalWalksOut:
+	msgbox OaksLab_Text_RivalWalksOut
+	closemessage
+	playbgm MUS_RG_RIVAL1, 0
+	getplayerxy VAR_0x8004, VAR_0x8005
+	compare VAR_0x8004, 7
+	goto_if_eq OaksLab_EventScript_RivalWalksOut_Right
+	applymovement 4, OaksLab_Movement_RivalWalksOut1
+	waitmovement 0
+	applymovement 255, OaksLab_Movement_PlayerFacesTowardsTheRival
+	applymovement 4, OaksLab_Movement_RivalWalksOut2
+	waitmovement 0
+	playse SE_KAIDAN
+	removeobject 4
+	fadedefaultbgm
+	setflag FLAG_HIDE_RIVAL_OAKS_LAB
+	clearflag FLAG_DISABLE_WHITE_OUT
+	setvar VAR_INFLAG2, 4
+	end
+
+OaksLab_EventScript_RivalWalksOut_Right:
+	applymovement 4, OaksLab_Movement_RivalWalksOut_Right1
+	waitmovement 0
+	applymovement 255, OaksLab_Movement_PlayerFacesTowardsTheRival_Right
+	applymovement 4, OaksLab_Movement_RivalWalksOut_Right2
+	waitmovement 0
+	playse SE_KAIDAN
+	removeobject 4
+	fadedefaultbgm
+	setflag FLAG_HIDE_RIVAL_OAKS_LAB
+	clearflag FLAG_DISABLE_WHITE_OUT
 	setvar VAR_INFLAG2, 4
 	end
 
@@ -321,9 +429,94 @@ OaksLab_Movement_RivalWalksTowardsBulbasaursPokeBall:
 	face_up
 	step_end
 
+OaksLab_Movement_RivalWalksToYouCharmander_Left:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	step_end
+
+OaksLab_Movement_RivalWalksToYouSquirtle_Left:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	step_end
+	
+OaksLab_Movement_RivalWalksToYouBulbasaur_Left:
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	step_end
+
 OaksLab_Movement_RivalWalkFastInPlace:
 	walk_in_place_up
 	walk_in_place_up
+	step_end
+
+OaksLab_Movement_RivalWalksToYouCharmander_Right:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	step_end
+
+OaksLab_Movement_RivalWalksToYouSquirtle_Right:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	step_end
+	
+OaksLab_Movement_RivalWalksToYouBulbasaur_Right:
+	walk_down
+	walk_left
+	walk_left
+	walk_down
+	step_end
+
+OaksLab_Movement_RivalWalksOut1:
+	walk_right
+	walk_down
+	step_end
+OaksLab_Movement_RivalWalksOut2:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+OaksLab_Movement_RivalWalksOut_Right1:
+	walk_left
+	walk_down
+	step_end
+OaksLab_Movement_RivalWalksOut_Right2:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+OaksLab_Movement_PlayerFacesTowardsTheRival:
+	walk_in_place_fastest_right
+	delay_8
+	face_down
+	step_end
+
+OaksLab_Movement_PlayerFacesTowardsTheRival_Right:
+	walk_in_place_fastest_left
+	delay_8
+	face_down
 	step_end
 
 OaksLab_Text_GenericAides:
@@ -446,3 +639,21 @@ OaksLab_Text_RivalReceivedPokemon:
 OaksLab_Text_RivalsPokemonLooksTougherThanThePlayers:
 	.string "Green: My POKéMON looks a lot\n"
 	.string "tougher than yours.$"
+
+OaksLab_Text_RivalIntro:
+	.string "Green: Wait, {PLAYER}!$"
+
+OaksLab_Text_RivalWantsToBattle:
+	.string "Let's check our POKéMON!\n"
+	.string "Come on, I'll take you on!$"
+
+OaksLab_Text_RivalDefeat:
+	.string "WHAT?\n"
+	.string "Unbelievable!\l"
+	.string "I picked the wrong POKéMON!$"
+
+OaksLab_Text_RivalWalksOut:
+	.string "Green: Okay! I'll make my\n"
+	.string "POKéMON battle to toughen it up!\p"
+	.string "{PLAYER}! Gramps!\n"
+	.string "Smell you later!$"
