@@ -109,6 +109,7 @@ PalletTown_TriggerLeft::
 	setflag FLAG_HIDE_OAK_PALLET_TOWN
 	clearflag FLAG_HIDE_OAK_OAKS_LAB
 	setvar VAR_INFLAG2, 1
+	setvar VAR_INFLAG3, 1
 	setflag FLAG_DONT_TRANSITION_MUSIC
 	warp MAP_PALLET_TOWN_OAKS_LAB, 255, 6, 12
 	waitstate
@@ -151,6 +152,7 @@ PalletTown_TriggerRight::
 	setflag FLAG_HIDE_OAK_PALLET_TOWN
 	clearflag FLAG_HIDE_OAK_OAKS_LAB
 	setvar VAR_INFLAG2, 1
+	setvar VAR_INFLAG3, 1
 	setflag FLAG_DONT_TRANSITION_MUSIC
 	warp MAP_PALLET_TOWN_OAKS_LAB, 255, 6, 12
 	waitstate

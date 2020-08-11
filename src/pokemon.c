@@ -6015,6 +6015,11 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_PIKE_QUEEN:
         case TRAINER_CLASS_PYRAMID_KING:
             return MUS_VS_FRONT;
+        case TRAINER_CLASS_RIVAL:
+            if (FlagGet(FLAG_ENABLE_FRLG_BATTLE_MUSIC) == TRUE)
+                return MUS_RG_VS_TORE;
+            else
+                return MUS_BATTLE20;
         default:
             return MUS_BATTLE20;
         }

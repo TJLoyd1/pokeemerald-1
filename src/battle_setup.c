@@ -1500,9 +1500,6 @@ void SetUpTrainerEncounterMusic(void)
         case TRAINER_ENCOUNTER_MUSIC_RICH:
             music = MUS_TEST;
             break;
-        case TRAINER_ENCOUNTER_MUSIC_RIVAL:
-            music = MUS_RG_RIVAL1;
-            break;
         default:
             music = MUS_AYASII;
         }

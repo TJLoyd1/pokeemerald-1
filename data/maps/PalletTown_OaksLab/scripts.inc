@@ -8,7 +8,7 @@ OaksLab_OnWarp:
 	.2byte 0
 
 OaksLab_OnLoad:
-	compare VAR_INFLAG3, 0
+	compare VAR_INFLAG3, 1
 	goto_if_eq OaksLab_EventScript_BeginningSetup
 	end
 
@@ -16,7 +16,7 @@ OaksLab_EventScript_BeginningSetup:
 	setobjectxyperm 5, 6, 11
 	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_UP
 	savebgm MUS_RG_OHKIDO
-	setvar VAR_INFLAG3, 1
+	setvar VAR_INFLAG3, 2
 	end
 
 OaksLab_StartMovement:
@@ -269,6 +269,7 @@ OaksLab_EventScript_NotReady::
 
 OaksLab_EventScript_FirstRivalBattle::
 	setflag FLAG_DISABLE_WHITE_OUT
+	setflag FLAG_ENABLE_FRLG_BATTLE_MUSIC
 	applymovement 4, Common_Movement_WalkInPlaceFastestDown
 	waitmovement 0
 	playbgm MUS_RG_RIVAL1, 0
