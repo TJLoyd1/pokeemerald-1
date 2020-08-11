@@ -1,5 +1,6 @@
 PalletTown_RedsHouse2F_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, RedsHouse2F_EventScript_WakeUp
+	map_script MAP_SCRIPT_ON_LOAD, PalletTown_RedsHouse2F_OnLoad
 	.byte 0
 
 RedsHouse2F_EventScript_WakeUp::
@@ -14,6 +15,17 @@ RedsHouse2F_EventScript_GetUp::
 	releaseall
 	end
 
+PalletTown_RedsHouse2F_OnLoad:
+	checkplayergender
+	compare VAR_RESULT, FEMALE
+	goto_if_eq PalletTown_RedsHouse2F_SetFemaleWallClock
+	end
+
+PalletTown_RedsHouse2F_SetFemaleWallClock:
+	setmetatile 5, 0, 0x227, 1
+	setmetatile 5, 1, 0x22F, 1
+	end
+
 RedsHouse2F_EventScript_DoIt::
 	lockall
 	applymovement 0xFF, PalletTown_RedsHouse2F_NoClock
@@ -24,6 +36,24 @@ RedsHouse2F_EventScript_DoIt::
 
 PalletTown_RedsHouse2F_SetClock::
 	lockall
+	checkplayergender
+	compare VAR_RESULT, FEMALE
+	goto_if_eq PalletTown_RedsHouse2F_SetClockFemale
+	setvar 0x8004, MALE
+	checkflag FLAG_SET_WALL_CLOCK
+	goto_if_set FLAG_SET_WALL_CLOCK, PalletTown_RedsHouse2F_CheckClock
+	msgbox PalletTown_RedsHouse2F_Text_SetClock, MSGBOX_DEFAULT
+	fadescreen 1
+	special StartWallClock
+	waitstate
+	setvar VAR_LITTLEROOT_INTRO_STATE, 6
+	setflag FLAG_SET_WALL_CLOCK
+	setvar VAR_0x402E, 2
+	releaseall
+	end
+
+PalletTown_RedsHouse2F_SetClockFemale:
+	setvar 0x8004, FEMALE
 	checkflag FLAG_SET_WALL_CLOCK
 	goto_if_set FLAG_SET_WALL_CLOCK, PalletTown_RedsHouse2F_CheckClock
 	msgbox PalletTown_RedsHouse2F_Text_SetClock, MSGBOX_DEFAULT
