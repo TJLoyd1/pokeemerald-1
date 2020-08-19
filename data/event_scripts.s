@@ -1067,3 +1067,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/PalletTown_GreensHouse2F/scripts.inc"
 	.include "data/maps/PalletTown_OaksLab/scripts.inc"
 	.include "data/maps/Route1/scripts.inc"
+
+	.include "data/maps/ViridianCity/scripts.inc"
