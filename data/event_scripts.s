@@ -1005,6 +1005,60 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	release
 	end
 
+CheckEVs::
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_SIZE
+	goto_if_ge ButIRefuse
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq Rejected
+	goto CheckEVs_Proceed
+CheckEVs_Proceed:
+	lockall
+	faceplayer
+	special CheckHpEvs
+	special CheckAtkEvs
+	special CheckDefEvs
+	msgbox CheckEVs1
+	special CheckSpdEvs
+	special CheckSpAtkEvs
+	special CheckSpDefEvs
+	msgbox CheckEVs2
+	msgbox ComeBackAnytime
+	releaseall
+	end
+
+ButIRefuse:
+	lockall
+	faceplayer
+	msgbox ComeBackAnytime
+	releaseall
+	end
+
+Rejected:
+	lockall
+	faceplayer
+	msgbox Reject
+	releaseall
+	end
+
+CheckEVs1:
+	.string "Your POKéMON has: {STR_VAR_1} HP EVs,\n"
+	.string "{STR_VAR_2} ATK EVs and {STR_VAR_3} DEF EVs.\p"
+	.string "Let's see what else…$"
+
+CheckEVs2:
+	.string "It also has: {STR_VAR_1} SPD EVs,\n"
+	.string "{STR_VAR_2} SP. ATK EVs and {STR_VAR_3} SP. DEF EVs.$"
+
+Reject:
+	.string "Sorry, an EGG does not\n"
+	.string "have EVs.$"
+
+ComeBackAnytime:
+	.string "Come back anytime.$"
+
 	.include "data/scripts/pc_transfer.inc"
 	.include "data/scripts/mevent.inc"
 	.include "data/scripts/abnormal_weather.inc"
