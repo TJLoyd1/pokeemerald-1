@@ -862,13 +862,15 @@ gText_SelectWithoutRegisteredItem:: @ 8272C98
 	.string "registered to SELECT for easy use.$"
 
 gText_PokemonTrainerSchoolEmail:: @ 8272CD5
-	.string "There's an e-mail from POKéMON TRAINER\n"
-	.string "SCHOOL.\p"
-	.string "… … … … … …\p"
-	.string "A POKéMON may learn up to four moves.\p"
-	.string "A TRAINER's expertise is tested on the\n"
-	.string "move sets chosen for POKéMON.\p"
-	.string "… … … … … …$"
+	.string "Tienes un correo electrónico de la\n"
+	.string "ESCUELA de ENTRENADORES POKéMON.\p"
+	.string "A ver…\p"
+	.string "“Un POKéMON puede aprender\n"
+	.string "hasta cuatro movimientos.\p"
+	.string "La habilidad de un ENTRENADOR\n"
+	.string "se aprecia por la combinación\l"
+	.string "de movimientos de sus POKéMON.”\p"
+	.string "Qué interesante…$"
 
 gText_PlayerHouseBootPC:: @ 8272D87
 	.string "{PLAYER} encendió el PC.$"
