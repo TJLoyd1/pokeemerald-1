@@ -837,8 +837,8 @@ LittlerootTown_ProfessorBirchsLab_Text_MayWhereShouldIGoNext: @ 81FAF08
 	.string "más POKéMON?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanGotPokedexTooTakeThese: @ 81FAF3F
-	.string "BRENDAN: Huh…\n"
-	.string " POKéDEX…\p"
+	.string "BRUNO: Mmmm…\n"
+	.string "Ahora tú también tienes una POKéDEX…\p"
 	.string "Bueno, pues entonces supongo\n"
 	.string "que puedo darte esto.$"
 
