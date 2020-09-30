@@ -216,6 +216,10 @@ Route101_EventScript_Boy:: @ 81EBE04
 
 Route101_EventScript_RouteSign:: @ 81EBE0D
 	msgbox Route101_Text_RouteSign, MSGBOX_SIGN
+	setwildbattle SPECIES_RATTATA, 5, 0
+	setflag FLAG_THAT_TOTALLY_EXISTS
+	special BattleSetup_StartLegendaryBattle
+	waitstate
 	end
 
 Route101_EventScript_BirchsBag:: @ 81EBE16
