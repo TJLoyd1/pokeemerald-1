@@ -3837,12 +3837,12 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_ACRO_BIKE] =
+    [ITEM_BIKE] =
     {
-        .name = _("Acro Bike"),
-        .itemId = ITEM_ACRO_BIKE,
+        .name = _("Bike"),
+        .itemId = ITEM_BIKE,
         .price = 0,
-        .description = sAcroBikeDesc,
+        .description = sBikeDesc,
         .importance = 1,
         .unk19 = 1,
         .pocket = POCKET_KEY_ITEMS,
@@ -3853,7 +3853,7 @@ const struct Item gItems[] =
 
     [ITEM_POKEBLOCK_CASE] =
     {
-        .name = _("{POKEBLOCK} CASE"),
+        .name = _("{POKEBLOCK} Case"),
         .itemId = ITEM_POKEBLOCK_CASE,
         .price = 0,
         .description = sPokeblockCaseDesc,

@@ -743,9 +743,9 @@ void SwapRegisteredBike(void)
     switch (gSaveBlock1Ptr->registeredItem)
     {
     case ITEM_MACH_BIKE:
-        gSaveBlock1Ptr->registeredItem = ITEM_ACRO_BIKE;
+        gSaveBlock1Ptr->registeredItem = ITEM_BIKE;
         break;
-    case ITEM_ACRO_BIKE:
+    case ITEM_BIKE:
         gSaveBlock1Ptr->registeredItem = ITEM_MACH_BIKE;
         break;
     }
