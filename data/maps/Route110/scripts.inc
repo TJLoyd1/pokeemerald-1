@@ -426,16 +426,19 @@ Route110_EventScript_MayBattle:: @ 81EF7EB
 	end
 
 Route110_EventScript_MayBattleTreecko:: @ 81EF81A
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
 	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_TREECKO, Route110_Text_MayDefeated
 	goto Route110_EventScript_MayDefeated
 	end
 
 Route110_EventScript_MayBattleTorchic:: @ 81EF82A
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
 	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_TORCHIC, Route110_Text_MayDefeated
 	goto Route110_EventScript_MayDefeated
 	end
 
 Route110_EventScript_MayBattleMudkip:: @ 81EF83A
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
 	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_MUDKIP, Route110_Text_MayDefeated
 	goto Route110_EventScript_MayDefeated
 	end
@@ -456,16 +459,19 @@ Route110_EventScript_BrendanBattle:: @ 81EF865
 	end
 
 Route110_EventScript_BrendanBattleTreecko:: @ 81EF894
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_TREECKO, Route110_Text_BrendanDefeated
 	goto Route110_EventScript_BrendanDefeated
 	end
 
 Route110_EventScript_BrendanBattleTorchic:: @ 81EF8A4
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_TORCHIC, Route110_Text_BrendanDefeated
 	goto Route110_EventScript_BrendanDefeated
 	end
 
 Route110_EventScript_BrendanBattleMudkip:: @ 81EF8B4
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_MUDKIP, Route110_Text_BrendanDefeated
 	goto Route110_EventScript_BrendanDefeated
 	end

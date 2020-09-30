@@ -90,16 +90,19 @@ Route119_EventScript_BattleMay:: @ 81F450B
 	end
 
 Route119_EventScript_BattleMayTreecko:: @ 81F453A
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
 	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_TREECKO, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
 Route119_EventScript_BattleMayTorchic:: @ 81F454A
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
 	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_TORCHIC, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
 Route119_EventScript_BattleMayMudkip:: @ 81F455A
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
 	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_MUDKIP, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
@@ -120,16 +123,19 @@ Route119_EventScript_BattleBrendan:: @ 81F4585
 	end
 
 Route119_EventScript_BattleBrendanTreecko:: @ 81F45B4
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_TREECKO, Route119_Text_BrendanDefeat
 	goto Route119_EventScript_DefeatedBrendan
 	end
 
 Route119_EventScript_BattleBrendanTorchic:: @ 81F45C4
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_TORCHIC, Route119_Text_BrendanDefeat
 	goto Route119_EventScript_DefeatedBrendan
 	end
 
 Route119_EventScript_BattleBrendanMudkip:: @ 81F45D4
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_MUDKIP, Route119_Text_BrendanDefeat
 	goto Route119_EventScript_DefeatedBrendan
 	end
