@@ -207,8 +207,6 @@ Route103_EventScript_Man:: @ 81EC5E2
 
 Route103_EventScript_RouteSign:: @ 81EC5EB
 	msgbox Route103_Text_RouteSign, MSGBOX_SIGN
-	special NameRival
-	waitstate
 	end
 
 Route103_EventScript_Daisy:: @ 81EC5F4
