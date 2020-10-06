@@ -34,6 +34,8 @@ InsideOfTruck_EventScript_SetIntroFlagsMale:: @ 823BF20
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_POKE_BALL
 	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 1
 	setdynamicwarp MAP_LITTLEROOT_TOWN, 255, 3, 10
+	special NameRival @ Set the Rival's name inside the truck, at least until I decide to look into messing with Birch's intro
+	waitstate
 	releaseall
 	end
 
@@ -47,6 +49,8 @@ InsideOfTruck_EventScript_SetIntroFlagsFemale:: @ 823BF46
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL
 	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 1
 	setdynamicwarp MAP_LITTLEROOT_TOWN, 255, 12, 10
+	special NameRival @ Set the Rival's name inside the truck, at least until I decide to look into messing with Birch's intro
+	waitstate
 	releaseall
 	end
 

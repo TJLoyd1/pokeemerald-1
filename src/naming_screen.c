@@ -2152,7 +2152,7 @@ static const struct NamingScreenTemplate sWaldaWordsScreenTemplate =
     .title = gText_TellHimTheWords,
 };
 
-static const u8 sText_RivalsName[] = _("Rival's Name?");
+static const u8 sText_RivalsName[] = _("YOUR RIVAL'S NAME?");
 static const struct NamingScreenTemplate sRivalNamingScreenTemplate =
 {
     .copyExistingString = FALSE,
