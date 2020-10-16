@@ -224,6 +224,12 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
     gSaveBlock2Ptr->expShare = !gSaveBlock2Ptr->expShare;
 }
 
+void ItemUseOutOfBattle_Gracidea(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_Gracidea;
+    SetUpItemUseCallback(taskId);
+}
+
 void ItemUseOutOfBattle_Bike(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
