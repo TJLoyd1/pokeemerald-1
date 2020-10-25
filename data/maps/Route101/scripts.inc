@@ -263,42 +263,43 @@ Route101_Movement_BirchApproachPlayer: @ 81EBE8D
 	step_end
 
 Route101_Text_HelpMe: @ 81EBE8F
-	.string "H-help me!$"
+	.string "!Socorro¡ ¡Ayuda!$"
 
 Route101_Text_PleaseHelp: @ 81EBE9A
-	.string "Hello! You over there!\n"
-	.string "Please! Help!\p"
-	.string "In my BAG!\n"
-	.string "There's a POKé BALL!$"
+	.string "¡Oye! ¡Sí, tú!\n"
+	.string "¡Ayúdame, por favor!\p"
+	.string "¡En mi mochila hay POKé BALLS!\n"
+	.string "¡Usa una!$"
 
 Route101_Text_DontLeaveMe: @ 81EBEDF
-	.string "Wh-Where are you going?!\n"
-	.string "Don't leave me like this!$"
+	.string "Pe-pero... ¡¿adónde vas?!\n"
+	.string "¡¡¡No me dejes así!!!$"
 
 Route101_Text_YouSavedMe: @ 81EBF12
-	.string "PROF. BIRCH: Whew…\p"
-	.string "I was in the tall grass studying wild\n"
-	.string "POKéMON when I was jumped.\p"
-	.string "You saved me.\n"
-	.string "Thanks a lot!\p"
-	.string "Oh?\p"
-	.string "Hi, you're {PLAYER}{KUN}!\p"
-	.string "This is not the place to chat, so come\n"
-	.string "by my POKéMON LAB later, okay?$"
+	.string "PROF. ABEDUL: Uf…\p"
+	.string "Estaba en la zona de hierba alta\n"
+	.string "estudiando POKéMON salvajes.\n"
+	.string "cuando me atacó uno...\p"
+	.string "me has salvado.\n"
+	.string "Muchas gracias!\p"
+	.string "¡Anda!\p"
+	.string "¡Si eres {PLAYER}{KUN}!\p"
+	.string "Éste no es luga para charlas, \n"
+	.string "así que vente conmigo a mi laboratorio\n"
+	.string "POKéMON, ¿vale?"
 
 Route101_Text_TakeTiredPokemonToPokeCenter: @ 81EBFDD
-	.string "If POKéMON get tired, take them to\n"
-	.string "a POKéMON CENTER.\p"
-	.string "There's a POKéMON CENTER in OLDALE\n"
-	.string "TOWN right close by.$"
+	.string "Si tus Pokémon están cansados,\n"
+	.string "llévalos a un Centro POKéMON.\p"
+	.string "Hay un Centro POKéMON en PUEBLO\n"
+	.string "ESCASO, muy cerca de aquí.$"
 
 Route101_Text_WildPokemonInTallGrass: @ 81EC04A
-	.string "Wild POKéMON will jump out at you in\n"
-	.string "tall grass.\p"
-	.string "If you want to catch POKéMON, you have\n"
-	.string "to go into the tall grass and search.$"
+	.string "Los POKéMON salvajes te atacarán\n"
+	.string "en las zonas de hierba alta.\p"
+	.string "Si quieres atrapar POKéMON, ve donde\n"
+	.string "haya hierba alta y busca.$"
 
 Route101_Text_RouteSign: @ 81EC0C8
-	.string "ROUTE 101\n"
-	.string "{UP_ARROW} OLDALE TOWN$"
-
+	.string "RUTA 101\n"
+	.string "{UP_ARROW} PUEBLO ESCASO$"
