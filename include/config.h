@@ -34,4 +34,6 @@
 #endif
 #endif
 
+#define P_FOOTPRINTS // Gen6+ games no longer show a species' footprint in the Pokédex. Commenting this line out will disable them.
+
 #endif // GUARD_CONFIG_H

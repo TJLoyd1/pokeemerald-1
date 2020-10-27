@@ -4678,6 +4678,7 @@ extern const u8 gMonIcon_DeoxysAttack[];
 extern const u8 gMonIcon_DeoxysDefense[];
 extern const u8 gMonIcon_DeoxysSpeed[];
 
+#ifdef P_FOOTPRINTS
 extern const u8 gMonFootprint_QuestionMark[];
 extern const u8 gMonFootprint_Bulbasaur[];
 extern const u8 gMonFootprint_Ivysaur[];
@@ -5065,6 +5066,7 @@ extern const u8 gMonFootprint_Latios[];
 extern const u8 gMonFootprint_Jirachi[];
 extern const u8 gMonFootprint_Deoxys[];
 extern const u8 gMonFootprint_Chimecho[];
+#endif
 
 // trainer sprites
 extern const u32 gTrainerFrontPic_Hiker[];

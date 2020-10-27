@@ -4535,6 +4535,7 @@ static void UnusedPrintDecimalNum(u8 windowId, u16 b, u8 left, u8 top)
 
 static void PrintFootprint(u8 windowId, u16 dexNum)
 {
+#ifdef P_FOOTPRINTS
     u8 image[32 * 4] = {0};
     const u8 * r12 = gMonFootprintTable[NationalPokedexNumToSpecies(dexNum)];
     u32 i, j, r5 = 0;
@@ -4555,6 +4556,7 @@ static void PrintFootprint(u8 windowId, u16 dexNum)
         }
     }
     CopyToWindowPixelBuffer(windowId, image, sizeof(image), 0);
+#endif
 }
 
 // Unused
