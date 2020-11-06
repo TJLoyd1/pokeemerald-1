@@ -263,7 +263,7 @@ Route101_Movement_BirchApproachPlayer: @ 81EBE8D
 	step_end
 
 Route101_Text_HelpMe: @ 81EBE8F
-	.string "!Socorro¡ ¡Ayuda!$"
+	.string "¡Socorro! ¡Ayuda!$"
 
 Route101_Text_PleaseHelp: @ 81EBE9A
 	.string "¡Oye! ¡Sí, tú!\n"
@@ -286,11 +286,11 @@ Route101_Text_YouSavedMe: @ 81EBF12
 	.string "¡Si eres {PLAYER}{KUN}!\p"
 	.string "Éste no es luga para charlas, \n"
 	.string "así que vente conmigo a mi laboratorio\n"
-	.string "POKéMON, ¿vale?"
+	.string "POKéMON, ¿vale?$"
 
 Route101_Text_TakeTiredPokemonToPokeCenter: @ 81EBFDD
-	.string "Si tus Pokémon están cansados,\n"
-	.string "llévalos a un Centro POKéMON.\p"
+	.string "Si tus POKéMON están cansados,\n"
+	.string "llévalos a un CENTRO POKéMON.\p"
 	.string "Hay un Centro POKéMON en PUEBLO\n"
 	.string "ESCASO, muy cerca de aquí.$"
 
