@@ -291,7 +291,7 @@ Route101_Text_YouSavedMe: @ 81EBF12
 Route101_Text_TakeTiredPokemonToPokeCenter: @ 81EBFDD
 	.string "Si tus POKéMON están cansados,\n"
 	.string "llévalos a un CENTRO POKéMON.\p"
-	.string "Hay un Centro POKéMON en PUEBLO\n"
+	.string "Hay un CENTRO POKéMON en PUEBLO\n"
 	.string "ESCASO, muy cerca de aquí.$"
 
 Route101_Text_WildPokemonInTallGrass: @ 81EC04A
