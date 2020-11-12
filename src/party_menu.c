@@ -74,6 +74,7 @@
 #include "constants/party_menu.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "rtc.h"
 
 #define PARTY_PAL_SELECTED     (1 << 0)
 #define PARTY_PAL_FAINTED      (1 << 1)
@@ -408,6 +409,9 @@ static bool8 SetUpFieldMove_Dive(void);
 // static const data
 #include "data/pokemon/tutor_learnsets.h"
 #include "data/party_menu.h"
+
+// Text string printed when changing the form of certain species like Shaymin and Giratina
+const u8 ChangedForm[] = _("{STR_VAR_1} changed Forme!{PAUSE_UNTIL_PRESS}");
 
 // code
 static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCursorPos, u8 messageId, TaskFunc task, MainCallback callback)
@@ -5267,6 +5271,96 @@ void ItemUseCB_EvolutionStone(u8 taskId, TaskFunc task)
     {
         RemoveBagItem(gSpecialVar_ItemId, 1);
         FreePartyPointers();
+    }
+}
+
+void ItemUseCB_FormChange(u8 taskId, TaskFunc task)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    u16 item = gSpecialVar_ItemId;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u16 forme;
+    bool8 formeAvailable;
+
+    // Needed for Shaymin
+    RtcCalcLocalTime();
+
+    switch (item)
+    {
+    case ITEM_GRACIDEA:
+        if (species == SPECIES_SHAYMIN
+         && GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS) != STATUS1_FREEZE)
+         && (gLocalTime.hours >= 12 && gLocalTime.hours < 24))
+        {
+            forme = SPECIES_SHAYMIN_SKY;
+            formeAvailable = TRUE;
+        }
+        break;
+    case ITEM_REVEAL_GLASS:
+        if (species == SPECIES_THUNDURUS)
+        {
+            forme = SPECIES_THUNDURUS_THERIAN;
+            formeAvailable = TRUE;
+        }
+        else if (species == SPECIES_TORNADUS)
+        {
+            forme = SPECIES_TORNADUS_THERIAN;
+            formeAvailable = TRUE;
+        }
+        else if (species == SPECIES_LANDORUS)
+        {
+            forme = SPECIES_LANDORUS_THERIAN;
+            formeAvailable = TRUE;
+        }
+        else if (species == SPECIES_THUNDURUS_THERIAN)
+        {
+            forme = SPECIES_THUNDURUS;
+            formeAvailable = TRUE;
+        }
+        else if (species == SPECIES_TORNADUS_THERIAN)
+        {
+            forme = SPECIES_TORNADUS;
+            formeAvailable = TRUE;
+        }
+        else if (species == SPECIES_LANDORUS_THERIAN)
+        {
+            forme = SPECIES_LANDORUS;
+            formeAvailable = TRUE;
+        }
+        break;
+    case ITEM_PRISON_BOTTLE:
+        if (species == SPECIES_HOOPA)
+        {
+            forme = SPECIES_HOOPA_UNBOUND;
+            formeAvailable = TRUE;
+        }
+        break;
+    }
+
+    if (formeAvailable)
+    {
+        
+        gPartyMenuUseExitCallback = TRUE;
+        PlaySE(SE_USE_ITEM);
+        PlayCry2(forme, 0, 0x7D, 0xA);
+        SetMonData(mon, MON_DATA_SPECIES, &forme);
+        FreeAndDestroyMonIconSprite(&gSprites[sPartyMenuBoxes[gPartyMenu.slotId].monSpriteId]);
+        CreatePartyMonIconSpriteParameterized(forme, GetMonData(mon, MON_DATA_PERSONALITY), &sPartyMenuBoxes[gPartyMenu.slotId], 0, FALSE);
+        CalculateMonStats(mon);
+        GetMonNickname(mon, gStringVar1);
+        StringExpandPlaceholders(gStringVar4, ChangedForm);
+        DisplayPartyMenuMessage(gStringVar4, FALSE);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = task;
+    }
+    else
+    {
+        gPartyMenuUseExitCallback = FALSE;
+        PlaySE(SE_SELECT);
+        DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = task;
+        return;
     }
 }
 

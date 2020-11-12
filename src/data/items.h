@@ -5746,12 +5746,11 @@ const struct Item gItems[] =
     {
         .name = _("Gracidea"),
         .itemId = ITEM_GRACIDEA,
-        .price = 200,
-        .holdEffect = HOLD_EFFECT_GRACIDEA,
+        .price = 0,
         .description = sGracideaDesc,
-        .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_FormChange,
         .secondaryId = 0,
     },
 
@@ -7588,6 +7587,7 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
     },
+
     [ITEM_Z_RING] = 
     {
         .name = _("Z-Ring"),
@@ -8020,6 +8020,28 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 255  //signature z move
     },
-        
-    
+
+    [ITEM_REVEAL_GLASS] =
+    {
+        .name = _("Reveal Glass"),
+        .itemId = ITEM_REVEAL_GLASS,
+        .price = 0,
+        .description = sRevealGlassDesc,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_FormChange,
+        .secondaryId = 0,
+    },
+
+    [ITEM_PRISON_BOTTLE] =
+    {
+        .name = _("Prison Bottle"),
+        .itemId = ITEM_PRISON_BOTTLE,
+        .price = 0,
+        .description = sPrisonBottleDesc,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_FormChange,
+        .secondaryId = 0,
+    },
 };

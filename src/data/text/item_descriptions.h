@@ -2823,7 +2823,7 @@ static const u8 sShinyCharmDesc[] = _(
 	"A charm that will\n"
     "raise the chance\n"
     "of Shiny Pokémon.");
-    
+
 static const u8 sOvalCharmDesc[] = _(
     "Raises the chance\n"
     "of finding eggs\n"
@@ -3008,3 +3008,12 @@ static const u8 sUltranecroziumZDesc[] = _(
     "A crystal to turn\n"
     "fused Necrozma\n"
     "into a new form.");
+
+static const u8 sRevealGlassDesc[] = _(
+    "Changes the form\n"
+    "of the Forces of\n"
+    "Nature.");
+
+static const u8 sPrisonBottleDesc[] = _(
+    "Changes the form\n"
+    "of Hoopa.");
