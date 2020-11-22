@@ -404,6 +404,7 @@ static bool8 SetUpFieldMove_Surf(void);
 static bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Dive(void);
+void SetGiratinaForm(struct Pokemon *mon);
 
 // static const data
 #include "data/pokemon/tutor_learnsets.h"
@@ -1732,6 +1733,7 @@ static void GiveItemToMon(struct Pokemon *mon, u16 item)
     itemBytes[0] = item;
     itemBytes[1] = item >> 8;
     SetMonData(mon, MON_DATA_HELD_ITEM, itemBytes);
+    SetGiratinaForm(&gPlayerParty[gPartyMenu.slotId]);
 }
 
 static u8 TryTakeMonItem(struct Pokemon* mon)
@@ -1745,6 +1747,7 @@ static u8 TryTakeMonItem(struct Pokemon* mon)
 
     item = ITEM_NONE;
     SetMonData(mon, MON_DATA_HELD_ITEM, &item);
+    SetGiratinaForm(&gPlayerParty[gPartyMenu.slotId]);
     return 2;
 }
 
@@ -6454,4 +6457,29 @@ void IsLastMonThatKnowsSurf(void)
         if (AnyStorageMonWithMove(move) != TRUE)
             gSpecialVar_Result = TRUE;
     }
+}
+
+void SetGiratinaForm(struct Pokemon *mon)
+{
+#ifdef POKEMON_EXPANSION
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u16 forme;
+    u16 item = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
+
+    if (item == GRISEOUS_ORB)
+    {
+        if (species == SPECIES_GIRATINA)
+        {
+            forme = SPECIES_GIRATINA_ORIGIN;
+            SetMonData(mon, MON_DATA_SPECIES, &forme);
+            CalculateMonStats(mon);   
+        }
+        else if (species == SPECIES_GIRATINA_ORIGIN)
+        {
+            forme = SPECIES_GIRATINA;
+            SetMonData(mon, MON_DATA_SPECIES, &forme);
+            CalculateMonStats(mon);   
+        }
+    }
+#endif
 }

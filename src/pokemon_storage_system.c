@@ -713,6 +713,8 @@ static void sub_80D2A90(struct UnkStruct_2000020 *arg0, struct UnkStruct_2000028
 static void sub_80D2AA4(void);
 static void sub_80D2B88(struct UnkStruct_2000028 *unkStruct);
 static void sub_80D2C1C(struct UnkStruct_2000028 *unkStruct);
+void SetGiratinaFormPSS(struct BoxPokemon *boxMon);
+void UpdateSpeciesSpritePSS(struct BoxPokemon *boxmon);
 
 // static const rom data
 static const struct PSS_MenuStringPtrs gUnknown_085716C0[] =
@@ -6773,6 +6775,31 @@ static void sub_80CEBDC(void)
         sub_80CEB40();
 }
 
+void SetGiratinaFormPSS(struct BoxPokemon *boxMon)
+{
+#ifdef POKEMON_EXPANSION
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u16 forme;
+    u16 item = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
+
+    if (item == GRISEOUS_ORB)
+    {
+        if (species == SPECIES_GIRATINA)
+        {
+            forme = SPECIES_GIRATINA_ORIGIN;
+            SetBoxMonData(boxMon, MON_DATA_SPECIES, &forme);
+            UpdateSpeciesSpritePSS(boxMon);
+        }
+    }
+    else if (species == SPECIES_GIRATINA_ORIGIN && item != ITEM_GRISEOUS_ORB)
+    {
+        forme = SPECIES_GIRATINA;
+        SetBoxMonData(boxMon, MON_DATA_SPECIES, &forme);
+        UpdateSpeciesSpritePSS(boxMon);
+    }
+#endif
+}
+
 static void SetCursorMonData(void *pokemon, u8 mode)
 {
     u8 *txtPtr;
@@ -6859,6 +6886,11 @@ static void SetCursorMonData(void *pokemon, u8 mode)
     {
         if (sPSSData->cursorMonSpecies == SPECIES_NIDORAN_F || sPSSData->cursorMonSpecies == SPECIES_NIDORAN_M)
             gender = MON_GENDERLESS;
+
+    #ifdef POKEMON_EXPANSION
+        if (sPSSData->cursorMonSpecies == SPECIES_GIRATINA || sPSSData->cursorMonSpecies == SPECIES_GIRATINA_ORGIN)
+            SetGiratinaFormPSS(pokemon);
+    #endif
 
         StringCopyPadded(sPSSData->cursorMonNickText, sPSSData->cursorMonNick, CHAR_SPACE, 5);
 
@@ -9882,4 +9914,15 @@ static void sub_80D2C1C(struct UnkStruct_2000028 *unkStruct)
         Dma3FillLarge_(0, unkStruct->unk_04, unkStruct->unk_08, 16);
         unkStruct->unk_04 += 64;
     }
+}
+
+void UpdateSpeciesSpritePSS(struct BoxPokemon *boxMon)
+{
+    u32 otId = GetBoxMonData(boxMon, MON_DATA_OT_ID);
+
+    sPSSData->cursorMonSpecies = GetMonData(boxMon, MON_DATA_SPECIES2);
+    sPSSData->cursorMonPalette = GetMonSpritePalFromSpeciesAndPersonality(sPSSData->cursorMonSpecies, otId, sPSSData->cursorMonPersonality);
+    LoadCursorMonGfx(sPSSData->cursorMonSpecies, sPSSData->cursorMonPersonality);
+    sub_80CA65C();
+    ScheduleBgCopyTilemapToVram(0);
 }
