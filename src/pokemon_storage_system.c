@@ -41,6 +41,7 @@
 #include "constants/moves.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/hold_effects.h"
 
 struct WallpaperTable
 {
@@ -714,7 +715,7 @@ static void sub_80D2AA4(void);
 static void sub_80D2B88(struct UnkStruct_2000028 *unkStruct);
 static void sub_80D2C1C(struct UnkStruct_2000028 *unkStruct);
 void SetGiratinaFormPSS(struct BoxPokemon *boxMon);
-void UpdateSpeciesSpritePSS(struct BoxPokemon *boxmon);
+void UpdateSpeciesSpritesPSS(struct BoxPokemon *boxmon);
 
 // static const rom data
 static const struct PSS_MenuStringPtrs gUnknown_085716C0[] =
@@ -6778,24 +6779,19 @@ static void sub_80CEBDC(void)
 void SetGiratinaFormPSS(struct BoxPokemon *boxMon)
 {
 #ifdef POKEMON_EXPANSION
-    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+    u16 species = GetMonData(boxMon, MON_DATA_SPECIES);
     u16 forme;
-    u16 item = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
+    u16 item = GetMonData(boxMon, MON_DATA_HELD_ITEM, NULL);
+    u8 holdEffect = ItemId_GetHoldEffect(item);
 
-    if (item == GRISEOUS_ORB)
+    if (species == SPECIES_GIRATINA || species == SPECIES_GIRATINA_ORIGIN)
     {
-        if (species == SPECIES_GIRATINA)
-        {
+        if (holdEffect == HOLD_EFFECT_GRISEOUS_ORB)
             forme = SPECIES_GIRATINA_ORIGIN;
-            SetBoxMonData(boxMon, MON_DATA_SPECIES, &forme);
-            UpdateSpeciesSpritePSS(boxMon);
-        }
-    }
-    else if (species == SPECIES_GIRATINA_ORIGIN && item != ITEM_GRISEOUS_ORB)
-    {
-        forme = SPECIES_GIRATINA;
+        else
+            forme = SPECIES_GIRATINA;
         SetBoxMonData(boxMon, MON_DATA_SPECIES, &forme);
-        UpdateSpeciesSpritePSS(boxMon);
+        UpdateSpeciesSpritesPSS(boxMon);
     }
 #endif
 }
@@ -6888,7 +6884,7 @@ static void SetCursorMonData(void *pokemon, u8 mode)
             gender = MON_GENDERLESS;
 
     #ifdef POKEMON_EXPANSION
-        if (sPSSData->cursorMonSpecies == SPECIES_GIRATINA || sPSSData->cursorMonSpecies == SPECIES_GIRATINA_ORGIN)
+        if (sPSSData->cursorMonSpecies == SPECIES_GIRATINA || sPSSData->cursorMonSpecies == SPECIES_GIRATINA_ORIGIN)
             SetGiratinaFormPSS(pokemon);
     #endif
 
@@ -9916,13 +9912,16 @@ static void sub_80D2C1C(struct UnkStruct_2000028 *unkStruct)
     }
 }
 
-void UpdateSpeciesSpritePSS(struct BoxPokemon *boxMon)
+void UpdateSpeciesSpritesPSS(struct BoxPokemon *boxMon)
 {
+    u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
     u32 otId = GetBoxMonData(boxMon, MON_DATA_OT_ID);
+    u32 pid = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
 
-    sPSSData->cursorMonSpecies = GetMonData(boxMon, MON_DATA_SPECIES2);
-    sPSSData->cursorMonPalette = GetMonSpritePalFromSpeciesAndPersonality(sPSSData->cursorMonSpecies, otId, sPSSData->cursorMonPersonality);
-    LoadCursorMonGfx(sPSSData->cursorMonSpecies, sPSSData->cursorMonPersonality);
-    sub_80CA65C();
-    ScheduleBgCopyTilemapToVram(0);
+    // Update front sprite
+    sPSSData->cursorMonSpecies = species;
+    sPSSData->cursorMonPalette = GetMonSpritePalFromSpeciesAndPersonality(species, otId, pid);
+    LoadCursorMonGfx(species, pid);
+    // Recreate icon sprite
+    DestroyBoxMonIcon(sPSSData->boxMonsSprites[sBoxCursorPosition]);
 }

@@ -74,6 +74,7 @@
 #include "constants/party_menu.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/hold_effects.h"
 
 #define PARTY_PAL_SELECTED     (1 << 0)
 #define PARTY_PAL_FAINTED      (1 << 1)
@@ -405,10 +406,14 @@ static bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Dive(void);
 void SetGiratinaForm(struct Pokemon *mon);
+void TryToCastGiratinaFormAnim(void);
 
 // static const data
 #include "data/pokemon/tutor_learnsets.h"
 #include "data/party_menu.h"
+
+// Text string printed when changing the form of certain species like Shaymin and Giratina
+const u8 sText_SpeciesTransformed[] = _("{STR_VAR_1} transformed!{PAUSE_UNTIL_PRESS}");
 
 // code
 static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCursorPos, u8 messageId, TaskFunc task, MainCallback callback)
@@ -6465,21 +6470,34 @@ void SetGiratinaForm(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     u16 forme;
     u16 item = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
+    u8 holdEffect = ItemId_GetHoldEffect(item);
+    u8 taskId;
 
-    if (item == GRISEOUS_ORB)
+    if (species == SPECIES_GIRATINA || species == SPECIES_GIRATINA_ORIGIN)
     {
-        if (species == SPECIES_GIRATINA)
-        {
+        if (holdEffect == HOLD_EFFECT_GRISEOUS_ORB)
             forme = SPECIES_GIRATINA_ORIGIN;
-            SetMonData(mon, MON_DATA_SPECIES, &forme);
-            CalculateMonStats(mon);   
-        }
-        else if (species == SPECIES_GIRATINA_ORIGIN)
-        {
+        else
             forme = SPECIES_GIRATINA;
-            SetMonData(mon, MON_DATA_SPECIES, &forme);
-            CalculateMonStats(mon);   
-        }
+        SetMonData(mon, MON_DATA_SPECIES, &forme);
+        FreeAndDestroyMonIconSprite(&gSprites[sPartyMenuBoxes[gPartyMenu.slotId].monSpriteId]);
+        CreatePartyMonIconSpriteParameterized(forme, GetMonData(mon, MON_DATA_PERSONALITY), &sPartyMenuBoxes[gPartyMenu.slotId], 1, FALSE);
+        CalculateMonStats(mon);
     }
 #endif
+}
+
+void TryToCastGiratinaFormAnim(void)
+{
+    struct Pokemon *mon;
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+
+    if (species == SPECIES_GIRATINA || SPECIES_GIRATINA_ORIGIN)
+    {
+        // Insert fancy particle animation
+        PlayCry2(species, 0, 0x7D, 0xA);
+        GetMonNickname(mon, gStringVar1);
+        StringExpandPlaceholders(gStringVar4, sText_SpeciesTransformed);
+        DisplayPartyMenuMessage(gStringVar4, FALSE);
+    }
 }
