@@ -6489,6 +6489,7 @@ void SetGiratinaForm(struct Pokemon *mon)
 
 void TryToCastGiratinaFormAnim(void)
 {
+#ifdef POKEMON_EXPANSION
     struct Pokemon *mon;
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
 
@@ -6500,4 +6501,5 @@ void TryToCastGiratinaFormAnim(void)
         StringExpandPlaceholders(gStringVar4, sText_SpeciesTransformed);
         DisplayPartyMenuMessage(gStringVar4, FALSE);
     }
+#endif
 }
