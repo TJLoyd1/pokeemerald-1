@@ -366,6 +366,66 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectAllySwitch
 	.4byte BattleScript_EffectSleepHit
 
+BattleScript_EffectFling:
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_FLAME_ORB, BattleScript_FlingBurn
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_FLINCH, BattleScript_FlingFlinch @ King's Rock and Razor Fang
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_LIGHT_BALL, BattleScript_FlingParalyze
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_CURE_ATTRACT, BattleScript_FlingMentalHerb
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POISON_POWER, BattleScript_FlingPoisonPoisonBarb
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TOXIC_ORB, BattleScript_FlingBadlyPoison
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_RESTORE_STATS, BattleScript_FlingWhiteHerb @ White Herb
+	jumpifnoflingpower BS_ATTACKER, BattleScript_FlingFailed
+BattleScript_FlingHit:
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage 0x40
+	resultmessage
+	waitmessage 0x40
+	seteffectprimary
+	tryfaintmon BS_TARGET, FALSE, NULL
+	removeitem BS_ATTACKER
+	moveendall
+	end
+BattleScript_FlingBurn:
+	setmoveeffect MOVE_EFFECT_BURN
+	goto BattleScript_FlingHit
+BattleScript_FlingFlinch:
+	setmoveeffect MOVE_EFFECT_FLINCH
+	goto BattleScript_FlingHit
+BattleScript_FlingParalyze:
+	setmoveeffect MOVE_EFFECT_PARALYSIS
+	goto BattleScript_FlingHit
+BattleScript_FlingMentalHerb:
+@	To do.
+	goto BattleScript_FlingHit
+BattleScript_FlingPoisonPoisonBarb:
+	setmoveeffect MOVE_EFFECT_POISON
+	goto BattleScript_FlingHit
+BattleScript_FlingBadlyPoison:
+	setmoveeffect MOVE_EFFECT_TOXIC
+	goto BattleScript_FlingHit
+BattleScript_FlingWhiteHerb:
+@	To do.
+	goto BattleScript_FlingHit
+BattleScript_FlingFailed:
+	attackcanceler
+	attackstring
+	ppreduce
+	goto BattleScript_ButItFailed
+
 BattleScript_EffectSleepHit:
 	setmoveeffect MOVE_EFFECT_SLEEP
 	goto BattleScript_EffectHit
@@ -2023,7 +2083,6 @@ BattleScript_EffectReturn:
 BattleScript_EffectFrustration:
 BattleScript_EffectEruption:
 BattleScript_EffectPledge:
-BattleScript_EffectFling:
 BattleScript_EffectWringOut:
 BattleScript_EffectHex:
 BattleScript_EffectAssurance:

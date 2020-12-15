@@ -1756,6 +1756,17 @@
 	.4byte \ptr
 	.endm
 	
+	.macro jumpifnoflingpower battler:req, ptr:req
+	various \battler, VARIOUS_JUMP_IF_NO_FLINGPOWER
+	.4byte \ptr
+	.endm
+	
+	.macro jumpifholdeffect battler:req, holdEffet:req, ptr:req
+	various \battler, VARIOUS_JUMP_IF_HOLD_EFFECT
+	.byte \holdEffet
+	.4byte \ptr
+	.endm
+	
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
 	setbyte sSTATCHANGER \stat | \stages << 3 | \down << 7
