@@ -367,6 +367,7 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectSleepHit
 
 BattleScript_EffectFling:
+	jumpifflingfails BS_ATTACKER, BattleScript_FlingFailed
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_FLAME_ORB, BattleScript_FlingBurn
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_FLINCH, BattleScript_FlingFlinch @ King's Rock and Razor Fang
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_LIGHT_BALL, BattleScript_FlingParalyze
@@ -374,7 +375,6 @@ BattleScript_EffectFling:
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POISON_POWER, BattleScript_FlingPoisonPoisonBarb
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TOXIC_ORB, BattleScript_FlingBadlyPoison
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_RESTORE_STATS, BattleScript_FlingWhiteHerb @ White Herb
-	jumpifnoflingpower BS_ATTACKER, BattleScript_FlingFailed
 BattleScript_FlingHit:
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
@@ -394,37 +394,40 @@ BattleScript_FlingHit:
 	waitmessage 0x40
 	resultmessage
 	waitmessage 0x40
-	seteffectprimary
 	tryfaintmon BS_TARGET, FALSE, NULL
 	removeitem BS_ATTACKER
-	moveendall
-	end
+	goto BattleScript_MoveEnd
+BattleScript_FlingFailed:
+	attackcanceler
+	attackstring
+	ppreduce
+	goto BattleScript_ButItFailed
 BattleScript_FlingBurn:
 	setmoveeffect MOVE_EFFECT_BURN
+	seteffectprimary
 	goto BattleScript_FlingHit
 BattleScript_FlingFlinch:
 	setmoveeffect MOVE_EFFECT_FLINCH
+	seteffectprimary
 	goto BattleScript_FlingHit
 BattleScript_FlingParalyze:
 	setmoveeffect MOVE_EFFECT_PARALYSIS
+	seteffectprimary
 	goto BattleScript_FlingHit
 BattleScript_FlingMentalHerb:
 @	To do.
 	goto BattleScript_FlingHit
 BattleScript_FlingPoisonPoisonBarb:
 	setmoveeffect MOVE_EFFECT_POISON
+	seteffectprimary
 	goto BattleScript_FlingHit
 BattleScript_FlingBadlyPoison:
 	setmoveeffect MOVE_EFFECT_TOXIC
+	seteffectprimary
 	goto BattleScript_FlingHit
 BattleScript_FlingWhiteHerb:
 @	To do.
 	goto BattleScript_FlingHit
-BattleScript_FlingFailed:
-	attackcanceler
-	attackstring
-	ppreduce
-	goto BattleScript_ButItFailed
 
 BattleScript_EffectSleepHit:
 	setmoveeffect MOVE_EFFECT_SLEEP

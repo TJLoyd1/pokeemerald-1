@@ -165,7 +165,7 @@
 #define VARIOUS_SET_LAST_USED_ITEM              99
 #define VARIOUS_PARALYZE_TYPE_IMMUNITY          100
 #define VARIOUS_JUMP_IF_ABSENT                  101
-#define VARIOUS_JUMP_IF_NO_FLINGPOWER           102
+#define VARIOUS_JUMP_IF_FLING_FAILS             102
 #define VARIOUS_JUMP_IF_HOLD_EFFECT             103
 
 // Cmd_manipulatedamage

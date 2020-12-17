@@ -1756,8 +1756,8 @@
 	.4byte \ptr
 	.endm
 	
-	.macro jumpifnoflingpower battler:req, ptr:req
-	various \battler, VARIOUS_JUMP_IF_NO_FLINGPOWER
+	.macro jumpifflingfails battler:req, ptr:req
+	various \battler, VARIOUS_JUMP_IF_FLING_FAILS
 	.4byte \ptr
 	.endm
 	

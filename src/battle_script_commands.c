@@ -8300,13 +8300,15 @@ static void Cmd_various(void)
             gBattlescriptCurrInstr += 7;
         }
         return;
-    case VARIOUS_JUMP_IF_NO_FLINGPOWER:
+    case VARIOUS_JUMP_IF_FLING_FAILS:
     #ifdef ITEM_EXPANSION
         if (ItemId_GetFlingPower(gBattleMons[gActiveBattler].item) == 0)
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+    #endif
+        else if (CanBattlerGetOrLoseItem(gActiveBattler, gBattleMons[gActiveBattler].item) == FALSE)
+            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
         else
             gBattlescriptCurrInstr += 7;
-    #endif
         return;
     case VARIOUS_JUMP_IF_HOLD_EFFECT:
         if (GetBattlerHoldEffect(gActiveBattler, TRUE) == gBattlescriptCurrInstr[3])
