@@ -10,7 +10,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
 // Pokeballs
@@ -27,7 +27,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 0,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_ULTRA_BALL] =
@@ -42,7 +42,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 1,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_GREAT_BALL] =
@@ -57,7 +57,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 2,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_POKE_BALL] =
@@ -72,7 +72,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 3,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_SAFARI_BALL] =
@@ -87,7 +87,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 4,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_NET_BALL] =
@@ -102,7 +102,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 5,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_DIVE_BALL] =
@@ -117,7 +117,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 6,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_NEST_BALL] =
@@ -132,7 +132,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 7,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_REPEAT_BALL] =
@@ -147,7 +147,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 8,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_TIMER_BALL] =
@@ -162,7 +162,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 9,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_LUXURY_BALL] =
@@ -177,7 +177,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 10,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_PREMIER_BALL] =
@@ -192,7 +192,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 11,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_LEVEL_BALL] =
@@ -207,7 +207,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 12,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_LURE_BALL] =
@@ -222,7 +222,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 13,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_MOON_BALL] =
@@ -237,7 +237,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 14,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_FRIEND_BALL] =
@@ -252,7 +252,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 15,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_LOVE_BALL] =
@@ -267,7 +267,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 16,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_HEAVY_BALL] =
@@ -282,7 +282,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 17,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_FAST_BALL] =
@@ -297,7 +297,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 18,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_HEAL_BALL] =
@@ -312,7 +312,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 19,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_QUICK_BALL] =
@@ -327,7 +327,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 20,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_DUSK_BALL] =
@@ -342,7 +342,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 21,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_CHERISH_BALL] =
@@ -357,7 +357,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 22,
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_SPORT_BALL] =
@@ -372,7 +372,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 23, // To Do
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_PARK_BALL] =
@@ -387,7 +387,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 24, // To Do
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_DREAM_BALL] =
@@ -402,7 +402,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 25, // To Do
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
     [ITEM_BEAST_BALL] =
@@ -417,7 +417,7 @@ const struct Item gItems[] =
         .battleUsage = 2,
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 26, // To Do
-		.flingPower = 0,
+        .flingPower = 0,
     },
 
 // Medicine
@@ -1973,7 +1973,7 @@ const struct Item gItems[] =
         .battleUsage = 1,
         .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_CHESTO_BERRY] =
@@ -1989,7 +1989,7 @@ const struct Item gItems[] =
         .battleUsage = 1,
         .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_PECHA_BERRY] =
@@ -2005,7 +2005,7 @@ const struct Item gItems[] =
         .battleUsage = 1,
         .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_RAWST_BERRY] =
@@ -2021,7 +2021,7 @@ const struct Item gItems[] =
         .battleUsage = 1,
         .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_ASPEAR_BERRY] =
@@ -2037,7 +2037,7 @@ const struct Item gItems[] =
         .battleUsage = 1,
         .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_LEPPA_BERRY] =
@@ -2054,7 +2054,7 @@ const struct Item gItems[] =
         .battleUsage = 1,
         .battleUseFunc = ItemUseInBattle_PPRecovery,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_ORAN_BERRY] =
@@ -2071,7 +2071,7 @@ const struct Item gItems[] =
         .battleUsage = 1,
         .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_PERSIM_BERRY] =
@@ -2087,7 +2087,7 @@ const struct Item gItems[] =
         .battleUsage = 1,
         .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_LUM_BERRY] =
@@ -2103,7 +2103,7 @@ const struct Item gItems[] =
         .battleUsage = 1,
         .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_SITRUS_BERRY] =
@@ -2120,7 +2120,7 @@ const struct Item gItems[] =
         .battleUsage = 1,
         .battleUseFunc = ItemUseInBattle_Medicine,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_FIGY_BERRY] =
@@ -2135,7 +2135,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_WIKI_BERRY] =
@@ -2150,7 +2150,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_MAGO_BERRY] =
@@ -2165,7 +2165,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_AGUAV_BERRY] =
@@ -2180,7 +2180,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_IAPAPA_BERRY] =
@@ -2195,7 +2195,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_RAZZ_BERRY] =
@@ -2208,7 +2208,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_BLUK_BERRY] =
@@ -2221,7 +2221,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_NANAB_BERRY] =
@@ -2234,7 +2234,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_WEPEAR_BERRY] =
@@ -2247,7 +2247,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_PINAP_BERRY] =
@@ -2260,7 +2260,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_POMEG_BERRY] =
@@ -2273,7 +2273,7 @@ const struct Item gItems[] =
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_KELPSY_BERRY] =
@@ -2286,7 +2286,7 @@ const struct Item gItems[] =
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_QUALOT_BERRY] =
@@ -2299,7 +2299,7 @@ const struct Item gItems[] =
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_HONDEW_BERRY] =
@@ -2312,7 +2312,7 @@ const struct Item gItems[] =
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_GREPA_BERRY] =
@@ -2325,7 +2325,7 @@ const struct Item gItems[] =
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_TAMATO_BERRY] =
@@ -2338,7 +2338,7 @@ const struct Item gItems[] =
         .type = 1,
         .fieldUseFunc = ItemUseOutOfBattle_ReduceEV,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_CORNN_BERRY] =
@@ -2351,7 +2351,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_MAGOST_BERRY] =
@@ -2364,7 +2364,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_RABUTA_BERRY] =
@@ -2377,7 +2377,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_NOMEL_BERRY] =
@@ -2390,7 +2390,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_SPELON_BERRY] =
@@ -2403,7 +2403,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_PAMTRE_BERRY] =
@@ -2416,7 +2416,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_WATMEL_BERRY] =
@@ -2429,7 +2429,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_DURIN_BERRY] =
@@ -2442,7 +2442,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_BELUE_BERRY] =
@@ -2455,7 +2455,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_LIECHI_BERRY] =
@@ -2470,7 +2470,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_GANLON_BERRY] =
@@ -2485,7 +2485,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_SALAC_BERRY] =
@@ -2500,7 +2500,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_PETAYA_BERRY] =
@@ -2515,7 +2515,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_APICOT_BERRY] =
@@ -2530,7 +2530,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_LANSAT_BERRY] =
@@ -2545,7 +2545,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_STARF_BERRY] =
@@ -2560,7 +2560,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_MICLE_BERRY] =
@@ -2575,7 +2575,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_ENIGMA_BERRY] =
@@ -2590,7 +2590,7 @@ const struct Item gItems[] =
         .battleUsage = 1,
         .battleUseFunc = ItemUseInBattle_EnigmaBerry,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_OCCA_BERRY] =
@@ -2605,7 +2605,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_PASSHO_BERRY] =
@@ -2620,7 +2620,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_WACAN_BERRY] =
@@ -2635,7 +2635,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_RINDO_BERRY] =
@@ -2650,7 +2650,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_YACHE_BERRY] =
@@ -2665,7 +2665,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_CHOPLE_BERRY] =
@@ -2680,7 +2680,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_KEBIA_BERRY] =
@@ -2695,7 +2695,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_SHUCA_BERRY] =
@@ -2710,7 +2710,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_COBA_BERRY] =
@@ -2725,7 +2725,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_PAYAPA_BERRY] =
@@ -2740,7 +2740,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_TANGA_BERRY] =
@@ -2755,7 +2755,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_CHARTI_BERRY] =
@@ -2770,7 +2770,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_KASIB_BERRY] =
@@ -2785,7 +2785,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_HABAN_BERRY] =
@@ -2800,7 +2800,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_COLBUR_BERRY] =
@@ -2815,7 +2815,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_BABIRI_BERRY] =
@@ -2830,7 +2830,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_CHILAN_BERRY] =
@@ -2845,7 +2845,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_ROSELI_BERRY] =
@@ -2860,7 +2860,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_CUSTAP_BERRY] =
@@ -2875,7 +2875,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_JABOCA_BERRY] =
@@ -2890,7 +2890,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_ROWAP_BERRY] =
@@ -2905,7 +2905,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_KEE_BERRY] =
@@ -2920,7 +2920,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
     [ITEM_MARANGA_BERRY] =
@@ -2935,7 +2935,7 @@ const struct Item gItems[] =
         .type = 4,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
-		.flingPower = 10,
+        .flingPower = 10,
     },
 
 // Hold items
