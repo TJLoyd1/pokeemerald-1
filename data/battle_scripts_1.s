@@ -374,6 +374,24 @@ BattleScript_EffectFling:
 	jumpifability BS_ATTACKER, ABILITY_KLUTZ, BattleScript_ButItFailedAtkStringPpReduce
 	jumpifability BS_ATTACKER, ABILITY_UNNERVE, BattleScript_ButItFailedAtkStringPpReduce
 	jumpifflingfails BS_ATTACKER, BattleScript_ButItFailedAtkStringPpReduce
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage 0x40
+	resultmessage
+	waitmessage 0x40
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_FLAME_ORB, BattleScript_FlingBurn
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_FLINCH, BattleScript_FlingFlinch @ King's Rock and Razor Fang
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_LIGHT_BALL, BattleScript_FlingParalyze
@@ -381,76 +399,38 @@ BattleScript_EffectFling:
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POISON_POWER, BattleScript_FlingPoisonPoisonBarb
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TOXIC_ORB, BattleScript_FlingBadlyPoison
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_RESTORE_STATS, BattleScript_FlingWhiteHerb @ White Herb
-BattleScript_FlingHit:
-	attackcanceler
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
-	attackstring
-	ppreduce
-	critcalc
-	damagecalc
-	adjustdamage
-	attackanimation
-	waitanimation
-	effectivenesssound
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	critmessage
-	waitmessage 0x40
-	resultmessage
-	waitmessage 0x40
+BattleScript_FlingEnd:
 	tryfaintmon BS_TARGET, FALSE, NULL
 	removeitem BS_ATTACKER
 	goto BattleScript_MoveEnd
 BattleScript_FlingBurn:
 	setmoveeffect MOVE_EFFECT_BURN
 	seteffectprimary
-	goto BattleScript_FlingHit
+	goto BattleScript_FlingEnd
 BattleScript_FlingFlinch:
 	setmoveeffect MOVE_EFFECT_FLINCH
 	seteffectprimary
-	goto BattleScript_FlingHit
+	goto BattleScript_FlingEnd
 BattleScript_FlingParalyze:
 	setmoveeffect MOVE_EFFECT_PARALYSIS
 	seteffectprimary
-	goto BattleScript_FlingHit
+	goto BattleScript_FlingEnd
 BattleScript_FlingMentalHerb:
-	attackcanceler
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
-	attackstring
-	ppreduce
-	critcalc
-	damagecalc
-	adjustdamage
-	attackanimation
-	waitanimation
-	effectivenesssound
-	hitanimation BS_TARGET
-	waitstate
-	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
-	critmessage
-	waitmessage 0x40
-	resultmessage
-	waitmessage 0x40
-	tryfaintmon BS_TARGET, FALSE, NULL
 	curemovebindingeffects BS_TARGET
-	printstring STRINGID_GOTOVERINFATUATION
+	printstring STRINGID_TARGETGOTOVERINFATUATION
 	waitmessage 0x40
-	removeitem BS_ATTACKER
-	goto BattleScript_MoveEnd
+	goto BattleScript_FlingEnd
 BattleScript_FlingPoisonPoisonBarb:
 	setmoveeffect MOVE_EFFECT_POISON
 	seteffectprimary
-	goto BattleScript_FlingHit
+	goto BattleScript_FlingEnd
 BattleScript_FlingBadlyPoison:
 	setmoveeffect MOVE_EFFECT_TOXIC
 	seteffectprimary
-	goto BattleScript_FlingHit
+	goto BattleScript_FlingEnd
 BattleScript_FlingWhiteHerb:
 @	To do.
-	goto BattleScript_FlingHit
+	goto BattleScript_FlingEnd
 
 BattleScript_EffectSleepHit:
 	setmoveeffect MOVE_EFFECT_SLEEP
