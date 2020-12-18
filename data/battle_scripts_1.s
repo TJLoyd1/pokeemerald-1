@@ -377,6 +377,10 @@ BattleScript_EffectFling:
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
+	pause 0x20
+	setlastuseditem BS_ATTACKER
+	printstring STRINGID_PKMNFLUNG
+	waitmessage 0x20
 	ppreduce
 	critcalc
 	damagecalc
@@ -416,9 +420,8 @@ BattleScript_FlingParalyze:
 	seteffectprimary
 	goto BattleScript_FlingEnd
 BattleScript_FlingMentalHerb:
-	curemovebindingeffects BS_TARGET
-	printstring STRINGID_TARGETGOTOVERINFATUATION
-	waitmessage 0x40
+	curecertainstatuses BS_TARGET
+	waitmessage 0x40 @ This doesn't seem to have any effect on the STRINGID_BUFFERENDS printed by curecertainstatuses. Idk why.
 	goto BattleScript_FlingEnd
 BattleScript_FlingPoisonPoisonBarb:
 	setmoveeffect MOVE_EFFECT_POISON

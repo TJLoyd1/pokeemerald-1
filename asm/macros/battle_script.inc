@@ -1767,8 +1767,8 @@
 	.4byte \ptr
 	.endm
 	
-	.macro curemovebindingeffects battler:req
-	various \battler, VARIOUS_CURE_MOVE_BINDING_EFFECTS
+	.macro curecertainstatuses battler:req
+	various \battler, VARIOUS_CURE_CERTAIN_STATUSES
 	.endm
 	
 @ helpful macros

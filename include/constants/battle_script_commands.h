@@ -167,7 +167,7 @@
 #define VARIOUS_JUMP_IF_ABSENT                  101
 #define VARIOUS_JUMP_IF_FLING_FAILS             102
 #define VARIOUS_JUMP_IF_HOLD_EFFECT             103
-#define VARIOUS_CURE_MOVE_BINDING_EFFECTS       104
+#define VARIOUS_CURE_CERTAIN_STATUSES           104
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0
