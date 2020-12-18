@@ -8316,6 +8316,11 @@ static void Cmd_various(void)
         else
             gBattlescriptCurrInstr += 8;
         return;
+    case VARIOUS_CURE_MOVE_BINDING_EFFECTS:
+        gBattleMons[gActiveBattler].status2 = 0;
+        BtlController_EmitSetMonData(0, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gActiveBattler].status2);
+        MarkBattlerForControllerExec(gActiveBattler);
+        break;
     }
 
     gBattlescriptCurrInstr += 3;

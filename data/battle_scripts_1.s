@@ -367,7 +367,13 @@ gBattleScriptsForMoveEffects:: @ 82D86A8
 	.4byte BattleScript_EffectSleepHit
 
 BattleScript_EffectFling:
-	jumpifflingfails BS_ATTACKER, BattleScript_FlingFailed
+	jumpifword CMP_COMMON_BITS, gFieldStatuses, STATUS_FIELD_MAGIC_ROOM, BattleScript_ButItFailed
+#if B_CAN_FLING_FAIL_DUE_TO_EMBARGO <= GEN_4
+	jumpifstatus3 BS_ATTACKER, STATUS3_EMBARGO, BattleScript_ButItFailedAtkStringPpReduce
+#endif
+	jumpifability BS_ATTACKER, ABILITY_KLUTZ, BattleScript_ButItFailedAtkStringPpReduce
+	jumpifability BS_ATTACKER, ABILITY_UNNERVE, BattleScript_ButItFailedAtkStringPpReduce
+	jumpifflingfails BS_ATTACKER, BattleScript_ButItFailedAtkStringPpReduce
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_FLAME_ORB, BattleScript_FlingBurn
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_FLINCH, BattleScript_FlingFlinch @ King's Rock and Razor Fang
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_LIGHT_BALL, BattleScript_FlingParalyze
@@ -397,11 +403,6 @@ BattleScript_FlingHit:
 	tryfaintmon BS_TARGET, FALSE, NULL
 	removeitem BS_ATTACKER
 	goto BattleScript_MoveEnd
-BattleScript_FlingFailed:
-	attackcanceler
-	attackstring
-	ppreduce
-	goto BattleScript_ButItFailed
 BattleScript_FlingBurn:
 	setmoveeffect MOVE_EFFECT_BURN
 	seteffectprimary
@@ -415,8 +416,30 @@ BattleScript_FlingParalyze:
 	seteffectprimary
 	goto BattleScript_FlingHit
 BattleScript_FlingMentalHerb:
-@	To do.
-	goto BattleScript_FlingHit
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage 0x40
+	resultmessage
+	waitmessage 0x40
+	tryfaintmon BS_TARGET, FALSE, NULL
+	curemovebindingeffects BS_TARGET
+	printstring STRINGID_GOTOVERINFATUATION
+	waitmessage 0x40
+	removeitem BS_ATTACKER
+	goto BattleScript_MoveEnd
 BattleScript_FlingPoisonPoisonBarb:
 	setmoveeffect MOVE_EFFECT_POISON
 	seteffectprimary

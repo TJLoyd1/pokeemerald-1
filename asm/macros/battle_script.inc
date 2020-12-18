@@ -1767,6 +1767,10 @@
 	.4byte \ptr
 	.endm
 	
+	.macro curemovebindingeffects battler:req
+	various \battler, VARIOUS_CURE_MOVE_BINDING_EFFECTS
+	.endm
+	
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req
 	setbyte sSTATCHANGER \stat | \stages << 3 | \down << 7
