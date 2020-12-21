@@ -139,6 +139,27 @@ struct PartyMenuBox
     u8 statusSpriteId;
 };
 
+#ifdef POKEMON_EXPANSION
+struct ItemBasedForms 
+{
+    u16 item;
+    u16 oldSpecies;
+    u16 newSpecies;
+};
+
+static const struct ItemBasedForms sItemBasedForms[] = 
+{
+    {ITEM_GRACIDEA,      SPECIES_SHAYMIN,           SPECIES_SHAYMIN_SKY},
+    {ITEM_REVEAL_GLASS,  SPECIES_THUNDURUS,         SPECIES_THUNDURUS_THERIAN},
+    {ITEM_REVEAL_GLASS,  SPECIES_THUNDURUS_THERIAN, SPECIES_THUNDURUS},
+    {ITEM_REVEAL_GLASS,  SPECIES_LANDORUS,          SPECIES_LANDORUS_THERIAN},
+    {ITEM_REVEAL_GLASS,  SPECIES_LANDORUS_THERIAN,  SPECIES_LANDORUS},
+    {ITEM_REVEAL_GLASS,  SPECIES_TORNADUS,          SPECIES_TORNADUS_THERIAN},
+    {ITEM_REVEAL_GLASS,  SPECIES_TORNADUS_THERIAN,  SPECIES_TORNADUS},
+    {ITEM_PRISON_BOTTLE, SPECIES_HOOPA,             SPECIES_HOOPA_UNBOUND},
+};
+#endif
+
 // EWRAM vars
 static EWRAM_DATA struct PartyMenuInternal *sPartyMenuInternal = NULL;
 EWRAM_DATA struct PartyMenu gPartyMenu = {0};
@@ -411,7 +432,7 @@ static bool8 SetUpFieldMove_Dive(void);
 #include "data/party_menu.h"
 
 // Text string printed when changing the form of certain species like Shaymin and Giratina
-const u8 ChangedForm[] = _("{STR_VAR_1} changed Forme!{PAUSE_UNTIL_PRESS}");
+const u8 ChangedForm[] = _("{STR_VAR_1} transformed!{PAUSE_UNTIL_PRESS}");
 
 // code
 static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCursorPos, u8 messageId, TaskFunc task, MainCallback callback)
@@ -5276,70 +5297,33 @@ void ItemUseCB_EvolutionStone(u8 taskId, TaskFunc task)
 
 void ItemUseCB_FormChange(u8 taskId, TaskFunc task)
 {
+#ifdef POKEMON_EXPANSION
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
-    u16 item = gSpecialVar_ItemId;
+    u32 i;
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
     u16 forme;
     bool8 formeAvailable;
 
-    // Needed for Shaymin
-    RtcCalcLocalTime();
+    RtcCalcLocalTime(); // Needed for Shaymin.
 
-    switch (item)
+    for (i = 0; i < ARRAY_COUNT(sItemBasedForms); i++) 
     {
-    case ITEM_GRACIDEA:
-        if (species == SPECIES_SHAYMIN
-         && GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS) != STATUS1_FREEZE)
-         && (gLocalTime.hours >= 12 && gLocalTime.hours < 24))
+        const struct ItemBasedForms *formChange = &sItemBasedForms[i];
+
+        if (gSpecialVar_ItemId == formChange->item
+         && formChange->oldSpecies == species)
         {
-            forme = SPECIES_SHAYMIN_SKY;
+            if (species == SPECIES_SHAYMIN
+             && (GetAilmentFromStatus(GetMonData(mon, MON_DATA_STATUS)) == AILMENT_FRZ
+             || (gLocalTime.hours >= 0 && gLocalTime.hours < 12)))
+                break;
+            forme = formChange->newSpecies;
             formeAvailable = TRUE;
         }
-        break;
-    case ITEM_REVEAL_GLASS:
-        if (species == SPECIES_THUNDURUS)
-        {
-            forme = SPECIES_THUNDURUS_THERIAN;
-            formeAvailable = TRUE;
-        }
-        else if (species == SPECIES_TORNADUS)
-        {
-            forme = SPECIES_TORNADUS_THERIAN;
-            formeAvailable = TRUE;
-        }
-        else if (species == SPECIES_LANDORUS)
-        {
-            forme = SPECIES_LANDORUS_THERIAN;
-            formeAvailable = TRUE;
-        }
-        else if (species == SPECIES_THUNDURUS_THERIAN)
-        {
-            forme = SPECIES_THUNDURUS;
-            formeAvailable = TRUE;
-        }
-        else if (species == SPECIES_TORNADUS_THERIAN)
-        {
-            forme = SPECIES_TORNADUS;
-            formeAvailable = TRUE;
-        }
-        else if (species == SPECIES_LANDORUS_THERIAN)
-        {
-            forme = SPECIES_LANDORUS;
-            formeAvailable = TRUE;
-        }
-        break;
-    case ITEM_PRISON_BOTTLE:
-        if (species == SPECIES_HOOPA)
-        {
-            forme = SPECIES_HOOPA_UNBOUND;
-            formeAvailable = TRUE;
-        }
-        break;
     }
 
     if (formeAvailable)
     {
-        
         gPartyMenuUseExitCallback = TRUE;
         PlaySE(SE_USE_ITEM);
         PlayCry2(forme, 0, 0x7D, 0xA);
@@ -5362,6 +5346,7 @@ void ItemUseCB_FormChange(u8 taskId, TaskFunc task)
         gTasks[taskId].func = task;
         return;
     }
+#endif
 }
 
 u8 GetItemEffectType(u16 item)
