@@ -7262,11 +7262,9 @@ BattleScript_ParentalBondActivates::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
-	setmultihit 0x1
+	jumpifmovehadnoeffect BattleScript_ParentalBondEnd
 	initmultihitstring
 BattleScript_ParentalBondDoubleHitBegin:
-	movevaluescleanup
-	copyhword sMOVE_EFFECT, sMULTIHIT_EFFECT
 	critcalc
 	damagecalc
 	adjustdamage
@@ -7279,15 +7277,13 @@ BattleScript_ParentalBondDoubleHitBegin:
 	datahpupdate BS_TARGET
 	critmessage
 	waitmessage 0x40
-	multihitresultmessage
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage 0x1
-	addbyte sMULTIHIT_STRING + 4, 0x1
-	decrementmultihit BattleScript_ParentalBondDoubleHitBegin
+	addbyte sMULTIHIT_STRING + 4, 0x2
+	jumpifbyte CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_FOE_ENDURED, BattleScript_MultiHitPrintStrings
 BattleScript_ParentalBondPrintStrings:
 	resultmessage
 	waitmessage 0x40
-	jumpifmovehadnoeffect BattleScript_ParentalBondEnd
 	copyarray gBattleTextBuff1, sMULTIHIT_STRING, 0x6
 	printstring STRINGID_HITXTIMES
 	waitmessage 0x40

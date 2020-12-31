@@ -7781,9 +7781,13 @@ bool32 IsMoveAffectedByParentalBond(u8 battlerId, u16 moveId)
         target2 = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
     }
 
+    if (gCurrentMove == MOVE_STRUGGLE)
+        return FALSE;
+    else if (!gBattleMoveDamage)
+        return FALSE;
     // Check if the move hits multiple targets and if either opponent is not alive to allow a second strike to happen.
     // Necessary for moves like Earthquake or Rock Slide.
-    if (((gBattleMoves[moveId].target & MOVE_TARGET_FOES_AND_ALLY) || (gBattleMoves[moveId].target & MOVE_TARGET_BOTH))
+    else if (((gBattleMoves[moveId].target & MOVE_TARGET_FOES_AND_ALLY) || (gBattleMoves[moveId].target & MOVE_TARGET_BOTH))
      && !(IsBattlerAlive(target1) || IsBattlerAlive(BATTLE_PARTNER(target2))))
         return TRUE;
     else if (gBattleMoves[moveId].effect == EFFECT_OHKO
