@@ -786,17 +786,6 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_ZEN_MODE] = 1,
 };
 
-static const u8 sNotAffectedByParentalBond[MOVES_COUNT] =
-{
-    [MOVE_FLING] = TRUE,
-    [MOVE_SELF_DESTRUCT] = TRUE,
-    [MOVE_EXPLOSION] = TRUE,
-    [MOVE_FINAL_GAMBIT] = TRUE,
-    [MOVE_UPROAR] = TRUE,
-    [MOVE_ROLLOUT] = TRUE,
-    [MOVE_ICE_BALL] = TRUE,
-};
-
 static const u8 sHoldEffectToType[][2] =
 {
     {HOLD_EFFECT_BUG_POWER, TYPE_BUG},
@@ -4626,17 +4615,6 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 effect++;
             }
             break;
-        case ABILITY_PARENTAL_BOND:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-             && gBattleMons[gBattlerTarget].hp != 0
-             && !gProtectStructs[gBattlerTarget].confusionSelfDmg
-             && IsMoveAffectedByParentalBond(gBattlerAttacker, gCurrentMove))
-            {
-                BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_ParentalBondActivates;
-                effect++;
-            }
-            break;
         }
         break;
     case ABILITYEFFECT_MOVE_END_OTHER: // Abilities that activate on *another* battler's moveend: Dancer, Soul-Heart, Receiver, Symbiosis
@@ -7764,44 +7742,6 @@ bool32 CanBattlerGetOrLoseItem(u8 battlerId, u16 itemId)
         return FALSE;
     else
         return TRUE;
-}
-
-bool32 IsMoveAffectedByParentalBond(u8 battlerId, u16 moveId)
-{
-    u8 target1, target2;
-
-    if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
-    {
-        target1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-        target2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
-    }
-    else
-    {
-        target1 = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-        target2 = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
-    }
-
-    if (gCurrentMove == MOVE_STRUGGLE)
-        return FALSE;
-    else if (!gBattleMoveDamage)
-        return FALSE;
-    // Check if the move hits multiple targets and if either opponent is not alive to allow a second strike to happen.
-    // Necessary for moves like Earthquake or Rock Slide.
-    else if (((gBattleMoves[moveId].target & MOVE_TARGET_FOES_AND_ALLY) || (gBattleMoves[moveId].target & MOVE_TARGET_BOTH))
-     && !(IsBattlerAlive(target1) || IsBattlerAlive(BATTLE_PARTNER(target2))))
-        return TRUE;
-    else if (gBattleMoves[moveId].effect == EFFECT_OHKO
-     || gBattleMoves[moveId].effect == EFFECT_DOUBLE_HIT
-     || gBattleMoves[moveId].effect == EFFECT_TRIPLE_KICK
-     || gBattleMoves[moveId].effect == EFFECT_MULTI_HIT
-     || gBattleMoves[moveId].effect == EFFECT_SEMI_INVULNERABLE
-     || gBattleMoves[moveId].effect == EFFECT_SOLARBEAM
-     || gBattleMoves[moveId].effect == EFFECT_ENDEAVOR)
-        return FALSE;
-    else if (sNotAffectedByParentalBond[moveId])
-        return FALSE;
-
-    return TRUE;
 }
 
 struct Pokemon *GetIllusionMonPtr(u32 battlerId)

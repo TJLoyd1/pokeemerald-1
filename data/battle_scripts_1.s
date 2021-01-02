@@ -2057,6 +2057,8 @@ BattleScript_HitFromAccCheck::
 BattleScript_HitFromAtkString::
 	attackstring
 	ppreduce
+BattleScript_AbilityRedirect::
+	jumpifability BS_ATTACKER, ABILITY_PARENTAL_BOND, BattleScript_ParentalBondActivates
 BattleScript_HitFromCritCalc::
 	critcalc
 	damagecalc
@@ -7257,7 +7259,7 @@ BattleScript_AbilityStatusEffect::
 	seteffectsecondary
 	return
 
-BattleScript_ParentalBondActivates::
+BattleScript_ParentalBondActivates:
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
@@ -7279,8 +7281,21 @@ BattleScript_ParentalBondDoubleHitBegin:
 	waitmessage 0x40
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage 0x1
-	addbyte sMULTIHIT_STRING + 4, 0x2
 	jumpifbyte CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_FOE_ENDURED, BattleScript_MultiHitPrintStrings
+BattleScript_ParentalBondSecondImpact:
+	critcalc
+	damagecalc
+	adjustdamage
+	hitanimation BS_TARGET
+	effectivenesssound
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage 0x40
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 0x1
+	addbyte sMULTIHIT_STRING + 4, 0x2
 BattleScript_ParentalBondPrintStrings:
 	resultmessage
 	waitmessage 0x40

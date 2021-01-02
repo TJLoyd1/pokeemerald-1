@@ -1165,6 +1165,55 @@ static const u8 sBattlePalaceNatureToFlavorTextId[NUM_NATURES] =
     [NATURE_QUIRKY]  = 3,
 };
 
+static const u8 sNotAffectedByParentalBond[MOVES_COUNT] =
+{
+    [MOVE_FLING] = TRUE,
+    [MOVE_SELF_DESTRUCT] = TRUE,
+    [MOVE_EXPLOSION] = TRUE,
+    [MOVE_FINAL_GAMBIT] = TRUE,
+    [MOVE_UPROAR] = TRUE,
+    [MOVE_ROLLOUT] = TRUE,
+    [MOVE_ICE_BALL] = TRUE,
+};
+
+bool32 IsMoveAffectedByParentalBond(u8 battlerId, u16 moveId)
+{
+    u8 target1, target2;
+
+    if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+    {
+        target1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        target2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+    }
+    else
+    {
+        target1 = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+        target2 = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
+    }
+
+    if (gCurrentMove == MOVE_STRUGGLE)
+        return FALSE;
+    else if (!gBattleMoveDamage)
+        return FALSE;
+    // Check if the move hits multiple targets and if either opponent is not alive to allow a second strike to happen.
+    // Necessary for moves like Earthquake or Rock Slide.
+    else if (((gBattleMoves[moveId].target & MOVE_TARGET_FOES_AND_ALLY) || (gBattleMoves[moveId].target & MOVE_TARGET_BOTH))
+     && !(IsBattlerAlive(target1) || IsBattlerAlive(BATTLE_PARTNER(target2))))
+        return TRUE;
+    else if (gBattleMoves[moveId].effect == EFFECT_OHKO
+     || gBattleMoves[moveId].effect == EFFECT_DOUBLE_HIT
+     || gBattleMoves[moveId].effect == EFFECT_TRIPLE_KICK
+     || gBattleMoves[moveId].effect == EFFECT_MULTI_HIT
+     || gBattleMoves[moveId].effect == EFFECT_SEMI_INVULNERABLE
+     || gBattleMoves[moveId].effect == EFFECT_SOLARBEAM
+     || gBattleMoves[moveId].effect == EFFECT_ENDEAVOR)
+        return FALSE;
+    else if (sNotAffectedByParentalBond[moveId])
+        return FALSE;
+
+    return TRUE;
+}
+
 bool32 IsBattlerProtected(u8 battlerId, u16 move)
 {
     if (!(gBattleMoves[move].flags & FLAG_PROTECT_AFFECTED))
@@ -8303,6 +8352,12 @@ static void Cmd_various(void)
     case VARIOUS_DESTROY_ABILITY_POPUP:
         DestroyAbilityPopUp(gActiveBattler);
         break;
+    case VARIOUS_JUMP_IF_MOVE_PARENTAL_BOND_UNAFFECTED:
+        if (!IsMoveAffectedByParentalBond(gBattlerAttacker, gCurrentMove))
+            gBattlescriptCurrInstr += 7;
+        else
+            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+        return;
     }
 
     gBattlescriptCurrInstr += 3;
