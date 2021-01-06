@@ -8304,9 +8304,12 @@ static void Cmd_various(void)
     #ifdef ITEM_EXPANSION
         if (ItemId_GetFlingPower(gBattleMons[gActiveBattler].item) == 0)
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
-    #endif
         else if (CanBattlerGetOrLoseItem(gActiveBattler, gBattleMons[gActiveBattler].item) == FALSE)
             gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+    #else
+        if (CanBattlerGetOrLoseItem(gActiveBattler, gBattleMons[gActiveBattler].item) == FALSE)
+            gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+    #endif
         else
             gBattlescriptCurrInstr += 7;
         return;
