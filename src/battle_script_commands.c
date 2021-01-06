@@ -8393,6 +8393,13 @@ static void Cmd_various(void)
         }
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 7);
         return;
+    case VARIOUS_TRY_RESET_NEGATIVE_STAT_STAGES:
+        gActiveBattler = gBattlerTarget;
+        for (i = 0; i < NUM_BATTLE_STATS; i++)
+            if (gBattleMons[gActiveBattler].statStages[i] < DEFAULT_STAT_STAGE)
+                gBattleMons[gActiveBattler].statStages[i] = DEFAULT_STAT_STAGE;
+        gBattlescriptCurrInstr += 3;
+        return;
     }
 
     gBattlescriptCurrInstr += 3;

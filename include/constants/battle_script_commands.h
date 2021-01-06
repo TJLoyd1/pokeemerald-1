@@ -168,6 +168,7 @@
 #define VARIOUS_JUMP_IF_FLING_FAILS             102
 #define VARIOUS_JUMP_IF_HOLD_EFFECT             103
 #define VARIOUS_CURE_CERTAIN_STATUSES           104
+#define VARIOUS_TRY_RESET_NEGATIVE_STAT_STAGES  105
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0

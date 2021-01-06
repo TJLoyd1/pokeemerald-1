@@ -396,18 +396,18 @@ BattleScript_EffectFling:
 	waitmessage 0x40
 	resultmessage
 	waitmessage 0x40
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_FLAME_ORB, BattleScript_FlingBurn
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_FLAME_ORB, BattleScript_FlingFlameOrb
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_FLINCH, BattleScript_FlingFlinch @ King's Rock and Razor Fang
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_LIGHT_BALL, BattleScript_FlingParalyze
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_LIGHT_BALL, BattleScript_FlingLightBall
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_CURE_ATTRACT, BattleScript_FlingMentalHerb
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POISON_POWER, BattleScript_FlingPoisonPoisonBarb
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TOXIC_ORB, BattleScript_FlingBadlyPoison
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_RESTORE_STATS, BattleScript_FlingWhiteHerb @ White Herb
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POISON_POWER, BattleScript_FlingPoisonBarb
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_TOXIC_ORB, BattleScript_FlingToxicOrb
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_RESTORE_STATS, BattleScript_FlingWhiteHerb
 BattleScript_FlingEnd:
 	tryfaintmon BS_TARGET, FALSE, NULL
 	removeitem BS_ATTACKER
 	goto BattleScript_MoveEnd
-BattleScript_FlingBurn:
+BattleScript_FlingFlameOrb:
 	setmoveeffect MOVE_EFFECT_BURN
 	seteffectprimary
 	goto BattleScript_FlingEnd
@@ -415,23 +415,27 @@ BattleScript_FlingFlinch:
 	setmoveeffect MOVE_EFFECT_FLINCH
 	seteffectprimary
 	goto BattleScript_FlingEnd
-BattleScript_FlingParalyze:
+BattleScript_FlingLightBall:
 	setmoveeffect MOVE_EFFECT_PARALYSIS
 	seteffectprimary
 	goto BattleScript_FlingEnd
 BattleScript_FlingMentalHerb:
 	curecertainstatuses BS_TARGET
 	goto BattleScript_FlingEnd
-BattleScript_FlingPoisonPoisonBarb:
+BattleScript_FlingPoisonBarb:
 	setmoveeffect MOVE_EFFECT_POISON
 	seteffectprimary
 	goto BattleScript_FlingEnd
-BattleScript_FlingBadlyPoison:
+BattleScript_FlingToxicOrb:
 	setmoveeffect MOVE_EFFECT_TOXIC
 	seteffectprimary
 	goto BattleScript_FlingEnd
 BattleScript_FlingWhiteHerb:
-@	To do.
+	tryresetnegativestatstages BS_TARGET
+	swapattackerwithtarget
+	printstring STRINGID_PKMNSTATUSNORMAL
+	waitmessage 0x40
+	swapattackerwithtarget
 	goto BattleScript_FlingEnd
 
 BattleScript_EffectSleepHit:
