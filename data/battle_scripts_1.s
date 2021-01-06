@@ -421,7 +421,6 @@ BattleScript_FlingParalyze:
 	goto BattleScript_FlingEnd
 BattleScript_FlingMentalHerb:
 	curecertainstatuses BS_TARGET
-	waitmessage 0x40 @ This doesn't seem to have any effect on the STRINGID_BUFFERENDS printed by curecertainstatuses. Idk why.
 	goto BattleScript_FlingEnd
 BattleScript_FlingPoisonPoisonBarb:
 	setmoveeffect MOVE_EFFECT_POISON

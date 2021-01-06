@@ -8366,15 +8366,30 @@ static void Cmd_various(void)
         {
             gDisableStructs[gActiveBattler].encoredMove = 0;
             gDisableStructs[gActiveBattler].encoreTimer = 0;
+            // Swap gBattlerTarget and gBattlerAttacker so STRINGID_BUFFERENDS works correctly
+            gActiveBattler = gBattlerAttacker;
+            gBattlerAttacker = gBattlerTarget;
+            gBattlerTarget = gActiveBattler;
+            gHitMarker |= HITMARKER_SWAP_ATTACKER_TARGET;
             PrepareStringBattle(STRINGID_PKMNENCOREENDED, gActiveBattler);
             gBattleCommunication[MSG_DISPLAY] = 1;
+            // Swap gBattlerTarget and gBattlerAttacker back
+            if (gHitMarker & HITMARKER_SWAP_ATTACKER_TARGET)
+                gHitMarker &= ~(HITMARKER_SWAP_ATTACKER_TARGET);
         }
         else if (gDisableStructs[gActiveBattler].disableTimer)
         {
             gDisableStructs[gActiveBattler].disabledMove = 0;
-            gActiveBattler = gActiveBattler;
-            PrepareStringBattle(STRINGID_PKMNMOVEDISABLEDNOMORE, gActiveBattler);
+            // Swap gBattlerTarget and gBattlerAttacker so STRINGID_BUFFERENDS works correctly
+            gActiveBattler = gBattlerAttacker;
+            gBattlerAttacker = gBattlerTarget;
+            gBattlerTarget = gActiveBattler;
+            gHitMarker |= HITMARKER_SWAP_ATTACKER_TARGET;
+            PrepareStringBattle(STRINGID_PKMNMOVEDISABLEDNOMORE, gBattlerTarget);
             gBattleCommunication[MSG_DISPLAY] = 1;
+            // Swap gBattlerTarget and gBattlerAttacker back
+            if (gHitMarker & HITMARKER_SWAP_ATTACKER_TARGET)
+                gHitMarker &= ~(HITMARKER_SWAP_ATTACKER_TARGET);
         }
         gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 7);
         return;
