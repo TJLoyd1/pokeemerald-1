@@ -3,6 +3,7 @@
 
 #include "constants/pokemon.h"
 #include "sprite.h"
+#include "constants/map_groups.h"
 
 struct PokemonSubstruct0
 {
@@ -234,6 +235,7 @@ struct Evolution
 {
     u16 method;
     u16 param;
+    u16 param2;
     u16 targetSpecies;
 };
 
