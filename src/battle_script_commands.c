@@ -9563,6 +9563,12 @@ static void Cmd_pickup(void)
                         break;
                     }
                 }
+
+                gActiveBattler = 0;
+                gLastUsedItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+                PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gActiveBattler, gBattlerPartyIndexes[gActiveBattler]);
+                PREPARE_ITEM_BUFFER(gBattleTextBuff2, gLastUsedItem);
+                PrepareStringBattle(STRINGID_PICKUPREWARD, 0);
             }
         }
     }

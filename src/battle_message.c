@@ -502,6 +502,7 @@ static const u8 sText_ItemAllowsOnlyYMove[] = _("{B_LAST_ITEM} allows the\nuse o
 static const u8 sText_PkmnHungOnWithX[] = _("{B_DEF_NAME_WITH_PREFIX} hung on\nusing its {B_LAST_ITEM}!");
 const u8 gText_EmptyString3[] = _("");
 static const u8 sText_YouThrowABallNowRight[] = _("You throw a BALL now, right?\nI… I'll do my best!");
+static const u8 sText_PickupReward[] = _("{B_BUFF1} picked up {B_BUFF2}!\p");
 
 // early declaration of strings
 static const u8 sText_PkmnIncapableOfPower[];
@@ -521,6 +522,7 @@ static const u8 sText_Trainer2LoseText[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_PICKUPREWARD - 12] = sText_PickupReward,
     [STRINGID_TRAINER1LOSETEXT - 12] = sText_Trainer1LoseText,
     [STRINGID_PKMNGAINEDEXP - 12] = sText_PkmnGainedEXP,
     [STRINGID_PKMNGREWTOLV - 12] = sText_PkmnGrewToLv,
