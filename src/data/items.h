@@ -1621,8 +1621,8 @@ const struct Item gItems[] =
         .holdEffectParam = 0,
         .description = sRedNectarDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Placeholder
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_FormChange,
         .secondaryId = 0,
     },
 
@@ -1634,8 +1634,8 @@ const struct Item gItems[] =
         .holdEffectParam = 0,
         .description = sYellowNectarDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Placeholder
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_FormChange,
         .secondaryId = 0,
     },
 
@@ -1647,8 +1647,8 @@ const struct Item gItems[] =
         .holdEffectParam = 0,
         .description = sPinkNectarDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Placeholder
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_FormChange,
         .secondaryId = 0,
     },
 
@@ -1660,8 +1660,8 @@ const struct Item gItems[] =
         .holdEffectParam = 0,
         .description = sPurpleNectarDesc,
         .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Placeholder
+        .type = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_FormChange,
         .secondaryId = 0,
     },
 
