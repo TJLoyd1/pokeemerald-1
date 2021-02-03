@@ -2987,38 +2987,12 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         personality = Random32();
 
     //Determine original trainer ID
-    if (otIdType == OT_ID_RANDOM_NO_SHINY) //Pokemon cannot be shiny
     SetBoxMonData(boxMon, MON_DATA_PERSONALITY, &personality);
 
     switch (otIdType)
     {
         case OT_ID_SHINY:
         {
-            value = Random32();
-            shinyValue = HIHALF(value) ^ LOHALF(value) ^ HIHALF(personality) ^ LOHALF(personality);
-        } while (shinyValue < SHINY_ODDS);
-    }
-    else if (otIdType == OT_ID_PRESET) //Pokemon has a preset OT ID
-    {
-        value = fixedOtId;
-    }
-    else //Player is the OT
-    {
-        value = gSaveBlock2Ptr->playerTrainerId[0]
-              | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
-              | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
-              | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
-        
-        if (CheckBagHasItem(ITEM_SHINY_CHARM, 1))
-        {
-            u32 shinyValue;
-            u32 rolls = 0;
-            do
-            {
-                personality = Random32();
-                shinyValue = HIHALF(value) ^ LOHALF(value) ^ HIHALF(personality) ^ LOHALF(personality);
-                rolls++;
-            } while (shinyValue >= SHINY_ODDS && rolls < I_SHINY_CHARM_REROLLS);
             u32 shinyValue = 0;
             do
             {
@@ -3052,7 +3026,6 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
                  | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
                  | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
 
-#ifdef ITEM_SHINY_CHARM
             if (CheckBagHasItem(ITEM_SHINY_CHARM, 1))
             {
                 u32 shinyValue;
@@ -3064,7 +3037,6 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
                     rolls++;
                 } while (shinyValue >= SHINY_ODDS && rolls < I_SHINY_CHARM_REROLLS);
             }
-#endif
         }
     }
 
