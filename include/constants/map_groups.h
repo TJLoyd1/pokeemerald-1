@@ -1,10 +1,6 @@
 #ifndef GUARD_CONSTANTS_MAP_GROUPS_H
 #define GUARD_CONSTANTS_MAP_GROUPS_H
 
-//
-// DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/map_groups.json
-//
-
 // Map Group 0
 #define MAP_PETALBURG_CITY      (0 | (0 << 8))
 #define MAP_SLATEPORT_CITY      (1 | (0 << 8))
@@ -70,6 +66,8 @@
 #define MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F        (2 | (1 << 8))
 #define MAP_LITTLEROOT_TOWN_MAYS_HOUSE_2F        (3 | (1 << 8))
 #define MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (4 | (1 << 8))
+#define MAP_LITTLEROOT_TOWN_BERRY_HOUSE          (5 | (1 << 8))
+#define MAP_LITTLEROOT_TOWN_POTION_HOUSE         (6 | (1 << 8))
 
 // Map Group 2
 #define MAP_OLDALE_TOWN_HOUSE1            (0 | (2 << 8))

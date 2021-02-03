@@ -24,8 +24,8 @@ Route101_EventScript_StartBirchRescue:: @ 81EBCDE
 	playbgm MUS_HELP, 1
 	msgbox Route101_Text_HelpMe, MSGBOX_DEFAULT
 	closemessage
-	setobjectxy LOCALID_BIRCH, 0, 15
-	setobjectxy LOCALID_ZIGZAGOON, 0, 16
+	setobjectxy LOCALID_BIRCH, 9, 31
+	setobjectxy LOCALID_ZIGZAGOON, 9, 32
 	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_EnterScene
 	applymovement LOCALID_BIRCH, Route101_Movement_BirchRunAway1
 	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonChase1
@@ -225,7 +225,7 @@ Route101_EventScript_BirchsBag:: @ 81EBE16
 	setflag FLAG_RESCUED_BIRCH
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_ZIGZAGOON
-	setobjectxy OBJ_EVENT_ID_PLAYER, 6, 13
+	setobjectxy OBJ_EVENT_ID_PLAYER, 15, 29
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	special ChooseStarter
@@ -263,42 +263,42 @@ Route101_Movement_BirchApproachPlayer: @ 81EBE8D
 	step_end
 
 Route101_Text_HelpMe: @ 81EBE8F
-	.string "H-help me!$"
+	.string "G-God Damnit!$"
 
 Route101_Text_PleaseHelp: @ 81EBE9A
-	.string "Hello! You over there!\n"
-	.string "Please! Help!\p"
+	.string "Hey! You over there!\n"
+	.string "Help me get this damn Zigzagoon!\p"
 	.string "In my BAG!\n"
-	.string "There's a POKé BALL!$"
+	.string "There's a Poké Ball!$"
 
 Route101_Text_DontLeaveMe: @ 81EBEDF
 	.string "Wh-Where are you going?!\n"
 	.string "Don't leave me like this!$"
 
 Route101_Text_YouSavedMe: @ 81EBF12
-	.string "PROF. BIRCH: Whew…\p"
+	.string "Prof. Acacia: Whew…\p"
 	.string "I was in the tall grass studying wild\n"
-	.string "POKéMON when I was jumped.\p"
+	.string "Pokémon when I was jumped.\p"
 	.string "You saved me.\n"
-	.string "Thanks a lot!\p"
+	.string "Thanks a bunch!\p"
 	.string "Oh?\p"
 	.string "Hi, you're {PLAYER}{KUN}!\p"
 	.string "This is not the place to chat, so come\n"
-	.string "by my POKéMON LAB later, okay?$"
+	.string "with me to my Pokémon Lab, okay?$"
 
 Route101_Text_TakeTiredPokemonToPokeCenter: @ 81EBFDD
-	.string "If POKéMON get tired, take them to\n"
-	.string "a POKéMON CENTER.\p"
-	.string "There's a POKéMON CENTER in OLDALE\n"
-	.string "TOWN right close by.$"
+	.string "If Pokémon get tired, take them to\n"
+	.string "a Pokémon Center.\p"
+	.string "There's a Pokémon Center in Oldale\n"
+	.string "Town right close by.$"
 
 Route101_Text_WildPokemonInTallGrass: @ 81EC04A
-	.string "Wild POKéMON will jump out at you in\n"
+	.string "Wild Pokémon will jump out at you in\n"
 	.string "tall grass.\p"
-	.string "If you want to catch POKéMON, you have\n"
+	.string "If you want to catch Pokémon, you have\n"
 	.string "to go into the tall grass and search.$"
 
 Route101_Text_RouteSign: @ 81EC0C8
-	.string "ROUTE 101\n"
-	.string "{UP_ARROW} OLDALE TOWN$"
+	.string "Route 101\n"
+	.string "{UP_ARROW} Oldale Town$"
 
