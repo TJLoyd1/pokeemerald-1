@@ -231,6 +231,7 @@ EWRAM_DATA u16 gPartnerSpriteId = 0;
 EWRAM_DATA struct TotemBoost gTotemBoosts[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA bool8 gHasFetchedBall = FALSE;
 EWRAM_DATA u8 gLastUsedBall = 0;
+EWRAM_DATA bool8 gActivateQuickClaw = FALSE;
 
 // IWRAM common vars
 void (*gPreBattleCallback1)(void);
@@ -2891,6 +2892,7 @@ static void BattleStartClearSetData(void)
 
     gHasFetchedBall = FALSE;
     gLastUsedBall = 0;
+    gActivateQuickClaw = FALSE;
 
     gBattlerAttacker = 0;
     gBattlerTarget = 0;
@@ -4351,13 +4353,19 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     holdEffectBattler1 = GetBattlerHoldEffect(battler1, TRUE);
     if (holdEffectBattler1 == HOLD_EFFECT_QUICK_CLAW
         && gRandomTurnNumber < (0xFFFF * GetBattlerHoldEffectParam(battler1)) / 100)
+    {
         quickClawBattler1 = TRUE;
+        gActivateQuickClaw = TRUE;
+    }
 
     speedBattler2 = GetBattlerTotalSpeedStat(battler2);
     holdEffectBattler2 = GetBattlerHoldEffect(battler2, TRUE);
     if (holdEffectBattler2 == HOLD_EFFECT_QUICK_CLAW
         && gRandomTurnNumber < (0xFFFF * GetBattlerHoldEffectParam(battler2)) / 100)
+    {
         quickClawBattler2 = TRUE;
+        gActivateQuickClaw = TRUE;
+    }
 
     if (!ignoreChosenMoves)
     {

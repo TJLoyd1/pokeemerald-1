@@ -6018,6 +6018,20 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
             }
             break;
         }
+    case ITEMEFFECT_ATTACKER: // Effects that trigger before the gBattlerAttacker uses a move
+        switch (GetBattlerHoldEffect(gBattlerAttacker, FALSE))
+        {
+        case HOLD_EFFECT_QUICK_CLAW:
+            if (gActivateQuickClaw)
+            {
+                effect = ITEM_EFFECT_OTHER;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_QuickClaw;
+                gActivateQuickClaw = FALSE;
+                RecordItemEffectBattle(battlerId, battlerHoldEffect);
+            }
+            break;
+        }
 
         if (effect == ITEM_STATUS_CHANGE)
         {

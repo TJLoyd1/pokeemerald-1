@@ -1286,6 +1286,10 @@ static void Cmd_attackcanceler(void)
         return;
     }
 
+    // Check potential item effects
+    if (ItemBattleEffects(ITEMEFFECT_ATTACKER, gBattlerAttacker, TRUE))
+        return;
+
     if (AtkCanceller_UnableToUseMove2())
         return;
     if (AbilityBattleEffects(ABILITYEFFECT_MOVES_BLOCK, gBattlerTarget, 0, 0, 0))
