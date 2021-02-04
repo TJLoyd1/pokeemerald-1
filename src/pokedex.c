@@ -43,6 +43,9 @@
 #ifdef BATTLE_ENGINE
 #include "battle_util.h"
 #endif
+#ifdef POKEMON_EXPANSION
+#include "region_map.h"
+#endif
 
 enum
 {
