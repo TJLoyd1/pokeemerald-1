@@ -3657,15 +3657,26 @@ static void Cmd_getexp(void)
                 calculatedExp = gBaseStats[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
             #endif
 
-            calculatedExp = gBaseStats[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
+            #if B_SPLIT_EXP < GEN_6
+                if (viaExpShare) // at least one mon is getting exp via exp share
+                {
+                    *exp = calculatedExp / 2 / viaSentIn;
+                    if (*exp == 0)
+                        *exp = 1;
 
-            if (gSaveBlock2Ptr->expShare) // exp share is turned on
-            {
-                *exp = calculatedExp / 2 / viaSentIn;
-                if (*exp == 0)
-                    *exp = 1;
-
-                viaExpShare = gSaveBlock1Ptr->playerPartyCount;
+                    gExpShareExp = calculatedExp / 2 / viaExpShare;
+                    if (gExpShareExp == 0)
+                        gExpShareExp = 1;
+                }
+                else
+                {
+                    *exp = calculatedExp / viaSentIn;
+                    if (*exp == 0)
+                        *exp = 1;
+                    gExpShareExp = 0;
+                }
+            #else
+                *exp = calculatedExp;
                 gExpShareExp = calculatedExp / 2;
                 if (gExpShareExp == 0)
                     gExpShareExp = 1;
@@ -3719,7 +3730,8 @@ static void Cmd_getexp(void)
                     else
                         gBattleMoveDamage = 0;
 
-                    if (gSaveBlock2Ptr->expShare)
+                    // only give exp share bonus in later gens if the mon wasn't sent out
+                    if ((holdEffect == HOLD_EFFECT_EXP_SHARE) && ((gBattleMoveDamage == 0) || (B_SPLIT_EXP < GEN_6)))
                         gBattleMoveDamage += gExpShareExp;
                     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
