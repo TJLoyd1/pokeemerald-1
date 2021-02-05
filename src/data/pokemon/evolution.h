@@ -77,7 +77,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_EXEGGCUTE]             = {{EVO_ITEM, ITEM_LEAF_STONE, SPECIES_EXEGGUTOR},
                                        {EVO_ITEM_ALOLA, ITEM_LEAF_STONE, SPECIES_EXEGGUTOR_ALOLAN}},
     [SPECIES_CUBONE]                = {{EVO_LEVEL, 28, SPECIES_MAROWAK},
-                                       {EVO_LEVEL_NIGHT_ALOLA, 28, SPECIES_ALOLAN_MAROWAK}}
+                                       {EVO_LEVEL_NIGHT_ALOLA, 28, SPECIES_MAROWAK_ALOLAN}},
     [SPECIES_LICKITUNG]             = {{EVO_MOVE, MOVE_ROLLOUT, SPECIES_LICKILICKY}},
     [SPECIES_KOFFING]               = {{EVO_LEVEL, 35, SPECIES_WEEZING}},
     [SPECIES_RHYHORN]               = {{EVO_LEVEL, 42, SPECIES_RHYDON}},
