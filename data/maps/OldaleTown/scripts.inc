@@ -25,12 +25,16 @@ OldaleTown_EventScript_BlockWestEntrance:: @ 81E8ED2
 	return
 
 OldaleTown_EventScript_MoveMartEmployee:: @ 81E8EDE
-	setobjectxyperm LOCALID_MART_EMPLOYEE, 13, 14
+	setobjectxyperm LOCALID_MART_EMPLOYEE, 11, 19
 	setobjectmovementtype LOCALID_MART_EMPLOYEE, MOVEMENT_TYPE_FACE_DOWN
 	return
 
 OldaleTown_EventScript_CitySign:: @ 81E8EEA
 	msgbox OldaleTown_Text_CitySign, MSGBOX_SIGN
+	end
+
+OldaleTown_EventScript_TradeSign::
+	msgbox OldaleTown_Text_TradeSign, MSGBOX_SIGN
 	end
 
 OldaleTown_EventScript_Girl:: @ 81E8EF3
@@ -98,35 +102,51 @@ OldaleTown_EventScript_BagIsFull:: @ 81E8FC3
 OldaleTown_Movement_EmployeeEast: @ 81E8FCE
 	walk_up
 	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_up
 	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_in_place_fastest_down
 	step_end
 
 OldaleTown_Movement_EmployeeSouth: @ 81E8FD7
-	walk_left
-	walk_up
-	walk_up
 	walk_right
 	walk_up
 	walk_up
+	walk_right
+	walk_right
+	walk_right
 	walk_up
 	walk_up
-	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_in_place_fastest_down
 	step_end
 
 OldaleTown_Movement_EmployeeNorth: @ 81E8FE2
 	walk_up
 	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_up
 	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_in_place_fastest_down
 	step_end
 
@@ -147,13 +167,19 @@ OldaleTown_Movement_Unknown1: @ 81E8FEB
 	step_end
 
 OldaleTown_Movement_PlayerEast: @ 81E8FF9
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
 	walk_right
 	walk_up
 	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
 OldaleTown_Movement_PlayerSouth: @ 81E9001
@@ -161,21 +187,35 @@ OldaleTown_Movement_PlayerSouth: @ 81E9001
 	delay_16
 	delay_16
 	delay_16
+	walk_right
 	walk_up
 	walk_up
+	walk_right
+	walk_right
+	walk_right
 	walk_up
 	walk_up
-	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
 OldaleTown_Movement_PlayerNorth: @ 81E900B
 	walk_up
 	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_up
 	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
 OldaleTown_Movement_Unknown2: @ 81E9013
@@ -404,4 +444,9 @@ OldaleTown_Text_BrendanLetsGoBack: @ 81E948A
 OldaleTown_Text_CitySign: @ 81E94DA
 	.string "OLDALE TOWN\n"
 	.string "“Where things start off scarce.”$"
+
+OldaleTown_Text_TradeSign:
+	.string "Self-Trade Guy\n"
+	.string "“He has the power of Arceus and Anime\l"
+	.string "on his side.”$"
 

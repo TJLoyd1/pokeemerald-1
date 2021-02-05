@@ -1064,3 +1064,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/LittlerootTown_BerryHouse/scripts.inc"
 
 	.include "data/maps/LittlerootTown_PotionHouse/scripts.inc"
+
+	.include "data/maps/OldaleGrotto/scripts.inc"
