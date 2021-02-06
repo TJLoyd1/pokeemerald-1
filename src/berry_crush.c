@@ -1004,6 +1004,9 @@ static void ParseName_Options(struct BerryCrushGame *arg0)
     case OPTIONS_TEXT_SPEED_FAST:
         arg0->textSpeed = 1;
         break;
+    case OPTIONS_TEXT_SPEED_INSTANT:
+        arg0->textSpeed = 1;
+        break;
     }
 }
 
