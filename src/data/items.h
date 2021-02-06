@@ -7569,4 +7569,16 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 255  //signature z move
     },
+
+    [ITEM_ROTOM_CATALOG] =
+    {
+        .name = _("Rotom Catalog"),
+        .itemId = ITEM_ROTOM_CATALOG,
+        .price = 0,
+        .description = sRotomCatalogDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_RotomCatalog,
+    },
 };

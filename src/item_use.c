@@ -1153,4 +1153,12 @@ void ItemUseOutOfBattle_CannotUse(u8 taskId)
     DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
 }
 
+void ItemUseOutOfBattle_RotomCatalog(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    ChoosePartyMon();
+    ScriptContext2_Enable();
+    ScriptContext1_SetupScript(ItemScript_RotomCatalog);
+}
+
 #undef tUsingRegisteredKeyItem

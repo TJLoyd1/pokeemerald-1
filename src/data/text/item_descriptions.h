@@ -3008,3 +3008,8 @@ static const u8 sUltranecroziumZDesc[] = _(
     "A crystal to turn\n"
     "fused Necrozma\n"
     "into a new form.");
+
+static const u8 sRotomCatalogDesc[] = _(
+    "A catalog of many\n"
+    "devices that Rotom\n"
+    "like.");
