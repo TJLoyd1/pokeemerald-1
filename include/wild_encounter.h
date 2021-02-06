@@ -34,6 +34,10 @@ extern bool8 gIsSurfingEncounter;
 
 extern const struct WildPokemonHeader gWildMonHeaders[];
 
+//RAM
+extern u8 gChainFishingStreak;
+extern bool8 gIsFishingEncounter;
+
 void DisableWildEncounters(bool8 disabled);
 bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavior);
 void ScrSpecial_RockSmashWildEncounter(void);
