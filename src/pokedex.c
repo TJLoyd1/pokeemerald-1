@@ -1637,6 +1637,7 @@ void ResetPokedex(void)
     DisableNationalPokedex();
     for (i = 0; i < DEX_FLAGS_NO; i++)
     {
+
         gSaveBlock1Ptr->dexCaught[i] = 0;
         gSaveBlock1Ptr->dexSeen[i] = 0;
     }
@@ -4588,6 +4589,7 @@ s8 GetSetPokedexFlag(u16 nationalDexNo, u8 caseID)
     switch (caseID)
     {
     case FLAG_GET_SEEN:
+
         retVal = ((gSaveBlock1Ptr->dexSeen[index] & mask) != 0);
         break;
     case FLAG_GET_CAUGHT:
