@@ -13,6 +13,7 @@ OldaleTown_Mart_EventScript_Clerk:: @ 81FC240
 	end
 
 OldaleTown_Mart_Pokemart_Basic: @ 81FC260
+	.2byte ITEM_POKE_BALL
 	.2byte ITEM_POTION
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
@@ -30,6 +31,7 @@ OldaleTown_Mart_ExpandedItems:: @ 81FC26C
 	.align 2
 OldaleTown_Mart_Pokemart_Expanded: @ 81FC27C
 	.2byte ITEM_POKE_BALL
+	.2byte ITEM_HEAL_BALL
 	.2byte ITEM_POTION
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
@@ -57,15 +59,15 @@ OldaleTown_Mart_EventScript_Boy:: @ 81FC2A9
 
 OldaleTown_Mart_Text_PokeBallsAreSoldOut: @ 81FC2B2
 	.string "The clerk says they're all sold out.\n"
-	.string "I can't buy any POKé BALLS.$"
+	.string "I can't buy any Heal Balls.$"
 
 OldaleTown_Mart_Text_ImGoingToBuyPokeBalls: @ 81FC2F3
-	.string "I'm going to buy a bunch of POKé BALLS\n"
-	.string "and catch a bunch of POKéMON!$"
+	.string "I'm going to buy a bunch of Heal Balls\n"
+	.string "and catch a bunch of Pokémon!$"
 
 OldaleTown_Mart_Text_RestoreHPWithPotion: @ 81FC338
-	.string "If a POKéMON gets hurt and loses its HP\n"
+	.string "If a Pokémon gets hurt and loses its HP\n"
 	.string "and faints, it won't be able to battle.\p"
-	.string "To prevent your POKéMON from fainting,\n"
-	.string "restore its HP with a POTION.$"
+	.string "To prevent your Pokémon from fainting,\n"
+	.string "restore its HP with a Potion.$"
 

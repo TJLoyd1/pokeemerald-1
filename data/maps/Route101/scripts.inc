@@ -268,7 +268,7 @@ Route101_Text_HelpMe: @ 81EBE8F
 Route101_Text_PleaseHelp: @ 81EBE9A
 	.string "Hey! You over there!\n"
 	.string "Help me get this damn Zigzagoon!\p"
-	.string "In my BAG!\n"
+	.string "In my bag!\n"
 	.string "There's a Poké Ball!$"
 
 Route101_Text_DontLeaveMe: @ 81EBEDF

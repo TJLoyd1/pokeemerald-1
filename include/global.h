@@ -966,9 +966,7 @@ struct SaveBlock1
     /*0x690*/ struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
     /*0x790*/ struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
     /*0x848*/ struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
-    #ifndef FREE_EXTRA_SEEN_FLAGS
-    /*0x988*/ u8 seen1[DEX_FLAGS_NO];   //52 bytes
-    #endif
+    /*0x988*/ u8 filler1[0x34]; // Previously Dex Flags, feel free to remove.
     /*0x9BC*/ u16 berryBlenderRecords[3];
     /*0x9C2*/ u8 field_9C2[6];
     #ifndef FREE_MATCH_CALL
@@ -1021,7 +1019,6 @@ struct SaveBlock1
     #endif
     /*0x31A8*/ u8 giftRibbons[52];
     /*0x31DC*/ struct Roamer roamer;
-<<<<<<< HEAD
     /*0x31F8*/ struct EnigmaBerry enigmaBerry;
     /*0x322C*/ struct MEventBuffers unk_322C;
     /*0x3???*/ u8 dexSeen[DEX_FLAGS_NO];
@@ -1035,38 +1032,6 @@ struct SaveBlock1
     /*0x3???*/ struct SaveTrainerHill trainerHill;
     /*0x3???*/ struct WaldaPhrase waldaPhrase;
     // sizeof: 0x3???
-=======
-    #ifndef FREE_ENIGMA_BERRY
-    /*0x31F8*/ struct EnigmaBerry enigmaBerry;  //52 bytes
-    #endif
-    #ifndef FREE_MYSTERY_EVENT_BUFFERS
-    /*0x322C*/ struct MEventBuffers unk_322C;   //876 bytes
-    #endif
-    #ifndef FREE_FIELD_3598
-    /*0x3598*/ u8 field_3598[0x180];    //384 bytes
-    #endif
-    #ifndef FREE_TRAINER_HILL
-    /*0x3718*/ u32 trainerHillTimes[4]; //16 bytes
-    #endif
-    #ifndef FREE_MYSTERY_EVENT_BUFFERS
-    /*0x3728*/ struct RamScript ramScript;
-    #endif
-    /*0x3B14*/ struct RecordMixingGift recordMixingGift;
-    #ifndef FREE_EXTRA_SEEN_FLAGS
-    /*0x3B24*/ u8 seen2[DEX_FLAGS_NO];  //52 bytes
-    #endif
-    /*0x3B58*/ LilycoveLady lilycoveLady;
-    /*0x3B98*/ struct TrainerNameRecord trainerNameRecords[20];
-    #ifndef FREE_UNION_ROOM_CHAT
-    /*0x3C88*/ u8 registeredTexts[UNION_ROOM_KB_ROW_COUNT][21];      //210 bytes
-    #endif
-    /*0x3D5A*/ u8 filler3D5A[0xA];    //10 bytes
-    #ifndef FREE_TRAINER_HILL
-    /*0x3D64*/ struct SaveTrainerHill trainerHill;  //12 bytes
-    #endif
-    /*0x3D70*/ struct WaldaPhrase waldaPhrase;
-    // sizeof: 0x3D88
->>>>>>> 1b4ebd8188321bfffc993e4158b320c188b7bf57
 };
 
 extern struct SaveBlock1* gSaveBlock1Ptr;

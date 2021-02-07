@@ -31,21 +31,22 @@ SCRIPT_SelfTrade_DeclineTrade::
 
 SCRIPT_SelfTrade_Text_IllTradeIfYouWant:
 	.string "I will help you trade a POKéMON with\n"
-	.string "yourself through the power of Arceus !$"
+	.string "yourself through the power of Arceus!$"
 
 SCRIPT_SelfTrade_Text_ComeBack:
 	.string "Come back anytime.$"
 
 SCRIPT_SelfTrade_Text_YouDontWantToThatsOkay:
 	.string "You dont want to?\n"
-    .string "Okay come back anytime$"
+    .string "Okay come back anytime.$"
 
 OldaleTown_House2_Text_PokemonLevelUp: @ 81FBF6D
-	.string "When POKéMON battle, they eventually\n"
-	.string "level up and become stronger.$"
+	.string "This son of mine somehow received a 'gift'\n"
+	.string "from Arceus called 'the power of God and\l"
+	.string "Anime is on my side'... Oh what to do with him.$"
 
 OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon: @ 81FBFB0
-	.string "If the POKéMON with you become\n"
-	.string "stronger, you'll be able to go farther\l"
-	.string "away from here.$"
+	.string "This son of mine somehow received a 'gift'\n"
+	.string "from Arceus called 'the power of God and\l"
+	.string "Anime is on my side'... Oh what to do with him.$"
 

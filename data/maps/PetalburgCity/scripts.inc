@@ -41,13 +41,11 @@ PetalburgCity_OnFrame: @ 81DC31C
 
 PetalburgCity_EventScript_WallyTutorial:: @ 81DC32E
 	lockall
-	special SavePlayerParty
-	special PutZigzagoonInPlayerParty
 	applymovement LOCALID_WALLY, PetalburgCity_Movement_WallyTutorialWally
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_WallyTutorialPlayer
 	waitmovement 0
 	msgbox Route102_Text_WatchMeCatchPokemon, MSGBOX_DEFAULT
-	special StartWallyTutorialBattle
+	trainerbattle_single TRAINER_WALLY_MAUVILLE, Route102_Text_IgnesIntro, Route102_Text_IgnesDefeated
 	waitstate
 	msgbox Route102_Text_WallyIDidIt, MSGBOX_DEFAULT
 	applymovement LOCALID_WALLY, Common_Movement_WalkInPlaceFastestLeft, MAP_PETALBURG_CITY
@@ -721,63 +719,70 @@ PetalburgCity_EventScript_GymBoy:: @ 81DC82E
 	end
 
 PetalburgCity_Text_WhereIsWally: @ 81DC837
-	.string "Where has our WALLY gone?\p"
-	.string "We have to leave for VERDANTURF TOWN\n"
+	.string "Where has our Ignes gone?\p"
+	.string "We have to leave for Verdanturf Town\n"
 	.string "very soon…$"
 
 PetalburgCity_Text_AreYouRookieTrainer: @ 81DC881
 	.string "Hiya! Are you maybe…\n"
-	.string "A rookie TRAINER?\p"
-	.string "Do you know what POKéMON TRAINERS\n"
+	.string "A rookie Trainer?\p"
+	.string "Do you know what Pokémon Trainers\n"
 	.string "do when they reach a new town?\p"
-	.string "They first check what kind of GYM\n"
+	.string "They first check what kind of Gym\n"
 	.string "is in the town.$"
 
 PetalburgCity_Text_ThisIsPetalburgGym: @ 81DC91B
-	.string "See? This is PETALBURG CITY's GYM.$"
+	.string "See? This is Petalburg City's Gym.$"
 
 PetalburgCity_Text_ThisIsGymSign: @ 81DC93E
-	.string "This is the GYM's sign. Look for it\n"
-	.string "whenever you're looking for a GYM.$"
+	.string "This is the Gym's sign. Look for it\n"
+	.string "whenever you're looking for a Gym.$"
 
 PetalburgCity_Text_WaterReflection: @ 81DC985
-	.string "My face is reflected in the water.\p"
+	.string "My face is reflected in the mirror.\p"
 	.string "It's a shining grin full of hope…\p"
 	.string "Or it could be a look of somber silence\n"
 	.string "struggling with fear…\p"
 	.string "What do you see reflected in your face?$"
 
 PetalburgCity_Text_FullPartyExplanation: @ 81DCA30
-	.string "Let's say you have six POKéMON.\n"
+	.string "Let's say you have six Pokémon.\n"
 	.string "If you catch another one…\p"
-	.string "It is automatically sent to a STORAGE\n"
+	.string "It is automatically sent to a Storage\n"
 	.string "BOX over a PC connection.$"
 
 PetalburgCity_Text_GymSign: @ 81DCAAA
-	.string "PETALBURG CITY POKéMON GYM\n"
-	.string "LEADER: NORMAN\l"
+	.string "Petalburg City Pokémon Gym\n"
+	.string "Leader: Virgil\l"
 	.string "“A man in pursuit of power!”$"
 
 PetalburgCity_Text_CitySign: @ 81DCAF1
-	.string "PETALBURG CITY\n"
+	.string "Petalburg City\n"
 	.string "“Where people mingle with nature.”$"
 
 PetalburgCity_Text_WallyHouseSign: @ 81DCB23
-	.string "WALLY'S HOUSE$"
+	.string "Wally's House$"
 
 PetalburgCity_Text_AreYouATrainer: @ 81DCB31
 	.string "Excuse me!\p"
 	.string "Let me guess, from the way you're\n"
-	.string "dressed, are you a POKéMON TRAINER?$"
+	.string "dressed, are you a Jojo Fan?$"
 
 PetalburgCity_Text_WellMaybeNot: @ 81DCB82
 	.string "… … … … … …\p"
 	.string "Well, maybe not.\n"
-	.string "Your clothes aren't all that dirty.\p"
-	.string "You're either a rookie TRAINER,\n"
+	.string "Your clothes aren't all that crazy.\p"
+	.string "You're either a rookie trainer,\n"
 	.string "or maybe you're just an ordinary kid.$"
 
 PetalburgCity_Text_ImLookingForTalentedTrainers: @ 81DCC09
 	.string "I'm roaming the land in search of\n"
-	.string "talented TRAINERS.\p"
+	.string "talented Trainers.\p"
 	.string "I'm sorry to have taken your time.$"
+
+Route102_Text_IgnesIntro:
+	.string "Time for match Numero Uno!$"
+
+Route102_Text_IgnesDefeated:
+	.string "I should've caught more Pokémon.$"
+
