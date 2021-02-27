@@ -705,3 +705,23 @@ PlayersHouse_1F_Movement_PlayerApproachTVForLatiFemale: @ 8292DDE
 EventScript_RunningShoesManual:: @ 8292DE5
 	msgbox PlayersHouse_1F_Text_RunningShoesManual, MSGBOX_SIGN
 	end
+
+EventScript_SwapPlayersCostume::
+	lockall
+	msgbox CostumeSwapping_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 1
+	goto_if_ne EventScript_SwapPlayersCostumeEnd
+	fadescreen FADE_TO_BLACK
+	special SwapPlayersCostume
+	fadescreen FADE_FROM_BLACK
+	playfanfare MUS_LEVEL_UP
+	msgbox CostumeSwapping_Text_2, MSGBOX_DEFAULT
+	waitfanfare
+EventScript_SwapPlayersCostumeEnd:
+	releaseall
+	end
+
+CostumeSwapping_Text_1:
+	.string "The clothes MOM bought for me\nare nicely put inside the drawer.\pShould I try to put them on?$"
+CostumeSwapping_Text_2:
+	.string "Comfy.$"
