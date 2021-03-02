@@ -353,6 +353,7 @@ PlayersHouse_1F_EventScript_TryGiveAmuletCoin:: @ 8292A51
 	giveitem ITEM_AMULET_COIN
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
+	msgbox PlayersHouse_1F_Text_IAlsoBoughtYouSomeNewClothes, MSGBOX_DEFAULT
 	msgbox PlayersHouse_1F_Text_DontPushYourselfTooHard, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_AMULET_COIN
 	release
@@ -706,8 +707,16 @@ EventScript_RunningShoesManual:: @ 8292DE5
 	msgbox PlayersHouse_1F_Text_RunningShoesManual, MSGBOX_SIGN
 	end
 
-EventScript_SwapPlayersCostume::
+EventScript_Dresser::
 	lockall
+	goto_if_unset FLAG_RECEIVED_AMULET_COIN, EventScript_NicelyMadeDresser
+	checkplayergender
+	compare VAR_RESULT, FEMALE
+	goto_if_eq EventScript_SwapFemalePlayersCostume
+EventScript_SwapMalePlayersCostume:
+	specialvar VAR_RESULT, GetCurrentMap
+	compare VAR_RESULT, MAP_LITTLEROOT_TOWN_MAYS_HOUSE_2F
+	goto_if_eq EventScript_NicelyMadeDresser
 	msgbox CostumeSwapping_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, 1
 	goto_if_ne EventScript_SwapPlayersCostumeEnd
@@ -721,7 +730,31 @@ EventScript_SwapPlayersCostumeEnd:
 	releaseall
 	end
 
+EventScript_SwapFemalePlayersCostume:
+	specialvar VAR_RESULT, GetCurrentMap
+	compare VAR_RESULT, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
+	goto_if_eq EventScript_NicelyMadeDresser
+	msgbox CostumeSwapping_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 1
+	goto_if_ne EventScript_SwapPlayersCostumeEnd
+	fadescreen FADE_TO_BLACK
+	special SwapPlayersCostume
+	fadescreen FADE_FROM_BLACK
+	playfanfare MUS_LEVEL_UP
+	msgbox CostumeSwapping_Text_2, MSGBOX_DEFAULT
+	waitfanfare
+	goto EventScript_SwapPlayersCostumeEnd
+
+EventScript_NicelyMadeDresser:
+	msgbox EventScript_Text_NicelyMadeDresser, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EventScript_Text_NicelyMadeDresser:
+	.string "It's a nicely made dresser.\nIt will hold a lot of stuff.$"
+
 CostumeSwapping_Text_1:
 	.string "The clothes MOM bought for me\nare nicely put inside the drawer.\pShould I try to put them on?$"
+
 CostumeSwapping_Text_2:
 	.string "Comfy.$"

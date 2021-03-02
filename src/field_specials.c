@@ -4384,3 +4384,8 @@ void SwapPlayersCostume(void)
     ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByCurrentState());
     ObjectEventTurn(objEvent, objEvent->movementDirection);
 }
+
+u32 GetCurrentMap(void)
+{
+    return (gSaveBlock1Ptr->location.mapGroup << 8) | gSaveBlock1Ptr->location.mapNum;
+}
