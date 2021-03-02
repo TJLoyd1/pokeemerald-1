@@ -4378,6 +4378,8 @@ void SwapPlayersCostume(void)
 
     if (gSaveBlock2Ptr->costumeId == 0)
         gSaveBlock2Ptr->costumeId = 1;
+    else if (gSaveBlock2Ptr->costumeId == 1)
+        gSaveBlock2Ptr->costumeId = 2;
     else
         gSaveBlock2Ptr->costumeId = 0;
 
