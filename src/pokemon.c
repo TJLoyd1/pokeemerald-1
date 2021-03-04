@@ -2831,6 +2831,24 @@ static const struct SpriteTemplate gSpriteTemplateTable_TrainerBackSprites[] =
         .affineAnims = gUnknown_082FF618,
         .callback = sub_8039BB4,
     },
+    {
+        .tileTag = 0xFFFF,
+        .paletteTag = 0,
+        .oam = &gOamData_831ACB0,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_AdventuresBrendan,
+        .affineAnims = gUnknown_082FF618,
+        .callback = sub_8039BB4,
+    },
+    {
+        .tileTag = 0xFFFF,
+        .paletteTag = 0,
+        .oam = &gOamData_831ACB0,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_AdventuresMay,
+        .affineAnims = gUnknown_082FF618,
+        .callback = sub_8039BB4,
+    },
 };
 
 static const u8 sSecretBaseFacilityClasses[2][5] =
