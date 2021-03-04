@@ -4385,6 +4385,7 @@ void SwapPlayersCostume(void)
 
     ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByCurrentState());
     ObjectEventTurn(objEvent, objEvent->movementDirection);
+    BlendPalettes(0xFFFFFFFF, 16, 0);
 }
 
 u32 GetCurrentMap(void)
