@@ -181,6 +181,16 @@ const union AnimCmd gObjectEventImageAnim_FaceSouth[] =
     ANIMCMD_JUMP(0),
 };
 
+const union AnimCmd gObjectEventImageAnim_FaceSouth_PlayerLoop[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(3, 8),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(4, 8),
+    ANIMCMD_LOOP(1),
+    ANIMCMD_JUMP(0),
+};
+
 const union AnimCmd gObjectEventImageAnim_FaceNorth[] =
 {
     ANIMCMD_FRAME(1, 16),
@@ -969,7 +979,7 @@ const union AnimCmd *const gObjectEventImageAnimTable_Rayquaza2[] = {
 };
 
 const union AnimCmd *const gObjectEventImageAnimTable_BrendanMayNormal[] = {
-    gObjectEventImageAnim_FaceSouth,
+    gObjectEventImageAnim_FaceSouth_PlayerLoop,
     gObjectEventImageAnim_FaceNorth,
     gObjectEventImageAnim_FaceWest,
     gObjectEventImageAnim_FaceEast,
