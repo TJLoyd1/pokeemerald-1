@@ -1421,8 +1421,8 @@ void sub_8021A28(struct BerryCrushGame * sp0C, u8 sp10, u8 sp14, u8 sp18)
             sp1C = sp24->unk20[sp10][r8];
             if (r8 != 0 && sp24->unk0C[sp10][r8] != sp24->unk0C[sp10][r8 - 1])
                 sp20 = r8;
-            ConvertIntToDecimalStringN(gStringVar4, sp24->unk0C[sp10][r8], STR_CONV_MODE_RIGHT_ALIGN, 4);
-            StringAppend(gStringVar4, gUnknown_082F43B4[sp10]);
+            ConvertIntToDecimalStringN(gStringVar7, sp24->unk0C[sp10][r8], STR_CONV_MODE_RIGHT_ALIGN, 4);
+            StringAppend(gStringVar7, gUnknown_082F43B4[sp10]);
             break;
         case 1:
             sp1C = sp24->unk20[sp10][r8];
@@ -1436,7 +1436,7 @@ void sub_8021A28(struct BerryCrushGame * sp0C, u8 sp10, u8 sp14, u8 sp18)
                     xOffset += sPressingSpeedConversionTable[r2];
             r7 = xOffset / 1000000u;
             ConvertIntToDecimalStringN(gStringVar2, r7, STR_CONV_MODE_LEADING_ZEROS, 2);
-            StringExpandPlaceholders(gStringVar4, gUnknown_082F43B4[sp10]);
+            StringExpandPlaceholders(gStringVar7, gUnknown_082F43B4[sp10]);
             break;
         case 2:
             sp1C = r8;
@@ -1445,19 +1445,19 @@ void sub_8021A28(struct BerryCrushGame * sp0C, u8 sp10, u8 sp14, u8 sp18)
             if (r2 >= LAST_BERRY_INDEX - FIRST_BERRY_INDEX + 2)
                 r2 = 0;
             StringCopy(gStringVar1, gBerries[r2].name);
-            StringExpandPlaceholders(gStringVar4, gUnknown_082F43B4[sp10]);
+            StringExpandPlaceholders(gStringVar7, gUnknown_082F43B4[sp10]);
             break;
         }
-        r3 = GetStringRightAlignXOffset(2, gStringVar4, sp14 - 4);
-        AddTextPrinterParameterized3(sp0C->unk138.unk82, 2, r3, r6, sBerryCrushTextColorTable[0], 0, gStringVar4);
+        r3 = GetStringRightAlignXOffset(2, gStringVar7, sp14 - 4);
+        AddTextPrinterParameterized3(sp0C->unk138.unk82, 2, r3, r6, sBerryCrushTextColorTable[0], 0, gStringVar7);
         if (sp1C == sp0C->unk8)
             StringCopy(gStringVar3, gText_1DotBlueF700);
         else
             StringCopy(gStringVar3, gText_1DotF700);
         gStringVar3[0] = sp20 + CHAR_1;
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, sp0C->unk98[sp1C].unk0);
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gStringVar3);
-        AddTextPrinterParameterized3(sp0C->unk138.unk82, 2, 4, r6, sBerryCrushTextColorTable[0], 0, gStringVar4);
+        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar7, gStringVar3);
+        AddTextPrinterParameterized3(sp0C->unk138.unk82, 2, 4, r6, sBerryCrushTextColorTable[0], 0, gStringVar7);
     }
 }
 
@@ -1475,15 +1475,15 @@ void sub_8021D34(struct BerryCrushGame *r8)
     AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[0], 0, gText_SpaceSec);
     ConvertIntToDecimalStringN(gStringVar1, r8->unk138.unk6, STR_CONV_MODE_LEADING_ZEROS, 2);
     ConvertIntToDecimalStringN(gStringVar2, r8->unk138.unk8, STR_CONV_MODE_LEADING_ZEROS, 2);
-    StringExpandPlaceholders(gStringVar4, gText_XDotY2);
-    r6 -= GetStringWidth(2, gStringVar4, -1);
-    AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[0], 0, gStringVar4);
+    StringExpandPlaceholders(gStringVar7, gText_XDotY2);
+    r6 -= GetStringWidth(2, gStringVar7, -1);
+    AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[0], 0, gStringVar7);
     r6 -= GetStringWidth(2, gText_SpaceMin, -1);
     AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[0], 0, gText_SpaceMin);
     ConvertIntToDecimalStringN(gStringVar1, r8->unk138.unk4, STR_CONV_MODE_LEADING_ZEROS, 1);
-    StringExpandPlaceholders(gStringVar4, gText_StrVar1);
-    r6 -= GetStringWidth(2, gStringVar4, -1);
-    AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[0], 0, gStringVar4);
+    StringExpandPlaceholders(gStringVar7, gText_StrVar1);
+    r6 -= GetStringWidth(2, gStringVar7, -1);
+    AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[0], 0, gStringVar7);
     r7 += 14;
     AddTextPrinterParameterized3(r8->unk138.unk82, 2, 0, r7, sBerryCrushTextColorTable[0], 0, gText_PressingSpeed);
     r6 = 176 - (u8)GetStringWidth(2, gText_TimesPerSec, -1);
@@ -1493,18 +1493,18 @@ void sub_8021D34(struct BerryCrushGame *r8)
             sp0C += *(r10 + sPressingSpeedConversionTable); // It's accessed in a different way here for unknown reason
     ConvertIntToDecimalStringN(gStringVar1, r8->unk16 >> 8, STR_CONV_MODE_RIGHT_ALIGN, 3);
     ConvertIntToDecimalStringN(gStringVar2, sp0C / 1000000, STR_CONV_MODE_LEADING_ZEROS, 2);
-    StringExpandPlaceholders(gStringVar4, gText_XDotY3);
-    r6 -= GetStringWidth(2, gStringVar4, -1);
+    StringExpandPlaceholders(gStringVar7, gText_XDotY3);
+    r6 -= GetStringWidth(2, gStringVar7, -1);
     if (r8->unk25_1)
-        AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[5], 0, gStringVar4);
+        AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[5], 0, gStringVar7);
     else
-        AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[0], 0, gStringVar4);
+        AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[0], 0, gStringVar7);
     r7 += 14;
     AddTextPrinterParameterized3(r8->unk138.unk82, 2, 0, r7, sBerryCrushTextColorTable[0], 0, gText_Silkiness);
     ConvertIntToDecimalStringN(gStringVar1, sp10->unk08, STR_CONV_MODE_RIGHT_ALIGN, 3);
-    StringExpandPlaceholders(gStringVar4, gText_Var1Percent);
-    r6 = 176 - (u8)GetStringWidth(2, gStringVar4, -1);
-    AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[0], 0, gStringVar4);
+    StringExpandPlaceholders(gStringVar7, gText_Var1Percent);
+    r6 = 176 - (u8)GetStringWidth(2, gStringVar7, -1);
+    AddTextPrinterParameterized3(r8->unk138.unk82, 2, r6, r7, sBerryCrushTextColorTable[0], 0, gStringVar7);
 }
 
 bool32 sub_8022070(struct BerryCrushGame *r4, struct BerryCrushGame_138 *r6)
@@ -1611,7 +1611,7 @@ static void Task_ShowBerryCrushRankings(u8 taskId)
         for (i = 0; i < 4; ++i)
         {
             ConvertIntToDecimalStringN(gStringVar1, i + 2, STR_CONV_MODE_LEFT_ALIGN, 1);
-            StringExpandPlaceholders(gStringVar4, gText_Var1Players);
+            StringExpandPlaceholders(gStringVar7, gText_Var1Players);
             AddTextPrinterParameterized3(
                 data[1],
                 1,
@@ -1619,7 +1619,7 @@ static void Task_ShowBerryCrushRankings(u8 taskId)
                 yPos,
                 sBerryCrushTextColorTable[0],
                 0,
-                gStringVar4
+                gStringVar7
             );
             xPos = 192 - (u8)GetStringWidth(1, gText_TimesPerSec, -1);
             AddTextPrinterParameterized3(
@@ -1638,8 +1638,8 @@ static void Task_ShowBerryCrushRankings(u8 taskId)
             }
             ConvertIntToDecimalStringN(gStringVar1, (u16)data[i + 2] >> 8, STR_CONV_MODE_RIGHT_ALIGN, 3);
             ConvertIntToDecimalStringN(gStringVar2, score / 1000000, STR_CONV_MODE_LEADING_ZEROS, 2);
-            StringExpandPlaceholders(gStringVar4, gText_XDotY3);
-            xPos -= GetStringWidth(1, gStringVar4, -1);
+            StringExpandPlaceholders(gStringVar7, gText_XDotY3);
+            xPos -= GetStringWidth(1, gStringVar7, -1);
             AddTextPrinterParameterized3(
                 data[1],
                 1,
@@ -1647,7 +1647,7 @@ static void Task_ShowBerryCrushRankings(u8 taskId)
                 yPos,
                 sBerryCrushTextColorTable[0],
                 0,
-                gStringVar4
+                gStringVar7
             );
             yPos += 16;
             score = 0;
@@ -2041,8 +2041,8 @@ static u32 sub_8022D14(struct BerryCrushGame *r7, u8 *r5)
         DrawDialogueFrame(0, 0);
         if (r5[1] & 2)
         {
-            StringExpandPlaceholders(gStringVar4, gUnknown_082F32A4[r5[0]]);
-            AddTextPrinterParameterized2(0, 1, gStringVar4, r7->unkB, 0, 2, 1, 3);
+            StringExpandPlaceholders(gStringVar7, gUnknown_082F32A4[r5[0]]);
+            AddTextPrinterParameterized2(0, 1, gStringVar7, r7->unkB, 0, 2, 1, 3);
         }
         else
         {

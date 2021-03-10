@@ -1240,9 +1240,9 @@ static bool32 sub_81962D8(u8 taskId)
     {
         FillWindowPixelBuffer(taskData[2], PIXEL_FILL(8));
         if (!gMatchCallState.triggeredFromScript)
-            SelectMatchCallMessage(gMatchCallState.trainerId, gStringVar4);
+            SelectMatchCallMessage(gMatchCallState.trainerId, gStringVar7);
 
-        InitMatchCallTextPrinter(taskData[2], gStringVar4);
+        InitMatchCallTextPrinter(taskData[2], gStringVar7);
         return TRUE;
     }
 

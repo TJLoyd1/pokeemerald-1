@@ -1123,7 +1123,7 @@ void SetDaycareCompatibilityString(void)
     if (relationshipScore == PARENTS_MAX_COMPATABILITY)
         whichString = 0;
 
-    StringCopy(gStringVar4, sCompatibilityMessages[whichString]);
+    StringCopy(gStringVar7, sCompatibilityMessages[whichString]);
 }
 
 bool8 NameHasGenderSymbol(const u8 *name, u8 genderRatio)

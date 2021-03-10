@@ -298,16 +298,16 @@ static void PrintContestPaintingCaption(u8 contestType, bool8 arg1)
         StringCopy(gStringVar2, gContestPaintingWinner->trainerName);
         sub_81DB5AC(gStringVar2);
         StringCopy(gStringVar3, gContestPaintingWinner->monName);
-        StringExpandPlaceholders(gStringVar4, gUnknown_0827EA0C);
+        StringExpandPlaceholders(gStringVar7, gUnknown_0827EA0C);
     }
     else
     {
         StringCopy(gStringVar1, gContestPaintingWinner->monName);
-        StringExpandPlaceholders(gStringVar4, sContestPaintingDescriptionPointers[category]);
+        StringExpandPlaceholders(gStringVar7, sContestPaintingDescriptionPointers[category]);
     }
 
-    x = GetStringCenterAlignXOffset(1, gStringVar4, 208);
-    AddTextPrinterParameterized(gContestPaintingWindowId, 1, gStringVar4, x, 1, 0, 0);
+    x = GetStringCenterAlignXOffset(1, gStringVar7, 208);
+    AddTextPrinterParameterized(gContestPaintingWindowId, 1, gStringVar7, x, 1, 0, 0);
     CopyBgTilemapBufferToVram(1);
 }
 

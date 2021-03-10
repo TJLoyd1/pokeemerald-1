@@ -4242,12 +4242,12 @@ static void sub_802988C(void)
                 u16 result1 = Min(sub_80276A0(i, j), 9999);
                 u16 result2 = Min(sub_802778C(j), 9999);
 
-                ConvertIntToDecimalStringN(gStringVar4, result1, STR_CONV_MODE_LEFT_ALIGN, 4);
-                width = GetStringWidth(1, gStringVar4, -1);
+                ConvertIntToDecimalStringN(gStringVar7, result1, STR_CONV_MODE_LEFT_ALIGN, 4);
+                width = GetStringWidth(1, gStringVar7, -1);
                 if (result2 == result1 && result2 != 0)
-                    AddTextPrinterParameterized3(gUnknown_02022CF8->unk3008[1], 1, gUnknown_082FB3F0[j] - width, gUnknown_082FB3F8[i], sTextColorTable[1], -1, gStringVar4);
+                    AddTextPrinterParameterized3(gUnknown_02022CF8->unk3008[1], 1, gUnknown_082FB3F0[j] - width, gUnknown_082FB3F8[i], sTextColorTable[1], -1, gStringVar7);
                 else
-                    AddTextPrinterParameterized(gUnknown_02022CF8->unk3008[1], 1, gStringVar4, gUnknown_082FB3F0[j] - width, gUnknown_082FB3F8[i], -1, NULL);
+                    AddTextPrinterParameterized(gUnknown_02022CF8->unk3008[1], 1, gStringVar7, gUnknown_082FB3F0[j] - width, gUnknown_082FB3F8[i], -1, NULL);
             }
         }
         CopyWindowToVram(gUnknown_02022CF8->unk3008[0], 2);
@@ -4328,8 +4328,8 @@ static void sub_802988C(void)
         DynamicPlaceholderTextUtil_Reset();
         CopyItemName(sub_802762C(), gStringVar1);
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_FirstPlacePrize);
-        AddTextPrinterParameterized(gUnknown_02022CF8->unk3008[1], 1, gStringVar4, 0, 1, -1, NULL);
+        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar7, gText_FirstPlacePrize);
+        AddTextPrinterParameterized(gUnknown_02022CF8->unk3008[1], 1, gStringVar7, 0, 1, -1, NULL);
         itemGiveRet = sub_80279C8();
         if (itemGiveRet != 0 && itemGiveRet != 3)
         {
@@ -4337,10 +4337,10 @@ static void sub_802988C(void)
             CopyItemName(sub_802762C(), gStringVar1);
             DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
             if (itemGiveRet == 2)
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_CantHoldAnyMore);
+                DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar7, gText_CantHoldAnyMore);
             else if (itemGiveRet == 1)
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_FilledStorageSpace);
-            AddTextPrinterParameterized(gUnknown_02022CF8->unk3008[1], 1, gStringVar4, 0, 41, -1, NULL);
+                DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar7, gText_FilledStorageSpace);
+            AddTextPrinterParameterized(gUnknown_02022CF8->unk3008[1], 1, gStringVar7, 0, 41, -1, NULL);
         }
         CopyWindowToVram(gUnknown_02022CF8->unk3008[0], 2);
         CopyWindowToVram(gUnknown_02022CF8->unk3008[1], 2);
