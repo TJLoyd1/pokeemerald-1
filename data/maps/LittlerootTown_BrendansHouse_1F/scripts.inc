@@ -166,6 +166,12 @@ LittlerootTown_BrendansHouse_1F_EventScript_MeetRival:: @ 81F78E2
 	compare VAR_0x8008, 2
 	call_if_eq LittlerootTown_BrendansHouse_1F_EventScript_BrendanApproachPlayer2
 	msgbox RivalsHouse_1F_Text_BrendanWhoAreYou, MSGBOX_DEFAULT
+	special SetRivalsName
+	waitstate
+	goto LittlerootTown_BrendansHouse_1F_EventScript_MeetNamedMaleRival
+
+LittlerootTown_BrendansHouse_1F_EventScript_MeetNamedMaleRival:
+	msgbox RivalsHouse_1F_Text_BrendanWhoAreYou2, MSGBOX_DEFAULT
 	closemessage
 	compare VAR_0x8008, 0
 	call_if_eq LittlerootTown_BrendansHouse_1F_EventScript_BrendanGoUpstairs0

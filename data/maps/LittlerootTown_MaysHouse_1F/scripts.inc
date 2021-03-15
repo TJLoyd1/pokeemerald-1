@@ -200,6 +200,12 @@ LittlerootTown_MaysHouse_1F_EventScript_MeetRival:: @ 81F8A8B
 	compare VAR_0x8008, 2
 	call_if_eq LittlerootTown_MaysHouse_1F_EventScript_MayApproachPlayer2
 	msgbox RivalsHouse_1F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	special SetRivalsName
+	waitstate
+	goto LittlerootTown_MaysHouse_1F_EventScript_MeetNamedFemaleRival
+
+LittlerootTown_MaysHouse_1F_EventScript_MeetNamedFemaleRival:
+	msgbox RivalsHouse_1F_Text_MayWhoAreYou2, MSGBOX_DEFAULT
 	closemessage
 	compare VAR_0x8008, 0
 	call_if_eq LittlerootTown_MaysHouse_1F_EventScript_MayGoUpstairs0
@@ -379,6 +385,8 @@ RivalsHouse_1F_Text_MayWhoAreYou: @ 81F8EC6
 	.string "… … … … … … … …\p"
 	.string "Oh, you're {PLAYER}{KUN}.\n"
 	.string "So your move was today.\p"
+	.string "Um… I'm…$"
+RivalsHouse_1F_Text_MayWhoAreYou2:
 	.string "Um… I'm {RIVAL}.\n"
 	.string "Glad to meet you!\p"
 	.string "I…\n"
@@ -406,6 +414,8 @@ RivalsHouse_1F_Text_BrendanWhoAreYou: @ 81F90B4
 	.string "Dad, PROF. BIRCH, said that our new\n"
 	.string "next-door neighbor is a GYM LEADER's\l"
 	.string "kid, so I assumed you'd be a guy.\p"
+	.string "My name's…$"
+RivalsHouse_1F_Text_BrendanWhoAreYou2:
 	.string "My name's {RIVAL}.\n"
 	.string "So, hi, neighbor!\p"
 	.string "Huh? Hey, {PLAYER}, don't you have\n"

@@ -98,6 +98,11 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMayNorth:: @ 81F93BA
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	special SetRivalsName
+	waitstate
+	goto LittlerootTown_MaysHouse_2F_EventScript_MeetMayNorth2
+LittlerootTown_MaysHouse_2F_EventScript_MeetMayNorth2:
+	msgbox RivalsHouse_2F_Text_MayWhoAreYou2, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_MaysHouse_2F_Movement_PlayerWatchMayNorth
 	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_2F_Movement_MayWalkToPCNorth
@@ -110,6 +115,11 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMaySouth:: @ 81F93E9
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	special SetRivalsName
+	waitstate
+	goto LittlerootTown_MaysHouse_2F_EventScript_MeetMaySouth2
+LittlerootTown_MaysHouse_2F_EventScript_MeetMaySouth2:
+	msgbox RivalsHouse_2F_Text_MayWhoAreYou2, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_MaysHouse_2F_Movement_PlayerWatchMaySouth
 	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_2F_Movement_MayWalkToPCSouth
@@ -122,6 +132,11 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMayWest:: @ 81F9418
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	special SetRivalsName
+	waitstate
+	goto LittlerootTown_MaysHouse_2F_EventScript_MeetMayWest2
+LittlerootTown_MaysHouse_2F_EventScript_MeetMayWest2:
+	msgbox RivalsHouse_2F_Text_MayWhoAreYou2, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_2F_Movement_MayWalkToPCWest
 	waitmovement 0
@@ -133,6 +148,11 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMayEast:: @ 81F9440
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	special SetRivalsName
+	waitstate
+	goto LittlerootTown_MaysHouse_2F_EventScript_MeetMayEast2
+LittlerootTown_MaysHouse_2F_EventScript_MeetMayEast2:
+	msgbox RivalsHouse_2F_Text_MayWhoAreYou2, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_MaysHouse_2F_Movement_PlayerWatchMayEast
 	applymovement LOCALID_RIVAL, LittlerootTown_MaysHouse_2F_Movement_MayWalkToPCEast
@@ -336,6 +356,8 @@ RivalsHouse_2F_Text_MayWhoAreYou: @ 81F959C
 	.string "… … … … … … … …\p"
 	.string "Oh, you're {PLAYER}{KUN}.\n"
 	.string "So your move was today.\p"
+	.string "Um… I'm…$"
+RivalsHouse_2F_Text_MayWhoAreYou2:
 	.string "Um… I'm {RIVAL}.\n"
 	.string "Glad to meet you!\p"
 	.string "I…\n"
@@ -367,6 +389,8 @@ RivalsHouse_2F_Text_BrendanWhoAreYou: @ 81F97B4
 	.string "Dad, PROF. BIRCH, said that our new\n"
 	.string "next-door neighbor is a GYM LEADER's\l"
 	.string "kid, so I assumed you'd be a guy.\p"
+	.string "My name's…$"
+RivalsHouse_2F_Text_BrendanWhoAreYou2:
 	.string "My name's {RIVAL}.\n"
 	.string "So, hi, neighbor!\p"
 	.string "Huh? Hey, {PLAYER}, don't you have\n"
