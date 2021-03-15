@@ -801,6 +801,29 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_ZEN_MODE] = 1,
 };
 
+static const u8 sMoveEffectNotAffectedByParentalBond[NUM_BATTLE_MOVE_EFFECTS] =
+{
+    [EFFECT_OHKO] = TRUE,
+    [EFFECT_DOUBLE_HIT] = TRUE,
+    [EFFECT_TRIPLE_KICK] = TRUE,
+    [EFFECT_MULTI_HIT] = TRUE,
+    [EFFECT_SEMI_INVULNERABLE] = TRUE,
+    [EFFECT_SOLARBEAM] = TRUE,
+    [EFFECT_ENDEAVOR] = TRUE,
+};
+
+static const u8 sMoveNotAffectedByParentalBond[MOVES_COUNT] =
+{
+    [MOVE_STRUGGLE] = TRUE,
+    [MOVE_FLING] = TRUE,
+    [MOVE_SELF_DESTRUCT] = TRUE,
+    [MOVE_EXPLOSION] = TRUE,
+    [MOVE_FINAL_GAMBIT] = TRUE,
+    [MOVE_UPROAR] = TRUE,
+    [MOVE_ROLLOUT] = TRUE,
+    [MOVE_ICE_BALL] = TRUE,
+};
+
 static const u8 sHoldEffectToType[][2] =
 {
     {HOLD_EFFECT_BUG_POWER, TYPE_BUG},
@@ -4807,6 +4830,17 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 effect++;
             }
             break;
+        case ABILITY_PARENTAL_BOND:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             && gBattleMons[gBattlerTarget].hp != 0
+             && !gProtectStructs[gBattlerTarget].confusionSelfDmg
+             && IsMoveAffectedByParentalBond(gBattlerAttacker, gCurrentMove))
+            {
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_ParentalBondActivates;
+                effect++;
+            }
+            break;
         }
         break;
     case ABILITYEFFECT_MOVE_END_OTHER: // Abilities that activate on *another* battler's moveend: Dancer, Soul-Heart, Receiver, Symbiosis
@@ -5195,6 +5229,36 @@ bool32 HasEnoughHpToEatBerry(u32 battlerId, u32 hpFraction, u32 itemId)
     }
 
     return FALSE;
+}
+
+bool32 IsMoveAffectedByParentalBond(u8 battlerId, u16 moveId)
+{
+    u8 target1, target2;
+
+    if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+    {
+        target1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+        target2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
+    }
+    else
+    {
+        target1 = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+        target2 = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
+    }
+
+    if (!gBattleMoveDamage)
+        return FALSE;
+    // Check if the move hits multiple targets and if either opponent is not alive to allow a second strike to happen.
+    // Necessary for moves like Earthquake or Rock Slide.
+    else if (((gBattleMoves[moveId].target & MOVE_TARGET_FOES_AND_ALLY) || (gBattleMoves[moveId].target & MOVE_TARGET_BOTH))
+     && !(IsBattlerAlive(target1) || IsBattlerAlive(BATTLE_PARTNER(target2))))
+        return TRUE;
+    else if (sMoveEffectNotAffectedByParentalBond[gBattleMoves[moveId].effect])
+        return FALSE;
+    else if (sMoveNotAffectedByParentalBond[moveId])
+        return FALSE;
+
+    return TRUE;
 }
 
 static u8 HealConfuseBerry(u32 battlerId, u32 itemId, u8 flavorId, bool32 end2)

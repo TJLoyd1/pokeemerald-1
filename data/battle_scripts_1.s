@@ -7368,6 +7368,43 @@ BattleScript_AbilityStatusEffect::
 	seteffectsecondary
 	return
 
+BattleScript_ParentalBondActivates::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	jumpifmovehadnoeffect BattleScript_ParentalBondEnd
+	initmultihitstring
+BattleScript_ParentalBondDoubleHitBegin:
+	critcalc
+	damagecalc
+	adjustdamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage 0x40
+	printstring STRINGID_EMPTYSTRING3
+	waitmessage 0x1
+	addbyte sMULTIHIT_STRING + 4, 0x2
+	jumpifbyte CMP_COMMON_BITS, gMoveResultFlags, MOVE_RESULT_FOE_ENDURED, BattleScript_MultiHitPrintStrings
+BattleScript_ParentalBondPrintStrings:
+	resultmessage
+	waitmessage 0x40
+	copyarray gBattleTextBuff1, sMULTIHIT_STRING, 0x6
+	printstring STRINGID_HITXTIMES
+	waitmessage 0x40
+BattleScript_ParentalBondEnd:
+	seteffectwithchance
+	tryfaintmon BS_TARGET, FALSE, NULL
+	moveendcase MOVEEND_SYNCHRONIZE_TARGET
+	moveendfrom MOVEEND_STATUS_IMMUNITY_ABILITIES
+	end
+
 BattleScript_DancerActivates::
 	call BattleScript_AbilityPopUp
 	waitmessage 0x20
