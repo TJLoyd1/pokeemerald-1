@@ -3834,40 +3834,19 @@ static bool32 sub_802E2D0(struct PokemonJump1_82E4 *arg0, int multiplayerId)
 
 static struct PokemonJumpResults *sub_802E32C(void)
 {
-    return &gSaveBlock2Ptr->pokeJump;
 }
 
 void ResetPokeJumpResults(void)
 {
-    struct PokemonJumpResults *pokeJump = sub_802E32C();
-    pokeJump->jumpsInRow = 0;
-    pokeJump->bestJumpScore = 0;
-    pokeJump->excellentsInRow = 0;
-    pokeJump->field6 = 0;
-    pokeJump->field8 = 0;
-    pokeJump->field2 = 0;
 }
 
 static bool32 sub_802E354(u32 jumpScore, u16 jumpsInRow, u16 excellentsInRow)
 {
-    struct PokemonJumpResults *pokeJump = sub_802E32C();
-    bool32 ret = FALSE;
-
-    if (pokeJump->bestJumpScore < jumpScore && jumpScore <= 99990)
-        pokeJump->bestJumpScore = jumpScore, ret = TRUE;
-    if (pokeJump->jumpsInRow < jumpsInRow && jumpsInRow <= 9999)
-        pokeJump->jumpsInRow = jumpsInRow, ret = TRUE;
-    if (pokeJump->excellentsInRow < excellentsInRow && excellentsInRow <= 9999)
-        pokeJump->excellentsInRow = excellentsInRow, ret = TRUE;
-
-    return ret;
+    return FALSE;
 }
 
 static void sub_802E3A8(void)
 {
-    struct PokemonJumpResults *pokeJump = sub_802E32C();
-    if (pokeJump->field6 < 9999)
-        pokeJump->field6++;
 }
 
 void ShowPokemonJumpRecords(void)
@@ -3941,26 +3920,6 @@ static void Task_ShowPokemonJumpRecords(u8 taskId)
 
 static void sub_802E500(u16 windowId, int width)
 {
-    int i, x;
-    int results[3];
-    struct PokemonJumpResults *pokeJump = sub_802E32C();
-    results[0] = pokeJump->jumpsInRow;
-    results[1] = pokeJump->bestJumpScore;
-    results[2] = pokeJump->excellentsInRow;
-
-    LoadUserWindowBorderGfx_(windowId, 0x21D, 0xD0);
-    DrawTextBorderOuter(windowId, 0x21D, 0xD);
-    FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
-    AddTextPrinterParameterized(windowId, 1, gText_PkmnJumpRecords, GetStringCenterAlignXOffset(1, gText_PkmnJumpRecords, width * 8), 1, TEXT_SPEED_FF, NULL);
-    for (i = 0; i < ARRAY_COUNT(gUnknown_082FE278); i++)
-    {
-        AddTextPrinterParameterized(windowId, 1, gUnknown_082FE278[i], 0, 25 + (i * 16), TEXT_SPEED_FF, NULL);
-        ConvertIntToDecimalStringN(gStringVar1, results[i], STR_CONV_MODE_LEFT_ALIGN, 5);
-        TruncateToFirstWordOnly(gStringVar1);
-        x = (width * 8) - GetStringWidth(1, gStringVar1, 0);
-        AddTextPrinterParameterized(windowId, 1, gStringVar1, x, 25 + (i * 16), TEXT_SPEED_FF, NULL);
-    }
-    PutWindowTilemap(windowId);
 }
 
 static void TruncateToFirstWordOnly(u8 *str)
