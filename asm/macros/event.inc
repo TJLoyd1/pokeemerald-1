@@ -274,8 +274,8 @@
 	.2byte \functionId
 	.endm
 
-	@ Blocks script execution until a command or ASM code manually unblocks it. Generally used with specific 
-	@ commands and specials. If this command runs, and a subsequent command or piece of ASM does not unblock 
+	@ Blocks script execution until a command or ASM code manually unblocks it. Generally used with specific
+	@ commands and specials. If this command runs, and a subsequent command or piece of ASM does not unblock
 	@ state, the script will remain blocked indefinitely (essentially a hang).
 	.macro waitstate
 	.byte 0x27
@@ -317,7 +317,7 @@
 	.byte 0x2d
 	.endm
 
-	@ Sets the values of variables 0x8000, 0x8001, and 0x8002 to the current hour, minute, and second. In FRLG, 
+	@ Sets the values of variables 0x8000, 0x8001, and 0x8002 to the current hour, minute, and second. In FRLG,
 	@ this command sets those variables to zero.
 	.macro gettime
 	.byte 0x2e
@@ -381,7 +381,7 @@
 	.byte \speed
 	.endm
 
-	@ Sends the player to Warp warp on Map bank.map. If the specified warp is 0xFF, 
+	@ Sends the player to Warp warp on Map bank.map. If the specified warp is 0xFF,
 	@ then the player will instead be sent to (X, Y) on the map.
 	.macro warp map:req, warp:req, X:req, Y:req
 	.byte 0x39
@@ -433,7 +433,7 @@
 	.2byte \Y
 	.endm
 
-	@ Sets the warp destination that a warp to Warp 127 on Map 127.127 will connect to. 
+	@ Sets the warp destination that a warp to Warp 127 on Map 127.127 will connect to.
 	@ Useful when a map has warps that need to go to script-controlled locations (i.e. elevators).
 	.macro setdynamicwarp map:req, warp:req, X:req, Y:req
 	.byte 0x3f
@@ -473,7 +473,7 @@
 	.byte 0x43
 	.endm
 
-	@ Attempts to add quantity of item index to the player's Bag. If the player has enough room, the item will be added and 
+	@ Attempts to add quantity of item index to the player's Bag. If the player has enough room, the item will be added and
 	@ VAR_RESULT will be set to TRUE; otherwise, VAR_RESULT is set to FALSE.
 	.macro additem index:req, quantity=1
 	.byte 0x44
@@ -488,7 +488,7 @@
 	.2byte \quantity
 	.endm
 
-	@ Checks if the player has enough space in their Bag to hold quantity more of item index. Sets VAR_RESULT to 
+	@ Checks if the player has enough space in their Bag to hold quantity more of item index. Sets VAR_RESULT to
 	@ TRUE if there is room, or FALSE is there is no room.
 	.macro checkitemspace index:req, quantity:req
 	.byte 0x46
@@ -504,7 +504,7 @@
 	.2byte \quantity
 	.endm
 
-	@ Checks which Bag pocket the specified item belongs in, and writes the pocket value (POCKET_*) to VAR_RESULT. 
+	@ Checks which Bag pocket the specified item belongs in, and writes the pocket value (POCKET_*) to VAR_RESULT.
 	@ This script is used to show the name of the proper Bag pocket when the player receives an item via callstd (simplified to giveitem in XSE).
 	.macro checkitemtype index:req
 	.byte 0x48
@@ -543,7 +543,7 @@
 	.2byte \decoration
 	.endm
 
-	@ Checks if the player has enough space in their PC to hold decoration. Sets VAR_RESULT to TRUE if there is room, or 
+	@ Checks if the player has enough space in their PC to hold decoration. Sets VAR_RESULT to TRUE if there is room, or
 	@ FALSE is there is no room. In FireRed, this command is a nop. (The argument is read, but not used for anything.)
 	.macro checkdecorspace decoration:req
 	.byte 0x4e
@@ -566,9 +566,9 @@
 		.endif
 	.endm
 
-	@ Blocks script execution until the movements being applied to the specified (index) Object finish. 
-	@ If the specified Object is 0x0000, then the command will block script execution until all Objects 
-	@ affected by applymovement finish their movements. If the specified Object is not currently being 
+	@ Blocks script execution until the movements being applied to the specified (index) Object finish.
+	@ If the specified Object is 0x0000, then the command will block script execution until all Objects
+	@ affected by applymovement finish their movements. If the specified Object is not currently being
 	@ manipulated with applymovement, then this command does nothing.
 	@ If no map is specified, then the current map is used.
 	.macro waitmovement index:req, map
@@ -582,8 +582,8 @@
 		.endif
 	.endm
 
-	@ Attempts to hide the specified (index) Object on the specified (map_group, map_num) map, 
-	@ by setting its visibility flag if it has a valid one. If the Object does not have a valid 
+	@ Attempts to hide the specified (index) Object on the specified (map_group, map_num) map,
+	@ by setting its visibility flag if it has a valid one. If the Object does not have a valid
 	@ visibility flag, this command does nothing.
 	@ If no map is specified, then the current map is used.
 	.macro removeobject index:req, map
@@ -597,7 +597,7 @@
 		.endif
 	.endm
 
-	@ Unsets the specified (index) Object's visibility flag on the specified (map_group, map_num) map if it has a valid one. 
+	@ Unsets the specified (index) Object's visibility flag on the specified (map_group, map_num) map if it has a valid one.
 	@ If the Object does not have a valid visibility flag, this command does nothing.
 	@ If no map is specified, then the current map is used.
 	.macro addobject index:req, map
@@ -739,7 +739,7 @@
 	.endm
 
 
-	@ Starts a trainer battle using the battle information stored in RAM (usually by trainerbattle, which actually calls this 
+	@ Starts a trainer battle using the battle information stored in RAM (usually by trainerbattle, which actually calls this
 	@ command behind-the-scenes), and blocks script execution until the battle finishes.
 	.macro trainerbattlebegin
 	.byte 0x5d
@@ -780,7 +780,7 @@
 	.2byte \y
 	.endm
 
-	@ Copies a live object event's xy position to its template, so that if the sprite goes off screen, 
+	@ Copies a live object event's xy position to its template, so that if the sprite goes off screen,
 	@ it'll still be there when it comes back on screen.
 	.macro copyobjectxytoperm index:req
 	.byte 0x64
@@ -793,14 +793,14 @@
 	.byte \byte
 	.endm
 
-	@ If a standard message box (or its text) is being drawn on-screen, this command blocks script execution until the 
+	@ If a standard message box (or its text) is being drawn on-screen, this command blocks script execution until the
 	@ box and its text have been fully drawn.
 	.macro waitmessage
 	.byte 0x66
 	.endm
 
-	@ Starts displaying a standard message box containing the specified text. If text is a pointer, then the string at 
-	@ that offset will be loaded and used. If text is script bank 0, then the value of script bank 0 will be treated as 
+	@ Starts displaying a standard message box containing the specified text. If text is a pointer, then the string at
+	@ that offset will be loaded and used. If text is script bank 0, then the value of script bank 0 will be treated as
 	@ a pointer to the text. (You can use loadpointer to place a string pointer in a script bank.)
 	.macro message text:req
 	.byte 0x67
@@ -845,7 +845,7 @@
 	.byte \y
 	.endm
 
-	@ Displays a multichoice box from which the user can choose a selection, and blocks script execution until a selection is made. 
+	@ Displays a multichoice box from which the user can choose a selection, and blocks script execution until a selection is made.
 	@ Lists of options are predefined (sMultichoiceLists) and the one to be used is specified with list. If b is set to a non-zero value, then the user will not be allowed to back out of the multichoice with the B button.
 	.macro multichoice x:req, y:req, list:req, b:req
 	.byte 0x6f
@@ -856,8 +856,8 @@
 	.endm
 
 	@ Displays a multichoice box from which the user can choose a selection, and blocks script execution until a selection is made.
-	@ Lists of options are predefined (sMultichoiceLists) and the one to be used is specified with list. The default argument determines 
-	@ the initial position of the cursor when the box is first opened; it is zero-indexed, and if it is too large, it is treated as 0x00. 
+	@ Lists of options are predefined (sMultichoiceLists) and the one to be used is specified with list. The default argument determines
+	@ the initial position of the cursor when the box is first opened; it is zero-indexed, and if it is too large, it is treated as 0x00.
 	@ If b is set to a non-zero value, then the user will not be allowed to back out of the multichoice with the B button.
 	.macro multichoicedefault x:req, y:req, list:req, default:req, b:req
 	.byte 0x70
@@ -922,8 +922,8 @@
 	.byte \a
 	.endm
 
-	@ Displays the string at pointer as braille text in a standard message box. The string must be formatted to use braille 
-	@ characters and needs to provide six extra starting characters that are skipped (in RS, these characters determined the 
+	@ Displays the string at pointer as braille text in a standard message box. The string must be formatted to use braille
+	@ characters and needs to provide six extra starting characters that are skipped (in RS, these characters determined the
 	@ box's size and position, but in Emerald these are calculated automatically).
 	.macro braillemessage text:req
 	.byte 0x78
@@ -982,7 +982,7 @@
 	.2byte \slot
 	.endm
 
-	@ Writes the name of the item at index item to the specified buffer. If the specified index is larger than 
+	@ Writes the name of the item at index item to the specified buffer. If the specified index is larger than
 	@ the number of items in the game (0x176), the name of item 0 ("????????") is buffered instead.
 	.macro bufferitemname out:req, item:req
 	.byte 0x80
@@ -1098,7 +1098,7 @@
 	.byte \check
 	.endm
 
-	@ If check is 0x00, this command will check if the player has money >= value; VAR_RESULT is set to TRUE if the player 
+	@ If check is 0x00, this command will check if the player has money >= value; VAR_RESULT is set to TRUE if the player
 	@ has enough money, or FALSE if they do not.
 	.macro checkmoney value:req, check:req
 	.byte 0x92
@@ -1329,7 +1329,7 @@
 
 	@ Prepares to start a wild battle against a species at Level level holding item.
 	@ If species2 is something other than SPECIES_NONE, then the battle is a double battle with another pokemon
-	@ with species species2 at Level level2 holding item2. 
+	@ with species species2 at Level level2 holding item2.
 	@ Running this command will not affect normal wild battles. You start the prepared battle with dowildbattle.
 	@ If the player only has one pokemon, a scripted double battle will be buggy.
 	.macro setwildbattle species:req, level:req, item:req, species2=SPECIES_NONE, level2=0, item2=ITEM_NONE
@@ -1438,7 +1438,7 @@
 	.2byte \box
 	.endm
 
-	@ Sets the color of the text in standard message boxes. 0x00 produces blue (male) text, 0x01 produces red (female) text, 
+	@ Sets the color of the text in standard message boxes. 0x00 produces blue (male) text, 0x01 produces red (female) text,
 	@ 0xFF resets the color to the default for the current OW's gender, and all other values produce black text.
 	@ Used only in FireRed/LeafGreen, does nothing in Emerald.
 	.macro textcolor color:req
@@ -1446,7 +1446,7 @@
 	.byte \color
 	.endm
 
-	@ The exact purpose of this command is unknown, but it is related to the blue help-text box that appears on the bottom 
+	@ The exact purpose of this command is unknown, but it is related to the blue help-text box that appears on the bottom
 	@ of the screen when the Main Menu is opened.
 	@ Used only in FireRed/LeafGreen, does nothing in Emerald.
 	.macro loadhelp pointer:req
@@ -1619,123 +1619,129 @@
 	.2byte \item
 	.2byte \quantity
 	.endm
-    
-    .macro givecustommon species:req, level:req, item, ball, nature, abilityNum, hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv, hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv, move1, move2, move3, move4, isShiny
-    .byte 0xe3
-    .2byte \species
-    .byte \level
-    .ifb \item
-        .2byte ITEM_NONE
-    .else
-        .2byte \item
-    .endif
-    .ifb \ball
-        .byte 0
-    .else
-        .byte \ball
-    .endif
-    .ifb \nature
-        .byte NUM_NATURES
-    .else
-        .byte \nature
-    .endif
-    .ifb \abilityNum
-        .byte 3
-    .else
-        .byte \abilityNum
-    .endif
-    @evs
-    .ifb \hpEv
-        .byte 0
-    .else
-        .byte \hpEv
-    .endif
-    .ifb \atkEv
-        .byte 0
-    .else
-        .byte \atkEv
-    .endif
-    .ifb \defEv
-        .byte 0
-    .else
-        .byte \defEv
-    .endif
-    .ifb \speedEv
-        .byte 0
-    .else
-        .byte \speedEv
-    .endif
-    .ifb \spAtkEv
-        .byte 0
-    .else
-        .byte \spAtkEv
-    .endif
-    .ifb \spDefEv
-        .byte 0
-    .else
-        .byte \spDefEv
-    .endif
-    @ivs
-    .ifb \hpIv
-        .byte 32
-    .else
-        .byte \hpIv
-    .endif
-    .ifb \atkIv
-        .byte 32
-    .else
-        .byte \atkIv
-    .endif
-    .ifb \defIv
-        .byte 32
-    .else
-        .byte \defIv
-    .endif
-    .ifb \speedIv
-        .byte 32
-    .else
-        .byte \speedIv
-    .endif
-    .ifb \spAtkIv
-        .byte 32
-    .else
-        .byte \spAtkIv
-    .endif
-    .ifb \spDefIv
-        .byte 32
-    .else
-        .byte \spDefIv
-    .endif
-    .ifb \move1
-        .2byte 0
-    .else
-        .2byte \move1
-    .endif
-    .ifb \move2
-        .2byte 0
-    .else
-        .2byte \move2
-    .endif
-    .ifb \move3
-        .2byte 0
-    .else
-        .2byte \move3
-    .endif
-    .ifb \move4
-        .2byte 0
-    .else
-        .2byte \move4
-    .endif
-    .ifb \isShiny
-        .byte 0
-    .else
-        .byte \isShiny
-    .endif
-    .endm
-    
-    .macro givemonmoves species:req, level:req, move1:req, move2:req, move3:req, move4:req
-    customgivemon \species, \level, 0, 0, NUM_NATURES, 0xFF, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \move1, \move2, \move3, \move4, 0
-    .endm
+
+	.macro givecustommon species:req, level:req, item, ball, nature, abilityNum, hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv, hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv, move1, move2, move3, move4, isShiny
+	.byte 0xe3
+	.2byte \species
+	.byte \level
+	.ifb \item
+		.2byte ITEM_NONE
+	.else
+		.2byte \item
+	.endif
+	.ifb \ball
+		.byte 0
+	.else
+		.byte \ball
+	.endif
+	.ifb \nature
+		.byte NUM_NATURES
+	.else
+		.byte \nature
+	.endif
+	.ifb \abilityNum
+		.byte 3
+	.else
+		.byte \abilityNum
+	.endif
+	@evs
+	.ifb \hpEv
+		.byte 0
+	.else
+		.byte \hpEv
+	.endif
+	.ifb \atkEv
+		.byte 0
+	.else
+		.byte \atkEv
+	.endif
+	.ifb \defEv
+		.byte 0
+	.else
+		.byte \defEv
+	.endif
+	.ifb \speedEv
+		.byte 0
+	.else
+		.byte \speedEv
+	.endif
+	.ifb \spAtkEv
+		.byte 0
+	.else
+		.byte \spAtkEv
+	.endif
+	.ifb \spDefEv
+		.byte 0
+	.else
+		.byte \spDefEv
+	.endif
+	@ivs
+	.ifb \hpIv
+		.byte 32
+	.else
+		.byte \hpIv
+	.endif
+	.ifb \atkIv
+		.byte 32
+	.else
+		.byte \atkIv
+	.endif
+	.ifb \defIv
+		.byte 32
+	.else
+		.byte \defIv
+	.endif
+	.ifb \speedIv
+		.byte 32
+	.else
+		.byte \speedIv
+	.endif
+	.ifb \spAtkIv
+		.byte 32
+	.else
+		.byte \spAtkIv
+	.endif
+	.ifb \spDefIv
+		.byte 32
+	.else
+		.byte \spDefIv
+	.endif
+	.ifb \move1
+		.2byte 0
+	.else
+		.2byte \move1
+	.endif
+	.ifb \move2
+		.2byte 0
+	.else
+		.2byte \move2
+	.endif
+	.ifb \move3
+		.2byte 0
+	.else
+		.2byte \move3
+	.endif
+	.ifb \move4
+		.2byte 0
+	.else
+		.2byte \move4
+	.endif
+	.ifb \isShiny
+		.byte 0
+	.else
+		.byte \isShiny
+	.endif
+	.endm
+
+	.macro givemonmoves species:req, level:req, move1:req, move2:req, move3:req, move4:req
+	customgivemon \species, \level, 0, 0, NUM_NATURES, 0xFF, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \move1, \move2, \move3, \move4, 0
+	.endm
+
+	@ Checks the value of the specified game stat.  in VAR_RESULT.
+	.macro getgamestat stat:req
+	.byte 0xe4
+	.byte \stat
+	.endm
 
 @ Supplementary
 
@@ -1751,7 +1757,7 @@
 
 	.macro goto_if_lt dest:req @ LESS THAN
 	goto_if 0, \dest
-	.endm	
+	.endm
 
 	.macro goto_if_eq dest:req @ EQUAL
 	goto_if 1, \dest
@@ -1785,7 +1791,7 @@
 
 	.macro call_if_lt dest:req @ LESS THAN
 	call_if 0, \dest
-	.endm	
+	.endm
 
 	.macro call_if_eq dest:req @ EQUAL
 	call_if 1, \dest

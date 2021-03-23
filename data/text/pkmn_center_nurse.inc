@@ -40,12 +40,12 @@ gText_YouWantTheUsual:: @ 8272982
     .string "I'm delighted to see you, {PLAYER}!\n"
     .string "You want the usual, am I right?$"
 
-gText_IllTakeYourPkmn2:: @ 82729C0
-    .string "Okay, I'll take your POKéMON\n"
+gText_SecondAndSubsequentMeetingsWithNurseJoy::
+    .string "Hey {PLAYER}, how have you been?$"
+
+gText_IllTakeYourPkmn2::
+    .string "Let me take your POKéMON\n"
     .string "for a few seconds.$"
 
 gText_ThankYouForWaiting:: @ 82729F0
     .string "Thank you for waiting.$"
-
-gText_WeHopeToSeeYouAgain2:: @ 8272A07
-    .string "We hope to see you again!$"
