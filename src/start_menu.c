@@ -993,13 +993,9 @@ static u8 SaveConfirmInputCallback(void)
 static u8 SaveFileExistsCallback(void)
 {
     if (gDifferentSaveFile == TRUE)
-    {
         ShowSaveMessage(gText_DifferentSaveFile, SaveConfirmOverwriteDefaultNoCallback);
-    }
     else
-    {
-        ShowSaveMessage(gText_AlreadySavedFile, SaveConfirmOverwriteCallback);
-    }
+        sSaveDialogCallback = SaveSavingMessageCallback;
 
     return SAVE_IN_PROGRESS;
 }
