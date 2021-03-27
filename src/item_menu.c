@@ -2624,7 +2624,9 @@ static const u8 sBagMenuSortItems[] =
 static const u8 sBagMenuSortKeyItems[] =
 {
     ITEMMENUACTION_BY_NAME,
+    ITEMMENUACTION_DUMMY,
     ITEMMENUACTION_CANCEL,
+    ITEMMENUACTION_DUMMY,
 };
 
 static const u8 sBagMenuSortPokeBalls[] =
@@ -3101,8 +3103,8 @@ static void AddBagSortSubMenu(void)
     FillWindowPixelBuffer(1, PIXEL_FILL(0));
     BagMenu_Print(1, 1, gStringVar4, 3, 1, 0, 0, 0, 0);
     
-    if (gBagMenu->contextMenuNumItems == 2)
-        sub_81ACAF8(BagMenu_AddWindow(1));
+    if ((gBagPositionStruct.pocket + 1) == POCKET_KEY_ITEMS)
+        sub_81ACB54(BagMenu_AddWindow(2), 2, 3);
     else if (gBagMenu->contextMenuNumItems == 4)
         sub_81ACB54(BagMenu_AddWindow(2), 2, 2);
     else
