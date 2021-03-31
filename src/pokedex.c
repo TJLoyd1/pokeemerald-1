@@ -303,6 +303,8 @@ static void PrintSearchParameterTitle(u32, const u8*);
 static void ClearSearchParameterBoxText(void);
 static void PrintInfoScreenTextSmall(const u8* str, u8 left, u8 top);
 static void PrintEvolutionTargetSpeciesAndMethod(u8 taskId, u16 species);
+static void Task_LoadCryScreenWaitForFade(u8 taskId);
+static void Task_LoadEvoScreenWaitForFade(u8 taskId);
 
 // const rom data
 #include "data/pokemon/pokedex_orders.h"
@@ -3529,7 +3531,6 @@ static void Task_LoadCryScreen(u8 taskId)
     default:
         if (!gPaletteFade.active)
         {
-            m4aMPlayStop(&gMPlayInfo_BGM);
             sPokedexView->currentPage = PAGE_CRY;
             gPokedexVBlankCB = gMain.vblankCallback;
             SetVBlankCallback(NULL);
@@ -3634,8 +3635,9 @@ static void Task_HandleCryScreenInput(u8 taskId)
     else
         LoadPlayArrowPalette(FALSE);
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW(A_BUTTON) && !IsCryPlaying())
     {
+        m4aMPlayStop(&gMPlayInfo_BGM);
         LoadPlayArrowPalette(TRUE);
         CryScreenPlayButton(NationalPokedexNumToSpecies(sPokedexListItem->dexNum));
         return;
@@ -3678,6 +3680,50 @@ static void Task_HandleCryScreenInput(u8 taskId)
             }
             return;
         }
+        if ((JOY_NEW(DPAD_UP) || JOY_NEW(DPAD_DOWN)) && !IsCryPlaying())
+        {
+            // Scroll up/down if the current page isn't Bulbasaur's/NATIONAL_DEX_COUNT's
+            if (JOY_NEW(DPAD_UP))
+            {
+                int i;
+                for (i = sPokedexListItem->dexNum - 1; i > NATIONAL_DEX_NONE; i--)
+                {
+                    if (GetSetPokedexFlag(NationalPokedexNumToSpecies(i), FLAG_GET_SEEN))
+                    {
+                        sPokedexListItem->dexNum = i;
+                        gTasks[taskId].func = Task_LoadCryScreenWaitForFade;
+                        PlaySE(SE_DEX_SCROLL);
+                        break;
+                    }
+                }
+            }
+            else if (JOY_NEW(DPAD_DOWN))
+            {
+                int i;
+                for (i = sPokedexListItem->dexNum + 1; i < NATIONAL_DEX_COUNT; i++)
+                {
+                    if (GetSetPokedexFlag(NationalPokedexNumToSpecies(i), FLAG_GET_SEEN))
+                    {
+                        sPokedexListItem->dexNum = i;
+                        gTasks[taskId].func = Task_LoadCryScreenWaitForFade;
+                        PlaySE(SE_DEX_SCROLL);
+                        break;
+                    }
+                }
+            }
+            return;
+        }
+    }
+    if (!IsCryPlaying())
+        m4aMPlayContinue(&gMPlayInfo_BGM);
+}
+
+static void Task_LoadCryScreenWaitForFade(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        FreeAndDestroyMonPicSprite(gTasks[taskId].tMonSpriteId);
+        gTasks[taskId].func = Task_LoadCryScreen;
     }
 }
 
@@ -3722,7 +3768,6 @@ static void Task_LoadEvoScreen(u8 taskId)
     default:
         if (!gPaletteFade.active)
         {
-            m4aMPlayStop(&gMPlayInfo_BGM);
             sPokedexView->currentPage = PAGE_EVO;
             gPokedexVBlankCB = gMain.vblankCallback;
             SetVBlankCallback(NULL);
@@ -3825,8 +3870,6 @@ static void Task_SwitchScreensFromEvoScreen(u8 taskId)
     }
 }
 
-#undef tMonSpriteId
-
 static void Task_HandleEvoScreenInput(u8 taskId)
 {
     if (JOY_NEW(B_BUTTON))
@@ -3846,7 +3889,50 @@ static void Task_HandleEvoScreenInput(u8 taskId)
         gTasks[taskId].func = Task_SwitchScreensFromEvoScreen;
         PlaySE(SE_DEX_PAGE);
     }
+    else if (JOY_NEW(DPAD_UP) || JOY_NEW(DPAD_DOWN))
+    {
+        // Scroll up/down if the current page isn't Bulbasaur's/NATIONAL_DEX_COUNT's
+        if (JOY_NEW(DPAD_UP))
+        {
+            int i;
+            for (i = sPokedexListItem->dexNum - 1; i > NATIONAL_DEX_NONE; i--)
+            {
+                if (GetSetPokedexFlag(NationalPokedexNumToSpecies(i), FLAG_GET_SEEN))
+                {
+                    sPokedexListItem->dexNum = i;
+                    gTasks[taskId].func = Task_LoadEvoScreenWaitForFade;
+                    PlaySE(SE_DEX_SCROLL);
+                    break;
+                }
+            }
+        }
+        else if (JOY_NEW(DPAD_DOWN))
+        {
+            int i;
+            for (i = sPokedexListItem->dexNum + 1; i < NATIONAL_DEX_COUNT; i++)
+            {
+                if (GetSetPokedexFlag(NationalPokedexNumToSpecies(i), FLAG_GET_SEEN))
+                {
+                    sPokedexListItem->dexNum = i;
+                    gTasks[taskId].func = Task_LoadEvoScreenWaitForFade;
+                    PlaySE(SE_DEX_SCROLL);
+                    break;
+                }
+            }
+        }
+    }
 }
+
+static void Task_LoadEvoScreenWaitForFade(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        FreeAndDestroyMonPicSprite(gTasks[taskId].tMonSpriteId);
+        gTasks[taskId].func = Task_LoadEvoScreen;
+    }
+}
+
+#undef tMonSpriteId
 
 static void handleTargetSpeciesPrint(u8 taskId, u16 targetSpecies, u8 base_x, u8 base_y, u8 base_offset, u8 base_i)
 {
