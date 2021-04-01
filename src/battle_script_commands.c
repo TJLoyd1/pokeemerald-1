@@ -258,7 +258,7 @@ static void Cmd_trysetperishsong(void);
 static void Cmd_rolloutdamagecalculation(void);
 static void Cmd_jumpifconfusedandstatmaxed(void);
 static void Cmd_furycuttercalc(void);
-static void Cmd_happinesstodamagecalculation(void);
+static void Cmd_friendshiptodamagecalculation(void);
 static void Cmd_presentdamagecalculation(void);
 static void Cmd_setsafeguard(void);
 static void Cmd_magnitudedamagecalculation(void);
@@ -510,7 +510,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_rolloutdamagecalculation,                //0xB3
     Cmd_jumpifconfusedandstatmaxed,              //0xB4
     Cmd_furycuttercalc,                          //0xB5
-    Cmd_happinesstodamagecalculation,            //0xB6
+    Cmd_friendshiptodamagecalculation,           //0xB6
     Cmd_presentdamagecalculation,                //0xB7
     Cmd_setsafeguard,                            //0xB8
     Cmd_magnitudedamagecalculation,              //0xB9
@@ -3961,6 +3961,11 @@ static void Cmd_endselectionscript(void)
     *(gBattlerAttacker + gBattleStruct->selectionScriptFinished) = TRUE;
 }
 
+#ifdef PORTABLE
+#define SAFE_BtlController_EmitBattleAnimation(bufferId, animationId) BtlController_EmitBattleAnimation(bufferId, animationId, argumentPtr != NULL ? *argumentPtr : 0)
+#else
+#define SAFE_BtlController_EmitBattleAnimation(bufferId, animationId) BtlController_EmitBattleAnimation(bufferId, animationId, *argumentPtr)
+#endif
 static void Cmd_playanimation(void)
 {
     const u16* argumentPtr;
@@ -3972,7 +3977,7 @@ static void Cmd_playanimation(void)
         || gBattlescriptCurrInstr[2] == B_ANIM_SNATCH_MOVE
         || gBattlescriptCurrInstr[2] == B_ANIM_SUBSTITUTE_FADE)
     {
-        BtlController_EmitBattleAnimation(0, gBattlescriptCurrInstr[2], *argumentPtr);
+        SAFE_BtlController_EmitBattleAnimation(0, gBattlescriptCurrInstr[2]);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 7;
     }
@@ -3986,7 +3991,7 @@ static void Cmd_playanimation(void)
              || gBattlescriptCurrInstr[2] == B_ANIM_SANDSTORM_CONTINUES
              || gBattlescriptCurrInstr[2] == B_ANIM_HAIL_CONTINUES)
     {
-        BtlController_EmitBattleAnimation(0, gBattlescriptCurrInstr[2], *argumentPtr);
+        SAFE_BtlController_EmitBattleAnimation(0, gBattlescriptCurrInstr[2]);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 7;
     }
@@ -3996,7 +4001,7 @@ static void Cmd_playanimation(void)
     }
     else
     {
-        BtlController_EmitBattleAnimation(0, gBattlescriptCurrInstr[2], *argumentPtr);
+        SAFE_BtlController_EmitBattleAnimation(0, gBattlescriptCurrInstr[2]);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 7;
     }
@@ -4010,12 +4015,18 @@ static void Cmd_playanimation2(void) // animation Id is stored in the first poin
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
     animationIdPtr = T2_READ_PTR(gBattlescriptCurrInstr + 2);
     argumentPtr = T2_READ_PTR(gBattlescriptCurrInstr + 6);
-
-    if (*animationIdPtr == B_ANIM_STATS_CHANGE
+#ifdef PORTABLE
+    if (animationIdPtr != NULL && (
+        *animationIdPtr == B_ANIM_STATS_CHANGE
+        || *animationIdPtr == B_ANIM_SNATCH_MOVE
+        || *animationIdPtr == B_ANIM_SUBSTITUTE_FADE))
+#else
+     if (*animationIdPtr == B_ANIM_STATS_CHANGE
         || *animationIdPtr == B_ANIM_SNATCH_MOVE
         || *animationIdPtr == B_ANIM_SUBSTITUTE_FADE)
+#endif
     {
-        BtlController_EmitBattleAnimation(0, *animationIdPtr, *argumentPtr);
+        SAFE_BtlController_EmitBattleAnimation(0, *animationIdPtr);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 10;
     }
@@ -4023,12 +4034,20 @@ static void Cmd_playanimation2(void) // animation Id is stored in the first poin
     {
         gBattlescriptCurrInstr += 10;
     }
+#ifdef PORTABLE
+    else if (animationIdPtr != NULL && (
+             *animationIdPtr == B_ANIM_RAIN_CONTINUES
+             || *animationIdPtr == B_ANIM_SUN_CONTINUES
+             || *animationIdPtr == B_ANIM_SANDSTORM_CONTINUES
+             || *animationIdPtr == B_ANIM_HAIL_CONTINUES))
+#else
     else if (*animationIdPtr == B_ANIM_RAIN_CONTINUES
              || *animationIdPtr == B_ANIM_SUN_CONTINUES
              || *animationIdPtr == B_ANIM_SANDSTORM_CONTINUES
              || *animationIdPtr == B_ANIM_HAIL_CONTINUES)
+#endif
     {
-        BtlController_EmitBattleAnimation(0, *animationIdPtr, *argumentPtr);
+        SAFE_BtlController_EmitBattleAnimation(0, *animationIdPtr);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 10;
     }
@@ -4038,11 +4057,12 @@ static void Cmd_playanimation2(void) // animation Id is stored in the first poin
     }
     else
     {
-        BtlController_EmitBattleAnimation(0, *animationIdPtr, *argumentPtr);
+        SAFE_BtlController_EmitBattleAnimation(0, *animationIdPtr);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr += 10;
     }
 }
+#undef SAFE_BtlController_EmitBattleAnimation
 
 static void Cmd_setgraphicalstatchangevalues(void)
 {
@@ -8462,7 +8482,7 @@ static void Cmd_furycuttercalc(void)
     }
 }
 
-static void Cmd_happinesstodamagecalculation(void)
+static void Cmd_friendshiptodamagecalculation(void)
 {
     if (gBattleMoves[gCurrentMove].effect == EFFECT_RETURN)
         gDynamicBasePower = 10 * (gBattleMons[gBattlerAttacker].friendship) / 25;
