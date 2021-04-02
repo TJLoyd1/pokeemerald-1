@@ -53,6 +53,7 @@
 #include "constants/rgb.h"
 #include "data.h"
 #include "constants/party_menu.h"
+#include "decompress.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_BGM;
 
@@ -4429,9 +4430,44 @@ static void Cmd_playanimation(void)
         || gBattlescriptCurrInstr[2] == B_ANIM_FORM_CHANGE
         || gBattlescriptCurrInstr[2] == B_ANIM_SUBSTITUTE_FADE)
     {
-        BtlController_EmitBattleAnimation(0, gBattlescriptCurrInstr[2], *argumentPtr);
-        MarkBattlerForControllerExec(gActiveBattler);
-        gBattlescriptCurrInstr += 7;
+    #if B_FAST_FORM_CHANGE == TRUE
+        if (gBattlescriptCurrInstr[2] == B_ANIM_MEGA_EVOLUTION
+        || gBattlescriptCurrInstr[2] == B_ANIM_FORM_CHANGE)
+        {
+            u16 species = gBattleMons[gActiveBattler].species;
+            u32 personality = gBattleMons[gActiveBattler].personality;
+            u32 otId = gBattleMons[gActiveBattler].otId;
+            u32 paletteOffset;
+            u32 *lzPaletteData;
+
+            if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+            {
+                // back pic
+                LoadBattleMonGfxAndAnimate(gActiveBattler, TRUE, gBattlerSpriteIds[gActiveBattler]);
+                BattleLoadPlayerMonSpriteGfx(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], gActiveBattler);
+            }
+            else
+            {
+                // front pic
+                LoadBattleMonGfxAndAnimate(gActiveBattler, TRUE, gBattlerSpriteIds[gActiveBattler]);
+                BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], gActiveBattler);
+            }
+            paletteOffset = 0x100 + gActiveBattler * 16;
+            lzPaletteData = (u32 *)GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality);
+            LZDecompressWram(lzPaletteData, gDecompressionBuffer);
+            LoadPalette(gDecompressionBuffer, paletteOffset, 0x20);
+            LoadPalette(gDecompressionBuffer, 0x80 + gActiveBattler * 16, 0x20);
+    
+            BattleScriptPush(gBattlescriptCurrInstr + 7);
+            gBattlescriptCurrInstr = BattleScript_Pausex20;
+        }
+        else
+    #endif
+        {
+            BtlController_EmitBattleAnimation(0, gBattlescriptCurrInstr[2], *argumentPtr);
+            MarkBattlerForControllerExec(gActiveBattler);
+            gBattlescriptCurrInstr += 7;
+        }
     }
     else if (gHitMarker & HITMARKER_NO_ANIMATIONS)
     {

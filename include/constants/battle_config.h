@@ -146,6 +146,7 @@
 #define B_FAST_INTRO                TRUE  // If set to TRUE, battle intro texts print at the same time as animation of a Pokémon, as opposing to waiting for the animation to end.
 #define B_SHOW_TARGETS              TRUE  // If set to TRUE, all available targets, for moves hitting 2 or 3 Pokémon, will be shown before selecting a move.
 #define B_SHOW_SPLIT_ICON           TRUE  // If set to TRUE, it will show an icon in the summary showing the move's category split.
+#define B_FAST_FORM_CHANGE          FALSE // If set to TRUE, no animations will happen in battle during form changes.
 
 // Critical Capture
 #define B_CRITICAL_CAPTURE          TRUE  // If set to TRUE, Critical Capture will be enabled.
