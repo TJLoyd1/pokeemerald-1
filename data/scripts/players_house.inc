@@ -116,6 +116,7 @@ PlayersHouse_2F_EventScript_SetWallClock:: @ 8292849
 	fadescreen FADE_TO_BLACK
 	special StartWallClock
 	waitstate
+	gettime @ Calls RtcCalcLocalTime which updates the RTC
 	return
 
 PlayersHouse_2F_Movement_MomEntersMale: @ 8292850

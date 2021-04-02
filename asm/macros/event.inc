@@ -317,8 +317,8 @@
 	.byte 0x2d
 	.endm
 
-	@ Sets the values of variables 0x8000, 0x8001, and 0x8002 to the current hour, minute, and second. In FRLG,
-	@ this command sets those variables to zero.
+	@ Sets the values of variables 0x8000, 0x8001, 0x8002 and 0x8003 to the current hour, minute, second and day of the week.
+	@ In FRLG, this command sets those variables to zero.
 	.macro gettime
 	.byte 0x2e
 	.endm

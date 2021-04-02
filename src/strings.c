@@ -1862,3 +1862,11 @@ const u8 gText_EVO_LEVEL_DARK_TYPE_MON_IN_PARTY[] = _("Lv. up with with Dark typ
 const u8 gText_EVO_TRADE_SPECIFIC_MON[]           = _("Traded for a {STR_VAR_2}");
 const u8 gText_EVO_SPECIFIC_MAP[]                 = _("Lv. up in {STR_VAR_2}");
 const u8 gText_EVO_NONE[]                         = _("{STR_VAR_1} cannot evolve.");
+
+const u8 gText_Sunday[]    = _("Sunday");
+const u8 gText_Monday[]    = _("Monday");
+const u8 gText_Tuesday[]   = _("Tuesday");
+const u8 gText_Wednesday[] = _("Wednesday");
+const u8 gText_Thursday[]  = _("Thursday");
+const u8 gText_Friday[]    = _("Friday");
+const u8 gText_Saturday[]  = _("Saturday");
