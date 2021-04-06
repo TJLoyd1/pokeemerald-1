@@ -42,7 +42,7 @@ struct MysteryEventStruct *sub_801B044(void)
 {
 }
 
-u16 *sub_801B058(void)
+u16 *GetQuestionnaireWordsPtr(void)
 {
 }
 
@@ -317,7 +317,7 @@ u32 sub_801B708(const u16 *a0, const struct MEventStruct_Unk1442CC *a1, const vo
 bool32 MEventStruct_Unk1442CC_CompareField_unk_16(const struct MEventStruct_Unk1442CC *a0, const u16 *a1)
 {
     int i;
-    for (i = 0; i < 4; i++)
+    for (i = 0; i < NUM_QUESTIONNAIRE_WORDS; i++)
     {
         if (a0->unk_16[i] != a1[i])
             return FALSE;

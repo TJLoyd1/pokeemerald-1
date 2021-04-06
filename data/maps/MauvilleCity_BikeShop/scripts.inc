@@ -46,7 +46,7 @@ MauvilleCity_BikeShop_EventScript_MachBikeHandbook:: @ 820ED3A
 	end
 
 MauvilleCity_BikeShop_EventScript_ChooseMachHandbookPage:: @ 820ED46
-	multichoice 0, 0, MULTI_MACH_BIKE_INFO, 0
+	multichoice 0, 0, MULTI_MACH_BIKE_INFO, FALSE
 	switch VAR_RESULT
 	case 0, MauvilleCity_BikeShop_EventScript_MachBikeMode
 	case 1, MauvilleCity_BikeShop_EventScript_HowToRide
@@ -91,7 +91,7 @@ MauvilleCity_BikeShop_EventScript_AcroBikeHandbook:: @ 820EDAE
 	end
 
 MauvilleCity_BikeShop_EventScript_ChooseAcroHandbookPage:: @ 820EDBA
-	multichoice 0, 0, MULTI_ACRO_BIKE_INFO, 0
+	multichoice 0, 0, MULTI_ACRO_BIKE_INFO, FALSE
 	switch VAR_RESULT
 	case 0, MauvilleCity_BikeShop_EventScript_AcroBikeMode
 	case 1, MauvilleCity_BikeShop_EventScript_Wheelies
