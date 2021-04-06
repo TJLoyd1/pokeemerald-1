@@ -73,6 +73,7 @@ enum { // Flags
     DEBUG_FLAG_MENU_ITEM_POKEDEXONOFF,
     DEBUG_FLAG_MENU_ITEM_NATDEXONOFF,
     DEBUG_FLAG_MENU_ITEM_POKENAVONOFF,
+    DEBUG_FLAG_MENU_ITEM_DEXNAVONOFF,
     DEBUG_FLAG_MENU_ITEM_FLYANYWHERE,
     DEBUG_FLAG_MENU_ITEM_GETALLBADGES,
     DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF,
@@ -181,6 +182,7 @@ static void DebugAction_Flags_SetPokedexFlags(u8);
 static void DebugAction_Flags_SwitchDex(u8);
 static void DebugAction_Flags_SwitchNatDex(u8);
 static void DebugAction_Flags_SwitchPokeNav(u8);
+static void DebugAction_Flags_SwitchDexNav(u8);
 static void DebugAction_Flags_ToggleFlyFlags(u8);
 static void DebugAction_Flags_ToggleBadgeFlags(u8);
 static void DebugAction_Flags_CollisionOnOff(u8);
@@ -267,6 +269,7 @@ static const u8 gDebugText_Flags_SetPokedexFlags[] =      _("All Pokédex Flags"
 static const u8 gDebugText_Flags_SwitchDex[] =            _("Pokédex ON/OFF");
 static const u8 gDebugText_Flags_SwitchNationalDex[] =    _("NatDex ON/OFF");
 static const u8 gDebugText_Flags_SwitchPokeNav[] =        _("PokéNav ON/OFF");
+static const u8 gDebugText_Flags_SwitchDexNav[] =         _("DexNav ON/OFF");
 static const u8 gDebugText_Flags_ToggleFlyFlags[] =       _("Fly Flags ON/OFF");
 static const u8 gDebugText_Flags_ToggleAllBadges[] =      _("All badges ON/OFF");
 static const u8 gDebugText_Flags_SwitchCollision[] =      _("Collision ON/OFF");
@@ -381,6 +384,7 @@ static const struct ListMenuItem sDebugMenu_Items_Flags[] =
     [DEBUG_FLAG_MENU_ITEM_POKEDEXONOFF]     = {gDebugText_Flags_SwitchDex,           DEBUG_FLAG_MENU_ITEM_POKEDEXONOFF},
     [DEBUG_FLAG_MENU_ITEM_NATDEXONOFF]      = {gDebugText_Flags_SwitchNationalDex,   DEBUG_FLAG_MENU_ITEM_NATDEXONOFF},
     [DEBUG_FLAG_MENU_ITEM_POKENAVONOFF]     = {gDebugText_Flags_SwitchPokeNav,       DEBUG_FLAG_MENU_ITEM_POKENAVONOFF},
+    [DEBUG_FLAG_MENU_ITEM_DEXNAVONOFF]      = {gDebugText_Flags_SwitchDexNav,        DEBUG_FLAG_MENU_ITEM_DEXNAVONOFF},
     [DEBUG_FLAG_MENU_ITEM_FLYANYWHERE]      = {gDebugText_Flags_ToggleFlyFlags,      DEBUG_FLAG_MENU_ITEM_FLYANYWHERE},
     [DEBUG_FLAG_MENU_ITEM_GETALLBADGES]     = {gDebugText_Flags_ToggleAllBadges,     DEBUG_FLAG_MENU_ITEM_GETALLBADGES},
     [DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF]  = {gDebugText_Flags_SwitchCollision,     DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF},
@@ -441,6 +445,7 @@ static void (*const sDebugMenu_Actions_Flags[])(u8) =
     [DEBUG_FLAG_MENU_ITEM_POKEDEXONOFF]     = DebugAction_Flags_SwitchDex,
     [DEBUG_FLAG_MENU_ITEM_NATDEXONOFF]      = DebugAction_Flags_SwitchNatDex,
     [DEBUG_FLAG_MENU_ITEM_POKENAVONOFF]     = DebugAction_Flags_SwitchPokeNav,
+    [DEBUG_FLAG_MENU_ITEM_DEXNAVONOFF]      = DebugAction_Flags_SwitchDexNav,
     [DEBUG_FLAG_MENU_ITEM_FLYANYWHERE]      = DebugAction_Flags_ToggleFlyFlags,
     [DEBUG_FLAG_MENU_ITEM_GETALLBADGES]     = DebugAction_Flags_ToggleBadgeFlags,
     [DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF]  = DebugAction_Flags_CollisionOnOff,
@@ -1132,6 +1137,19 @@ static void DebugAction_Flags_SwitchPokeNav(u8 taskId)
     else
     {
         FlagSet(FLAG_SYS_POKENAV_GET);
+        PlaySE(SE_PC_LOGIN);
+    }
+}
+static void DebugAction_Flags_SwitchDexNav(u8 taskId)
+{
+    if (FlagGet(FLAG_SYS_DEXNAV_GET))
+    {
+        FlagClear(FLAG_SYS_DEXNAV_GET);
+        PlaySE(SE_PC_OFF);
+    }
+    else
+    {
+        FlagSet(FLAG_SYS_DEXNAV_GET);
         PlaySE(SE_PC_LOGIN);
     }
 }

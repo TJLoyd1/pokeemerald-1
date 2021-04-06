@@ -1100,3 +1100,4 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
 	.include "data/scripts/misc_scripts.inc"
+	.include "data/scripts/dexnav.inc"

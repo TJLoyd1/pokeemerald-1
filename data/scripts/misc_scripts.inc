@@ -31,6 +31,8 @@ EventScript_DebugPack::
 	lockall
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_POKENAV_GET
+	setflag FLAG_SYS_DEXNAV_GET
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	setflag FLAG_RECEIVED_AMULET_COIN
