@@ -4451,29 +4451,28 @@ u8 GetPlayersCurrentCostume(void)
 
 void GetCurrentDayString(void)
 {
-    RtcCalcLocalTime();
     switch (gLocalTime.dayOfWeek)
     {
     case 0:
-        StringCopy(gStringVar1, gText_Sunday);
+        StringCopy(gStringVar4, gText_Sunday);
         break;
     case 1:
-        StringCopy(gStringVar1, gText_Monday);
+        StringCopy(gStringVar4, gText_Monday);
         break;
     case 2:
-        StringCopy(gStringVar1, gText_Tuesday);
+        StringCopy(gStringVar4, gText_Tuesday);
         break;
     case 3:
-        StringCopy(gStringVar1, gText_Wednesday);
+        StringCopy(gStringVar4, gText_Wednesday);
         break;
     case 4:
-        StringCopy(gStringVar1, gText_Thursday);
+        StringCopy(gStringVar4, gText_Thursday);
         break;
     case 5:
-        StringCopy(gStringVar1, gText_Friday);
+        StringCopy(gStringVar4, gText_Friday);
         break;
     case 6:
-        StringCopy(gStringVar1, gText_Saturday);
+        StringCopy(gStringVar4, gText_Saturday);
         break;
     }
 }
