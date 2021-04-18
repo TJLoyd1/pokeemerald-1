@@ -10,14 +10,15 @@
 #define VRAM_          _VRAM_
 #define OAM            _OAM
 #define PLTT           _PLTT
+#define FLASH_BASE     _FLASH_BASE
 #define SOUND_INFO_PTR _SOUND_INFO_PTR
 #define INTR_CHECK     _INTR_CHECK
 #define INTR_VECTOR    _INTR_VECTOR
-#define fopen         _fopen
-#define fseek         _fseek
-#define fclose        _fclose
-#define fread         _fread
-#define fwrite        _fwrite
+#define fopen          _fopen
+#define fseek          _fseek
+#define fclose         _fclose
+#define fread          _fread
+#define fwrite         _fwrite
 #define puts           _puts
 #define memcpy         _memcpy
 #define memset         _memset
@@ -30,7 +31,7 @@
 #define DmaSet         _DmaSet
 #define BgAffineSet    _BgAffineSet
 #define ObjAffineSet   _ObjAffineSet
-#define SoftReset _SoftReset
+#define SoftReset      _SoftReset
 #define LZ77UnCompVram _LZ77UnCompVram
 #define LZ77UnCompWram _LZ77UnCompWram
 #define RLUnCompVram   _RLUnCompVram
@@ -44,6 +45,7 @@
 #define ConvertBcdToBinary _ConvertBcdToBinary
 #define DoSoftReset _DoSoftReset
 #define Platform_GetKeyInput _Platform_GetKeyInput
+#define Platform_StoreSaveFile _Platform_StoreSaveFile
 #define Platform_GetStatus _Platform_GetStatus
 #define Platform_SetStatus _Platform_SetStatus
 #define Platform_GetDateTime _Platform_GetDateTime
@@ -653,12 +655,13 @@ struct RamScript
     struct RamScriptData data;
 };
 
-struct EasyChatPair
+// See dewford_trend.c
+struct DewfordTrend
 {
-    u16 unk0_0:7;
-    u16 unk0_7:7;
-    u16 unk1_6:1;
-    u16 unk2;
+    u16 trendiness:7;
+    u16 maxTrendiness:7;
+    u16 gainingTrendiness:1;
+    u16 rand;
     u16 words[2];
 }; /*size = 0x8*/
 
@@ -1087,7 +1090,7 @@ struct SaveBlock1
     /*0x2BE0*/ struct MailStruct mail[MAIL_COUNT];
     /*0x2E20*/ u8 additionalPhrases[8]; // bitfield for 33 additional phrases in easy chat system
     /*0x2E28*/ OldMan oldMan;
-    /*0x2e64*/ struct EasyChatPair easyChatPairs[5]; //Dewford trend [0] and some other stuff
+    /*0x2e64*/ struct DewfordTrend dewfordTrends[SAVED_TRENDS_COUNT];
     /*0x2e90*/ struct ContestWinner contestWinners[NUM_CONTEST_WINNERS]; // see CONTEST_WINNER_*
     /*0x3030*/ struct DayCare daycare;
     /*0x3150*/ struct LinkBattleRecords linkBattleRecords;
@@ -1118,16 +1121,6 @@ struct MapPosition
     s16 x;
     s16 y;
     s8 height;
-};
-
-struct TradeRoomPlayer
-{
-    u8 playerId;
-    u8 isLocalPlayer;
-    u8 c;
-    u8 facing;
-    struct MapPosition pos;
-    u16 field_C;
 };
 
 #endif // GUARD_GLOBAL_H

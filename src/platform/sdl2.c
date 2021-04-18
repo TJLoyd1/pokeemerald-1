@@ -5,6 +5,7 @@
 
 #ifdef _WIN32
 #include <windows.h>
+#include <xinput.h>
 #endif
 
 #include <SDL2/SDL.h>
@@ -26,6 +27,7 @@ unsigned char PLTT[PLTT_SIZE] __attribute__ ((aligned (4)));
 unsigned char VRAM_[VRAM_SIZE] __attribute__ ((aligned (4)));
 unsigned char OAM[OAM_SIZE] __attribute__ ((aligned (4)));
 unsigned char FLASH_BASE[131072] __attribute__ ((aligned (4)));
+struct SoundInfo *SOUND_INFO_PTR;
 
 #define DMA_COUNT 4
 
@@ -69,12 +71,19 @@ double fixedTimestep = 1.0 / 60.0; // 16.666667ms
 double timeScale = 1.0;
 struct SiiRtcInfo internalClock;
 
+static FILE *sSaveFile = NULL;
+
 extern void AgbMain(void);
 extern void DoSoftReset(void);
 
 int DoMain(void *param);
 void ProcessEvents(void);
 void VDraw(SDL_Texture *texture);
+
+static void ReadSaveFile(char *path);
+static void StoreSaveFile(void);
+static void CloseSaveFile(void);
+
 static void UpdateInternalClock(void);
 static void RunDMAs(u32 type);
 
@@ -87,7 +96,9 @@ int main(int argc, char **argv)
     freopen( "CON", "w", stdout ) ;
 #endif
 
-    if(SDL_Init(SDL_INIT_VIDEO) < 0)
+    ReadSaveFile("pokeemerald.sav");
+
+    if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
     {
         fprintf(stderr, "SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
         return 1;
@@ -113,9 +124,9 @@ int main(int argc, char **argv)
     SDL_RenderSetLogicalSize(sdlRenderer, DISPLAY_WIDTH, DISPLAY_HEIGHT);
 
     sdlTexture = SDL_CreateTexture(sdlRenderer,
-                                   SDL_PIXELFORMAT_ARGB8888,
+                                   SDL_PIXELFORMAT_ABGR1555,
                                    SDL_TEXTUREACCESS_STREAMING,
-                                   240, 160);
+                                   DISPLAY_WIDTH, DISPLAY_HEIGHT);
     if (sdlTexture == NULL)
     {
         fprintf(stderr, "Texture could not be created! SDL_Error: %s\n", SDL_GetError());
@@ -127,6 +138,23 @@ int main(int argc, char **argv)
     isFrameAvailable.value = 0;
     vBlankSemaphore = SDL_CreateSemaphore(0);
 
+    SDL_AudioSpec want;
+
+    SDL_memset(&want, 0, sizeof(want)); /* or SDL_zero(want) */
+    want.freq = 42048;
+    want.format = AUDIO_S32;
+    want.channels = 2;
+    want.samples = 1024;
+
+    if (SDL_OpenAudio(&want, 0) < 0)
+        SDL_Log("Failed to open audio: %s", SDL_GetError());
+    else
+    {
+        if (want.format != AUDIO_S32) /* we let this one thing change. */
+            SDL_Log("We didn't get Signed32 audio format.");
+        SDL_PauseAudio(0);
+    }
+    
     VDraw(sdlTexture);
     mainLoopThread = SDL_CreateThread(DoMain, "AgbMain", NULL);
 
@@ -167,7 +195,6 @@ int main(int argc, char **argv)
 
                     if (REG_DISPSTAT & DISPSTAT_VBLANK_INTR)
                         gIntrTable[4]();
-
                     REG_DISPSTAT &= ~INTR_FLAG_VBLANK;
 
                     SDL_SemPost(vBlankSemaphore);
@@ -186,9 +213,60 @@ int main(int argc, char **argv)
         SDL_RenderPresent(sdlRenderer);
     }
 
+    //StoreSaveFile();
+    CloseSaveFile();
+
     SDL_DestroyWindow(sdlWindow);
     SDL_Quit();
     return 0;
+}
+
+static void ReadSaveFile(char *path)
+{
+    // Check whether the saveFile exists, and create it if not
+    sSaveFile = fopen(path, "r+b");
+    if (sSaveFile == NULL)
+    {
+        sSaveFile = fopen(path, "w+b");
+    }
+
+    fseek(sSaveFile, 0, SEEK_END);
+    int fileSize = ftell(sSaveFile);
+    fseek(sSaveFile, 0, SEEK_SET);
+
+    // Only read as many bytes as fit inside the buffer
+    // or as many bytes as are in the file
+    int bytesToRead = (fileSize < sizeof(FLASH_BASE)) ? fileSize : sizeof(FLASH_BASE);
+
+    int bytesRead = fread(FLASH_BASE, 1, bytesToRead, sSaveFile);
+
+    // Fill the buffer if the savefile was just created or smaller than the buffer itself
+    for (int i = bytesRead; i < sizeof(FLASH_BASE); i++)
+    {
+        FLASH_BASE[i] = 0xFF;
+    }
+}
+
+static void StoreSaveFile()
+{
+    if (sSaveFile != NULL)
+    {
+        fseek(sSaveFile, 0, SEEK_SET);
+        fwrite(FLASH_BASE, 1, sizeof(FLASH_BASE), sSaveFile);
+    }
+}
+
+void Platform_StoreSaveFile(void)
+{
+    StoreSaveFile();
+}
+
+static void CloseSaveFile()
+{
+    if (sSaveFile != NULL)
+    {
+        fclose(sSaveFile);
+    }
 }
 
 // Key mappings
@@ -240,6 +318,8 @@ void ProcessEvents(void)
                 {
                     speedUp = false;
                     timeScale = 1.0;
+                    SDL_ClearQueuedAudio(1);
+                    SDL_PauseAudio(0);
                 }
                 break;
             }
@@ -274,6 +354,7 @@ void ProcessEvents(void)
                 {
                     speedUp = true;
                     timeScale = 5.0;
+                    SDL_PauseAudio(1);
                 }
                 break;
             }
@@ -299,8 +380,70 @@ void ProcessEvents(void)
     }
 }
 
+#ifdef _WIN32
+#define STICK_THRESHOLD 0.5f
+u16 GetXInputKeys()
+{
+    XINPUT_STATE state;
+    ZeroMemory(&state, sizeof(XINPUT_STATE));
+
+    DWORD dwResult = XInputGetState(0, &state);
+    u16 xinputKeys = 0;
+
+    if (dwResult == ERROR_SUCCESS)
+    {
+        /* A */      xinputKeys |= (state.Gamepad.wButtons & XINPUT_GAMEPAD_A) >> 12;
+        /* B */      xinputKeys |= (state.Gamepad.wButtons & XINPUT_GAMEPAD_X) >> 13;
+        /* Start */  xinputKeys |= (state.Gamepad.wButtons & XINPUT_GAMEPAD_START) >> 1;
+        /* Select */ xinputKeys |= (state.Gamepad.wButtons & XINPUT_GAMEPAD_BACK) >> 3;
+        /* L */      xinputKeys |= (state.Gamepad.wButtons & XINPUT_GAMEPAD_LEFT_SHOULDER) << 1;
+        /* R */      xinputKeys |= (state.Gamepad.wButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER) >> 1;
+        /* Up */     xinputKeys |= (state.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP) << 6;
+        /* Down */   xinputKeys |= (state.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN) << 6;
+        /* Left */   xinputKeys |= (state.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT) << 3;
+        /* Right */  xinputKeys |= (state.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT) << 1;
+
+
+        /* Control Stick */
+        float xAxis = (float)state.Gamepad.sThumbLX / (float)SHRT_MAX;
+        float yAxis = (float)state.Gamepad.sThumbLY / (float)SHRT_MAX;
+
+        if (xAxis < -STICK_THRESHOLD) xinputKeys |= DPAD_LEFT;
+        if (xAxis >  STICK_THRESHOLD) xinputKeys |= DPAD_RIGHT;
+        if (yAxis < -STICK_THRESHOLD) xinputKeys |= DPAD_DOWN;
+        if (yAxis >  STICK_THRESHOLD) xinputKeys |= DPAD_UP;
+
+
+        /* Speedup */
+        // Note: 'speedup' variable is only (un)set on keyboard input
+        double oldTimeScale = timeScale;
+        timeScale = (state.Gamepad.bRightTrigger > 0x80 || speedUp) ? 5.0 : 1.0;
+
+        if (oldTimeScale != timeScale)
+        {
+            if (timeScale > 1.0)
+            {
+                SDL_PauseAudio(1);
+            }
+            else
+            {
+                SDL_ClearQueuedAudio(1);
+                SDL_PauseAudio(0);
+            }
+        }
+    }
+
+    return xinputKeys;
+}
+#endif // _WIN32
+
 u16 Platform_GetKeyInput(void)
 {
+#ifdef _WIN32
+    u16 gamepadKeys = GetXInputKeys();
+    return (gamepadKeys != 0) ? gamepadKeys : keys;
+#endif
+
     return keys;
 }
 
@@ -587,86 +730,6 @@ fail:
     puts("Fatal error while decompressing LZ file.\n");
 }
 
-/*
-void LZ77UnCompVram(const void *src, void *dst)
-{
-    const uint8_t *source = src;
-    uint8_t *dest = dst;
-
-    uint32_t header = CPUReadMemory(source);
-    source += 4;
-
-    int byteCount = 0;
-    int byteShift = 0;
-    uint32_t writeValue = 0;
-
-    int len = header >> 8;
-
-    while (len > 0) {
-        uint8_t d = CPUReadByte(source++);
-
-        if (d) {
-            for (int i = 0; i < 8; i++) {
-                if (d & 0x80) {
-                    uint16_t data = CPUReadByte(source++) << 8;
-                    data |= CPUReadByte(source++);
-                    int length = (data >> 12) + 3;
-                    int offset = (data & 0x0FFF);
-                    uint8_t *windowOffset = dest + byteCount - offset - 1;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        writeValue |= (CPUReadByte(windowOffset++) << byteShift);
-                        byteShift += 8;
-                        byteCount++;
-
-                        if (byteCount == 2) {
-                            CPUWriteHalfWord(dest, writeValue);
-                            dest += 2;
-                            byteCount = 0;
-                            byteShift = 0;
-                            writeValue = 0;
-                        }
-                        len--;
-                        if (len == 0)
-                            return;
-                    }
-                } else {
-                    writeValue |= (CPUReadByte(source++) << byteShift);
-                    byteShift += 8;
-                    byteCount++;
-                    if (byteCount == 2) {
-                        CPUWriteHalfWord(dest, writeValue);
-                        dest += 2;
-                        byteCount = 0;
-                        byteShift = 0;
-                        writeValue = 0;
-                    }
-                    len--;
-                    if (len == 0)
-                        return;
-                }
-                d <<= 1;
-            }
-        } else {
-            for (int i = 0; i < 8; i++) {
-                writeValue |= (CPUReadByte(source++) << byteShift);
-                byteShift += 8;
-                byteCount++;
-                if (byteCount == 2) {
-                    CPUWriteHalfWord(dest, writeValue);
-                    dest += 2;
-                    byteShift = 0;
-                    byteCount = 0;
-                    writeValue = 0;
-                }
-                len--;
-                if (len == 0)
-                    return;
-            }
-        }
-    }
-}
-*/
-
 void LZ77UnCompWram(const u32 *src, void *dst)
 {
     const uint8_t *source = src;
@@ -916,26 +979,6 @@ void SoftReset(u32 resetFlags)
     exit(0);
 }
 
-/*
-static inline uint16_t SwapPixel(uint16_t pixel)
-{
-    uint16_t result = 0;
-
-    result |= (pixel >> 10) & 0x1F;
-    result |= pixel & (0x1F << 5);
-    result |= (pixel & 0x1F) << 10;
-}
-*/
-
-static inline uint32_t ConvertPixel(uint16_t pixel)
-{
-    unsigned int r = (((pixel >> 0) & 0x1F) << 3) ;
-    unsigned int g = (((pixel >> 5) & 0x1F) << 3) ;
-    unsigned int b = (((pixel >> 10) & 0x1F) << 3);
-
-    return b | (g << 8) | (r << 16) | (0xFF << 24);
-}
-
 static const uint16_t bgMapSizes[][2] =
 {
     {32, 32},
@@ -944,7 +987,7 @@ static const uint16_t bgMapSizes[][2] =
     {64, 64},
 };
 
-static void RenderBGScanline(int bgNum, uint16_t control, uint16_t hoffs, uint16_t voffs, int lineNum, uint32_t *line)
+static void RenderBGScanline(int bgNum, uint16_t control, uint16_t hoffs, uint16_t voffs, int lineNum, uint16_t *line)
 {
     unsigned int charBaseBlock = (control >> 2) & 3;
     unsigned int screenBaseBlock = (control >> 8) & 0x1F;
@@ -1006,11 +1049,11 @@ static void RenderBGScanline(int bgNum, uint16_t control, uint16_t hoffs, uint16
             else
                 pixel &= 0xF;
 
-            if (pixel != 0 /*&& !(line[x] & (0xFF << 24))*/)
-                line[x] = ConvertPixel(pal[16 * paletteNum + pixel]);
+            if (pixel != 0)
+                line[x] = pal[16 * paletteNum + pixel] | 0x8000;
         }
         else {
-            line[x] = ConvertPixel(pal[pixel]);
+            line[x] = pal[pixel] | 0x8000;
         }
     }
 }
@@ -1087,7 +1130,7 @@ static inline uint16_t getBgPD(int bgNumber)
     }
 }
 
-static void RenderRotScaleBGScanline(int bgNum, uint16_t control, uint16_t x, uint16_t y, int lineNum, uint32_t *line)
+static void RenderRotScaleBGScanline(int bgNum, uint16_t control, uint16_t x, uint16_t y, int lineNum, uint16_t *line)
 {
     vBgCnt *bgcnt = (vBgCnt *)&control;
     unsigned int charBaseBlock = bgcnt->charBaseBlock;
@@ -1097,7 +1140,6 @@ static void RenderRotScaleBGScanline(int bgNum, uint16_t control, uint16_t x, ui
     uint8_t *bgtiles = (uint8_t *)(VRAM_ + charBaseBlock * 0x4000);
     uint8_t *bgmap = (uint8_t *)(VRAM_ + screenBaseBlock * 0x800);
     uint16_t *pal = (uint16_t *)PLTT;
-    int prio = ((bgcnt->priority) << 25) + 0x1000000;
 
     s16 pa = getBgPA(bgNum);
     s16 pb = getBgPB(bgNum);
@@ -1151,7 +1193,7 @@ static void RenderRotScaleBGScanline(int bgNum, uint16_t control, uint16_t x, ui
 
     if (bgcnt->areaOverflowMode)
     {
-        for (int x = 0; x < 240; x++)
+        for (int x = 0; x < DISPLAY_WIDTH; x++)
         {
             int xxx = (realX >> 8) & maskX;
             int yyy = (realY >> 8) & maskY;
@@ -1163,8 +1205,9 @@ static void RenderRotScaleBGScanline(int bgNum, uint16_t control, uint16_t x, ui
 
             uint8_t pixel = bgtiles[(tile << 6) + (tileY << 3) + tileX];
 
-            if (pixel != 0)
-                line[x] = ConvertPixel(pal[pixel]) | prio;
+            if (pixel != 0) {
+                line[x] = pal[pixel] | 0x8000;
+            }
 
             realX += pa;
             realY += pc;
@@ -1172,7 +1215,7 @@ static void RenderRotScaleBGScanline(int bgNum, uint16_t control, uint16_t x, ui
     }
     else
     {
-        for (int x = 0; x < 240; x++)
+        for (int x = 0; x < DISPLAY_WIDTH; x++)
         {
             int xxx = (realX >> 8);
             int yyy = (realY >> 8);
@@ -1190,8 +1233,9 @@ static void RenderRotScaleBGScanline(int bgNum, uint16_t control, uint16_t x, ui
 
                 uint8_t pixel = bgtiles[(tile << 6) + (tileY << 3) + tileX];
 
-                if (pixel != 0)
-                    line[x] = ConvertPixel(pal[pixel]) | prio;
+                if (pixel != 0) {
+                    line[x] = pal[pixel] | 0x8000;
+                }
             }
             realX += pa;
             realY += pc;
@@ -1208,7 +1252,7 @@ const u8 spriteSizes[][2] =
 };
 
 // Parts of this code heavily borrowed from NanoboyAdvance.
-static void DrawSprites(uint32_t layers[4][DISPLAY_WIDTH], uint16_t vcount)
+static void DrawSprites(uint16_t layers[4][DISPLAY_WIDTH], uint16_t vcount)
 {
     int i;
     unsigned int x;
@@ -1228,17 +1272,16 @@ static void DrawSprites(uint32_t layers[4][DISPLAY_WIDTH], uint16_t vcount)
         struct OamData *oam = &((struct OamData *)OAM)[i];
         unsigned int width;
         unsigned int height;
-        uint32_t *pixels;
+        uint16_t *pixels;
 
         bool isAffine  = oam->affineMode & 1;
         bool doubleSizeOrDisabled = (oam->affineMode >> 1) & 1;
+        bool isSemiTransparent = (oam->objMode == 1);
 
         if (!(isAffine) && doubleSizeOrDisabled) // disable for non-affine
         {
             continue;
         }
-        //if (oam->objMode != 0)
-        //    continue;  // Don't know how to handle other modes yet
 
         if (oam->shape == 0)
         {
@@ -1271,9 +1314,9 @@ static void DrawSprites(uint32_t layers[4][DISPLAY_WIDTH], uint16_t vcount)
         int32_t x = oam->x;
         int32_t y = oam->y;
 
-        if (x >= 240)
+        if (x >= DISPLAY_WIDTH)
             x -= 512;
-        if (y >= 160)
+        if (y >= DISPLAY_HEIGHT)
             y -= 256;
 
         if (isAffine)
@@ -1328,7 +1371,7 @@ static void DrawSprites(uint32_t layers[4][DISPLAY_WIDTH], uint16_t vcount)
 
                 unsigned int global_x = local_x + x;
 
-                if (global_x < 0 || global_x >= 240)
+                if (global_x < 0 || global_x >= DISPLAY_WIDTH)
                     continue;
 
                 int tex_x = ((matrix[0][0] * local_x + matrix[0][1] * local_y) >> 8) + (width / 2);
@@ -1368,26 +1411,52 @@ static void DrawSprites(uint32_t layers[4][DISPLAY_WIDTH], uint16_t vcount)
 
                 if (pixel != 0)
                 {
-                    uint32_t color;
+                    uint16_t color;
                     // u8 disHeightBot = REG_WIN0V ? REG_WIN0V : DISPLAY_HEIGHT;
                     // u8 disWidthBot = REG_WIN0H ? REG_WIN0H : DISPLAY_WIDTH;
                     // u8 disHeightTop = REG_WIN0V ? REG_WIN0V >> 8 : 0;
                     // u8 disWidthTop = REG_WIN0H ? REG_WIN0H >> 8 : 0;
 
-                    color = ConvertPixel(palette[pixel]);
+                    if (!isSemiTransparent)
+                    {
+                        color = palette[pixel];
+                    }
+                    else {
+                        u8 spriteR, spriteG, spriteB;
+                        u8 bgR, bgG, bgB;
+                        u8 topLayer;
+
+                        spriteR = (palette[pixel] & 0x001F);
+                        spriteG = (palette[pixel] & 0x03E0) >> 5;
+                        spriteB = (palette[pixel] & 0x7C00) >> 10;
+
+                        // If the alpha of BG layer 2 is set, get its color value, layer 3's otherwise
+                        topLayer = (layers[2][global_x] & 0x8000) ? 2 : 3;
+
+                        bgR = ((layers[topLayer][global_x] >>  0) & 0x1F);
+                        bgG = ((layers[topLayer][global_x] >>  5) & 0x1F);
+                        bgB = ((layers[topLayer][global_x] >> 10) & 0x1F);
+
+                        u16 blendedColor =
+                              ((bgR + spriteR) / 2) << 0
+                            | ((bgG + spriteG) / 2) << 5
+                            | ((bgB + spriteB) / 2) << 10;
+
+                        color = blendedColor;
+                    }
 
                     if (global_x < DISPLAY_WIDTH && global_x >= 0)
-                        pixels[global_x] = color;
+                        pixels[global_x] = color | (1 << 15);
                 }
             }
         }
     }
 }
 
-static uint32_t *target1layer;
+static uint16_t *target1layer;
 
 #if 0
-static void ProcessBGBlending(uint32_t *layer, int bg)
+static void ProcessBGBlending(uint16_t *layer, int bg)
 {
     unsigned int effect = (REG_BLDCNT >> 6) & 3;
     unsigned int evy;
@@ -1495,15 +1564,17 @@ static void ProcessBGBlending(uint32_t *layer, int bg)
 }
 #endif
 
-static void DrawScanline(uint32_t *pixels, uint16_t vcount)
+static void DrawScanline(uint16_t *pixels, uint16_t vcount)
 {
     unsigned int mode = REG_DISPCNT & 3;
     unsigned int bgEnabled = (REG_DISPCNT >> 8) & 0xF;
     int i;
     int j;
-    static uint32_t layers[4][DISPLAY_WIDTH];
+    static uint16_t layers[4][DISPLAY_WIDTH];
 
     int bgnum;
+    uint16_t bgcnts[4];
+
     // I have no clue how blending is supposed to work.
     unsigned int blendMode = (REG_BLDCNT >> 6) & 3;
     int blendPriority1 = -5;
@@ -1511,14 +1582,18 @@ static void DrawScanline(uint32_t *pixels, uint16_t vcount)
 
     memset(layers, 0, sizeof(layers));
 
+    for (bgnum = 0; bgnum <= 3; bgnum++)
+    {
+        bgcnts[bgnum] = *(uint16_t*)(REG_ADDR_BG0CNT + bgnum * 2);
+    }
+
     if (blendMode == 1)
     {
         for (bgnum = 0; bgnum <= 3; bgnum++)
         {
             if (bgEnabled & (1 << bgnum))
             {
-                uint16_t bgcnt = *(uint16_t *)(REG_ADDR_BG0CNT + bgnum * 2);
-                unsigned int priority = bgcnt & 3;
+                unsigned int priority = bgcnts[bgnum] & 3;
 
                 if (REG_BLDCNT & (1 << bgnum))
                     blendPriority1 = priority;
@@ -1536,12 +1611,11 @@ static void DrawScanline(uint32_t *pixels, uint16_t vcount)
         {
             if (bgEnabled & (1 << bgnum))
             {
-                uint16_t bgcnt = *(uint16_t *)(REG_ADDR_BG0CNT + bgnum * 2);
                 uint16_t bghoffs = *(uint16_t *)(REG_ADDR_BG0HOFS + bgnum * 4);
                 uint16_t bgvoffs = *(uint16_t *)(REG_ADDR_BG0VOFS + bgnum * 4);
-                unsigned int priority = bgcnt & 3;
+                unsigned int priority = bgcnts[bgnum] & 3;
 
-                RenderBGScanline(bgnum, bgcnt, bghoffs, bgvoffs, vcount, layers[priority]);
+                RenderBGScanline(bgnum, bgcnts[bgnum], bghoffs, bgvoffs, vcount, layers[priority]);
                 //ProcessBGBlending(layers[priority], bgnum);
             }
         }
@@ -1551,10 +1625,9 @@ static void DrawScanline(uint32_t *pixels, uint16_t vcount)
         bgnum = 2;
         if (bgEnabled & (1 << bgnum))
         {
-            uint16_t bgcnt = *(uint16_t *)(REG_ADDR_BG0CNT + bgnum * 2);
-            unsigned int priority = bgcnt & 3;
+            unsigned int priority = bgcnts[bgnum] & 3;
 
-            RenderRotScaleBGScanline(bgnum, bgcnt, REG_BG2X, REG_BG2Y, vcount, layers[priority]);
+            RenderRotScaleBGScanline(bgnum, bgcnts[bgnum], REG_BG2X, REG_BG2Y, vcount, layers[priority]);
             //ProcessBGBlending(layers[priority], bgnum);
         }
         // BG0 and BG1 are text mode
@@ -1562,13 +1635,11 @@ static void DrawScanline(uint32_t *pixels, uint16_t vcount)
         {
             if (bgEnabled & (1 << bgnum))
             {
-                uint16_t bgcnt = *(uint16_t *)(REG_ADDR_BG0CNT + bgnum * 2);
                 uint16_t bghoffs = *(uint16_t *)(REG_ADDR_BG0HOFS + bgnum * 4);
                 uint16_t bgvoffs = *(uint16_t *)(REG_ADDR_BG0VOFS + bgnum * 4);
-                unsigned int priority = bgcnt & 3;
+                unsigned int priority = bgcnts[bgnum] & 3;
 
-                RenderBGScanline(bgnum, bgcnt, bghoffs, bgvoffs, vcount, layers[priority]);
-                //RenderTextBGLayer(bgcnt, bghoffs, bgvoffs, layers[priority]);
+                RenderBGScanline(bgnum, bgcnts[bgnum], bghoffs, bgvoffs, vcount, layers[priority]);
                 //ProcessBGBlending(layers[priority], bgnum);
             }
         }
@@ -1582,36 +1653,35 @@ static void DrawScanline(uint32_t *pixels, uint16_t vcount)
         DrawSprites(layers, vcount);
 
     // Copy to screen
-    
     for (i = 3; i >= 0; i--)
     {
-        uint32_t *src = layers[i];
-        uint32_t *dest = pixels;
+        uint16_t *src = layers[i];
+        uint16_t *dest = pixels;
 
         if (i == blendPriority2 && i - 1 == blendPriority1)
         {
-            uint32_t *target1 = layers[i - 1];
-            uint32_t *target2 = layers[i];
+            uint16_t *target1 = layers[i - 1];
+            uint16_t *target2 = layers[i];
             unsigned int eva = REG_BLDALPHA & 0x1F;
             unsigned int evb = (REG_BLDALPHA >> 8) & 0x1F;
 
             for (j = 0; j < DISPLAY_WIDTH; j++)
             {
-                if ((target1[j] & (0xFF << 24)) && (target2[j] & (0xFF << 24)))
+                if ((target1[j] & (1 << 15)) && (target2[j] & (1 << 15)))
                 {
-                    unsigned int r = ((target1[j] >>  0) & 0xFF) * eva / 16 + ((target2[j] >>  0) & 0xFF) * evb / 16;
-                    unsigned int g = ((target1[j] >>  8) & 0xFF) * eva / 16 + ((target2[j] >>  8) & 0xFF) * evb / 16;
-                    unsigned int b = ((target1[j] >> 16) & 0xFF) * eva / 16 + ((target2[j] >> 16) & 0xFF) * evb / 16;
-                    unsigned int a = (target1[j] >> 24) & 0xFF;
+                    unsigned int r = ((target1[j] >>  0) & 0x1F) * eva / 16 + ((target2[j] >>  0) & 0x1F) * evb / 16;
+                    unsigned int g = ((target1[j] >>  5) & 0x1F) * eva / 16 + ((target2[j] >>  5) & 0x1F) * evb / 16;
+                    unsigned int b = ((target1[j] >> 10) & 0x1F) * eva / 16 + ((target2[j] >> 10) & 0x1F) * evb / 16;
+                    unsigned int a = (target1[j] >> 15) & 1;
                     
-                    if (r > 255)
-                        r = 255;
-                    if (g > 255)
-                        g = 255;
-                    if (b > 255)
-                        b = 255;
-                    target2[j] = r | (g << 8) | (b << 16) | (a << 24);
-                    //target2[j] = target1[j];
+                    if (r > 31)
+                        r = 31;
+                    if (g > 31)
+                        g = 31;
+                    if (b > 31)
+                        b = 31;
+
+                    target2[j] = r | (g << 5) | (b << 10) | (a << 15);
                 }
             }
             i--;
@@ -1619,13 +1689,13 @@ static void DrawScanline(uint32_t *pixels, uint16_t vcount)
 
         for (j = 0; j < DISPLAY_WIDTH; j++)
         {
-            if ((src[j] & (0xFF << 24)))
+            if ((src[j] & (1 << 15)))
                 dest[j] = src[j];
         }
     }
 }
 
-uint32_t *memsetu32(uint32_t *dst, uint32_t fill, size_t count)
+uint16_t *memsetu16(uint16_t *dst, uint16_t fill, size_t count)
 {
     for (int i = 0; i < count; i++)
     {
@@ -1633,23 +1703,32 @@ uint32_t *memsetu32(uint32_t *dst, uint32_t fill, size_t count)
     }
 }
 
-static void DrawFrame(uint32_t *pixels)
+static void DrawFrame(uint16_t *pixels)
 {
     int i;
     int j;
-    static uint32_t scanlines[DISPLAY_HEIGHT][DISPLAY_WIDTH];
+    static uint16_t scanlines[DISPLAY_HEIGHT][DISPLAY_WIDTH];
 
-    memsetu32(scanlines, ConvertPixel(*(uint16_t *)PLTT), DISPLAY_WIDTH * DISPLAY_HEIGHT);
+    memsetu16(scanlines, *(uint16_t *)PLTT, DISPLAY_WIDTH * DISPLAY_HEIGHT);
 
     for (i = 0; i < DISPLAY_HEIGHT; i++)
     {
         REG_VCOUNT = i;
-        DrawScanline(scanlines[i], i);
+        if(REG_DISPSTAT & DISPSTAT_VCOUNT_INTR)
+        {
+            if(((REG_DISPSTAT >> 8) & 0xFF) == REG_VCOUNT)
+            {
+                REG_DISPSTAT |= INTR_FLAG_VCOUNT;
+                gIntrTable[0]();
+            }
+        }
 
+        DrawScanline(scanlines[i], i);
+        
         REG_DISPSTAT |= INTR_FLAG_HBLANK;
 
         RunDMAs(DMA_HBLANK);
-
+        
         if (REG_DISPSTAT & DISPSTAT_HBLANK_INTR)
             gIntrTable[3]();
 
@@ -1659,7 +1738,7 @@ static void DrawFrame(uint32_t *pixels)
     // Copy to screen
     for (i = 0; i < DISPLAY_HEIGHT; i++)
     {
-        uint32_t *src = scanlines[i];
+        uint16_t *src = scanlines[i];
         for (j = 0; j < DISPLAY_WIDTH; j++)
         {
             pixels[i * DISPLAY_WIDTH + j] = src[j];
@@ -1669,11 +1748,11 @@ static void DrawFrame(uint32_t *pixels)
 
 void VDraw(SDL_Texture *texture)
 {
-    static uint32_t image[DISPLAY_WIDTH * DISPLAY_HEIGHT];
+    static uint16_t image[DISPLAY_WIDTH * DISPLAY_HEIGHT];
 
     memset(image, 0, sizeof(image));
     DrawFrame(image);
-    SDL_UpdateTexture(texture, NULL, image, DISPLAY_WIDTH * sizeof (Uint32));
+    SDL_UpdateTexture(texture, NULL, image, DISPLAY_WIDTH * sizeof (Uint16));
     REG_VCOUNT = 161; // prep for being in VBlank period
 }
 
@@ -1782,54 +1861,54 @@ void Platform_SetAlarm(u8 *alarmData)
 // Following functions taken from mGBA's source
 u16 ArcTan(s16 i)
 {
-	s32 a = -((i * i) >> 14);
-	s32 b = ((0xA9 * a) >> 14) + 0x390;
-	b = ((b * a) >> 14) + 0x91C;
-	b = ((b * a) >> 14) + 0xFB6;
-	b = ((b * a) >> 14) + 0x16AA;
-	b = ((b * a) >> 14) + 0x2081;
-	b = ((b * a) >> 14) + 0x3651;
-	b = ((b * a) >> 14) + 0xA2F9;
+    s32 a = -((i * i) >> 14);
+    s32 b = ((0xA9 * a) >> 14) + 0x390;
+    b = ((b * a) >> 14) + 0x91C;
+    b = ((b * a) >> 14) + 0xFB6;
+    b = ((b * a) >> 14) + 0x16AA;
+    b = ((b * a) >> 14) + 0x2081;
+    b = ((b * a) >> 14) + 0x3651;
+    b = ((b * a) >> 14) + 0xA2F9;
 
-	return (i * b) >> 16;
+    return (i * b) >> 16;
 }
 
 u16 ArcTan2(s16 x, s16 y)
 {
-	if (!y)
+    if (!y)
     {
-		if (x >= 0)
-			return 0;
-		return 0x8000;
-	}
-	if (!x)
+        if (x >= 0)
+            return 0;
+        return 0x8000;
+    }
+    if (!x)
     {
-		if (y >= 0)
-			return 0x4000;
-		return 0xC000;
-	}
-	if (y >= 0)
+        if (y >= 0)
+            return 0x4000;
+        return 0xC000;
+    }
+    if (y >= 0)
     {
-		if (x >= 0)
+        if (x >= 0)
         {
-			if (x >= y)
-				return ArcTan((y << 14) / x);
-		}
+            if (x >= y)
+                return ArcTan((y << 14) / x);
+        }
         else if (-x >= y)
-			return ArcTan((y << 14) / x) + 0x8000;
-		return 0x4000 - ArcTan((x << 14) / y);
-	}
+            return ArcTan((y << 14) / x) + 0x8000;
+        return 0x4000 - ArcTan((x << 14) / y);
+    }
     else
     {
-		if (x <= 0)
+        if (x <= 0)
         {
-			if (-x > -y)
-				return ArcTan((y << 14) / x) + 0x8000;
-		}
+            if (-x > -y)
+                return ArcTan((y << 14) / x) + 0x8000;
+        }
         else if (x >= -y)
-			return ArcTan((y << 14) / x) + 0x10000;
-		return 0xC000 - ArcTan((x << 14) / y);
-	}
+            return ArcTan((y << 14) / x) + 0x10000;
+        return 0xC000 - ArcTan((x << 14) / y);
+    }
 }
 
 u16 Sqrt(u32 num)
