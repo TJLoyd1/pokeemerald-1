@@ -831,14 +831,52 @@ static bool8 IsSoftwarePaletteFadeFinishing(void)
 
 void BlendPalettes(u32 selectedPalettes, u8 coeff, u16 color)
 {
-    u16 paletteOffset;
+    BlendPalettesFine(selectedPalettes, coeff * 2, color);
+}
 
-    for (paletteOffset = 0; selectedPalettes; paletteOffset += 16)
-    {
-        if (selectedPalettes & 1)
-            BlendPalette(paletteOffset, 16, coeff, color);
-        selectedPalettes >>= 1;
+void BlendPalettesFine(u32 selectedPalettes, u32 coeff, u32 blendColor)
+{
+    s32 newR, newG, newB;
+    u16 * palDataSrc;
+    u16 * palDataDst;
+
+    if (!selectedPalettes) {
+        return;
     }
+
+    newR = (blendColor << 27) >> 27;
+    newG = (blendColor << 22) >> 27;
+    newB = (blendColor << 17) >> 27;
+
+    palDataSrc = gPlttBufferUnfaded;
+    palDataDst = gPlttBufferFaded;
+
+    do {
+        if (selectedPalettes & 1) {
+            u16 * palDataSrcEnd = palDataSrc + 16;
+            while (palDataSrc != palDataSrcEnd)
+            {
+                u32 palDataSrcColor = *palDataSrc;
+
+                s32 r = (palDataSrcColor << 27) >> 27;
+                s32 g = (palDataSrcColor << 22) >> 27;
+                s32 b = (palDataSrcColor << 17) >> 27;
+
+                *palDataDst = ((r + (((newR - r) * coeff) >> 5)) << 0)
+                                | ((g + (((newG - g) * coeff) >> 5)) << 5)
+                                | ((b + (((newB - b) * coeff) >> 5)) << 10);
+
+                palDataSrc++;
+                palDataDst++;
+            }
+        }
+        else
+        {
+            palDataSrc += 16;
+            palDataDst += 16;
+        }
+        selectedPalettes >>= 1;
+    } while (selectedPalettes);
 }
 
 void BlendPalettesUnfaded(u32 selectedPalettes, u8 coeff, u16 color)
