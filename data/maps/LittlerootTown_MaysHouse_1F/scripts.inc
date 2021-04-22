@@ -421,3 +421,268 @@ RivalsHouse_1F_Text_DoYouHavePokemon: @ 81F9262
 	.string "Do you already have your\n"
 	.string "own POKéMON?$"
 
+StarterTown_MayPlayersHouse_1F_EventScript_WatchingTVWithMom::
+	lockall
+	setvar VAR_MORNING_TALK, 1
+	applymovement LOCALID_MOM, Common_Movement_ExclamationMark
+	waitmovement 0
+	checkplayergender
+	compare VAR_RESULT MALE,
+	goto_if_eq StarterTown_BrendanPlayersHouse_1F_EventScript_WatchingTVWithMom
+	msgbox MayPlayersHouse_1F_Text_YoureUp, MSGBOX_DEFAULT
+	applymovement LOCALID_MOM, FemaleWalkTowardsPlayer
+	waitmovement 0
+	msgbox MayPlayersHouse_1F_Text_ComeWatchWithMe, MSGBOX_DEFAULT
+	applymovement LOCALID_MOM, FemaleWalkTowardsTable
+	applymovement OBJ_EVENT_ID_PLAYER, FemaleWalkTowardsTableToo
+	waitmovement 0
+	msgbox MayPlayersHouse_1F_Text_TVTalks, MSGBOX_DEFAULT
+	special StartWallClock
+	goto StarterTown_MayPlayersHouse_1F_EventScript_VisitingTheRival
+	releaseall
+	end
+
+StarterTown_BrendanPlayersHouse_1F_EventScript_WatchingTVWithMom::
+	msgbox PlayersHouse_1F_Text_YoureUp, MSGBOX_DEFAULT
+	applymovement LOCALID_MOM, MaleWalkTowardsPlayer
+	waitmovement 0
+	msgbox PlayersHouse_1F_Text_ComeWatchWithMe, MSGBOX_DEFAULT
+	applymovement LOCALID_MOM, MaleWalkTowardsTable
+	applymovement OBJ_EVENT_ID_PLAYER, MaleWalkTowardsTableToo
+	waitmovement 0
+	msgbox PlayersHouse_1F_Text_TVTalks, MSGBOX_DEFAULT
+	special StartWallClock
+	goto StarterTown_BrendanPlayersHouse_1F_EventScript_VisitingTheRival
+	releaseall
+	end
+
+StarterTown_BrendanPlayersHouse_1F_EventScript_VisitingTheRival::
+	lockall
+	msgbox PlayersHouse_1F_Text_ForgotToTell, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, MaleWalkTowardsDoor
+	applymovement LOCALID_MOM, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox PlayersHouse_1F_Text_Wait, MSGBOX_DEFAULT
+	applymovement LOCALID_MOM, MomWalksToGiveMaleRunningShoes
+	waitmovement 0
+	msgbox PlayersHouse_1F_Text_RunningShoes, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message PlayersHouse_1F_Text_SwitchShoesWithRunningShoes
+	waitfanfare
+	setflag FLAG_SYS_B_DASH
+	setflag FLAG_RECEIVED_RUNNING_SHOES
+	msgbox PlayersHouse_1F_Text_SeeYouLater
+	releaseall
+	end
+
+StarterTown_MayPlayersHouse_1F_EventScript_VisitingTheRival::
+	lockall
+	msgbox MayPlayersHouse_1F_Text_ForgotToTell, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, FemaleWalkTowardsDoor
+	applymovement LOCALID_MOM, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox MayPlayersHouse_1F_Text_Wait, MSGBOX_DEFAULT
+	applymovement LOCALID_MOM, MomWalksToGiveRunningShoes
+	waitmovement 0
+	msgbox MayPlayersHouse_1F_Text_RunningShoes, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	message MayPlayersHouse_1F_Text_SwitchShoesWithRunningShoes
+	waitfanfare
+	setflag FLAG_SYS_B_DASH
+	setflag FLAG_RECEIVED_RUNNING_SHOES
+	msgbox MayPlayersHouse_1F_Text_SeeYouLater
+	releaseall
+	end
+
+MaleWalkTowardsPlayer:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	step_end
+
+MaleWalkTowardsTable:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	face_left
+	step_end
+
+MaleWalkTowardsTableToo:
+	delay_16
+	walk_down
+	walk_right
+	walk_down
+	walk_right
+	walk_right
+	face_right
+	step_end
+
+MaleWalkTowardsDoor:
+	face_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	face_right
+	delay_16
+	delay_16
+	face_up
+	step_end
+
+MomWalksToGiveMaleRunningShoes:
+	face_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	step_end
+
+FemaleWalkTowardsPlayer:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	step_end
+
+FemaleWalkTowardsTable:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	face_left
+	step_end
+
+FemaleWalkTowardsTableToo:
+	delay_16
+	walk_down
+	walk_right
+	walk_down
+	walk_right
+	walk_right
+	face_right
+	step_end
+
+FemaleWalkTowardsDoor:
+	face_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	face_right
+	delay_16
+	delay_16
+	face_up
+	step_end
+
+MomWalksToGiveRunningShoes:
+	face_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	step_end
+
+
+MayPlayersHouse_1F_Text_YoureUp:
+	.string "Mom: Honey, It's nice to see you're up.\p"
+	.string "{PLAYER}:{COLOR RED}Yea Mom, up with a very\n"
+	.string "{COLOR RED}CRAZY morning.\p"
+	.string "Mom: Aww Honey...$"
+
+MayPlayersHouse_1F_Text_ComeWatchWithMe:
+	.string "Mom: Come and watch TV with me to help\n"
+	.string "ease your mind a bit.\p"
+	.string "{PLAYER}:{COLOR RED}Sure, I guess a bit of TV will\n"
+	.string "{COLOR RED}get my mind off everything.$"
+
+MayPlayersHouse_1F_Text_TVTalks:
+	.string "In Today's News, It seems that Team.....\p"
+	.string "Mom: Why don't you go ahead and tell me\n"
+	.string "what happened this morning huh?\p"
+	.string "{PLAYER}:{COLOR RED}So listen, what happened was...$"
+
+MayPlayersHouse_1F_Text_ForgotToTell:
+	.string "Mom:I forgot to mention that your friend\n"
+	.string "wanted to see you for something.\p"
+	.string "{PLAYER}:{COLOR RED}You mean {RIVAL}?\p"
+	.string "Mom:Yes, you should go see what\n"
+	.string "they wanted.$"
+
+MayPlayersHouse_1F_Text_Wait:
+	.string "Mom:WAIT!$"
+
+MayPlayersHouse_1F_Text_RunningShoes:
+	.string "Mom:You can't leave without these.\p"
+	.string "{PLAYER}:{COLOR RED}Thanks Mom.$"
+
+MayPlayersHouse_1F_Text_SwitchShoesWithRunningShoes:
+	.string "{PLAYER} switched shoes with the\n"
+	.string "RUNNING SHOES.$"
+
+MayPlayersHouse_1F_Text_SeeYouLater:
+	.string "Mom:See you later honey.\p"
+	.string "{PLAYER}:{COLOR RED}Bye Mom.$"
+
+PlayersHouse_1F_Text_YoureUp:
+	.string "Mom: Honey, It's nice to see you're up.\p"
+	.string "{PLAYER}:{COLOR BLUE}Just had a weird morning to start\n"
+	.string "{COLOR BLUE}my day.\p"
+	.string "{COLOR DARK_GREY}Mom: Aww Honey...$"
+
+PlayersHouse_1F_Text_ComeWatchWithMe:
+	.string "Mom: Come and watch TV with me to help\n"
+	.string "ease your mind a bit.\p"
+	.string "{PLAYER}:{COLOR BLUE}Sure even though it won't get my\n"
+	.string "{COLOR BLUE}mind off what happened at all.$"
+
+PlayersHouse_1F_Text_TVTalks:
+	.string "In Today's News, It seems that Team.....\p"
+	.string "Mom: Why don't you go ahead and tell me\n"
+	.string "what happened this morning huh?\p"
+	.string "{PLAYER}:{COLOR BLUE}Uhh I guess what happened was...$"
+
+PlayersHouse_1F_Text_ForgotToTell:
+	.string "Mom:I forgot to mention that your friend\n"
+	.string "wanted to see you for something.\p"
+	.string "{PLAYER}:{COLOR BLUE}Friend... you talking about {RIVAL}?\p"
+	.string "{COLOR DARK_GREY}Mom:Yes, you should go see what\n"
+	.string "they wanted.$"
+
+PlayersHouse_1F_Text_Wait:
+	.string "Mom:WAIT!$"
+
+PlayersHouse_1F_Text_RunningShoes:
+	.string "Mom:You can't leave without these.\p"
+	.string "{PLAYER}:{COLOR BLUE}How could forget about them.$"
+
+PlayersHouse_1F_Text_SwitchShoesWithRunningShoes:
+	.string "{PLAYER} switched shoes with the\n"
+	.string "RUNNING SHOES.$"
+
+PlayersHouse_1F_Text_SeeYouLater:
+	.string "Mom:See you later honey.\p"
+	.string "{PLAYER}:{COLOR BLUE}Yeah see ya.$"

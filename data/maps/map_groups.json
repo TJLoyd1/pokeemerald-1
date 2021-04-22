@@ -94,7 +94,9 @@
     "Underwater_Route129",
     "Underwater_Route105",
     "Underwater_Route125",
-    "OldaleGrotto"
+    "OldaleGrotto",
+    "Route13",
+    "AntiquityCity"
   ],
   "gMapGroup1": [
     "LittlerootTown_BrendansHouse_1F",
@@ -434,7 +436,11 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "UnscaledCavern"
+    "UnscaledCavern",
+    "NewMap1",
+    "NewMap2",
+    "GraniteCave_B3F",
+    "CaveOfUnknown"
   ],
   "gMapGroup25": [
     "SecretBase_RedCave1",

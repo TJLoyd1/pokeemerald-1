@@ -3449,10 +3449,10 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_LEADER_ROXANNE,
-        .trainerName = _("ROXANNE"),
-        .items = {ITEM_POTION, ITEM_POTION, ITEM_NONE, ITEM_NONE},
+        .trainerName = _("Danny"),
+        .items = {ITEM_POTION, ITEM_POTION, ITEM_POTION, ITEM_SUPER_POTION},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_PREFER_BATON_PASS | AI_SCRIPT_HP_AWARE,
         .partySize = ARRAY_COUNT(sParty_Roxanne1),
         .party = {.TrainerMon = sParty_Roxanne1},
     },
@@ -11113,4 +11113,31 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_MayLinkPlaceholder),
         .party = {.TrainerMon = sParty_MayLinkPlaceholder},
     },
+	
+	
+	[TRAINER_OBSIDIAN_GRUNT1_ROUTE_104] =
+	{
+		.trainerClass = TRAINER_CLASS_TEAM_AQUA,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
+		.trainerPic = TRAINER_PIC_AQUA_GRUNT_F,
+		.trainerName = _("Grunt"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT (sParty_Grunt1Route104),
+		.party = {.TrainerMon = sParty_Grunt1Route104},
+	},
+	
+	[TRAINER_OBSIDIAN_GRUNT2_ROUTE_104] =
+	{
+		.trainerClass = TRAINER_CLASS_TEAM_MAGMA,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MAGMA,
+		.trainerPic = TRAINER_PIC_MAGMA_GRUNT_M,
+		.trainerName = _("Grunt"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT (sParty_Grunt2Route104),
+		.party = {.TrainerMon = sParty_Grunt2Route104},
+	},
 };

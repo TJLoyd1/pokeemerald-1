@@ -437,6 +437,26 @@ Route104_EventScript_LandedInDewford:: @ 81ED1BE
 	releaseall
 	end
 
+Route104_EventScript_Grunt1:: @ 82334F8
+	trainerbattle_single TRAINER_OBSIDIAN_GRUNT1_ROUTE_104, Route104_Text_Grunt1Intro, Route104_Text_Grunt1Defeat, Route104_EventScript_Grunt1Defeated
+	msgbox Route104_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route104_EventScript_Grunt1Defeated:: @ 8233513
+	msgbox Route104_Text_Grunt1PostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_Grunt2:: @ 82334F8
+	trainerbattle_single TRAINER_OBSIDIAN_GRUNT2_ROUTE_104, Route104_Text_Grunt2Intro, Route104_Text_Grunt2Defeat, Route104_EventScript_Grunt2Defeated
+	msgbox Route104_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route104_EventScript_Grunt2Defeated:: @ 8233513
+	msgbox Route104_Text_Grunt2PostBattle, MSGBOX_DEFAULT
+	release
+	end
+
 Route104_Movement_SailToDewfordBeforeDadCalls: @ 81ED1C8
 	walk_down
 	walk_down
@@ -1190,3 +1210,27 @@ Route104_Text_BrendanPostBattle: @ 81EE120
 	.string "making POKéMON battle.\p"
 	.string "Like MR. BRINEY, it's important to\n"
 	.string "become friends with your POKéMON.$"
+
+Route104_Text_Grunt1Intro:
+	.string "Hey you can't go through yet!\n"
+	.string "Petalburg Woods is off limits!$"
+
+Route104_Text_Grunt1Defeat:
+	.string "Fuck…\n"
+	.string "I lost!$"
+
+Route104_Text_Grunt1PostBattle:
+	.string "I took the loss for the team,\n"
+	.string "but I did my job…$"
+
+Route104_Text_Grunt2Intro:
+	.string "Get away from here kid!\n"
+	.string "Petalburg Woods is off limits!$"
+
+Route104_Text_Grunt2Defeat:
+	.string "Damn…\n"
+	.string "I lost!$"
+
+Route104_Text_Grunt2PostBattle:
+	.string "I lost because i had weak pokemon,\n"
+	.string "but I did my job…$"

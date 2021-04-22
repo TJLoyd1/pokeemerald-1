@@ -1068,3 +1068,15 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/OldaleGrotto/scripts.inc"
 
 	.include "data/maps/UnscaledCavern/scripts.inc"
+
+	.include "data/maps/NewMap1/scripts.inc"
+
+	.include "data/maps/Route13/scripts.inc"
+
+	.include "data/maps/AntiquityCity/scripts.inc"
+
+	.include "data/maps/NewMap2/scripts.inc"
+
+	.include "data/maps/GraniteCave_B3F/scripts.inc"
+
+	.include "data/maps/CaveOfUnknown/scripts.inc"

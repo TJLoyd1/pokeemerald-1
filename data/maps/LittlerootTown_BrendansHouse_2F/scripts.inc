@@ -316,3 +316,197 @@ PlayersHouse_2F_Text_ItsAGameCube: @ 81F884F
 	.string "It's a Nintendo Switch.\p"
 	.string "Super Smash Bros. Ultimate is\n"
 	.string "playing on the screen.$"
+
+StarterTown_PlayersHouse_2F_EventScript_WakeUp::
+	lockall
+	setvar VAR_WAKING_UP, 1
+	checkplayergender
+	compare VAR_RESULT, FEMALE
+	goto_if_eq StarterTown_MayPlayersHouse_2F_EventScript_WakeUp
+	removeobject 2, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_MOM
+	removeobject 4, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_SIBLING
+	msgbox PlayersHouse_2F_Text_WakeUp, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+StarterTown_RivalsHouse_2F_EventScript_OnSet::
+	setvar VAR_BIG_COMMOTION, 1
+	goto_if_set FLAG_GOOD_MORNING, StarterTown_RivalsHouse_2F_EventScript_Commotion
+	end
+
+StarterTown_RivalsHouse_2F_EventScript_Commotion::
+	lockall
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq StarterTown_MaleRivalsHouse_2F_EventScript_Commotion
+	addobject 2
+	removeobject 3
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
+	applymovement 2, Common_Movement_ExclamationMark
+	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	waitmovement 0
+	applymovement 2, FaceRight
+	msgbox StarterTown_RivalsHouse_2F_Text_RivalHey, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Headed_Towards_PC_With_Rival
+	waitmovement 0
+	msgbox StarterTown_RivalsHouse_2F_Text_RivalMentionsProf, MSGBOX_DEFAULT
+	closemessage
+	msgbox StarterTown_RivalsHouse_2F_Text_MomYells
+	playbgm MUS_HELP, 1
+	applymovement 2, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox StarterTown_RivalsHouse_2F_Text_Curiousity, MSGBOX_DEFAULT
+	applymovement 2, Rival_Moves_Towards_Stairs
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Moves_Towards_Stairs
+	waitmovement 0
+	setvar VAR_DOWNSTAIRS_DANGER, 1
+	setflag FLAG_DOWNSTAIRS_DANGER
+	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
+	waitstate
+	releaseall
+	end
+
+StarterTown_MaleRivalsHouse_2F_EventScript_Commotion::
+	applymovement 3, Common_Movement_ExclamationMark
+	playbgm MUS_ENCOUNTER_MAY, 1
+	waitmovement 0
+	applymovement 3, FaceRight
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHey, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Headed_Towards_PC_With_Rival
+	waitmovement 0
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProf, MSGBOX_DEFAULT
+	closemessage
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_MomYells
+	playbgm MUS_HELP, 1
+	applymovement 3, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_Curiousity, MSGBOX_DEFAULT
+	applymovement 3, Rival_Moves_Towards_Stairs
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Moves_Towards_Stairs
+	waitmovement 0
+	setvar VAR_DOWNSTAIRS_DANGER, 1
+	setflag FLAG_DOWNSTAIRS_DANGER
+	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
+	waitstate
+	releaseall
+	end
+
+FaceRight:
+	face_right
+	step_end
+
+Headed_Towards_PC_With_Rival:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Rival_Moves_Towards_Stairs:
+	walk_fast_down
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	step_end
+	
+Player_Moves_Towards_Stairs:
+	delay_16
+	walk_fast_down
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	step_end
+
+PlayersHouse_2F_Text_WakeUp:
+	.string "Mom:{PLAYER}.\n"
+	.string "When you get up come downstairs.$"
+
+StarterTown_RivalsHouse_2F_Text_RivalHey:
+	.string "{RIVAL}:{COLOR BLUE}I see you made it.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Yea, my mom told me you had\n"
+	.string "to tell me something.\l"
+	.string "It better be important.\p"
+	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR BLUE}You gotta come here so I can\n"
+	.string "show you how cool this shit is.$"
+
+StarterTown_RivalsHouse_2F_Text_RivalMentionsProf:
+	.string "{RIVAL}:{COLOR BLUE}So I found something on the\n"
+	.string "internet about a professor named May\l"
+	.string "who supposedly moved here two days ago\p"
+	.string "because of 'research' reasons.\l"
+	.string "Apparently she's giving away some\n"
+	.string "Pokémon to new trainers like her\l"
+	.string "father used to do.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Does she have some kind of rare\n"
+	.string "Pokémon or something?\p"
+	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR BLUE}From what I read online, she\n"
+	.string "has three 'unique' Pokémon that was\l"
+	.string "aquired as she traveled across many\p"
+	.string "different regions.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}I think we should go see her\n"
+	.string "so we can get a Pokémon.\l"
+	.string "It's about time we left the house.\p"
+	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR BLUE}Yeah I totally agr-$"
+
+StarterTown_RivalsHouse_2F_Text_MomYells:
+	.string "KIDS GET DOWN HERE QUICK!!$"
+
+StarterTown_RivalsHouse_2F_Text_Curiousity:
+	.string "{RIVAL}:{COLOR BLUE}Let's go see what's going on.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Okay let's go.$"
+
+StarterTown_MaleRivalsHouse_2F_Text_RivalHey:
+	.string "{RIVAL}:{COLOR RED}You finally made it.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}I only came because you\n"
+	.string "had to tell me something.\l"
+	.string "It must be important?\p"
+	.string "{COLOR DARK_GREY}May:{COLOR RED}You gotta come here so I can\n"
+	.string "show you how amazing this is.$"
+
+StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProf:
+	.string "{RIVAL}:{COLOR RED}So I found something on the\n"
+	.string "internet about a professor named May\l"
+	.string "who supposedly moved here two days ago\p"
+	.string "because of 'research' reasons.\l"
+	.string "Apparently she's giving away some\n"
+	.string "Pokémon to new trainers like her\l"
+	.string "father used to do.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}Does she have some kind of rare\n"
+	.string "Pokémon or something?\p"
+	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}From what I read online, she\n"
+	.string "has three 'unique' Pokémon that was\l"
+	.string "aquired as she traveled across many\p"
+	.string "different regions.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}we should go see her then\n"
+	.string "so we can get a Pokémon.\l"
+	.string "It's about time we left the damn house.\p"
+	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Yeah I actually agr-$"
+
+StarterTown_MaleRivalsHouse_2F_Text_MomYells:
+	.string "KIDS GET DOWN HERE QUICK!!$"
+
+StarterTown_MaleRivalsHouse_2F_Text_Curiousity:
+	.string "{RIVAL}:{COLOR RED}Something happened.\n"
+	.string "Let's Go.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Yeah Yeah.$"

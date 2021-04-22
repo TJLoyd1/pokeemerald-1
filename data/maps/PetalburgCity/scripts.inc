@@ -41,11 +41,13 @@ PetalburgCity_OnFrame: @ 81DC31C
 
 PetalburgCity_EventScript_WallyTutorial:: @ 81DC32E
 	lockall
+	special SavePlayerParty
+	special PutZigzagoonInPlayerParty
 	applymovement LOCALID_WALLY, PetalburgCity_Movement_WallyTutorialWally
 	applymovement OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_WallyTutorialPlayer
 	waitmovement 0
 	msgbox Route102_Text_WatchMeCatchPokemon, MSGBOX_DEFAULT
-	trainerbattle_single TRAINER_WALLY_MAUVILLE, Route102_Text_IgnesIntro, Route102_Text_IgnesDefeated
+	special StartWallyTutorialBattle
 	waitstate
 	msgbox Route102_Text_WallyIDidIt, MSGBOX_DEFAULT
 	applymovement LOCALID_WALLY, Common_Movement_WalkInPlaceFastestLeft, MAP_PETALBURG_CITY

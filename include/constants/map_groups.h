@@ -64,6 +64,8 @@
 #define MAP_UNDERWATER_ROUTE105 (55 | (0 << 8))
 #define MAP_UNDERWATER_ROUTE125 (56 | (0 << 8))
 #define MAP_OLDALE_GROTTO       (57 | (0 << 8))
+#define MAP_ROUTE13             (58 | (0 << 8))
+#define MAP_ANTIQUITY_CITY      (59 | (0 << 8))
 
 // Map Group 1
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -404,6 +406,10 @@
 #define MAP_ALTERING_CAVE                            (106 | (24 << 8))
 #define MAP_METEOR_FALLS_STEVENS_CAVE                (107 | (24 << 8))
 #define MAP_UNSCALED_CAVERN                          (108 | (24 << 8))
+#define MAP_NEW_MAP1                                 (109 | (24 << 8))
+#define MAP_NEW_MAP2                                 (110 | (24 << 8))
+#define MAP_GRANITE_CAVE_B3F                         (111 | (24 << 8))
+#define MAP_CAVE_OF_UNKNOWN                          (112 | (24 << 8))
 
 // Map Group 25
 #define MAP_SECRET_BASE_RED_CAVE1           (0 | (25 << 8))

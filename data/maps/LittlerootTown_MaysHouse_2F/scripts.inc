@@ -416,3 +416,100 @@ RivalsHouse_2F_Text_BrendanWhereShouldIGoNext: @ 81F9BE7
 	.string "Hey, {PLAYER}, if I see you while I'm out\n"
 	.string "catching Pokémon, I can pitch you a\l"
 	.string "battle if you'd like.$"
+
+StarterTown_MayPlayersHouse_2F_EventScript_WakeUp::
+	lockall
+	setvar VAR_WAKING_UP, 1
+	removeobject 2, MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_MOM
+	removeobject 4, MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_SIBLING
+	msgbox MayPlayersHouse_2F_Text_WakeUp, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	waitmovement 0
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq StarterTown_BrendansPlayersHouse_2F_EventScript_WakeUp
+	applymovement OBJ_EVENT_ID_PLAYER, Walk_Away_From_Bed
+	waitmovement 0
+	msgbox MayPlayersHouse_2F_Text_WeirdDream, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+StarterTown_MayPlayersHouse_2F_EventScript_WakeUp2::
+	lockall
+	setvar VAR_WAKING_UP, 1
+	removeobject 2, MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_MOM
+	removeobject 4, MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_SIBLING
+	msgbox MayPlayersHouse_2F_Text_WakeUp, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	waitmovement 0
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq StarterTown_BrendansPlayersHouse_2F_EventScript_WakeUp2
+	applymovement OBJ_EVENT_ID_PLAYER, Walk_Around_Bed
+	waitmovement 0
+	msgbox MayPlayersHouse_2F_Text_WeirdDream, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+StarterTown_BrendansPlayersHouse_2F_EventScript_WakeUp::
+	applymovement OBJ_EVENT_ID_PLAYER, Walk_Away_From_Bed
+	waitmovement 0
+	msgbox BrendansPlayersHouse_2F_Text_WeirdDream, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+StarterTown_BrendansPlayersHouse_2F_EventScript_WakeUp2::
+	applymovement OBJ_EVENT_ID_PLAYER, Walk_Around_Bed
+	waitmovement 0
+	msgbox BrendansPlayersHouse_2F_Text_WeirdDream, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+	
+Walk_Away_From_Bed:
+	walk_left
+	walk_left
+	walk_left
+	face_right
+	delay_16
+	face_down
+	delay_16
+	face_up
+	step_end
+
+Walk_Around_Bed:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_left
+	walk_left
+	face_right
+	delay_16
+	face_down
+	delay_16
+	face_up
+	step_end
+
+MayPlayersHouse_2F_Text_WakeUp:
+	.string "Mom:{PLAYER}.\n"
+	.string "When you get up come downstairs.$"
+
+MayPlayersHouse_2F_Text_WeirdDream:
+	.string "{PLAYER}:{COLOR RED}That was such a weird\n"
+	.string "realistic dream.$"
+
+BrendansPlayersHouse_2F_Text_WeirdDream:
+	.string "{PLAYER}:{COLOR BLUE}What type of dream was\n"
+	.string "that bullshit.\p"
+	.string "It felt too real.$"

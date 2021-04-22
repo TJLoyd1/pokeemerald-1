@@ -58,8 +58,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 25,
-      "y": 37,
+      "x": 26,
+      "y": 48,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -255,8 +255,8 @@
       "dest_warp_id": 0
     },
     {
-      "x": 16,
-      "y": 45,
+      "x": 24,
+      "y": 38,
       "elevation": 0,
       "dest_map": "MAP_RUSTBORO_CITY_MART",
       "dest_warp_id": 0
@@ -270,7 +270,7 @@
     },
     {
       "x": 27,
-      "y": 34,
+      "y": 46,
       "elevation": 0,
       "dest_map": "MAP_RUSTBORO_CITY_POKEMON_SCHOOL",
       "dest_warp_id": 0
@@ -318,8 +318,8 @@
       "dest_warp_id": 0
     },
     {
-      "x": 26,
-      "y": 46,
+      "x": 33,
+      "y": 28,
       "elevation": 0,
       "dest_map": "MAP_RUSTBORO_CITY_HOUSE3",
       "dest_warp_id": 0
@@ -527,16 +527,16 @@
     },
     {
       "type": "sign",
-      "x": 25,
-      "y": 35,
+      "x": 23,
+      "y": 46,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RustboroCity_EventScript_TrainersSchoolSign"
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 45,
+      "x": 25,
+      "y": 38,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
@@ -559,8 +559,8 @@
     },
     {
       "type": "sign",
-      "x": 18,
-      "y": 45,
+      "x": 26,
+      "y": 38,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
@@ -591,8 +591,8 @@
     },
     {
       "type": "sign",
-      "x": 12,
-      "y": 38,
+      "x": 8,
+      "y": 39,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RustboroCity_EventScript_CuttersHouseSign"

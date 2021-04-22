@@ -6,6 +6,7 @@ LittlerootTown_BrendansHouse_1F_MapScripts:: @ 81F7755
 	map_script MAP_SCRIPT_ON_LOAD, LittlerootTown_BrendansHouse_1F_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_BrendansHouse_1F_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, LittlerootTown_BrendansHouse_1F_OnFrame
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_BrendansHouse_1F_OnWarp
 	.byte 0
 
 LittlerootTown_BrendansHouse_1F_OnLoad: @ 81F7765
@@ -30,6 +31,10 @@ LittlerootTown_BrendansHouse_1F_EventScript_ShowRunningShoesManual:: @ 81F779A
 	return
 
 LittlerootTown_BrendansHouse_1F_OnTransition: @ 81F77A4
+	compare VAR_DOWNSTAIRS_DANGER, 1
+	call_if_eq LittlerootTown_BrendansHouse_1F_EventScript_MoveRivalMomToTV
+	compare VAR_DOWNSTAIRS_DANGER, 1
+	call_if_eq LittlerootTown_BrendansHouse_1F_EventScript_MoveRivalNexttoPlayer
 	compare VAR_LITTLEROOT_INTRO_STATE, 3
 	call_if_eq LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToDoor
 	compare VAR_LITTLEROOT_INTRO_STATE, 5
@@ -38,6 +43,25 @@ LittlerootTown_BrendansHouse_1F_OnTransition: @ 81F77A4
 	call_if_eq LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToTV
 	end
 
+LittlerootTown_BrendansHouse_1F_EventScript_MoveRivalMomToTV::
+	setobjectxyperm 2, 4, 5
+	setobjectmovementtype 1, MOVEMENT_TYPE_FACE_UP
+	return
+
+LittlerootTown_BrendansHouse_1F_EventScript_MoveRivalNexttoPlayer::
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq LittlerootTown_BrendansHouse_1F_EventScript_MoveMayRivalNexttoPlayer
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_BRENDAN
+	setobjectxyperm 4, 9, 3
+	setobjectmovementtype 4, MOVEMENT_TYPE_FACE_DOWN
+	return
+LittlerootTown_BrendansHouse_1F_EventScript_MoveMayRivalNexttoPlayer::
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
+	setobjectxyperm 5, 9, 3
+	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_DOWN
+	return 
+	
 LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToStairs:: @ 81F77C6
 	setobjectxyperm LOCALID_MOM, 8, 4
 	setobjectmovementtype LOCALID_MOM, MOVEMENT_TYPE_FACE_UP
@@ -53,12 +77,16 @@ LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToDoor:: @ 81F77DE
 	setobjectmovementtype LOCALID_MOM, MOVEMENT_TYPE_FACE_UP
 	return
 
+LittlerootTown_BrendansHouse_1F_OnWarp:
+	map_script_2 VAR_DOWNSTAIRS_DANGER, 1, LittlerootTown_BrendansHouse_1F_EventScript_MoveRivalMomToTV
+	map_script_2 VAR_DOWNSTAIRS_DANGER, 1, LittlerootTown_BrendansHouse_1F_EventScript_MoveRivalNexttoPlayer
+	.2byte 0
 @ Many of the below scripts have no gender check because they assume youre in the correct house
 @ The below SS Ticket script uses Mays house state by accident(?), but theyre both set identically after the intro
 LittlerootTown_BrendansHouse_1F_OnFrame: @ 81F77EA
+	map_script_2 VAR_DOWNSTAIRS_DANGER, 1, StarterTown_RivalsHouse_1F_EventScript_Downstairs_Danger
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 3, LittlerootTown_BrendansHouse_1F_EventScript_EnterHouseMovingIn
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 5, LittlerootTown_BrendansHouse_1F_EventScript_GoUpstairsToSetClock
-	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_BrendansHouse_1F_EventScript_PetalburgGymReport
 	map_script_2 VAR_LITTLEROOT_HOUSES_STATE_MAY, 1, LittlerootTown_BrendansHouse_1F_EventScript_YoureNewNeighbor
 	map_script_2 VAR_LITTLEROOT_HOUSES_STATE_MAY, 3, PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV
 	.2byte 0
@@ -450,3 +478,205 @@ PlayersHouse_1F_Text_WhatColorDidTheySay: @ 81F8351
 PlayersHouse_1F_Text_StillUnknownPokemon: @ 81F83A1
 	.string "Mom: Well, isn't that something!\n"
 	.string "There are still unknown Pokémon.$"
+
+StarterTown_RivalsHouse_1F_EventScript_FlagSet::
+	setvar VAR_TEMP_1, 1
+	goto_if_set FLAG_TIME_FOR_CHAOS, StarterTown_RivalsHouse_1F_EventScript_GoodMorning
+	end
+
+StarterTown_RivalsHouse_1F_EventScript_GoodMorning::
+	lockall
+	setflag FLAG_GOOD_MORNING
+	applymovement OBJ_EVENT_ID_PLAYER,FaceLeft
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto StarterTown_MaleRivalsHouse_1F_EventScript_GoodMorning
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
+	showobjectat 2, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
+	msgbox StarterTown_RivalsHouse_1F_Text_Good_Morning, MSGBOX_DEFAULT
+	waitmovement 0
+	closemessage
+	setvar VAR_TEMP_1, 1
+	releaseall
+	end
+
+StarterTown_MaleRivalsHouse_1F_EventScript_GoodMorning::
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
+	showobjectat 3, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
+	msgbox StarterTown_MaleRivalsHouse_1F_Text_Good_Morning, MSGBOX_DEFAULT
+	waitmovement 0
+	closemessage
+	setvar VAR_TEMP_1, 1
+	releaseall
+	end
+	
+StarterTown_RivalsHouse_1F_EventScript_DDFlag::
+	goto_if_set FLAG_DOWNSTAIRS_DANGER, StarterTown_RivalsHouse_1F_EventScript_Downstairs_Danger
+	end
+
+StarterTown_RivalsHouse_1F_EventScript_Downstairs_Danger::
+	playbgm MUS_ENCOUNTER_INTERVIEWER, 1
+	lockall
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq StarterTown_MaleRivalsHouse_1F_EventScript_Downstairs_Danger
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement 4, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox StarterTown_RivalsHouse_1F_Text_What_Happened, MSGBOX_DEFAULT
+	applymovement 2, Rival_Mom_Step_Back
+	applymovement 4, Rival_Move_To_TV
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Move_To_TV
+	msgbox StarterTown_RivalsHouse_1F_Text_Todays_News, MSGBOX_DEFAULT
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER,Look_At_Both_Rival_And_Rival_Mom
+	msgbox StarterTown_RivalsHouse_1F_Text_Outside_Now, MSGBOX_DEFAULT
+	closemessage
+	waitmovement 0
+	msgbox StarterTown_RivalsHouse_1F_Text_Check_It_Out, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Move_To_Door
+	applymovement 4, Rival_Move_To_Door
+	waitmovement 0
+	setflag FLAG_OBSIDIAN_INTRO
+	goto_if_set FLAG_OBSIDIAN_INTRO, Rival_EventScript_Hide_Rival
+	releaseall
+	end
+
+Rival_EventScript_Hide_Rival::
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Rival_EventScript_Hide_MayRival
+	removeobject 4
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_BRENDAN
+	warp MAP_LITTLEROOT_TOWN, 255, 5, 9
+	end
+
+StarterTown_MaleRivalsHouse_1F_EventScript_Downstairs_Danger::
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement 5, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox StarterTown_RivalsHouse_1F_Text_What_Happened, MSGBOX_DEFAULT
+	applymovement 2, Rival_Mom_Step_Back
+	applymovement 5, Rival_Move_To_TV
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Move_To_TV
+	msgbox StarterTown_RivalsHouse_1F_Text_Todays_News, MSGBOX_DEFAULT
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER,Look_At_Both_Rival_And_Rival_Mom
+	msgbox StarterTown_MaleRivalsHouse_1F_Text_Outside_Now, MSGBOX_DEFAULT
+	closemessage
+	waitmovement 0
+	msgbox StarterTown_MaleRivalsHouse_1F_Text_Check_It_Out, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Move_To_Door
+	applymovement 5, Rival_Move_To_Door
+	waitmovement 0
+	setflag FLAG_OBSIDIAN_INTRO
+	goto_if_set FLAG_OBSIDIAN_INTRO, Rival_EventScript_Hide_Rival
+	releaseall
+	end
+
+Rival_EventScript_Hide_MayRival::
+	removeobject 5
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
+	warp MAP_LITTLEROOT_TOWN, 255, 5, 9
+	end
+
+FaceLeft:
+	face_left
+	step_end
+
+Rival_Mom_Step_Back:
+	walk_left
+	face_up
+	step_end
+
+Rival_Move_To_TV:
+	delay_16
+	walk_fast_down
+	walk_fast_left
+	walk_fast_down
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	face_up
+	step_end
+	
+Player_Move_To_TV:
+	walk_fast_down
+	walk_fast_down
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	face_up
+	step_end
+	
+Look_At_Both_Rival_And_Rival_Mom:
+	face_right
+	delay_16
+	face_left
+	delay_16
+	face_up
+	step_end
+
+Player_Move_To_Door:
+	delay_16
+	walk_fast_right
+	walk_fast_down
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+Rival_Move_To_Door:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+StarterTown_RivalsHouse_1F_Text_Good_Morning:
+	.string "{RIVAL}'s Mom:Good Morning Sweetie.\p"
+	.string "{RIVAL} is upstairs if you are looking\n"
+	.string "for them.\p"
+	.string "{PLAYER}:{COLOR RED}Thank you ma'am.$"
+
+StarterTown_MaleRivalsHouse_1F_Text_Good_Morning:
+	.string "{RIVAL}'s Mom:Good Morning Sweetie.\p"
+	.string "{RIVAL} is upstairs if you are looking\n"
+	.string "for them.\p"
+	.string "{PLAYER}:{COLOR BLUE}Thanks ma'am.$"
+
+StarterTown_RivalsHouse_1F_Text_What_Happened:
+	.string "{RIVAL}:{COLOR BLUE}What happened Mom!?\n"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Are you okay!?\p"
+	.string "{COLOR DARK_GREY}{RIVAL}'s Mom: I'm okay just come look\n"
+	.string "at this.$"
+
+StarterTown_RivalsHouse_1F_Text_Todays_News:
+	.string "In Today's News, a government funded\n"
+	.string "organization, by the name of\l"
+	.string "Obsidian, has made their way to Littleroot.\p"
+	.string "It seems that they are there to state\n"
+	.string "their goals for the world.$"
+
+StarterTown_RivalsHouse_1F_Text_Outside_Now:
+	.string "{PLAYER}:{COLOR RED}Is this literally happening\n"
+	.string "outside right now!?$"
+
+StarterTown_RivalsHouse_1F_Text_Check_It_Out:
+	.string "{RIVAL}:{COLOR BLUE}Seems so.\n"
+	.string "Let's go check it out.$"
+
+StarterTown_MaleRivalsHouse_1F_Text_Outside_Now:
+	.string "{PLAYER}:{COLOR BLUE}No way this is happening\n"
+	.string "outside right now!?$"
+
+StarterTown_MaleRivalsHouse_1F_Text_Check_It_Out:
+	.string "{RIVAL}:{COLOR RED}One way to find out.\n"
+	.string "We got to go check it out.$"

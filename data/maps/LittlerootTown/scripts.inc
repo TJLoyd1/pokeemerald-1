@@ -40,6 +40,8 @@ LittlerootTown_MapScripts:: @ 81E7DCB
 
 
 LittlerootTown_OnTransition: @ 81E7DDB
+	compare VAR_DOWNSTAIRS_DANGER, 1
+	call_if_eq LittlerootTown_EventScript_RivalPosition
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
 	call Common_EventScript_SetupRivalGfxId
 	compare VAR_LITTLEROOT_INTRO_STATE, 2
@@ -61,6 +63,22 @@ LittlerootTown_OnTransition: @ 81E7DDB
 	call_if_eq LittlerootTown_EventScript_LeftLabAfterDexUpgrade
 	end
 
+LittlerootTown_EventScript_RivalPosition::
+	compare VAR_RESULT, MALE
+	goto_if_eq LittlerootTown_EventScript_MayRivalPosition
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_BRENDAN
+	setobjectxyperm 8, 4, 9
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	setobjectxyperm 6, 17, 10
+	return
+
+LittlerootTown_EventScript_MayRivalPosition::
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
+	setobjectxyperm 9, 4, 9
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	setobjectxyperm 6, 17, 10
+	return	
+	
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade:: @ 81E7E45
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3
 	return
@@ -118,6 +136,7 @@ LittlerootTown_EventScript_SetMomInFrontOfDoorFemale:: @ 81E7EB9
 	return
 
 LittlerootTown_OnFrame: @ 81E7EC1
+	map_script_2 VAR_DOWNSTAIRS_DANGER, 1, LittlerootTown_EventScript_Begin_Obsidian_Movement
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 1, LittlerootTown_EventScript_StepOffTruckMale
 	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_StepOffTruckFemale
 	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_BeginDexUpgradeScene
@@ -1070,3 +1089,660 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "I have something to show you.\n"
 	.string "Let's go to my Lab.$"
 
+LittlerootTown_EventScript_Rivals_Mom::
+	setvar VAR_TEMP_0, 1
+	setflag FLAG_TIME_FOR_CHAOS
+	setvar VAR_GOOD_MORNING, 1
+	removeobject 1, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_MOM
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_MOM
+	showobjectat 2, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F
+	end
+
+LittlerootTown_EventScript_Begin_Obsidian_Movement::
+	playbgm MUS_ENCOUNTER_MAGMA, 1
+	addobject LOCALID_MAXIE
+	removeobject 10
+	addobject 11
+	addobject 12
+	addobject 13
+	addobject 14
+	addobject 15
+	addobject 16
+	addobject 17
+	addobject 18
+	lockall
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq LittlerootTown_EventScript_MaleBegin_Obsidian_Movement
+	applymovement 7, Movement_To_Middle_Littleroot
+	applymovement 11, Movement_With_Rhyos
+	applymovement 12, Movement_With_Rhyos
+	applymovement 13, Movement_With_Rhyos
+	applymovement 14, Movement_With_Rhyos
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement 8, Common_Movement_QuestionMark
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Headed_To_Speech
+	applymovement 8, Rival_Headed_To_Speech
+	waitmovement 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_Part_One, MSGBOX_DEFAULT
+	applymovement 7, During_Speech_Move_Left
+	waitmovement 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_Part_Two, MSGBOX_DEFAULT
+	applymovement 7, During_Speech_Move_Right
+	waitmovement 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_Prepare_to_Show_Pokemon, MSGBOX_DEFAULT
+	applymovement 7, During_Speech_From_Right_To_Center
+	waitmovement 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_Go_Claydol, MSGBOX_DEFAULT
+	closemessage
+	delay 40
+	fadescreen 3
+	addobject 10
+	fadescreen 2
+	playmoncry SPECIES_CLAYDOL, 2
+	waitmoncry
+	msgbox LittlerootTown_Text_Rhyos_Speech_Part_Three, MSGBOX_DEFAULT
+	closemessage
+	delay 40
+	delay 40
+	playse SE_ORB
+	special DoOrbEffect
+	fadescreen 3
+	playmoncry SPECIES_CLAYDOL, 2
+	waitmoncry
+	fadescreen 2
+	special FadeOutOrbEffect
+	fadescreen 3
+	playmoncry SPECIES_CLAYDOL, 2
+	waitmoncry
+	fadescreen 2
+	msgbox LittlerootTown_Text_Rhyos_Speech_Part_Four, MSGBOX_DEFAULT
+	closemessage
+	playse SE_APPLAUSE
+	waitse
+	fadescreen 1
+	removeobject 15
+	removeobject 16
+	removeobject 17
+	removeobject 18
+	fadescreen 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_Claydol_Return
+	closemessage
+	playmoncry SPECIES_CLAYDOL, 2
+	waitmoncry
+	fadescreen 3
+	removeobject 10
+	fadescreen 2
+	applymovement 7, Rhyos_Heads_To_Player_Rival
+	waitmovement 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_End, MSGBOX_DEFAULT
+	closemessage
+	fadescreen 1
+	removeobject 7
+	removeobject 11
+	removeobject 12
+	removeobject 13
+	removeobject 14
+	fadescreen 0
+	playbgm MUS_GSC_ROUTE38, 1
+	applymovement 8, Face_Player_Direction
+	msgbox LittlerootTown_Text_ThatWasWeird, MSGBOX_DEFAULT
+	waitmovement 0
+	closemessage
+	applymovement 8, Rival_Headed_Home
+	applymovement OBJ_EVENT_ID_PLAYER, Look_At_Rival
+	waitmovement 0
+	msgbox LittlerootTown_Text_ProfHoldup, MSGBOX_DEFAULT
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	showobjectat 6, MAP_LITTLEROOT_TOWN 
+	applymovement 8, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 8, Rival_Interrupted_Walk
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Hears_Prof
+	waitmovement 0
+	applymovement 6, Prof_Walk_To_Player_Rival
+	waitmovement 0
+	msgbox LittlerootTown_Text_Birch_Gives_Starter_Pokemon, MSGBOX_DEFAULT
+	setflag FLAG_SYS_POKEMON_GET
+	special ChooseStarter
+	bufferleadmonspeciesname 0
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	special HealPlayerParty
+	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_EventScript_NicknameStarter
+	compare VAR_RESULT, NO
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_Text_ReceivedPokedex
+	waitfanfare
+	setflag FLAG_SYS_POKEDEX_GET
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	giveitem ITEM_POKE_BALL, 5
+	msgbox LittlerootTown_Text_GoodLuck, MSGBOX_DEFAULT
+	fadescreen 1
+	removeobject 6
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	fadescreen 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement 8, Common_Movement_QuestionMark
+	waitmovement 0
+	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
+	applymovement 8, Rival_Face_Player_Before_Battle
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
+	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	msgbox Littleroot_Town_Text_BrendanLetsBattle, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_EventScript_StartBrendanBattleTreecko
+	case 1, LittlerootTown_EventScript_StartBrendanBattleTorchic
+	case 2, LittlerootTown_EventScript_StartBrendanBattleMudkip
+	end
+
+LittlerootTown_EventScript_StartBrendanBattleTreecko:: @ 81EC4BE
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TREECKO, Route103_Text_BrendanDefeated
+	goto LittlerootTown_EventScript_AfterBrendanBattle
+	end
+
+LittlerootTown_EventScript_StartBrendanBattleTorchic:: @ 81EC4CE
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TORCHIC, Route103_Text_BrendanDefeated
+	goto LittlerootTown_EventScript_AfterBrendanBattle
+	end
+
+LittlerootTown_EventScript_StartBrendanBattleMudkip:: @ 81EC4DE
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_MUDKIP, Route103_Text_BrendanDefeated
+	goto LittlerootTown_EventScript_AfterBrendanBattle
+	end
+
+LittlerootTown_EventScript_AfterBrendanBattle:: @ 81EC4FC
+	msgbox LittlerootTown_Text_BrendanTimeToHeadOut, MSGBOX_DEFAULT
+	applymovement 8 ,Rival_Headed_To_Route_101
+	waitmovement 0
+	removeobject 8
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_BRENDAN
+	setvar VAR_DOWNSTAIRS_DANGER, 2
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	releaseall
+	end
+
+LittlerootTown_EventScript_NicknameStarter::
+	setvar VAR_0x8004, 0
+	call Common_EventScript_NameReceivedPartyMon
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_Text_ReceivedPokedex
+	waitfanfare
+	setflag FLAG_SYS_POKEDEX_GET
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	giveitem ITEM_POKE_BALL, 5
+	msgbox LittlerootTown_Text_GoodLuck, MSGBOX_DEFAULT
+	fadescreen 1
+	removeobject 6
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	fadescreen 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement 8, Common_Movement_QuestionMark
+	waitmovement 0
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq LittlerootTown_EventScript_MaleNicknameStarter
+	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
+	applymovement 8, Rival_Face_Player_Before_Battle
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
+	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	msgbox Littleroot_Town_Text_BrendanLetsBattle, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_EventScript_StartBrendanBattleTreecko
+	case 1, LittlerootTown_EventScript_StartBrendanBattleTorchic
+	case 2, LittlerootTown_EventScript_StartBrendanBattleMudkip
+	end
+
+LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
+	applymovement 7, Movement_To_Middle_Littleroot
+	applymovement 11, Movement_With_Rhyos
+	applymovement 12, Movement_With_Rhyos
+	applymovement 13, Movement_With_Rhyos
+	applymovement 14, Movement_With_Rhyos
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement 9, Common_Movement_QuestionMark
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Headed_To_Speech
+	applymovement 9, Rival_Headed_To_Speech
+	waitmovement 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_Part_One, MSGBOX_DEFAULT
+	applymovement 7, During_Speech_Move_Left
+	waitmovement 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_Part_Two, MSGBOX_DEFAULT
+	applymovement 7, During_Speech_Move_Right
+	waitmovement 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_Prepare_to_Show_Pokemon, MSGBOX_DEFAULT
+	applymovement 7, During_Speech_From_Right_To_Center
+	waitmovement 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_Go_Claydol, MSGBOX_DEFAULT
+	closemessage
+	delay 40
+	fadescreen 3
+	addobject 10
+	fadescreen 2
+	playmoncry SPECIES_CLAYDOL, 2
+	waitmoncry
+	msgbox LittlerootTown_Text_Rhyos_Speech_Part_Three, MSGBOX_DEFAULT
+	closemessage
+	delay 40
+	delay 40
+	playse SE_ORB
+	special DoOrbEffect
+	fadescreen 3
+	playmoncry SPECIES_CLAYDOL, 2
+	waitmoncry
+	fadescreen 2
+	special FadeOutOrbEffect
+	fadescreen 3
+	playmoncry SPECIES_CLAYDOL, 2
+	waitmoncry
+	fadescreen 2
+	msgbox LittlerootTown_Text_Rhyos_Speech_Part_Four, MSGBOX_DEFAULT
+	closemessage
+	playse SE_APPLAUSE
+	waitse
+	fadescreen 1
+	removeobject 15
+	removeobject 16
+	removeobject 17
+	removeobject 18
+	fadescreen 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_Claydol_Return
+	closemessage
+	playmoncry SPECIES_CLAYDOL, 2
+	waitmoncry
+	fadescreen 3
+	removeobject 10
+	fadescreen 2
+	applymovement 7, Rhyos_Heads_To_Player_Rival
+	waitmovement 0
+	msgbox LittlerootTown_Text_Rhyos_Speech_End, MSGBOX_DEFAULT
+	closemessage
+	fadescreen 1
+	removeobject 7
+	removeobject 11
+	removeobject 12
+	removeobject 13
+	removeobject 14
+	fadescreen 0
+	playbgm MUS_GSC_ROUTE38, 1
+	applymovement OBJ_EVENT_ID_PLAYER, Face_May_Rival
+	applymovement 9, Face_Player_Direction
+	msgbox LittlerootTown_Text_MayThatWasWeird, MSGBOX_DEFAULT
+	waitmovement 0
+	closemessage
+	applymovement 9, Rival_Headed_Home
+	applymovement OBJ_EVENT_ID_PLAYER, Look_At_Rival
+	waitmovement 0
+	msgbox LittlerootTown_Text_ProfHoldup, MSGBOX_DEFAULT
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	showobjectat 6, MAP_LITTLEROOT_TOWN 
+	applymovement 9, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 9, Rival_Interrupted_Walk
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Hears_Prof
+	waitmovement 0
+	applymovement 6, Prof_Walk_To_Player_Rival
+	waitmovement 0
+	msgbox LittlerootTown_Text_Birch_Gives_Starter_Pokemon, MSGBOX_DEFAULT
+	setflag FLAG_SYS_POKEMON_GET
+	special ChooseStarter
+	bufferleadmonspeciesname 0
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	special HealPlayerParty
+	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_EventScript_NicknameStarter
+	compare VAR_RESULT, NO
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_Text_ReceivedPokedex
+	waitfanfare
+	setflag FLAG_SYS_POKEDEX_GET
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	giveitem ITEM_POKE_BALL, 5
+	msgbox LittlerootTown_Text_GoodLuck, MSGBOX_DEFAULT
+	fadescreen 1
+	removeobject 6
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	fadescreen 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement 9, Common_Movement_QuestionMark
+	waitmovement 0
+	msgbox LittlerootTown_Text_MayHow_She_Know_Names, MSGBOX_DEFAULT
+	applymovement 9, Rival_Face_Player_Before_Battle
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
+	playbgm MUS_ENCOUNTER_MAY, 1
+	msgbox Littleroot_Town_Text_MayLetsBattle, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_EventScript_StartMayBattleTreecko
+	case 1, LittlerootTown_EventScript_StartMayBattleTorchic
+	case 2, LittlerootTown_EventScript_StartMayBattleMudkip
+	end
+
+LittlerootTown_EventScript_StartMayBattleTreecko:: @ 81EC48E
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TREECKO, Route103_Text_MayDefeated
+	goto LittlerootTown_EventScript_AfterMayBattle
+	end
+
+LittlerootTown_EventScript_StartMayBattleTorchic:: @ 81EC49E
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TORCHIC, Route103_Text_MayDefeated
+	goto LittlerootTown_EventScript_AfterMayBattle
+	end
+
+LittlerootTown_EventScript_StartMayBattleMudkip:: @ 81EC4AE
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_MUDKIP, Route103_Text_MayDefeated
+	goto LittlerootTown_EventScript_AfterMayBattle
+	end
+
+LittlerootTown_EventScript_AfterMayBattle:: @ 81EC4FC
+	msgbox LittlerootTown_Text_MayTimeToHeadOut, MSGBOX_DEFAULT
+	applymovement 9 ,Rival_Headed_To_Route_101
+	waitmovement 0
+	removeobject 9
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
+	setvar VAR_DOWNSTAIRS_DANGER, 2
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	releaseall
+	end
+
+LittlerootTown_EventScript_MaleNicknameStarter::
+	msgbox LittlerootTown_Text_MayHow_She_Know_Names, MSGBOX_DEFAULT
+	applymovement 9, Rival_Face_Player_Before_Battle
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
+	playbgm MUS_ENCOUNTER_MAY, 1
+	msgbox Littleroot_Town_Text_MayLetsBattle, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_EventScript_StartMayBattleTreecko
+	case 1, LittlerootTown_EventScript_StartMayBattleTorchic
+	case 2, LittlerootTown_EventScript_StartMayBattleMudkip
+	end
+
+Movement_To_Middle_Littleroot:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	face_down
+	step_end
+
+Movement_With_Rhyos:
+	walk_down
+	walk_down
+	walk_down
+	step_end
+	
+Headed_To_Speech:
+	walk_right
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	face_up
+	step_end
+
+Rival_Headed_To_Speech:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	face_up
+	step_end
+
+During_Speech_Move_Left:
+	walk_left
+	walk_left
+	face_down
+	step_end
+
+During_Speech_Move_Right:
+	walk_right
+	walk_right
+	walk_right
+	face_down
+	step_end
+
+During_Speech_From_Right_To_Center:
+	walk_left
+	walk_left
+	walk_down
+	walk_right
+	face_down
+	step_end
+
+Rhyos_Heads_To_Player_Rival:
+	walk_down
+	step_end
+
+Face_Player_Direction:
+	face_left
+	step_end
+	
+Face_May_Rival:
+	face_right
+	step_end
+	
+Rival_Headed_Home:
+	walk_left
+	walk_up
+	walk_left
+	step_end
+
+Look_At_Rival:
+	face_right
+	delay_16
+	face_up
+	step_end
+
+Player_Hears_Prof:
+	face_right
+	step_end
+
+Rival_Interrupted_Walk:
+	face_right
+	step_end
+
+Prof_Walk_To_Player_Rival:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	face_left
+	step_end
+
+Rival_Face_Player_Before_Battle:
+	face_down
+	step_end
+
+Player_Face_Rival_Before_Battle:
+	face_up
+	step_end
+	
+Rival_Headed_To_Route_101:
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_up
+	walk_up
+	walk_right
+	walk_up
+	step_end
+
+LittlerootTown_Text_Rhyos_Speech_Part_One:
+	.string "Hello People of Littleroot Town.\n"
+	.string "I am one of the many leaders of\l"
+	.string "the government funded organization\p"
+	.string "Obsidian.\p"
+	.string "Like you all have probably heard on\n"
+	.string "the news, we are applying the use\l"
+	.string "science as well as Pokémon to create\p"
+	.string "not only a better future for humans but\n"
+	.string "Pokémon as well.$"
+
+LittlerootTown_Text_Rhyos_Speech_Part_Two:
+	.string "We of Obsidian are working hard so\n"
+	.string "both Pokémon and humans can live in\l"
+	.string "peace and harmony while Pokémon have\p"
+	.string "freedom from being controlled by those\n"
+	.string	"who use Pokémon for devilish incentives.\p"
+	.string "Obsidian will strive to keep both\n"
+	.string "Pokémon and humans unscathed!$"
+
+LittlerootTown_Text_Rhyos_Speech_Prepare_to_Show_Pokemon:
+	.string "I am now going to show you\n"
+	.string "all something we have been\l"
+	.string "operative on for some time now.$"
+
+LittlerootTown_Text_Rhyos_Speech_Go_Claydol:
+	.string "GO CLAYDOL!$"
+
+LittlerootTown_Text_Rhyos_Speech_Part_Three:
+	.string "With this artificial Mega Stone that\n"
+	.string "the scientists at Obsidian put their\l"
+	.string "hard work into for years, this\p"
+	.string "Claydol, which usually doesn't mega\n"
+	.string "evolve, will now do such as that.$"
+
+LittlerootTown_Text_Rhyos_Speech_Part_Four:
+	.string "It appears the Mega Stone still needs\n"
+	.string "some fine tuning.\p"
+	.string "However...\p"
+	.string "This Mega Stone can sense when\n"
+	.string "specific Pokémon feel threatened no\l"
+	.string "matter the enviroment.\p"
+	.string "They can now have the option to mega\n"
+	.string "evolve with the only exception of being\l"
+	.string "around people with an unthreatening\p"
+	.string "presence because this stone can also\n"
+	.string "sense the aggressiveness in a person.\p"
+	.string "Once we perfect this artificial mega\n"
+	.string "stone we will provide them in the wild\l"
+	.string "all around the region.$"
+	
+LittlerootTown_Text_Rhyos_Speech_Claydol_Return:
+	.string "CLAYDOL RETURN!$"
+
+LittlerootTown_Text_Rhyos_Speech_End:
+	.string "I know that you two are working with\n"
+	.string "Birch to stop our plans.\p"
+	.string "As Team Obsidian Admin, Rhyos, I\n"
+	.string "REFUSE to let that happen!$"
+	
+LittlerootTown_Text_Rhyos_Speech:
+	.string "Go Listen to Ugh in FNF Right Now!$"
+
+LittlerootTown_Text_ThatWasWeird:
+	.string "{RIVAL}:{COLOR BLUE}That was very 'educational' and\n"
+	.string "especially fucking weird.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Espcially what happened to that\n"
+	.string "poor Claydol.\p"
+	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR BLUE}Well I'm gonna head home and\n"
+	.string "do more research about Professor May.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Alright I'll see you later.$"
+
+LittlerootTown_Text_MayThatWasWeird:
+	.string "{PLAYER}:{COLOR BLUE}That was very 'educational' and\n"
+	.string "especially fucking weird.\p"
+	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Espcially what happened to that\n"
+	.string "poor Claydol.\p"
+	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Well I'm gonna head home and\n"
+	.string "do more research about Professor May.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}Alright see ya later.$"
+
+LittlerootTown_Text_ProfHoldup:
+	.string "PLEASE HOLD ON A SECOND!$"
+
+LittlerootTown_Text_Birch_Gives_Starter_Pokemon:
+	.string "Prof.May:Hello.\n"
+	.string "I'm May, or as you've seen on the world\l"
+	.string "wide web, Professor May Birch.\p"
+	.string "I never would've expect them to find this\n"
+	.string "place so I need you two to do me a favor.\p"
+	.string "Take one of these Pokémon each and help\n"
+	.string "stop this rotten-cored organization\l"
+	.string "from hurting and experimenting on the\p"
+	.string "Pokémon of the region.\p"
+	.string "I'm also going to give you both a Pokédex\n"
+	.string "and five Pokeballs to help start your\l"
+	.string "journey.\p"
+	.string "While adventuring this region to stop\n"
+	.string "Team Obsidian in their tracks for a\l"
+	.string "'better future', challenge the gym \p"
+	.string "leaders and aim to become the\n"
+	.string "CHAMPION and the best TRAINER around.\p"
+	.string "Make the best of your journey as you\n"
+	.string "stop Team Obsidian.\p"
+	.string "...........\p"
+	.string "To test both of your abilities I'm\n"
+	.string "going to have you face off against\p"
+	.string "these zigzagoons.$"
+
+LittlerootTown_Text_WhyNotGiveNicknameToMon:
+	.string "Prof. May: While you're at it, why not\n"
+	.string "give a nickname to that {STR_VAR_1}?$"
+
+LittlerootTown_Text_ReceivedPokedex:
+	.string "{PLAYER} received the POKéDEX!$"
+
+LittlerootTown_Text_GoodLuck:
+	.string "I wish the best of luck to you\n"
+	.string "both {PLAYER} and {RIVAL}.$"
+
+LittlerootTown_Text_How_She_Know_Names:
+	.string "{PLAYER}:{COLOR RED}How did she know our name?\p"
+	.string "{COLOR DARK_GREY}...\p"
+	.string "{RIVAL}:{COLOR BLUE}I-I don't know.\n"
+	.string "Well whatever.$"
+
+Littleroot_Town_Text_BrendanLetsBattle:
+	.string "{COLOR BLUE}You already know what's about to\n"
+	.string "happen since we got our own Pokémon.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}It's time to BATTLE!$"
+
+LittlerootTown_Text_BrendanTimeToHeadOut:
+	.string "{RIVAL}:{COLOR BLUE}It's time we actually left and\n"
+	.string "got to exporing the region.\l"
+	.string "I'm going ahead.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Yeah.$"
+
+LittlerootTown_Text_MayHow_She_Know_Names:
+	.string "{RIVAL}:{COLOR RED}How did she know our name?\p"
+	.string "{COLOR DARK_GREY}...\p"
+	.string "{PLAYER}:{COLOR BLUE}I-I don't know.\n"
+	.string "Well whatever.$"
+
+Littleroot_Town_Text_MayLetsBattle:
+	.string "{RIVAL}:{COLOR RED}You already know what's about to\n"
+	.string "happen since we got our own Pokémon.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}It's time to BATTLE!$"
+
+LittlerootTown_Text_MayTimeToHeadOut:
+	.string "{RIVAL}:{COLOR RED}It's about time we're able leave\n"
+	.string "and go explore the region.\l"
+	.string "I'm going ahead.\p"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}Don't let me pass you up.$"
