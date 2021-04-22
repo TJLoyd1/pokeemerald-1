@@ -3606,7 +3606,6 @@ static void Cmd_getexp(void)
     s32 i; // also used as stringId
     u8 holdEffect;
     s32 sentIn;
-    s32 viaExpShare = 0;
     u16 *exp = &gBattleStruct->expValue;
 
     gBattlerFainted = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
@@ -3662,13 +3661,13 @@ static void Cmd_getexp(void)
             #endif
 
             #if B_SPLIT_EXP < GEN_6
-                if (viaExpShare) // at least one mon is getting exp via exp share
+               if (gSaveBlock2Ptr->expShare) // exp share is turned on
                 {
                     *exp = calculatedExp / 2 / viaSentIn;
                     if (*exp == 0)
                         *exp = 1;
 
-                    gExpShareExp = calculatedExp / 2 / viaExpShare;
+                     gExpShareExp = calculatedExp / 2;
                     if (gExpShareExp == 0)
                         gExpShareExp = 1;
                 }
@@ -3681,7 +3680,7 @@ static void Cmd_getexp(void)
                 }
             #else
                 *exp = calculatedExp;
-                gExpShareExp = calculatedExp / 2;
+                gExpShareExp = calculatedExp;
                 if (gExpShareExp == 0)
                     gExpShareExp = 1;
             #endif
@@ -3739,7 +3738,7 @@ static void Cmd_getexp(void)
                         gBattleMoveDamage = 0;
 
                     // only give exp share bonus in later gens if the mon wasn't sent out
-                    if ((holdEffect == HOLD_EFFECT_EXP_SHARE) && ((gBattleMoveDamage == 0) || (B_SPLIT_EXP < GEN_6)))
+                    if (gSaveBlock2Ptr->expShare && (gBattleMoveDamage == 0 || B_SPLIT_EXP < GEN_6))
                         gBattleMoveDamage += gExpShareExp;
                     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;

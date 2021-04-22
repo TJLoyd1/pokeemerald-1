@@ -196,23 +196,23 @@ void ItemUseOutOfBattle_Mail(u8 taskId)
 
 void ItemUseOutOfBattle_ExpShare(u8 taskId)
 {
-	if (!gSaveBlock2Ptr->expShare)
-	{
-		PlaySE(SE_EXP_MAX);
-		if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
-			DisplayItemMessageOnField(taskId, gOtherText_ExpShareOn, Task_CloseCantUseKeyItemMessage);
-		else
-			DisplayItemMessage(taskId, 1, gOtherText_ExpShareOn, BagMenu_InitListsMenu);
-	}
-	else
-	{
-		PlaySE(SE_PC_OFF);
-		if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
-			DisplayItemMessageOnField(taskId, gOtherText_ExpShareOff, Task_CloseCantUseKeyItemMessage);
-		else
-			DisplayItemMessage(taskId, 1, gOtherText_ExpShareOff, BagMenu_InitListsMenu);
-	}
-	gSaveBlock2Ptr->expShare = !gSaveBlock2Ptr->expShare;
+    if (!gSaveBlock2Ptr->expShare)
+    {
+        PlaySE(SE_EXP_MAX);
+        if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_ExpShareOn, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_ExpShareOn, BagMenu_InitListsMenu);
+    }
+    else
+    {
+        PlaySE(SE_PC_OFF);
+        if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_ExpShareOff, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_ExpShareOff, BagMenu_InitListsMenu);
+    }
+    gSaveBlock2Ptr->expShare = !gSaveBlock2Ptr->expShare;
 }
 
 void ItemUseOutOfBattle_Bike(u8 taskId)

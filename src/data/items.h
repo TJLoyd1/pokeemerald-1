@@ -2590,9 +2590,8 @@ const struct Item gItems[] =
         .holdEffect = HOLD_EFFECT_EXP_SHARE,
         .description = sExpShareDesc,
         .pocket = POCKET_KEY_ITEMS,
-        .type = 2,
+        .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_ExpShare,
-        .secondaryId = 0,
     },
 
     [ITEM_QUICK_CLAW] =
