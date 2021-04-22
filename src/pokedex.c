@@ -350,8 +350,8 @@ static void SetSpriteInvisibility(u8 spriteArrayId, bool8 invisible);
 static void CreateTypeIconSprites(void);
 //Stats screen HGSS_Ui
 #define SCROLLING_MON_X 146
-#define HGSS_DECAPPED 0 //0 false, 1 true
-#define HGSS_DARK_MODE 0 //0 false, 1 true
+#define HGSS_DECAPPED 1 //0 false, 1 true
+#define HGSS_DARK_MODE 1 //0 false, 1 true
 static void LoadTilesetTilemapHGSS(u8 page);
 static void Task_HandleStatsScreenInput(u8 taskId);
 static void PrintMonStats(u8 taskId, u32 num, u32 value, u32 owned, u32 newEntry);
