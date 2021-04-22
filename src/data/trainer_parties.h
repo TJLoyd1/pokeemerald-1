@@ -7003,10 +7003,10 @@ static const struct TrainerMon sParty_BrendanRoute119Torchic[] = {
 static const struct TrainerMon sParty_MayRoute103Mudkip[] = {
     {
     .iv = 50,
-    .lvl = 10,
+    .lvl = 5,
 	.heldItem = ITEM_ORAN_BERRY,
 	.ability = ABILITY_HIDDEN,
-    .species = SPECIES_TRAPINCH,
+    .species = SPECIES_TREECKO,
     }
 };
 
@@ -7049,10 +7049,10 @@ static const struct TrainerMon sParty_MayRoute119Mudkip[] = {
 static const struct TrainerMon sParty_MayRoute103Treecko[] = {
     {
     .iv = 50,
-    .lvl = 10,
+    .lvl = 5,
 	.heldItem = ITEM_ORAN_BERRY,
-	.ability = ABILITY_SLOT_2,
-    .species = SPECIES_SNORUNT,
+	.ability = ABILITY_HIDDEN,
+    .species = SPECIES_MUDKIP,
     }
 };
 
@@ -7095,10 +7095,10 @@ static const struct TrainerMon sParty_MayRoute119Treecko[] = {
 static const struct TrainerMon sParty_MayRoute103Torchic[] = {
     {
     .iv = 50,
-    .lvl = 10,
+    .lvl = 5,
 	.heldItem = ITEM_ORAN_BERRY,
 	.ability = ABILITY_HIDDEN,
-    .species = SPECIES_MAGNEMITE,
+    .species = SPECIES_TORCHIC,
     }
 };
 

@@ -1220,6 +1220,7 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
 	giveitem ITEM_POKE_BALL, 5
@@ -1276,6 +1277,7 @@ LittlerootTown_EventScript_NicknameStarter::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
 	giveitem ITEM_POKE_BALL, 5
@@ -1408,6 +1410,7 @@ LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
 	giveitem ITEM_POKE_BALL, 5
