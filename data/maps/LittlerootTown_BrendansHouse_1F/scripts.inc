@@ -661,7 +661,8 @@ StarterTown_RivalsHouse_1F_Text_What_Happened:
 StarterTown_RivalsHouse_1F_Text_Todays_News:
 	.string "In Today's News, a government funded\n"
 	.string "organization, by the name of\l"
-	.string "Obsidian, has made their way to Littleroot.\p"
+	.string "Obsidian, has made their way to\p"
+	.string "Littleroot Town.\p"
 	.string "It seems that they are there to state\n"
 	.string "their goals for the world.$"
 

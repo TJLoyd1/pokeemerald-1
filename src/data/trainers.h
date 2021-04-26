@@ -3452,7 +3452,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Danny"),
         .items = {ITEM_POTION, ITEM_POTION, ITEM_POTION, ITEM_SUPER_POTION},
         .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_PREFER_BATON_PASS | AI_SCRIPT_HP_AWARE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_PREFER_BATON_PASS | AI_SCRIPT_HP_AWARE,
         .partySize = ARRAY_COUNT(sParty_Roxanne1),
         .party = {.TrainerMon = sParty_Roxanne1},
     },
@@ -9556,9 +9556,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_PETE] =
     {
-        .trainerClass = TRAINER_CLASS_SWIMMER_M,
+        .trainerClass = TRAINER_CLASS_YOUNGSTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMER_M,
+        .trainerPic = TRAINER_PIC_YOUNGSTER,
         .trainerName = _("PETE"),
         .items = {},
         .doubleBattle = FALSE,
@@ -9569,9 +9569,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ISABELLE] =
     {
-        .trainerClass = TRAINER_CLASS_SWIMMER_F,
+        .trainerClass = TRAINER_CLASS_LASS,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMER_F,
+        .trainerPic = TRAINER_PIC_LASS,
         .trainerName = _("ISABELLE"),
         .items = {},
         .doubleBattle = FALSE,
@@ -11139,5 +11139,31 @@ const struct Trainer gTrainers[] = {
 		.aiFlags = 0,
 		.partySize = ARRAY_COUNT (sParty_Grunt2Route104),
 		.party = {.TrainerMon = sParty_Grunt2Route104},
+	},
+	
+	[TRAINER_JOHNNY] =
+	{
+		.trainerClass = TRAINER_CLASS_YOUNGSTER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_YOUNGSTER,
+		.trainerName = _("Johnny"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Johnny),
+		.party = {.TrainerMon = sParty_Johnny},
+	},
+	
+	[TRAINER_IGNES_PETALBURGWOODS] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_IGNES,
+		.trainerName = _("Ignes"),
+		.items = {ITEM_POTION, ITEM_SUPER_POTION, ITEM_NONE, ITEM_NONE},
+		.doubleBattle = FALSE,
+		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_PREFER_BATON_PASS | AI_SCRIPT_HP_AWARE,
+		.partySize = ARRAY_COUNT  (sParty_PetalburgWoods_Ignes),
+		.party = {.TrainerMon = sParty_PetalburgWoods_Ignes},
 	},
 };

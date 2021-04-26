@@ -18,6 +18,11 @@ Route101_EventScript_HideMapNamePopup:: @ 81EBCD5
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	setvar VAR_ROUTE101_STATE, 1
 	end
+	
+Route101_EventScript_Johnny::
+	trainerbattle_single TRAINER_JOHNNY, Route101_Text_JohnnyIntro, Route101_Text_JohnnyDefeated
+	msgbox Route101_Text_JohnnyPostBattle, MSGBOX_AUTOCLOSE
+	end
 
 Route101_EventScript_StartBirchRescue:: @ 81EBCDE
 	lockall
@@ -302,3 +307,14 @@ Route101_Text_RouteSign: @ 81EC0C8
 	.string "Route 101\n"
 	.string "{UP_ARROW} Oldale Town$"
 
+Route101_Text_JohnnyIntro:
+	.string "Guess what kid!\n"
+	.string "..........\p"
+	.string "I'm your first ever trainer!$"
+	
+Route101_Text_JohnnyDefeated:
+	.string "I should've put up more of a fight.$"
+
+Route101_Text_JohnnyPostBattle:
+	.string "My brother, Joey, would think this\n"
+	.string "is the perfect weather for shorts.$"

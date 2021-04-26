@@ -350,7 +350,7 @@ Route103_Text_ShouldHaveBroughtPotion: @ 81ECB73
 	.string "I should have brought a POTION…$"
 
 Route103_Text_ShortcutToOldale: @ 81ECBB5
-	.string "If you cross the sea from here,\n"
+	.string "If you go under the cliff from there,\n"
 	.string "it'll be a shortcut to OLDALE TOWN.\p"
 	.string "Fufufu, that's useful, isn't it?$"
 

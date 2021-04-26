@@ -428,8 +428,8 @@ OldaleTown_Text_DiscoveredFootprints: @ 81E939A
 OldaleTown_Text_FinishedSketchingFootprints: @ 81E93F8
 	.string "I finished sketching the footprints of\n"
 	.string "a rare Pokémon.\p"
-	.string "But it turns out they were only my\n"
-	.string "own footprints…$"
+	.string "But it turns out they were can only\n"
+	.string "be found in route 103 somewhere…$"
 
 OldaleTown_Text_MayLetsGoBack: @ 81E9462
 	.string "Lucy: {PLAYER}{KUN}!\n"

@@ -479,3 +479,69 @@ PetalburgWoods_Text_TrainerTipsPP: @ 822ED07
 	.string "If a Pokémon runs out of PP, it must be\n"
 	.string "taken to a Pokémon CENTER.$"
 
+PetalburgWoods_EventScript_IgnesCheckFlag::
+	goto_if_set FLAG_DEFEATED_RUSTBORO_GYM, PetalburgWoods_EventScript_IgnesFirstBattle
+	end
+
+PetalburgWoods_EventScript_IgnesFirstBattle::
+	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	setvar VAR_TEMP_2, 1
+	lockall
+	applymovement 16, Ignes_Moves_Towards_Player
+	waitmovement 0
+	msgbox PetalburgWoods_Text_IgnesNoticesYou, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_IGNES_PETALBURGWOODS, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_IgnesNextCity, MSGBOX_DEFAULT
+	closemessage
+	applymovement 16, Ignes_Heads_To_Antiquity
+	waitmovement 0
+	removeobject 16
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+	
+Ignes_Moves_Towards_Player:
+	walk_right
+	walk_right
+	walk_down
+	walk_right
+	walk_right
+	walk_down
+	walk_right
+	walk_right
+	step_end
+
+Ignes_Heads_To_Antiquity:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+PetalburgWoods_Text_IgnesNoticesYou:
+	.string "Ignes:Ohh look who it is.\n"
+	.string "I noticed you beat the first gym\l"
+	.string "so i was catching up to you to\p"
+	.string "battle you properly this time.\p"
+	.string "LET'S GO!!!$"
+
+PetalburgWoods_Text_NextTime:
+	.string "Next Time I'll win.$"
+
+PetalburgWoods_Text_IgnesNextCity:
+	.string "I'm headed to Antiquity since\n"
+	.string "I heard there's a way to Dewford\l"
+	.string "somewhere in the city.\p"
+	.string "If you want to make any progress I\n"
+	.string "suggest you do the same thing.$"

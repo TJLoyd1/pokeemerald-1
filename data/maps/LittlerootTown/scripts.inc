@@ -1100,6 +1100,7 @@ LittlerootTown_EventScript_Rivals_Mom::
 	end
 
 LittlerootTown_EventScript_Begin_Obsidian_Movement::
+	setflag FLAG_ADVENTURE_STARTED
 	playbgm MUS_ENCOUNTER_MAGMA, 1
 	addobject LOCALID_MAXIE
 	removeobject 10
@@ -1232,6 +1233,7 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	applymovement 8, Common_Movement_QuestionMark
 	waitmovement 0
+	setflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
 	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 8, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
@@ -1703,7 +1705,7 @@ LittlerootTown_Text_Birch_Gives_Starter_Pokemon:
 	.string "...........\p"
 	.string "To test both of your abilities I'm\n"
 	.string "going to have you face off against\p"
-	.string "these zigzagoons.$"
+	.string "these Zigzagoons.$"
 
 LittlerootTown_Text_WhyNotGiveNicknameToMon:
 	.string "Prof. May: While you're at it, why not\n"

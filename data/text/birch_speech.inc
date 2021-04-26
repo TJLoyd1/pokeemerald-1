@@ -5,7 +5,7 @@ gText_Birch_Welcome:: @ 82C897B
 	.string "Everyone here calls me Acacia,\p"
 	.string "Sherry Acacia.\l"
 	.string "Some even call me the Pokémon\p"
-	.string "Professor.\p"
+	.string "Professor.\l"
 	.string "$"
 
 gText_Birch_Pokemon:: @ 82C89FB
@@ -27,8 +27,8 @@ gText_Birch_MainSpeech:: @ 82C8A1F
 	.string "In fact, there are many, many\n"
 	.string "secrets surrounding Pokémon.\p"
 	.string "To unravel Pokémon mysteries,\n"
-	.string "I used to undertake research with\l"
-	.string "Professor Birch and that's what we did.\p"
+	.string "I undertake research with\l"
+	.string "Professor Birch.\p"
 	.string "$"
 
 gText_Birch_AndYouAre:: @ 82C8BD0

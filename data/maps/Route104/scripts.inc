@@ -20,6 +20,7 @@ Route104_OnTransition: @ 81ECC4E
 	call Common_EventScript_SetupRivalGfxId
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
+	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
 	end
 
 Route104_EventScript_ShowOrHideWhiteHerbFlorist:: @ 81ECC5E

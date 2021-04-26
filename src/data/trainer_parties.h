@@ -1456,13 +1456,13 @@ static const struct TrainerMon sParty_Valerie5[] = {
 static const struct TrainerMon sParty_Cindy1[] = {
     {
     .iv = 0,
-    .lvl = 15,
+    .lvl = 9,
     .species = SPECIES_ZIGZAGOON,
     .heldItem = ITEM_NUGGET
     },
 	{
     .iv = 0,
-    .lvl = 15,
+    .lvl = 9,
     .species = SPECIES_CHERUBI,
     .heldItem = ITEM_NUGGET
     }
@@ -1720,13 +1720,13 @@ static const struct TrainerMon sParty_Jessica5[] = {
 static const struct TrainerMon sParty_Winston1[] = {
     {
     .iv = 0,
-    .lvl = 14,
+    .lvl = 8,
     .species = SPECIES_ZIGZAGOON_GALARIAN,
     .heldItem = ITEM_NUGGET
     },
 	{
     .iv = 0,
-    .lvl = 15,
+    .lvl = 9,
     .species = SPECIES_CRABRAWLER,
     .heldItem = ITEM_NUGGET
     }
@@ -4246,12 +4246,12 @@ static const struct TrainerMon sParty_Shelby5[] = {
 static const struct TrainerMon sParty_Calvin1[] = {
     {
     .iv = 0,
-    .lvl = 10,
+    .lvl = 6,
     .species = SPECIES_POOCHYENA,
     },
 	{
     .iv = 0,
-    .lvl = 10,
+    .lvl = 6,
     .species = SPECIES_PIKIPEK,
     }
 };
@@ -4259,17 +4259,17 @@ static const struct TrainerMon sParty_Calvin1[] = {
 static const struct TrainerMon sParty_Billy[] = {
     {
     .iv = 0,
-    .lvl = 14,
+    .lvl = 8,
     .species = SPECIES_WOOLOO,
     },
     {
     .iv = 0,
-    .lvl = 15,
-    .species = SPECIES_NUZLEAF,
+    .lvl = 9,
+    .species = SPECIES_SEEDOT,
     },
 	    {
     .iv = 0,
-    .lvl = 14,
+    .lvl = 8,
     .species = SPECIES_LILLIPUP,
     }
 };
@@ -4444,17 +4444,17 @@ static const struct TrainerMon sParty_Eddie[] = {
 static const struct TrainerMon sParty_Allen[] = {
     {
     .iv = 0,
-    .lvl = 10,
+    .lvl = 6,
     .species = SPECIES_FLETCHLING,
     },
     {
     .iv = 0,
-    .lvl = 10,
+    .lvl = 6,
     .species = SPECIES_ZIGZAGOON,
     },
 	{
     .iv = 0,
-    .lvl = 9,
+    .lvl = 5,
     .species = SPECIES_STARLY,
     }
 };
@@ -8087,12 +8087,12 @@ static const struct TrainerMon sParty_MaxieMtChimney[] = {
 static const struct TrainerMon sParty_Tiana[] = {
     {
     .iv = 0,
-    .lvl = 11,
+    .lvl = 7,
     .species = SPECIES_SHINX,
     },
     {
     .iv = 0,
-    .lvl = 11,
+    .lvl = 7,
     .species = SPECIES_SHROOMISH,
     }
 };
@@ -8243,17 +8243,17 @@ static const struct TrainerMon sParty_Crissy[] = {
 static const struct TrainerMon sParty_Rick[] = {
     {
     .iv = 0,
-    .lvl = 10,
+    .lvl = 6,
     .species = SPECIES_VENIPEDE,
     },
     {
     .iv = 0,
-    .lvl = 11,
+    .lvl = 7,
     .species = SPECIES_SEWADDLE,
     },
 	{
     .iv = 0,
-    .lvl = 10,
+    .lvl = 6,
     .species = SPECIES_SPINARAK,
     }
 };
@@ -12570,12 +12570,12 @@ static const struct TrainerMon sParty_MayLinkPlaceholder[] = {
 static const struct TrainerMon sParty_Grunt1Route104[] = {
     {
     .iv = 0,
-    .lvl = 17,
+    .lvl = 10,
     .species = SPECIES_CLAUNCHER,
     },
     {
     .iv = 0,
-    .lvl = 17,
+    .lvl = 10,
     .species = SPECIES_STUNKY,
     }
 };
@@ -12583,12 +12583,56 @@ static const struct TrainerMon sParty_Grunt1Route104[] = {
 static const struct TrainerMon sParty_Grunt2Route104[] = {
     {
     .iv = 0,
-    .lvl = 17,
+    .lvl = 10,
     .species = SPECIES_SALANDIT,
     },
     {
     .iv = 0,
-    .lvl = 17,
+    .lvl = 10,
     .species = SPECIES_NICKIT,
+    }
+};
+
+static const struct TrainerMon sParty_Johnny[] = {
+	{
+	.iv = 0,
+	.lvl = 5,
+	.species = SPECIES_RATTATA,
+	},
+	{
+	.iv = 0,
+	.lvl = 5,
+	.species = SPECIES_RATTATA_ALOLAN,
+	}
+};
+
+static const struct TrainerMon sParty_PetalburgWoods_Ignes[] = {
+	{
+	.iv = 100,
+	.lvl = 18,
+	.gender = MON_MALE,
+	.nature = NATURE_JOLLY,
+    .species = SPECIES_TIMBURR,
+	.ability = ABILITY_HIDDEN,
+    .moves = {MOVE_MACH_PUNCH, MOVE_ROCK_THROW, MOVE_BULK_UP, MOVE_LOW_KICK}
+    },
+	{
+	.iv = 100,
+	.lvl = 18,
+	.gender = MON_FEMALE,
+	.nature = NATURE_RASH,
+    .species = SPECIES_YANMA,
+	.ability = ABILITY_SLOT_1,
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_SONIC_BOOM, MOVE_BUG_BITE, MOVE_QUICK_ATTACK}
+    },
+    {
+    .iv = 200,
+    .lvl = 20,
+	.gender = MON_MALE,
+	.nature = NATURE_ADAMANT,
+    .species = SPECIES_IMPIDIMP,
+    .heldItem = ITEM_IAPAPA_BERRY,
+	.ability = ABILITY_SLOT_1,
+    .moves = {MOVE_FAKE_OUT, MOVE_ASSURANCE, MOVE_TRICK, MOVE_BITE}
     }
 };
