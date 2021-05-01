@@ -40,7 +40,7 @@ PetalburgCity_OnFrame: @ 81DC31C
 	.2byte 0
 
 PetalburgCity_EventScript_WallyTutorial:: @ 81DC32E
-	lockall
+	locktarget
 	special SavePlayerParty
 	special PutZigzagoonInPlayerParty
 	applymovement LOCALID_WALLY, PetalburgCity_Movement_WallyTutorialWally
