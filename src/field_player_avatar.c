@@ -243,9 +243,9 @@ static const u16 sRivalAvatarGfxIds[][2] =
     {OBJ_EVENT_GFX_BRENDAN_WATERING,         OBJ_EVENT_GFX_MAY_WATERING}
 };
 
-static const u16 sPlayerAvatarGfxIds[COSTUME_COUNT][PLAYER_AVATAR_STATE_COUNT][GENDER_COUNT] = 
+static const u16 sPlayerAvatarGfxIds[COSTUME_COUNT][PLAYER_AVATAR_STATE_COUNT][GENDER_COUNT] =
 {
-    [DEFAULT_COSTUME] = 
+    [DEFAULT_COSTUME] =
     {
         {OBJ_EVENT_GFX_BRENDAN_NORMAL,     OBJ_EVENT_GFX_MAY_NORMAL},
         {OBJ_EVENT_GFX_BRENDAN_MACH_BIKE,  OBJ_EVENT_GFX_MAY_MACH_BIKE},
@@ -256,7 +256,7 @@ static const u16 sPlayerAvatarGfxIds[COSTUME_COUNT][PLAYER_AVATAR_STATE_COUNT][G
         {OBJ_EVENT_GFX_BRENDAN_FISHING,    OBJ_EVENT_GFX_MAY_FISHING},
         {OBJ_EVENT_GFX_BRENDAN_WATERING,   OBJ_EVENT_GFX_MAY_WATERING},
     },
-    [COSTUME_1] = 
+    [COSTUME_1] =
     {
         {OBJ_EVENT_GFX_LINK_RS_BRENDAN,       OBJ_EVENT_GFX_LINK_RS_MAY},
         {OBJ_EVENT_GFX_RS_BRENDAN_MACH_BIKE,  OBJ_EVENT_GFX_RS_MAY_MACH_BIKE},
@@ -267,7 +267,7 @@ static const u16 sPlayerAvatarGfxIds[COSTUME_COUNT][PLAYER_AVATAR_STATE_COUNT][G
         {OBJ_EVENT_GFX_RS_BRENDAN_FISHING,    OBJ_EVENT_GFX_RS_MAY_FISHING},
         {OBJ_EVENT_GFX_RS_BRENDAN_WATERING,   OBJ_EVENT_GFX_RS_MAY_WATERING},
     },
-    [COSTUME_2] = 
+    [COSTUME_2] =
     {
         {OBJ_EVENT_GFX_ADVENTURES_BRENDAN,            OBJ_EVENT_GFX_ADVENTURES_MAY},
         {OBJ_EVENT_GFX_ADVENTURES_BRENDAN_MACH_BIKE,  OBJ_EVENT_GFX_ADVENTURES_MAY_MACH_BIKE},
@@ -286,7 +286,7 @@ static const u16 sRSAvatarGfxIds[] = {OBJ_EVENT_GFX_LINK_RS_BRENDAN, OBJ_EVENT_G
 
 static const u16 sPlayerAvatarGfxToStateFlag[COSTUME_COUNT][2][5][2] =
 {
-    [DEFAULT_COSTUME] = 
+    [DEFAULT_COSTUME] =
     {
         [MALE] =
         {
@@ -305,7 +305,7 @@ static const u16 sPlayerAvatarGfxToStateFlag[COSTUME_COUNT][2][5][2] =
             {OBJ_EVENT_GFX_MAY_UNDERWATER,     PLAYER_AVATAR_FLAG_UNDERWATER},
         },
     },
-    [COSTUME_1] = 
+    [COSTUME_1] =
     {
         [MALE] =
         {
@@ -324,7 +324,7 @@ static const u16 sPlayerAvatarGfxToStateFlag[COSTUME_COUNT][2][5][2] =
             {OBJ_EVENT_GFX_RS_MAY_UNDERWATER,     PLAYER_AVATAR_FLAG_UNDERWATER},
         },
     },
-    [COSTUME_2] = 
+    [COSTUME_2] =
     {
         [MALE] =
         {
@@ -1763,7 +1763,7 @@ static bool8 (*const sFishingStateFuncs[])(struct Task *) =
 {
     Fishing_Init,
     Fishing_GetRodOut,
-    Fishing_WaitBeforeDots, 
+    Fishing_WaitBeforeDots,
     Fishing_InitDots,       // FISHING_START_ROUND
     Fishing_ShowDots,
     Fishing_CheckForBite,
@@ -1805,13 +1805,13 @@ static bool8 Fishing_GetRodOut(struct Task *task)
 {
     struct ObjectEvent *playerObjEvent;
     const s16 minRounds1[] = {
-        [OLD_ROD]   = 1, 
-        [GOOD_ROD]  = 1, 
+        [OLD_ROD]   = 1,
+        [GOOD_ROD]  = 1,
         [SUPER_ROD] = 1
     };
     const s16 minRounds2[] = {
-        [OLD_ROD]   = 1, 
-        [GOOD_ROD]  = 3, 
+        [OLD_ROD]   = 1,
+        [GOOD_ROD]  = 3,
         [SUPER_ROD] = 6
     };
 
@@ -1941,8 +1941,8 @@ static bool8 Fishing_GotBite(struct Task *task)
 static bool8 Fishing_WaitForA(struct Task *task)
 {
     const s16 reelTimeouts[3] = {
-        [OLD_ROD]   = 36, 
-        [GOOD_ROD]  = 33, 
+        [OLD_ROD]   = 36,
+        [GOOD_ROD]  = 33,
         [SUPER_ROD] = 30
     };
 
@@ -2178,7 +2178,7 @@ static void Task_DoPlayerSpinExit(u8 taskId)
             tState++;
         case 1: // Spin while rising
             TrySpinPlayerForWarp(object, &tSpinDelayTimer);
-            
+
             // Rise and accelerate
             tCurY -= tSpeed;
             tSpeed += 3;

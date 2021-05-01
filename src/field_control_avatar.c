@@ -195,7 +195,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     }
     if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
         return TRUE;
-    
+
     if (input->pressedLButton && EnableAutoRun())
         return TRUE;
 
@@ -1057,7 +1057,7 @@ static bool8 EnableAutoRun(void)
         gSaveBlock2Ptr->autoRun = TRUE;
         ScriptContext1_SetupScript(EventScript_EnableAutoRun);
     }
-    
+
     return TRUE;
 }
 

@@ -3803,7 +3803,7 @@ static void Task_LoadEvoScreen(u8 taskId)
     case 5:
         {
             u32 preservedPalettes = 0;
-            
+
             if (gTasks[taskId].data[2] != 0)
                 preservedPalettes = 0x14; //  each bit represents a palette index
             if (gTasks[taskId].data[1] != 0)
@@ -3981,7 +3981,7 @@ static void PrintEvolutionTargetSpeciesAndMethod(u8 taskId, u16 species)
     // If there are no evolutions print text
     if (times == 0)
     {
-        StringExpandPlaceholders(gStringVar4, gText_EVO_NONE); 
+        StringExpandPlaceholders(gStringVar4, gText_EVO_NONE);
         PrintInfoScreenTextSmall(gStringVar4, base_x, 56 + base_offset*base_i);
     }
 
@@ -4001,7 +4001,7 @@ static void PrintEvolutionTargetSpeciesAndMethod(u8 taskId, u16 species)
         case EVO_FRIENDSHIP_DAY:
             targetSpecies = gEvolutionTable[species][i].targetSpecies;
             handleTargetSpeciesPrint(taskId, targetSpecies, base_x, base_y, base_offset, base_i); // evolution mon name
-            StringExpandPlaceholders(gStringVar4, gText_EVO_FRIENDSHIP_DAY); 
+            StringExpandPlaceholders(gStringVar4, gText_EVO_FRIENDSHIP_DAY);
             PrintInfoScreenTextSmall(gStringVar4, base_x+base_x_offset, base_y + base_offset*base_i);
             break;
         case EVO_FRIENDSHIP_NIGHT:
@@ -5580,7 +5580,7 @@ void SetSearchRectHighlight(u8 flags, u8 x, u8 y, u8 width)
         temp &= 0x0fff;
         temp |= (flags << 12);
         *(u16 *)(ptr + (y + 0) * 64 + (x + i) * 2) = temp;
-        
+
         temp = *(u16 *)(ptr + (y + 1) * 64 + (x + i) * 2);
         temp &= 0x0fff;
         temp |= (flags << 12);

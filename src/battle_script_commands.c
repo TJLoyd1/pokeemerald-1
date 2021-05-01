@@ -1574,7 +1574,7 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move)
         calc = (calc * (100 + atkParam)) / 100;
     else if (atkHoldEffect == HOLD_EFFECT_ZOOM_LENS && GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef));
         calc = (calc * (100 + atkParam)) / 100;
-    
+
     if (gProtectStructs[battlerAtk].micle)
     {
         gProtectStructs[battlerAtk].micle = FALSE;
@@ -4413,7 +4413,7 @@ static void Cmd_playanimation(void)
 
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
     argumentPtr = T2_READ_PTR(gBattlescriptCurrInstr + 3);
-    
+
     #if B_TERRAIN_BG_CHANGE == FALSE
     if (gBattlescriptCurrInstr[2] == B_ANIM_RESTORE_BG)
     {
@@ -6158,7 +6158,7 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
     {
         const struct TrainerMon *party = gTrainers[trainerId].party.TrainerMon;
         lastMonLevel = party[gTrainers[trainerId].partySize - 1].lvl;
- 
+
         for (; gTrainerMoneyTable[i].classId != 0xFF; i++)
         {
             if (gTrainerMoneyTable[i].classId == gTrainers[trainerId].trainerClass)
@@ -9082,17 +9082,17 @@ bool32 TryResetBattlerStatChanges(u8 battler)
 {
     u32 j;
     bool32 ret = FALSE;
-    
+
     gDisableStructs[battler].stockpileDef = 0;
     gDisableStructs[battler].stockpileSpDef = 0;
     for (j = 0; j < NUM_BATTLE_STATS; j++)
     {
         if (gBattleMons[battler].statStages[j] != DEFAULT_STAT_STAGE)
             ret = TRUE; // returns TRUE if any stat was reset
-        
+
         gBattleMons[battler].statStages[j] = DEFAULT_STAT_STAGE;
     }
-    
+
     return ret;
 }
 
@@ -11927,7 +11927,7 @@ static void Cmd_handleballthrow(void)
         else
             catchRate = gBaseStats[gBattleMons[gBattlerTarget].species].catchRate;
 
-        
+
         #ifdef POKEMON_EXPANSION
         if (gBaseStats[gBattleMons[gBattlerTarget].species].flags & F_ULTRA_BEAST)
         {

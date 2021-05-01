@@ -1742,7 +1742,7 @@ static void CreateWaterPulseRingBubbles(struct Sprite *sprite, int xDiff, int yD
     s16 randomSomethingY;
     s16 randomSomethingX;
     u8 spriteId;
-    
+
     something = sprite->data[0] / 2;
     combinedX = sprite->pos1.x + sprite->pos2.x;
     combinedY = sprite->pos1.y + sprite->pos2.y;

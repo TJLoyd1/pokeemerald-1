@@ -741,20 +741,20 @@ static void sub_81BF2B8(u8* a, u16 b, u8 c, u8 d, u8 e)
     r2_1 = r2 & 7;
     gUnknown_030012A8[2] = r4 & 7; //should be using r4_1, but that doesn't match
     gUnknown_030012A8[3] = r2 & 7; //"
-    
+
     r0 = r2 / 8;
     r5 = r4 / 8;
-    
+
     gUnknown_030012A8[4] = r2 / 8; //should be using r0, but that doesn't match
     gUnknown_030012A8[5] = r4 / 8; //should be using r5, but that doesn't match
 
     var = (d / 8) * (r5 * 64) + (r0 * 64);
     gUnknown_030012A8[6] = var;
-    
+
     var2 = var + ((r4_1 * 8) + r2_1);
     var2 /= 2;
     gUnknown_030012A8[7] = var + ((r4_1 * 8) + r2_1); //should be using var2 with var2 being divided afterwards, but that doesn't match
-    
+
     b2 = ((b % 2) ^ 1);
     c2 = (c << (b2 << 2)) | 15 << (((b2 ^ 1) << 2));
     a[var2 + (e * 32)] &= c2;

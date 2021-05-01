@@ -1198,7 +1198,7 @@ static void sub_80C6104(u8 cursorArea, u8 previousCursorArea)
             return;
         break;
     }
-    
+
     switch (cursorArea)
     {
     case CURSOR_AREA_MAP:

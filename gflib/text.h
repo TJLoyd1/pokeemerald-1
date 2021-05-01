@@ -18,7 +18,7 @@
 #define CHAR_O_ACUTE           0x0E
 #define CHAR_O_CIRCUMFLEX      0x0F
 #define CHAR_OE                0x10
-#define CHAR_U_GRAVE           0x11    
+#define CHAR_U_GRAVE           0x11
 #define CHAR_U_ACUTE           0x12
 #define CHAR_U_CIRCUMFLEX      0x13
 #define CHAR_N_TILDE           0x14
@@ -261,7 +261,7 @@
 #define PLACEHOLDER_ID_VERSION       0xA
 #define PLACEHOLDER_ID_AQUA          0xB
 #define PLACEHOLDER_ID_MAGMA         0xC
-#define PLACEHOLDER_ID_ARCHIE        0xD 
+#define PLACEHOLDER_ID_ARCHIE        0xD
 #define PLACEHOLDER_ID_MAXIE         0xE
 #define PLACEHOLDER_ID_KYOGRE        0xF
 #define PLACEHOLDER_ID_GROUDON       0x10

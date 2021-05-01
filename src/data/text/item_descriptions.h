@@ -2823,7 +2823,7 @@ static const u8 sShinyCharmDesc[] = _(
 	"A charm that will\n"
     "raise the chance\n"
     "of Shiny Pokémon.");
-    
+
 static const u8 sOvalCharmDesc[] = _(
     "Raises the chance\n"
     "of finding eggs\n"
@@ -2843,7 +2843,7 @@ static const u8 sFightiniumZDesc[] = _(
     "Upgrade Fighting-\n"
     "type moves into\n"
     "Z-Moves.");
-    
+
 static const u8 sFlyiniumZDesc[] = _(
     "Upgrade Flying-\n"
     "type moves into\n"

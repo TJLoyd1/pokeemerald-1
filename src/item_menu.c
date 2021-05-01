@@ -1214,14 +1214,14 @@ void Task_BagMenu_HandleInput(u8 taskId)
                     DisplayItemMessage(taskId, 1, sText_NothingToSort, sub_81AD350);
                     break;
                 }
-                
+
                 data[1] = GetItemListPosition(gBagPositionStruct.pocket);
                 data[2] = BagGetQuantityByPocketPosition(gBagPositionStruct.pocket + 1, data[1]);
                 if (gBagPositionStruct.cursorPosition[gBagPositionStruct.pocket] == gBagMenu->numItemStacks[gBagPositionStruct.pocket] - 1)
                     break;
                 else
                     gSpecialVar_ItemId = BagGetItemIdByPocketPosition(gBagPositionStruct.pocket + 1, data[1]);
-                
+
                 PlaySE(SE_SELECT);
                 BagDestroyPocketScrollArrowPair();
                 BagMenu_PrintCursor_(data[0], 2);
@@ -2604,7 +2604,7 @@ static const u8 sText_Amount[] = _("amount");
 static const u8 sText_Number[] = _("number");
 static const u8 sText_ItemsSorted[] = _("Items sorted by {STR_VAR_1}!");
 
-static const u8 *const sSortTypeStrings[] = 
+static const u8 *const sSortTypeStrings[] =
 {
     [SORT_ALPHABETICALLY] = sText_Name,
     [SORT_BY_TYPE] = sText_Type,
@@ -3098,11 +3098,11 @@ static void AddBagSortSubMenu(void)
             gBagMenu->contextMenuNumItems = NELEMS(sBagMenuSortItems);
             break;
     }
-    
+
     StringExpandPlaceholders(gStringVar4, sText_SortItemsHow);
     FillWindowPixelBuffer(1, PIXEL_FILL(0));
     BagMenu_Print(1, 1, gStringVar4, 3, 1, 0, 0, 0, 0);
-    
+
     if ((gBagPositionStruct.pocket + 1) == POCKET_KEY_ITEMS)
         sub_81ACB54(BagMenu_AddWindow(2), 2, 3);
     else if (gBagMenu->contextMenuNumItems == 4)
@@ -3238,7 +3238,7 @@ static void SortItemsInBag(u8 pocket, u8 type)
 static void MergeSort(struct ItemSlot* array, u32 low, u32 high, s8 (*comparator)(struct ItemSlot*, struct ItemSlot*))
 {
     u32 mid;
-    
+
     if (high <= low)
         return;
 

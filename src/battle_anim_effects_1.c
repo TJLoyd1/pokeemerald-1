@@ -3067,7 +3067,7 @@ void AnimSolarbeamBigOrb(struct Sprite* sprite)
 static void AnimSolarbeamSmallOrb(struct Sprite* sprite)
 {
     InitSpritePosToAnimAttacker(sprite, TRUE);
-    
+
     if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && gAnimMoveIndex == MOVE_CORE_ENFORCER)
     {
         CoreEnforcerLoadBeamTarget(sprite);
@@ -3080,7 +3080,7 @@ static void AnimSolarbeamSmallOrb(struct Sprite* sprite)
         sprite->data[3] = sprite->pos1.y;
         sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
     }
-    
+
     InitAnimLinearTranslation(sprite);
     sprite->data[5] = gBattleAnimArgs[3];
     sprite->callback = AnimSolarbeamSmallOrb_Step;
@@ -6783,7 +6783,7 @@ static const union AffineAnimCmd sCompressTargetHorizontallyAffineAnimCmds[] =
 static void AnimTask_CompressTargetStep(u8 taskId)
 {
 	struct Task* task = &gTasks[taskId];
-    
+
 	if (!RunAffineAnimFromTaskData(task))
 		DestroyAnimVisualTask(taskId);
 }

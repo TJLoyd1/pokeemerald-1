@@ -794,7 +794,7 @@ bool8 DoesCurrentMapHaveFishingMons(void)
 void FishingWildEncounter(u8 rod)
 {
     u16 species;
-    
+
     gIsFishingEncounter = TRUE; //must be set before mon is created
     if (CheckFeebas() == TRUE)
     {
@@ -807,7 +807,7 @@ void FishingWildEncounter(u8 rod)
     {
         species = GenerateFishingWildMon(gWildMonHeaders[GetCurrentMapWildMonHeaderId()].fishingMonsInfo, rod);
     }
-    
+
     if (species == sLastFishingSpecies)
     {
         if (gChainFishingStreak < MAX_CHAIN_FISHING_STREAK)
@@ -817,7 +817,7 @@ void FishingWildEncounter(u8 rod)
     {
         gChainFishingStreak = 0;    //reeling in different species resets chain fish counter
     }
-    
+
     sLastFishingSpecies = species;
     IncrementGameStat(GAME_STAT_FISHING_CAPTURES);
     SetPokemonAnglerSpecies(species);
