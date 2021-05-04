@@ -479,6 +479,31 @@ PetalburgWoods_Text_TrainerTipsPP: @ 822ED07
 	.string "If a Pokémon runs out of PP, it must be\n"
 	.string "taken to a Pokémon CENTER.$"
 
+PetalburgWoods_EventScript_Wilburn::
+	trainerbattle_single TRAINER_WILBURN, PetalburgWoods_Text_WilburnIntro, PetalburgWoods_Text_WilburnDefeated
+	msgbox PetalburgWoods_Text_WilburnPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_EventScript_Palmer::
+	trainerbattle_single TRAINER_PALMER, PetalburgWoods_Text_PalmerIntro, PetalburgWoods_Text_PalmerDefeated
+	msgbox PetalburgWoods_Text_PalmerPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+PetalburgWoods_EventScript_Mackenzie::
+	trainerbattle_single TRAINER_MACKENZIE, PetalburgWoods_Text_MackenzieIntro, PetalburgWoods_Text_MackenzieDefeated
+	msgbox PetalburgWoods_Text_MackenziePostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+PetalburgWoods_EventScript_Sterling::
+	trainerbattle_single TRAINER_STERLING, PetalburgWoods_Text_SterlingIntro, PetalburgWoods_Text_SterlingDefeated
+	msgbox PetalburgWoods_Text_SterlingPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_EventScript_Rudolph::
+	trainerbattle_single TRAINER_RUDOLPH, PetalburgWoods_Text_RudolphIntro, PetalburgWoods_Text_RudolphDefeated
+	msgbox PetalburgWoods_Text_RudolphPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
 PetalburgWoods_EventScript_IgnesCheckFlag::
 	goto_if_set FLAG_DEFEATED_RUSTBORO_GYM, PetalburgWoods_EventScript_IgnesFirstBattle
 	end
@@ -493,6 +518,13 @@ PetalburgWoods_EventScript_IgnesFirstBattle::
 	closemessage
 	trainerbattle_no_intro TRAINER_IGNES_PETALBURGWOODS, PetalburgWoods_Text_NextTime
 	msgbox PetalburgWoods_Text_IgnesNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	msgbox PetalburgWoods_Text_ReceivedExpShare, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_EXP_SHARE
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox PetalburgWoods_Text_IgnesFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
 	closemessage
 	applymovement 16, Ignes_Heads_To_Antiquity
 	waitmovement 0
@@ -529,6 +561,56 @@ Ignes_Heads_To_Antiquity:
 	walk_down
 	step_end
 
+PetalburgWoods_Text_WilburnIntro:
+	.string "I heard this forest was good for camping.\p"
+	.string "Let's see if the same goes for battling.$"
+
+PetalburgWoods_Text_WilburnDefeated:
+	.string "Can't believe I lost!$"
+
+PetalburgWoods_Text_WilburnPostBattle:
+	.string "Maybe I should go somewhere else.$"
+
+PetalburgWoods_Text_PalmerIntro:
+	.string "Nobody catches bug better than me!$"
+
+PetalburgWoods_Text_PalmerDefeated:
+	.string "Where are your bugs man!?$"
+
+PetalburgWoods_Text_PalmerPostBattle:
+	.string "Even if I lost, I'm still the best\n"
+	.string "bug catcher around.$"
+
+PetalburgWoods_Text_MackenzieIntro:
+	.string "Let's battle while I wait for someone.$"
+
+PetalburgWoods_Text_MackenzieDefeated:
+	.string "That went by too fast.$"
+
+PetalburgWoods_Text_MackenziePostBattle:
+	.string "He's taking longer than i thought.$"
+
+PetalburgWoods_Text_SterlingIntro:
+	.string "I caught these rare bugs in the\n"
+	.string "Bug Catching Contest in Johto.$"
+
+PetalburgWoods_Text_SterlingDefeated:
+	.string "I guess even if they're rare they\n"
+	.string "not strong.$"
+
+PetalburgWoods_Text_SterlingPostBattle:
+	.string "I'm gonna go back one day and get\n"
+	.string "some strong bugs.$"
+
+PetalburgWoods_Text_RudolphIntro:
+	.string "Time for a big Reel!$"
+	
+PetalburgWoods_Text_RudolphDefeated:
+	.string "I took the bait huh.$"
+
+PetalburgWoods_Text_RudolphPostBattle:
+	.string "I need a better fishing rod.$"
+
 PetalburgWoods_Text_IgnesNoticesYou:
 	.string "Ignes:Ohh look who it is.\n"
 	.string "I noticed you beat the first gym\l"
@@ -544,4 +626,16 @@ PetalburgWoods_Text_IgnesNextCity:
 	.string "I heard there's a way to Dewford\l"
 	.string "somewhere in the city.\p"
 	.string "If you want to make any progress I\n"
-	.string "suggest you do the same thing.$"
+	.string "suggest you do the same thing.\p"
+	.string "I also ran into {RIVAL} earlier and\n"
+	.string "they wanted me to give you this.$"
+
+PetalburgWoods_Text_ReceivedExpShare:
+	.string "{PLAYER} received the Exp. Share.$"
+	
+PetalburgWoods_Text_IgnesFigureItOut:
+	.string "Ignes: You're smart.\n"
+	.string "You can  figure out how it works\l"
+	.string "yourself.\p"
+	.string "I'm going ahead because I'm just.\n"
+	.string "Built uniquely.$"

@@ -560,6 +560,7 @@ const u8 *const gMonFootprintTable[] =
     [SPECIES_DWEBBLE] = gMonFootprint_Dwebble,
     [SPECIES_CRUSTLE] = gMonFootprint_Crustle,
     [SPECIES_SCRAGGY] = gMonFootprint_Scraggy,
+	[SPECIES_SCRAGGER] = gMonFootprint_Scragger,
     [SPECIES_SCRAFTY] = gMonFootprint_Scrafty,
     [SPECIES_SIGILYPH] = gMonFootprint_Sigilyph,
     [SPECIES_YAMASK] = gMonFootprint_Yamask,

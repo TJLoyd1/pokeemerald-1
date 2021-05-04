@@ -1080,3 +1080,9 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/GraniteCave_B3F/scripts.inc"
 
 	.include "data/maps/CaveOfUnknown/scripts.inc"
+
+	.include "data/maps/AntiquityCity_PokemonCenter_1F/scripts.inc"
+
+	.include "data/maps/AntiquityCity_PokemonCenter_2F/scripts.inc"
+
+	.include "data/maps/AntiquityCity_DeveloperHouse/scripts.inc"

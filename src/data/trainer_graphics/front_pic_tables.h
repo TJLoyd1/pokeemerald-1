@@ -94,6 +94,12 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_RS_BRENDAN] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RS_MAY] = {.size = 8, .y_offset = 1},
 	[TRAINER_PIC_IGNES] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_SHEENO] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_ABZOL] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_GODSPEED] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_MUGEN] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_JAH] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_LLOYD] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -194,6 +200,12 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(RS_BRENDAN, gTrainerFrontPic_RubySapphireBrendan, 0x800),
     TRAINER_SPRITE(RS_MAY, gTrainerFrontPic_RubySapphireMay, 0x800),
 	TRAINER_SPRITE(IGNES, gTrainerFrontPic_Ignes, 0x800),
+	TRAINER_SPRITE(SHEENO, gTrainerFrontPic_Sheeno, 0x800),
+	TRAINER_SPRITE(ABZOL, gTrainerFrontPic_Abzol, 0x800),
+	TRAINER_SPRITE(GODSPEED, gTrainerFrontPic_Godspeed, 0x800),
+	TRAINER_SPRITE(MUGEN, gTrainerFrontPic_Mugen, 0x800),
+	TRAINER_SPRITE(JAH, gTrainerFrontPic_Jah, 0x800),
+	TRAINER_SPRITE(LLOYD, gTrainerFrontPic_Lloyd, 0x800),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -294,4 +306,10 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(RS_BRENDAN, gTrainerPalette_RubySapphireBrendan),
     TRAINER_PAL(RS_MAY, gTrainerPalette_RubySapphireMay),
 	TRAINER_PAL(IGNES, gTrainerPalette_Ignes),
+	TRAINER_PAL(SHEENO, gTrainerPalette_Sheeno),
+	TRAINER_PAL(ABZOL, gTrainerPalette_Abzol),
+	TRAINER_PAL(GODSPEED, gTrainerPalette_Godspeed),
+	TRAINER_PAL(MUGEN, gTrainerPalette_Mugen),
+	TRAINER_PAL(JAH, gTrainerPalette_Jah),
+	TRAINER_PAL(LLOYD, gTrainerPalette_Lloyd),
 };

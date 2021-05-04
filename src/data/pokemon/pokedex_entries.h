@@ -6710,7 +6710,7 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_SCRAGGY] =
     {
-        .categoryName = _("Shedding"),
+        .categoryName = _("Boxing"),
         .height = 6,
         .weight = 118,
         .description = gScraggyPokedexText,
@@ -6719,10 +6719,22 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+	
+	[NATIONAL_DEX_SCRAGGER] =
+    {
+        .categoryName = _("Boxing"),
+        .height = 9,
+        .weight = 125,
+        .description = gScraggerPokedexText,
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
 
     [NATIONAL_DEX_SCRAFTY] =
     {
-        .categoryName = _("Hoodlum"),
+        .categoryName = _("Pro Boxer"),
         .height = 11,
         .weight = 300,
         .description = gScraftyPokedexText,

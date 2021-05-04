@@ -2800,6 +2800,11 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x45,
         .y_offset = 11,
     },
+	    [SPECIES_SCRAGGER] =
+    {
+        .size = 0x45,
+        .y_offset = 11,
+    },
     [SPECIES_SCRAFTY] =
     {
         .size = 0x45,

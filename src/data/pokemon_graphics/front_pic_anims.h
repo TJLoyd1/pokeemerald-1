@@ -6269,6 +6269,17 @@ static const union AnimCmd sAnim_SCRAGGY_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_SCRAGGER_1[] =
+{
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(1, 40),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_SCRAFTY_1[] =
 {
     ANIMCMD_FRAME(1, 8),
@@ -12169,6 +12180,11 @@ static const union AnimCmd *const sAnims_SCRAGGY[] ={
     sAnim_SCRAGGY_1,
 };
 
+static const union AnimCmd *const sAnims_SCRAGGER[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SCRAGGER_1,
+};
+
 static const union AnimCmd *const sAnims_SCRAFTY[] ={
     sAnim_GeneralFrame0,
     sAnim_SCRAFTY_1,
@@ -14982,6 +14998,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(DWEBBLE),
     ANIM_CMD(CRUSTLE),
     ANIM_CMD(SCRAGGY),
+	ANIM_CMD(SCRAGGER),
     ANIM_CMD(SCRAFTY),
     ANIM_CMD(SIGILYPH),
     ANIM_CMD(YAMASK),

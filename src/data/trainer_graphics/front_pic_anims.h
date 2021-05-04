@@ -374,6 +374,30 @@ static const union AnimCmd *const sAnims_Ignes[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Sheeno[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Abzol[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Godspeed[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Mugen[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Jah[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Lloyd[] ={
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -470,4 +494,10 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_RS_BRENDAN] = sAnims_RubySapphireBrendan,
     [TRAINER_PIC_RS_MAY] = sAnims_RubySapphireMay,
 	[TRAINER_PIC_IGNES] = sAnims_Ignes,
+	[TRAINER_PIC_SHEENO] = sAnims_Sheeno,
+	[TRAINER_PIC_ABZOL] = sAnims_Abzol,
+	[TRAINER_PIC_GODSPEED] = sAnims_Godspeed,
+	[TRAINER_PIC_MUGEN] = sAnims_Mugen,
+	[TRAINER_PIC_JAH] = sAnims_Jah,
+	[TRAINER_PIC_LLOYD] = sAnims_Lloyd,
 };

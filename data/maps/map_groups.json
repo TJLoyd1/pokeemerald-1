@@ -630,6 +630,9 @@
     "Route119_House"
   ],
   "gMapGroup33": [
-    "Route124_DivingTreasureHuntersHouse"
+    "Route124_DivingTreasureHuntersHouse",
+    "AntiquityCity_PokemonCenter_1F",
+    "AntiquityCity_PokemonCenter_2F",
+    "AntiquityCity_DeveloperHouse"
   ]
 }

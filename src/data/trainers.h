@@ -11166,4 +11166,147 @@ const struct Trainer gTrainers[] = {
 		.partySize = ARRAY_COUNT  (sParty_PetalburgWoods_Ignes),
 		.party = {.TrainerMon = sParty_PetalburgWoods_Ignes},
 	},
+	
+	[TRAINER_WILBURN] =
+	{
+		.trainerClass = TRAINER_CLASS_CAMPER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_CAMPER,
+		.trainerName = _("Wilburn"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Wilburn),
+		.party = {.TrainerMon = sParty_Wilburn},
+	},
+	
+	[TRAINER_PALMER] =
+	{
+		.trainerClass = TRAINER_CLASS_BUG_CATCHER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_BUG_CATCHER,
+		.trainerName = _("Palmer"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Palmer),
+		.party = {.TrainerMon = sParty_Palmer},
+	},
+	
+	[TRAINER_MACKENZIE] =
+	{
+		.trainerClass = TRAINER_CLASS_PICNICKER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+		.trainerPic = TRAINER_PIC_PICNICKER,
+		.trainerName = _("Mackenzie"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Mackenzie),
+		.party = {.TrainerMon = sParty_Mackenzie},
+	},
+	
+	[TRAINER_STERLING] =
+	{
+		.trainerClass = TRAINER_CLASS_BUG_CATCHER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_BUG_CATCHER,
+		.trainerName = _("Sterling"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Sterling),
+		.party = {.TrainerMon = sParty_Sterling},
+	},
+	
+	[TRAINER_RUDOLPH] =
+	{
+		.trainerClass = TRAINER_CLASS_FISHERMAN,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_FISHERMAN,
+		.trainerName = _("Rudolph"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Rudolph),
+		.party = {.TrainerMon = sParty_Rudolph},
+	},
+	
+	[TRAINER_SHEENO] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
+		.trainerPic = TRAINER_PIC_SHEENO,
+		.trainerName = _("Sheeno"),
+		.items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
+		.doubleBattle = FALSE,
+		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_PREFER_BATON_PASS | AI_SCRIPT_HP_AWARE,
+		.partySize = ARRAY_COUNT  (sParty_Sheeno),
+		.party = {.TrainerMon = sParty_Sheeno},
+	},
+	
+	[TRAINER_ABZOL] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_ABZOL,
+		.trainerName = _("Abzol"),
+		.items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
+		.doubleBattle = FALSE,
+		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_PREFER_BATON_PASS | AI_SCRIPT_HP_AWARE,
+		.partySize = ARRAY_COUNT  (sParty_Abzol),
+		.party = {.TrainerMon = sParty_Abzol},
+	},
+	
+	[TRAINER_GODSPEED] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_GODSPEED,
+		.trainerName = _("Godspeed"),
+		.items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
+		.doubleBattle = FALSE,
+		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_HP_AWARE,
+		.partySize = ARRAY_COUNT  (sParty_Godspeed),
+		.party = {.TrainerMon = sParty_Godspeed},
+	},
+	
+	[TRAINER_MUGEN] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_MUGEN,
+		.trainerName = _("Mugen"),
+		.items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
+		.doubleBattle = FALSE,
+		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_HP_AWARE,
+		.partySize = ARRAY_COUNT  (sParty_Mugen),
+		.party = {.TrainerMon = sParty_Mugen},
+	},
+	
+	[TRAINER_JAH] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_JAH,
+		.trainerName = _("Jah"),
+		.items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
+		.doubleBattle = FALSE,
+		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_HP_AWARE,
+		.partySize = ARRAY_COUNT  (sParty_Jah),
+		.party = {.TrainerMon = sParty_Jah},
+	},
+	
+	[TRAINER_LLOYD] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_LLOYD,
+		.trainerName = _("Lloyd"),
+		.items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
+		.doubleBattle = FALSE,
+		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_HP_AWARE,
+		.partySize = ARRAY_COUNT  (sParty_Lloyd),
+		.party = {.TrainerMon = sParty_Lloyd},
+	},
 };

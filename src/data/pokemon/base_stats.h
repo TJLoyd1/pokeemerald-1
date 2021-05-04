@@ -1802,7 +1802,7 @@ const struct BaseStats gBaseStats[] =
         .baseSpAttack  = 105,
         .baseSpDefense = 55,
         .type1 = TYPE_PSYCHIC,
-        .type2 = TYPE_PSYCHIC,
+        .type2 = TYPE_STEEL,
         .catchRate = 200,
         .expYield = 62,
         .evYield_SpAttack  = 1,
@@ -1813,11 +1813,11 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_SYNCHRONIZE, ABILITY_INNER_FOCUS},
+        .abilities = {ABILITY_MAGIC_GUARD, ABILITY_MAGIC_BOUNCE},
         #ifdef BATTLE_ENGINE
-            .abilityHidden = ABILITY_MAGIC_GUARD,
+            .abilityHidden = ABILITY_STURDY,
         #endif
-        .bodyColor = BODY_COLOR_BROWN,
+        .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
 
@@ -1830,7 +1830,7 @@ const struct BaseStats gBaseStats[] =
         .baseSpAttack  = 120,
         .baseSpDefense = 70,
         .type1 = TYPE_PSYCHIC,
-        .type2 = TYPE_PSYCHIC,
+        .type2 = TYPE_STEEL,
         .catchRate = 100,
         .expYield = 140,
         .evYield_SpAttack  = 2,
@@ -1841,11 +1841,11 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_SYNCHRONIZE, ABILITY_INNER_FOCUS},
+        .abilities = {ABILITY_MAGIC_GUARD, ABILITY_MAGIC_BOUNCE},
         #ifdef BATTLE_ENGINE
-            .abilityHidden = ABILITY_MAGIC_GUARD,
+            .abilityHidden = ABILITY_STURDY,
         #endif
-        .bodyColor = BODY_COLOR_BROWN,
+        .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
 
@@ -1862,7 +1862,7 @@ const struct BaseStats gBaseStats[] =
             .baseSpDefense = 85,
         #endif
         .type1 = TYPE_PSYCHIC,
-        .type2 = TYPE_PSYCHIC,
+        .type2 = TYPE_STEEL,
         .catchRate = 50,
         .expYield = 225,
         .evYield_SpAttack  = 3,
@@ -1873,11 +1873,11 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
-        .abilities = {ABILITY_SYNCHRONIZE, ABILITY_INNER_FOCUS},
+        .abilities = {ABILITY_MAGIC_GUARD, ABILITY_MAGIC_BOUNCE},
         #ifdef BATTLE_ENGINE
-            .abilityHidden = ABILITY_MAGIC_GUARD,
+            .abilityHidden = ABILITY_STURDY,
         #endif
-        .bodyColor = BODY_COLOR_BROWN,
+        .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
 
@@ -7158,7 +7158,7 @@ const struct BaseStats gBaseStats[] =
         .baseSpDefense = 55,
         .type1 = TYPE_GROUND,
         .type2 = TYPE_FIRE,
-        .catchRate = 45,
+        .catchRate = 255,
         .expYield = 62,
         .evYield_Speed     = 1,
         .genderRatio = PERCENT_FEMALE(12.5),
@@ -10541,8 +10541,8 @@ const struct BaseStats gBaseStats[] =
         .baseSpeed     = 50,
         .baseSpAttack  = 40,
         .baseSpDefense = 30,
-        .type1 = TYPE_DRAGON,
-        .type2 = TYPE_DRAGON,
+        .type1 = TYPE_DARK,
+        .type2 = TYPE_GROUND,
         .catchRate = 45,
         .expYield = 60,
         .evYield_Attack    = 1,
@@ -10553,9 +10553,9 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_DRAGON,
         .eggGroup2 = EGG_GROUP_DRAGON,
-        .abilities = {ABILITY_ROCK_HEAD, ABILITY_NONE},
+        .abilities = {ABILITY_BATTLE_ARMOR, ABILITY_TINTED_LENS},
         #ifdef BATTLE_ENGINE
-            .abilityHidden = ABILITY_SHEER_FORCE,
+            .abilityHidden = ABILITY_RATTLED,
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
@@ -10569,8 +10569,8 @@ const struct BaseStats gBaseStats[] =
         .baseSpeed     = 50,
         .baseSpAttack  = 60,
         .baseSpDefense = 50,
-        .type1 = TYPE_DRAGON,
-        .type2 = TYPE_DRAGON,
+        .type1 = TYPE_DARK,
+        .type2 = TYPE_GROUND,
         .catchRate = 45,
         .expYield = 147,
         .evYield_Defense   = 2,
@@ -10581,9 +10581,9 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_DRAGON,
         .eggGroup2 = EGG_GROUP_DRAGON,
-        .abilities = {ABILITY_ROCK_HEAD, ABILITY_NONE},
+        .abilities = {ABILITY_BATTLE_ARMOR, ABILITY_TINTED_LENS},
         #ifdef BATTLE_ENGINE
-            .abilityHidden = ABILITY_OVERCOAT,
+            .abilityHidden = ABILITY_RATTLED,
         #endif
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
@@ -10609,9 +10609,9 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_DRAGON,
         .eggGroup2 = EGG_GROUP_DRAGON,
-        .abilities = {ABILITY_INTIMIDATE, ABILITY_NONE},
+        .abilities = {ABILITY_BATTLE_ARMOR, ABILITY_TINTED_LENS},
         #ifdef BATTLE_ENGINE
-            .abilityHidden = ABILITY_MOXIE,
+            .abilityHidden = ABILITY_RATTLED,
         #endif
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
@@ -13775,7 +13775,8 @@ const struct BaseStats gBaseStats[] =
             .abilities = {ABILITY_SLOW_START, ABILITY_NONE},
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
-        #endif
+         #endif
+        .abilityHidden = ABILITY_HUGE_POWER,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
@@ -15913,13 +15914,45 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
+	
+	[SPECIES_SCRAGGER] =
+    {
+        .baseHP        = 55,
+        .baseAttack    = 86,
+        .baseDefense   = 80,
+        .baseSpeed     = 58,
+        .baseSpAttack  = 40,
+        .baseSpDefense = 75,
+        .type1 = TYPE_GHOST,
+        .type2 = TYPE_FIGHTING,
+        .catchRate = 180,
+        .expYield = 70,
+        .evYield_Attack    = 1,
+        #ifdef ITEM_EXPANSION
+            .item2 = ITEM_SHED_SHELL,
+        #endif
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = 35,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_DRAGON,
+        #ifdef BATTLE_ENGINE
+            .abilities = {ABILITY_LEVITATE, ABILITY_MOXIE},
+        #else
+            .abilities = {ABILITY_LEVITATE, ABILITY_NONE},
+        #endif
+        .abilityHidden = ABILITY_CURSED_BODY,
+        .bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
+    },
 
     [SPECIES_SCRAFTY] =
     {
         .baseHP        = 65,
         .baseAttack    = 90,
         .baseDefense   = 115,
-        .baseSpeed     = 58,
+        .baseSpeed     = 75,
         .baseSpAttack  = 45,
         .baseSpDefense = 115,
         .type1 = TYPE_GHOST,
@@ -26227,8 +26260,8 @@ const struct BaseStats gBaseStats[] =
         .baseSpeed     = 100,
         .baseSpAttack  = 130,
         .baseSpDefense = 80,
-        .type1 = TYPE_FIRE,
-        .type2 = TYPE_FIGHTING,
+        .type1 = TYPE_STEEL,
+        .type2 = TYPE_ELECTRIC,
         .catchRate = 45,
         .expYield = 284,
         .evYield_Attack    = 3,

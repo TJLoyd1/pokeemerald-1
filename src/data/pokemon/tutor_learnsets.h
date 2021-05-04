@@ -7618,6 +7618,16 @@ static const u32 sTutorLearnsets[] =
                                             | TUTOR(MOVE_SWAGGER)
                                             | TUTOR(MOVE_THUNDER_PUNCH)),
 
+	[SPECIES_SCRAGGER]       = TUTOR_LEARNSET(TUTOR(MOVE_COUNTER)
+                                            | TUTOR(MOVE_FIRE_PUNCH)
+                                            | TUTOR(MOVE_ICE_PUNCH)
+                                            | TUTOR(MOVE_ROCK_SLIDE)
+                                            | TUTOR(MOVE_SLEEP_TALK)
+                                            | TUTOR(MOVE_SNORE)
+                                            | TUTOR(MOVE_SUBSTITUTE)
+                                            | TUTOR(MOVE_SWAGGER)
+                                            | TUTOR(MOVE_THUNDER_PUNCH)),
+
     [SPECIES_SCRAFTY]       = TUTOR_LEARNSET(TUTOR(MOVE_FIRE_PUNCH)
                                             | TUTOR(MOVE_ICE_PUNCH)
                                             | TUTOR(MOVE_ROCK_SLIDE)

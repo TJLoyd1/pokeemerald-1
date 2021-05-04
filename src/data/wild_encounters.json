@@ -154,7 +154,7 @@
               {
                 "min_level": 5,
                 "max_level": 10,
-                "species": "SPECIES_MAGIKARP"
+                "species": "SPECIES_REMORAID"
               },
               {
                 "min_level": 5,
@@ -11570,7 +11570,7 @@
               {
                 "min_level": 5,
                 "max_level": 7,
-                "species": "SPECIES_GEODUDE"
+                "species": "SPECIES_TREECKO"
               },
               {
                 "min_level": 6,

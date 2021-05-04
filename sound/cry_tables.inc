@@ -560,6 +560,7 @@ gCryTable:: @ 869DCF4
 	cry_not Cry_Dwebble
 	cry_not Cry_Crustle
 	cry_not Cry_Scraggy
+	cry_not Cry_Scragger
 	cry_not Cry_Scrafty
 	cry_not Cry_Sigilyph
 	cry_not Cry_Yamask
@@ -1834,6 +1835,7 @@ gCryTable2:: @ 869EF24
 	cry2_not Cry_Dwebble
 	cry2_not Cry_Crustle
 	cry2_not Cry_Scraggy
+	cry2_not Cry_Scragger
 	cry2_not Cry_Scrafty
 	cry2_not Cry_Sigilyph
 	cry2_not Cry_Yamask

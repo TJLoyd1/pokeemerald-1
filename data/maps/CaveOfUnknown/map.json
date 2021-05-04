@@ -2,7 +2,7 @@
   "id": "MAP_CAVE_OF_UNKNOWN",
   "name": "CaveOfUnknown",
   "layout": "LAYOUT_CAVE_OF_UNKNOWN",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_RG_LAVENDER",
   "region_map_section": "MAPSEC_GRANITE_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

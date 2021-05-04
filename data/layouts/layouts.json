@@ -4510,6 +4510,36 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/CaveOfUnknown/border.bin",
       "blockdata_filepath": "data/layouts/CaveOfUnknown/map.bin"
+    },
+    {
+      "id": "LAYOUT_ANTIQUITY_CITY_POKEMON_CENTER_1F",
+      "name": "AntiquityCity_PokemonCenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/AntiquityCity_PokemonCenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/AntiquityCity_PokemonCenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ANTIQUITY_CITY_POKEMON_CENTER_2F",
+      "name": "AntiquityCity_PokemonCenter_2F_Layout",
+      "width": 14,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/AntiquityCity_PokemonCenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/AntiquityCity_PokemonCenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ANTIQUITY_CITY_DEVELOPER_HOUSE",
+      "name": "AntiquityCity_DeveloperHouse_Layout",
+      "width": 13,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/AntiquityCity_DeveloperHouse/border.bin",
+      "blockdata_filepath": "data/layouts/AntiquityCity_DeveloperHouse/map.bin"
     }
   ]
 }

@@ -860,12 +860,23 @@
 #define TRAINER_OBSIDIAN_GRUNT2_ROUTE_104	856
 #define TRAINER_JOHNNY						857
 #define TRAINER_IGNES_PETALBURGWOODS		858
+#define TRAINER_WILBURN						859
+#define TRAINER_PALMER						860
+#define TRAINER_MACKENZIE     				861
+#define TRAINER_STERLING					862
+#define TRAINER_RUDOLPH						863
+#define TRAINER_SHEENO						864
+#define TRAINER_ABZOL						865
+#define TRAINER_GODSPEED					866
+#define TRAINER_MUGEN						867
+#define TRAINER_JAH							868
+#define TRAINER_LLOYD						869
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      859
-#define MAX_TRAINERS_COUNT                  864
+#define TRAINERS_COUNT                      870
+#define MAX_TRAINERS_COUNT                  900
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

@@ -1100,6 +1100,7 @@ LittlerootTown_EventScript_Rivals_Mom::
 	end
 
 LittlerootTown_EventScript_Begin_Obsidian_Movement::
+	setrespawn 2
 	setflag FLAG_ADVENTURE_STARTED
 	playbgm MUS_ENCOUNTER_MAGMA, 1
 	addobject LOCALID_MAXIE
@@ -1267,6 +1268,11 @@ LittlerootTown_EventScript_AfterBrendanBattle:: @ 81EC4FC
 	removeobject 8
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_BRENDAN
 	setvar VAR_DOWNSTAIRS_DANGER, 2
+	setflag FLAG_RESCUED_BIRCH
+	setvar VAR_LITTLEROOT_INTRO_STATE, 7
+	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
+	setvar VAR_LITTLEROOT_TOWN_STATE, 4
+	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 2 
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	releaseall
@@ -1457,6 +1463,11 @@ LittlerootTown_EventScript_AfterMayBattle:: @ 81EC4FC
 	removeobject 9
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
 	setvar VAR_DOWNSTAIRS_DANGER, 2
+	setflag FLAG_RESCUED_BIRCH
+	setvar VAR_LITTLEROOT_INTRO_STATE, 7
+	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
+	setvar VAR_LITTLEROOT_TOWN_STATE, 4
+	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 2 
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	releaseall
@@ -1664,7 +1675,7 @@ LittlerootTown_Text_Rhyos_Speech:
 LittlerootTown_Text_ThatWasWeird:
 	.string "{RIVAL}:{COLOR BLUE}That was very 'educational' and\n"
 	.string "especially fucking weird.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Espcially what happened to that\n"
+	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Especially what happened to that\n"
 	.string "poor Claydol.\p"
 	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR BLUE}Well I'm gonna head home and\n"
 	.string "do more research about Professor May.\p"
@@ -1673,7 +1684,7 @@ LittlerootTown_Text_ThatWasWeird:
 LittlerootTown_Text_MayThatWasWeird:
 	.string "{PLAYER}:{COLOR BLUE}That was very 'educational' and\n"
 	.string "especially fucking weird.\p"
-	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Espcially what happened to that\n"
+	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Especially what happened to that\n"
 	.string "poor Claydol.\p"
 	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Well I'm gonna head home and\n"
 	.string "do more research about Professor May.\p"
@@ -1751,3 +1762,105 @@ LittlerootTown_Text_MayTimeToHeadOut:
 	.string "and go explore the region.\l"
 	.string "I'm going ahead.\p"
 	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}Don't let me pass you up.$"
+LittlerootTown_EventScript_GotoShinyCharm::
+	goto_if_set FLAG_RECEIVED_POKEDEX_FROM_BIRCH, LittlerootTown_EventScript_MomGivesShinyCharm
+	end
+	
+LittlerootTown_EventScript_GotoShinyCharm2::
+	goto_if_set FLAG_RECEIVED_POKEDEX_FROM_BIRCH, LittlerootTown_EventScript_MomGivesShinyCharm2
+	end
+
+LittlerootTown_EventScript_MomGivesShinyCharm::
+	lockall
+	setvar VAR_TEMP_3, 1
+	addobject  4
+	msgbox LittlerootTown_Text_MomCallsPlayer, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, FaceMom
+	applymovement 4, MomWalksToPlayer2
+	waitmovement 0
+	msgbox LittlerootTown_Text_MomGivesShinyCharm, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_SHINY_CHARM
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox LittlerootTown_Text_ReceivedShinyCharm, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	msgbox LittlerootTown_Text_SeeYouLaterHoney, MSGBOX_DEFAULT
+	closemessage
+	applymovement 4, MomWalksAway
+	waitmovement 0
+	removeobject 4
+	releaseall
+	end
+
+LittlerootTown_EventScript_MomGivesShinyCharm2::
+	lockall
+	setvar VAR_TEMP_3, 1
+	addobject  4
+	msgbox LittlerootTown_Text_MomCallsPlayer, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, FaceMom
+	applymovement 4, MomWalksToPlayer2
+	waitmovement 0
+	msgbox LittlerootTown_Text_MomGivesShinyCharm, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_SHINY_CHARM
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox LittlerootTown_Text_ReceivedShinyCharm, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	msgbox LittlerootTown_Text_SeeYouLaterHoney, MSGBOX_DEFAULT
+	closemessage
+	applymovement 4, MomWalksAway
+	waitmovement 0
+	removeobject 4
+	releaseall
+	end
+	
+FaceMom:
+	face_down
+	step_end
+
+MomWalksToPlayer:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+MomWalksToPlayer2:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_up
+	step_end
+	
+MomWalksAway:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+LittlerootTown_Text_MomCallsPlayer:
+	.string "Mom: {PLAYER}!$"
+
+LittlerootTown_Text_MomGivesShinyCharm:
+	.string "Prof. May told me she has you going\n"
+	.string "on a journey for her so I thought I\l"
+	.string "should give you one last parting gift before\p"
+	.string "you leave.$"
+
+LittlerootTown_Text_ReceivedShinyCharm:
+	.string "{PLAYER} received a Shiny Charm.$"
+
+LittlerootTown_Text_SeeYouLaterHoney:
+	.string "I'll see you later honey.\p"
+	.string "Don't forget to visit home sometimes\n"
+	.string "either.$"

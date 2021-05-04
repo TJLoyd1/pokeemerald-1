@@ -3361,6 +3361,12 @@ const u8 gScraggyPokedexText[] = _(
     "pulling its skin up to its neck.\n"
     "Its skull is massively thick.");
 
+const u8 gScraggerPokedexText[] = _(
+    "Because it has multiple bruises from the\n"
+    "matches, it trains itself to get better to\n"
+    "not get beat by another hitmonchan again.\n"
+    "Its fist is incredibly fast.");
+
 const u8 gScraftyPokedexText[] = _(
     "Groups of them beat up anything that\n"
     "enters their territory. The one with the\n"

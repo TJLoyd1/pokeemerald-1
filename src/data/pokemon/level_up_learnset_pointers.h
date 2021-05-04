@@ -560,6 +560,7 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_DWEBBLE] = sDwebbleLevelUpLearnset,
     [SPECIES_CRUSTLE] = sCrustleLevelUpLearnset,
     [SPECIES_SCRAGGY] = sScraggyLevelUpLearnset,
+	[SPECIES_SCRAGGER] = sScraggerLevelUpLearnset,
     [SPECIES_SCRAFTY] = sScraftyLevelUpLearnset,
     [SPECIES_SIGILYPH] = sSigilyphLevelUpLearnset,
     [SPECIES_YAMASK] = sYamaskLevelUpLearnset,

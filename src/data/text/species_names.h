@@ -559,6 +559,7 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_DWEBBLE] = _("Dwebble"),
     [SPECIES_CRUSTLE] = _("Crustle"),
     [SPECIES_SCRAGGY] = _("Scraggy"),
+	[SPECIES_SCRAGGER] = _("Scragger"),
     [SPECIES_SCRAFTY] = _("Scrafty"),
     [SPECIES_SIGILYPH] = _("Sigilyph"),
     [SPECIES_YAMASK] = _("Yamask"),
