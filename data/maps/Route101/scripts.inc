@@ -218,6 +218,12 @@ Route101_EventScript_RouteSign:: @ 81EBE0D
 	msgbox Route101_Text_RouteSign, MSGBOX_SIGN
 	end
 
+Route101_EventScript_PlayMonCryCtrlCodeEx::
+	msgbox Route101_Text_PlayMonCryCtrlCodeEx, MSGBOX_DEFAULT
+	waitmoncry
+	closemessage
+	end
+
 Route101_EventScript_BirchsBag:: @ 81EBE16
 	lock
 	faceplayer
@@ -301,4 +307,7 @@ Route101_Text_WildPokemonInTallGrass: @ 81EC04A
 Route101_Text_RouteSign: @ 81EC0C8
 	.string "ROUTE 101\n"
 	.string "{UP_ARROW} OLDALE TOWN$"
+
+Route101_Text_PlayMonCryCtrlCodeEx:
+	.string "I like Celebi's cry.{PLAY_MON_CRY SPECIES_CELEBI}$"
 

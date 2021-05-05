@@ -999,6 +999,13 @@ u16 RenderText(struct TextPrinter *textPrinter)
             case EXT_CTRL_CODE_ENG:
                 textPrinter->japanese = 0;
                 return 2;
+            case EXT_CTRL_CODE_PLAY_MON_CRY:
+                currChar = *textPrinter->printerTemplate.currentChar;
+                textPrinter->printerTemplate.currentChar++;
+                currChar |= (*textPrinter->printerTemplate.currentChar << 8);
+                textPrinter->printerTemplate.currentChar++;
+                PlayCry3(currChar, 0, 0);
+                return 2;
             }
             break;
         case CHAR_PROMPT_CLEAR:
@@ -1165,6 +1172,7 @@ u32 GetStringWidthFixedWidthFont(const u8 *str, u8 fontId, u8 letterSpacing)
                 ++strPos;
             case EXT_CTRL_CODE_PLAY_BGM:
             case EXT_CTRL_CODE_PLAY_SE:
+            case EXT_CTRL_CODE_PLAY_MON_CRY:
                 ++strPos;
             case EXT_CTRL_CODE_COLOR:
             case EXT_CTRL_CODE_HIGHLIGHT:
@@ -1308,6 +1316,7 @@ s32 GetStringWidth(u8 fontId, const u8 *str, s16 letterSpacing)
                 ++str;
             case EXT_CTRL_CODE_PLAY_BGM:
             case EXT_CTRL_CODE_PLAY_SE:
+            case EXT_CTRL_CODE_PLAY_MON_CRY:
                 ++str;
             case EXT_CTRL_CODE_COLOR:
             case EXT_CTRL_CODE_HIGHLIGHT:
@@ -1454,6 +1463,7 @@ u8 RenderTextFont9(u8 *pixels, u8 fontId, u8 *str)
                 break;
             case EXT_CTRL_CODE_PLAY_BGM:
             case EXT_CTRL_CODE_PLAY_SE:
+            case EXT_CTRL_CODE_PLAY_MON_CRY:
                 ++strPos;
             case EXT_CTRL_CODE_PALETTE:
             case EXT_CTRL_CODE_PAUSE:

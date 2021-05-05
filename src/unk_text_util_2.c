@@ -102,6 +102,7 @@ u16 Font6Func(struct TextPrinter *textPrinter)
                             return 3;
                         case EXT_CTRL_CODE_PLAY_BGM:
                         case EXT_CTRL_CODE_PLAY_SE:
+                        case EXT_CTRL_CODE_PLAY_MON_CRY:
                             textPrinter->printerTemplate.currentChar += 2;
                             return 2;
                         case EXT_CTRL_CODE_ESCAPE:
