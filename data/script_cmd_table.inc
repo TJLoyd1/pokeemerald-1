@@ -231,6 +231,7 @@ gScriptCmdTable:: @ 81DB67C
 	.4byte ScrCmd_getgamestat               @ 0xe4
 	.4byte ScrCmd_getdate                   @ 0xe5
 	.4byte ScrCmd_locktarget                @ 0xe6
+	.4byte ScrCmd_getcurrentday             @ 0xe7
 
 gScriptCmdTableEnd:: @ 81DBA08
 	.4byte ScrCmd_nop
