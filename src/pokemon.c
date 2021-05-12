@@ -6981,6 +6981,8 @@ u16 GetBattleBGM(void)
             return MUS_VS_TRAINER;
         }
     }
+    else if (GetCurrentRegionMapSectionId() == MAPSEC_SAFARI_ZONE)
+        return MUS_RG_VS_WILD;
     else
         return MUS_VS_WILD;
 }
