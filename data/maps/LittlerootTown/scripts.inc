@@ -1143,7 +1143,7 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	fadescreen 3
 	addobject 10
 	fadescreen 2
-	playmoncry SPECIES_CLAYDOL, 2
+	playmoncry SPECIES_DUSCLOPS, 2
 	waitmoncry
 	msgbox LittlerootTown_Text_Rhyos_Speech_Part_Three, MSGBOX_DEFAULT
 	closemessage
@@ -1152,14 +1152,15 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	playse SE_ORB
 	special DoOrbEffect
 	fadescreen 3
-	playmoncry SPECIES_CLAYDOL, 2
+	playmoncry SPECIES_DUSCLOPS, 2
 	waitmoncry
 	fadescreen 2
 	special FadeOutOrbEffect
 	fadescreen 3
-	playmoncry SPECIES_CLAYDOL, 2
+	playmoncry SPECIES_DUSCLOPS, 2
 	waitmoncry
 	fadescreen 2
+	waitstate
 	msgbox LittlerootTown_Text_Rhyos_Speech_Part_Four, MSGBOX_DEFAULT
 	closemessage
 	playse SE_APPLAUSE
@@ -1172,7 +1173,7 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	fadescreen 0
 	msgbox LittlerootTown_Text_Rhyos_Speech_Claydol_Return
 	closemessage
-	playmoncry SPECIES_CLAYDOL, 2
+	playmoncry SPECIES_DUSCLOPS, 2
 	waitmoncry
 	fadescreen 3
 	removeobject 10
@@ -1181,6 +1182,15 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	waitmovement 0
 	msgbox LittlerootTown_Text_Rhyos_Speech_End, MSGBOX_DEFAULT
 	closemessage
+	applymovement 7, Rhyos_Face_Up
+	msgbox LittlerootTown_Text_Rhyos_Obisidian_Moveout, MSGBOX_DEFAULT
+	closemessage
+	applymovement 7, Rhyos_Leaving
+	applymovement 11, Grunt1_Leaving
+	applymovement 12, Grunt2_Leaving
+	applymovement 13, Grunt3_Leaving
+	applymovement 14, Grunt4_Leaving
+	waitmovement 0
 	fadescreen 1
 	removeobject 7
 	removeobject 11
@@ -1208,6 +1218,9 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	applymovement 6, Prof_Walk_To_Player_Rival
 	waitmovement 0
 	msgbox LittlerootTown_Text_Birch_Gives_Starter_Pokemon, MSGBOX_DEFAULT
+	closemessage
+	msgbox LittlerootTown_Text_BirchUsesZigzagoons, MSGBOX_DEFAULT
+	closemessage
 	setflag FLAG_SYS_POKEMON_GET
 	special ChooseStarter
 	bufferleadmonspeciesname 0
@@ -1338,7 +1351,7 @@ LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
 	fadescreen 3
 	addobject 10
 	fadescreen 2
-	playmoncry SPECIES_CLAYDOL, 2
+	playmoncry SPECIES_DUSCLOPS, 2
 	waitmoncry
 	msgbox LittlerootTown_Text_Rhyos_Speech_Part_Three, MSGBOX_DEFAULT
 	closemessage
@@ -1347,14 +1360,15 @@ LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
 	playse SE_ORB
 	special DoOrbEffect
 	fadescreen 3
-	playmoncry SPECIES_CLAYDOL, 2
+	playmoncry SPECIES_DUSCLOPS, 2
 	waitmoncry
 	fadescreen 2
 	special FadeOutOrbEffect
 	fadescreen 3
-	playmoncry SPECIES_CLAYDOL, 2
+	playmoncry SPECIES_DUSCLOPS, 2
 	waitmoncry
 	fadescreen 2
+	waitstate
 	msgbox LittlerootTown_Text_Rhyos_Speech_Part_Four, MSGBOX_DEFAULT
 	closemessage
 	playse SE_APPLAUSE
@@ -1367,7 +1381,7 @@ LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
 	fadescreen 0
 	msgbox LittlerootTown_Text_Rhyos_Speech_Claydol_Return
 	closemessage
-	playmoncry SPECIES_CLAYDOL, 2
+	playmoncry SPECIES_DUSCLOPS, 2
 	waitmoncry
 	fadescreen 3
 	removeobject 10
@@ -1376,6 +1390,15 @@ LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
 	waitmovement 0
 	msgbox LittlerootTown_Text_Rhyos_Speech_End, MSGBOX_DEFAULT
 	closemessage
+	applymovement 7, Rhyos_Face_Up
+	msgbox LittlerootTown_Text_Rhyos_Obisidian_Moveout, MSGBOX_DEFAULT
+	closemessage
+	applymovement 7, Rhyos_Leaving
+	applymovement 11, Grunt1_Leaving
+	applymovement 12, Grunt2_Leaving
+	applymovement 13, Grunt3_Leaving
+	applymovement 14, Grunt4_Leaving
+	waitmovement 0
 	fadescreen 1
 	removeobject 7
 	removeobject 11
@@ -1404,6 +1427,9 @@ LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
 	applymovement 6, Prof_Walk_To_Player_Rival
 	waitmovement 0
 	msgbox LittlerootTown_Text_Birch_Gives_Starter_Pokemon, MSGBOX_DEFAULT
+	closemessage
+	msgbox LittlerootTown_Text_BirchUsesZigzagoons, MSGBOX_DEFAULT
+	closemessage
 	setflag FLAG_SYS_POKEMON_GET
 	special ChooseStarter
 	bufferleadmonspeciesname 0
@@ -1549,7 +1575,60 @@ During_Speech_From_Right_To_Center:
 Rhyos_Heads_To_Player_Rival:
 	walk_down
 	step_end
-
+Rhyos_Face_Up:
+	face_up
+	step_end
+	
+Rhyos_Leaving:
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_up
+	walk_up
+	walk_up
+	step_end
+	
+Grunt1_Leaving:
+	walk_left
+	walk_down
+	walk_down
+	walk_left
+	face_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+	
+Grunt2_Leaving:
+	walk_left
+	walk_up
+	delay_16
+	delay_8
+	walk_up
+	walk_up
+	step_end
+	
+Grunt3_Leaving:
+	walk_right
+	walk_right
+	face_up
+	delay_8
+	walk_up
+	walk_up
+	step_end
+	
+Grunt4_Leaving:
+	walk_right
+	walk_right
+	walk_down
+	walk_right
+	face_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+	
 Face_Player_Direction:
 	face_left
 	step_end
@@ -1635,13 +1714,13 @@ LittlerootTown_Text_Rhyos_Speech_Prepare_to_Show_Pokemon:
 	.string "operative on for some time now.$"
 
 LittlerootTown_Text_Rhyos_Speech_Go_Claydol:
-	.string "GO CLAYDOL!$"
+	.string "GO DUSCLOPS!$"
 
 LittlerootTown_Text_Rhyos_Speech_Part_Three:
 	.string "With this artificial Mega Stone that\n"
 	.string "the scientists at Obsidian put their\l"
 	.string "hard work into for years, this\p"
-	.string "Claydol, which usually doesn't mega\n"
+	.string "Dusclops, which usually doesn't mega\n"
 	.string "evolve, will now do such as that.$"
 
 LittlerootTown_Text_Rhyos_Speech_Part_Four:
@@ -1661,13 +1740,17 @@ LittlerootTown_Text_Rhyos_Speech_Part_Four:
 	.string "all around the region.$"
 	
 LittlerootTown_Text_Rhyos_Speech_Claydol_Return:
-	.string "CLAYDOL RETURN!$"
+	.string "DUSCLOPS RETURN!$"
 
 LittlerootTown_Text_Rhyos_Speech_End:
 	.string "I know that you two are working with\n"
 	.string "Birch to stop our plans.\p"
 	.string "As Team Obsidian Admin, Rhyos, I\n"
 	.string "REFUSE to let that happen!$"
+
+LittlerootTown_Text_Rhyos_Obisidian_Moveout:
+	.string "TEAM OBSIDIAN!\p"
+	.string "LET'S MOVE OUT!$"
 	
 LittlerootTown_Text_Rhyos_Speech:
 	.string "Go Listen to Ugh in FNF Right Now!$"
@@ -1676,7 +1759,7 @@ LittlerootTown_Text_ThatWasWeird:
 	.string "{RIVAL}:{COLOR BLUE}That was very 'educational' and\n"
 	.string "especially fucking weird.\p"
 	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Especially what happened to that\n"
-	.string "poor Claydol.\p"
+	.string "poor Dusclops.\p"
 	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR BLUE}Well I'm gonna head home and\n"
 	.string "do more research about Professor May.\p"
 	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Alright I'll see you later.$"
@@ -1685,7 +1768,7 @@ LittlerootTown_Text_MayThatWasWeird:
 	.string "{PLAYER}:{COLOR BLUE}That was very 'educational' and\n"
 	.string "especially fucking weird.\p"
 	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Especially what happened to that\n"
-	.string "poor Claydol.\p"
+	.string "poor Dusclops.\p"
 	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Well I'm gonna head home and\n"
 	.string "do more research about Professor May.\p"
 	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}Alright see ya later.$"
@@ -1713,11 +1796,12 @@ LittlerootTown_Text_Birch_Gives_Starter_Pokemon:
 	.string "CHAMPION and the best TRAINER around.\p"
 	.string "Make the best of your journey as you\n"
 	.string "stop Team Obsidian.\p"
-	.string "...........\p"
+
+LittlerootTown_Text_BirchUsesZigzagoons:
 	.string "To test both of your abilities I'm\n"
 	.string "going to have you face off against\p"
 	.string "these Zigzagoons.$"
-
+	
 LittlerootTown_Text_WhyNotGiveNicknameToMon:
 	.string "Prof. May: While you're at it, why not\n"
 	.string "give a nickname to that {STR_VAR_1}?$"
@@ -1762,6 +1846,7 @@ LittlerootTown_Text_MayTimeToHeadOut:
 	.string "and go explore the region.\l"
 	.string "I'm going ahead.\p"
 	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}Don't let me pass you up.$"
+
 LittlerootTown_EventScript_GotoShinyCharm::
 	goto_if_set FLAG_RECEIVED_POKEDEX_FROM_BIRCH, LittlerootTown_EventScript_MomGivesShinyCharm
 	end
@@ -1772,19 +1857,15 @@ LittlerootTown_EventScript_GotoShinyCharm2::
 
 LittlerootTown_EventScript_MomGivesShinyCharm::
 	lockall
-	setvar VAR_TEMP_3, 1
+	setvar VAR_RECEIVED_SHINY_CHARM, 1
 	addobject  4
 	msgbox LittlerootTown_Text_MomCallsPlayer, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, FaceMom
-	applymovement 4, MomWalksToPlayer2
+	applymovement 4, MomWalksToPlayer
 	waitmovement 0
 	msgbox LittlerootTown_Text_MomGivesShinyCharm, MSGBOX_DEFAULT
 	closemessage
 	giveitem ITEM_SHINY_CHARM
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox LittlerootTown_Text_ReceivedShinyCharm, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
 	msgbox LittlerootTown_Text_SeeYouLaterHoney, MSGBOX_DEFAULT
 	closemessage
 	applymovement 4, MomWalksAway
@@ -1795,7 +1876,7 @@ LittlerootTown_EventScript_MomGivesShinyCharm::
 
 LittlerootTown_EventScript_MomGivesShinyCharm2::
 	lockall
-	setvar VAR_TEMP_3, 1
+	setvar VAR_RECEIVED_SHINY_CHARM, 1
 	addobject  4
 	msgbox LittlerootTown_Text_MomCallsPlayer, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, FaceMom
@@ -1804,10 +1885,6 @@ LittlerootTown_EventScript_MomGivesShinyCharm2::
 	msgbox LittlerootTown_Text_MomGivesShinyCharm, MSGBOX_DEFAULT
 	closemessage
 	giveitem ITEM_SHINY_CHARM
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox LittlerootTown_Text_ReceivedShinyCharm, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
 	msgbox LittlerootTown_Text_SeeYouLaterHoney, MSGBOX_DEFAULT
 	closemessage
 	applymovement 4, MomWalksAway
@@ -1826,7 +1903,7 @@ MomWalksToPlayer:
 	walk_up
 	walk_up
 	walk_up
-	walk_up
+	face_up
 	step_end
 
 MomWalksToPlayer2:
@@ -1836,7 +1913,7 @@ MomWalksToPlayer2:
 	walk_up
 	walk_up
 	walk_left
-	walk_up
+	face_up
 	step_end
 	
 MomWalksAway:
@@ -1854,8 +1931,8 @@ LittlerootTown_Text_MomCallsPlayer:
 LittlerootTown_Text_MomGivesShinyCharm:
 	.string "Prof. May told me she has you going\n"
 	.string "on a journey for her so I thought I\l"
-	.string "should give you one last parting gift before\p"
-	.string "you leave.$"
+	.string "should give you one last parting gift\p"
+	.string "before you leave.$"
 
 LittlerootTown_Text_ReceivedShinyCharm:
 	.string "{PLAYER} received a Shiny Charm.$"

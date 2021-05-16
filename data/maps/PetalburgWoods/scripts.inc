@@ -505,14 +505,19 @@ PetalburgWoods_EventScript_Rudolph::
 	end
 	
 PetalburgWoods_EventScript_IgnesCheckFlag::
-	goto_if_set FLAG_DEFEATED_RUSTBORO_GYM, PetalburgWoods_EventScript_IgnesFirstBattle
+	goto_if_set FLAG_BADGE01_GET, PetalburgWoods_EventScript_IgnesFirstBattle
+	release
 	end
 
 PetalburgWoods_EventScript_IgnesFirstBattle::
+	addobject 15
 	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
-	setvar VAR_TEMP_2, 1
+	setvar VAR_MEET_IGNES, 1
 	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement 16, Ignes_Moves_Towards_Player
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Face_Ignes
 	waitmovement 0
 	msgbox PetalburgWoods_Text_IgnesNoticesYou, MSGBOX_DEFAULT
 	closemessage
@@ -520,19 +525,49 @@ PetalburgWoods_EventScript_IgnesFirstBattle::
 	msgbox PetalburgWoods_Text_IgnesNextCity, MSGBOX_DEFAULT
 	closemessage
 	giveitem ITEM_EXP_SHARE
-	msgbox PetalburgWoods_Text_ReceivedExpShare, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_EXP_SHARE
-	playfanfare MUS_OBTAIN_ITEM
 	msgbox PetalburgWoods_Text_IgnesFigureItOut, MSGBOX_DEFAULT
 	waitfanfare
 	closemessage
-	applymovement 16, Ignes_Heads_To_Antiquity
+	applymovement 15, Ignes_Heads_To_Antiquity
 	waitmovement 0
-	removeobject 16
+	removeobject 15
 	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
 	releaseall
 	end
-	
+
+PetalburgWoods_EventScript_IgnesCheckFlag2::
+	goto_if_set FLAG_BADGE01_GET, PetalburgWoods_EventScript_IgnesFirstBattle2
+	release
+	end
+
+PetalburgWoods_EventScript_IgnesFirstBattle2::
+	addobject 15
+	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	setvar VAR_MEET_IGNES, 1
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement 15, Ignes_Moves_Towards_Player2
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Face_Ignes
+	waitmovement 0
+	msgbox PetalburgWoods_Text_IgnesNoticesYou, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_IGNES_PETALBURGWOODS, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_IgnesNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox PetalburgWoods_Text_IgnesFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	applymovement 15, Ignes_Heads_To_Antiquity2
+	waitmovement 0
+	removeobject 15
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+
 Ignes_Moves_Towards_Player:
 	walk_right
 	walk_right
@@ -542,9 +577,43 @@ Ignes_Moves_Towards_Player:
 	walk_down
 	walk_right
 	walk_right
+	walk_right
 	step_end
 
 Ignes_Heads_To_Antiquity:
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Ignes_Moves_Towards_Player2:
+	walk_right
+	walk_right
+	walk_down
+	walk_right
+	walk_right
+	walk_down
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	step_end
+
+Ignes_Heads_To_Antiquity2:
+	walk_down
+	walk_left
 	walk_down
 	walk_down
 	walk_down
@@ -561,6 +630,10 @@ Ignes_Heads_To_Antiquity:
 	walk_down
 	step_end
 
+Face_Ignes:
+	face_left
+	step_end
+	
 PetalburgWoods_Text_WilburnIntro:
 	.string "I heard this forest was good for camping.\p"
 	.string "Let's see if the same goes for battling.$"
@@ -613,9 +686,9 @@ PetalburgWoods_Text_RudolphPostBattle:
 
 PetalburgWoods_Text_IgnesNoticesYou:
 	.string "Ignes:Ohh look who it is.\n"
-	.string "I noticed you beat the first gym\l"
-	.string "so i was catching up to you to\p"
-	.string "battle you properly this time.\p"
+	.string "I noticed you beat the first gym so,\l"
+	.string "I was catching up to you to battle\p"
+	.string "you properly this time.\p"
 	.string "LET'S GO!!!$"
 
 PetalburgWoods_Text_NextTime:
@@ -629,13 +702,10 @@ PetalburgWoods_Text_IgnesNextCity:
 	.string "suggest you do the same thing.\p"
 	.string "I also ran into {RIVAL} earlier and\n"
 	.string "they wanted me to give you this.$"
-
-PetalburgWoods_Text_ReceivedExpShare:
-	.string "{PLAYER} received the Exp. Share.$"
 	
 PetalburgWoods_Text_IgnesFigureItOut:
 	.string "Ignes: You're smart.\n"
-	.string "You can  figure out how it works\l"
+	.string "You can figure out how it works\l"
 	.string "yourself.\p"
 	.string "I'm going ahead because I'm just.\n"
 	.string "Built uniquely.$"

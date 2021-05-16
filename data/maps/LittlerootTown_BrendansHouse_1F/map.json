@@ -118,7 +118,7 @@
       "x": 9,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_1",
+      "var": "VAR_GOOD_MORNING_RIVAL",
       "var_value": "0",
       "script": "StarterTown_RivalsHouse_1F_EventScript_FlagSet"
     },
@@ -127,7 +127,7 @@
       "x": 8,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_1",
+      "var": "VAR_GOOD_MORNING_RIVAL",
       "var_value": "0",
       "script": "StarterTown_RivalsHouse_1F_EventScript_FlagSet"
     },
@@ -136,7 +136,7 @@
       "x": 7,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_1",
+      "var": "VAR_GOOD_MORNING_RIVAL",
       "var_value": "0",
       "script": "StarterTown_RivalsHouse_1F_EventScript_FlagSet"
     },
@@ -145,7 +145,7 @@
       "x": 10,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_1",
+      "var": "VAR_GOOD_MORNING_RIVAL",
       "var_value": "0",
       "script": "StarterTown_RivalsHouse_1F_EventScript_FlagSet"
     }

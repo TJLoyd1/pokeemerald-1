@@ -90,6 +90,7 @@
 #define MAP_DEWFORD_TOWN_GYM               (3 | (3 << 8))
 #define MAP_DEWFORD_TOWN_HALL              (4 | (3 << 8))
 #define MAP_DEWFORD_TOWN_HOUSE2            (5 | (3 << 8))
+#define MAP_DEWFORD_TOWN_POKEMON_MART      (6 | (3 << 8))
 
 // Map Group 4
 #define MAP_LAVARIDGE_TOWN_HERB_SHOP         (0 | (4 << 8))
@@ -603,6 +604,7 @@
 #define MAP_ANTIQUITY_CITY_POKEMON_CENTER_1F       (1 | (33 << 8))
 #define MAP_ANTIQUITY_CITY_POKEMON_CENTER_2F       (2 | (33 << 8))
 #define MAP_ANTIQUITY_CITY_DEVELOPER_HOUSE         (3 | (33 << 8))
+#define MAP_ANTIQUITY_CITY_MART                    (4 | (33 << 8))
 
 #define MAP_GROUPS_COUNT 34
 

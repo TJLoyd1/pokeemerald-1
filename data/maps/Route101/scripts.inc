@@ -308,8 +308,7 @@ Route101_Text_RouteSign: @ 81EC0C8
 	.string "{UP_ARROW} Oldale Town$"
 
 Route101_Text_JohnnyIntro:
-	.string "Guess what kid!\n"
-	.string "..........\p"
+	.string "Guess what kid!\p"
 	.string "I'm your first ever trainer!$"
 	
 Route101_Text_JohnnyDefeated:

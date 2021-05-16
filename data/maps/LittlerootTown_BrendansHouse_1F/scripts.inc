@@ -496,7 +496,7 @@ StarterTown_RivalsHouse_1F_EventScript_GoodMorning::
 	msgbox StarterTown_RivalsHouse_1F_Text_Good_Morning, MSGBOX_DEFAULT
 	waitmovement 0
 	closemessage
-	setvar VAR_TEMP_1, 1
+	setvar VAR_GOOD_MORNING_RIVAL, 1
 	releaseall
 	end
 
@@ -506,7 +506,7 @@ StarterTown_MaleRivalsHouse_1F_EventScript_GoodMorning::
 	msgbox StarterTown_MaleRivalsHouse_1F_Text_Good_Morning, MSGBOX_DEFAULT
 	waitmovement 0
 	closemessage
-	setvar VAR_TEMP_1, 1
+	setvar VAR_GOOD_MORNING_RIVAL, 1
 	releaseall
 	end
 	

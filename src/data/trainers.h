@@ -3448,7 +3448,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_LEADER_ROXANNE,
+        .trainerPic = TRAINER_PIC_DANNY,
         .trainerName = _("Danny"),
         .items = {ITEM_POTION, ITEM_POTION, ITEM_POTION, ITEM_SUPER_POTION},
         .doubleBattle = FALSE,
@@ -7426,7 +7426,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_HIKER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_HIKER,
+        .trainerPic = TRAINER_PIC_POKEMANIAC,
         .trainerName = _("MARC"),
         .items = {},
         .doubleBattle = FALSE,
@@ -11235,12 +11235,12 @@ const struct Trainer gTrainers[] = {
 	[TRAINER_SHEENO] =
 	{
 		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
-		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
 		.trainerPic = TRAINER_PIC_SHEENO,
 		.trainerName = _("Sheeno"),
 		.items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
 		.doubleBattle = FALSE,
-		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_PREFER_BATON_PASS | AI_SCRIPT_HP_AWARE,
+		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_HP_AWARE,
 		.partySize = ARRAY_COUNT  (sParty_Sheeno),
 		.party = {.TrainerMon = sParty_Sheeno},
 	},
@@ -11253,7 +11253,7 @@ const struct Trainer gTrainers[] = {
 		.trainerName = _("Abzol"),
 		.items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
 		.doubleBattle = FALSE,
-		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_PREFER_BATON_PASS | AI_SCRIPT_HP_AWARE,
+		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_HP_AWARE,
 		.partySize = ARRAY_COUNT  (sParty_Abzol),
 		.party = {.TrainerMon = sParty_Abzol},
 	},
@@ -11266,7 +11266,7 @@ const struct Trainer gTrainers[] = {
 		.trainerName = _("Godspeed"),
 		.items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
 		.doubleBattle = FALSE,
-		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_HP_AWARE,
+		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE,
 		.partySize = ARRAY_COUNT  (sParty_Godspeed),
 		.party = {.TrainerMon = sParty_Godspeed},
 	},
@@ -11308,5 +11308,109 @@ const struct Trainer gTrainers[] = {
 		.aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_HP_AWARE,
 		.partySize = ARRAY_COUNT  (sParty_Lloyd),
 		.party = {.TrainerMon = sParty_Lloyd},
+	},
+	
+	[TRAINER_RUSTBOROCITY_ROXANNE] =
+	{
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_LEADER_ROXANNE,
+        .trainerName = _("Roxanne"),
+        .items = {ITEM_POTION, ITEM_POTION, ITEM_POTION, ITEM_SUPER_POTION},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_SETUP_FIRST_TURN | AI_SCRIPT_PREFER_BATON_PASS | AI_SCRIPT_HP_AWARE,
+        .partySize = ARRAY_COUNT(sParty_RustboroCityRoxanne),
+        .party = {.TrainerMon = sParty_RustboroCityRoxanne},
+    },
+	
+	[TRAINER_YOSHI] =
+	{
+		.trainerClass = TRAINER_CLASS_CAMPER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_CAMPER,
+		.trainerName = _("Yoshi"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Yoshi),
+		.party = {.TrainerMon = sParty_Yoshi},
+	},
+	
+	[TRAINER_NATALIA] =
+	{
+		.trainerClass = TRAINER_CLASS_PICNICKER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+		.trainerPic = TRAINER_PIC_PICNICKER,
+		.trainerName = _("Natalia"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Natalia),
+		.party = {.TrainerMon = sParty_Natalia},
+	},
+	
+	[TRAINER_KENITH] =
+	{
+		.trainerClass = TRAINER_CLASS_YOUNGSTER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+		.trainerPic = TRAINER_PIC_YOUNGSTER,
+		.trainerName = _("Kenith"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Kenith),
+		.party = {.TrainerMon = sParty_Kenith},
+	},
+	
+	[TRAINER_SANDFORD] =
+	{
+		.trainerClass = TRAINER_CLASS_HIKER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+		.trainerPic = TRAINER_PIC_HIKER,
+		.trainerName = _("Sandford"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Sandford),
+		.party = {.TrainerMon = sParty_Sandford},
+	},
+	
+	[TRAINER_STELLA] =
+	{
+		.trainerClass = TRAINER_CLASS_LASS,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
+		.trainerPic = TRAINER_PIC_LASS,
+		.trainerName = _("Stella"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Stella),
+		.party = {.TrainerMon = sParty_Stella},
+	},
+	
+	[TRAINER_ANIYAH] =
+	{
+		.trainerClass = TRAINER_CLASS_BUG_CATCHER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
+		.trainerPic = TRAINER_PIC_FEMALE_BUG_CATCHER,
+		.trainerName = _("Aniyah"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Aniyah),
+		.party = {.TrainerMon = sParty_Aniyah},
+	},
+	
+	[TRAINER_WOLFE] =
+	{
+		.trainerClass = TRAINER_CLASS_RUIN_MANIAC,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+		.trainerPic = TRAINER_PIC_RUIN_MANIAC,
+		.trainerName = _("Wolfe"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Wolfe),
+		.party = {.TrainerMon = sParty_Wolfe},
 	},
 };

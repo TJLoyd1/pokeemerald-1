@@ -1320,3 +1320,118 @@ RustboroCity_Text_YouCanHave2On2Battle: @ 81E249D
 	.string "they'll both challenge you.\p"
 	.string "Don't you think it'd be cool if you\n"
 	.string "could beat two TRAINERS by yourself?$"
+
+RustboroCity_EventScript_BattleRoxanne::
+	lockall
+	applymovement 20, Common_Movement_ExclamationMark
+	waitmovement 0
+	faceplayer
+	msgbox RustboroCity_Text_RoxannesCity, MSGBOX_DEFAULT
+	closemessage
+	goto_if_set FLAG_BADGE01_GET, RustboroCity_EventScript_RoxanneLetsBattle,
+	msgbox RustboroCity_Text_No1stBadgeYetRoxanne, MSGBOX_DEFAULT
+	closemessage
+	applymovement 20, Common_Movement_FaceLeft
+	waitmovement 0
+	releaseall
+	end
+
+RustboroCity_EventScript_RoxanneLetsBattle::
+	msgbox RustboroCity_Text_1stBadgeRoxanne, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_RUSTBOROCITY_ROXANNE, RustboroCity_Text_RoxanneDefeat
+	goto RustboroCity_EventScript_RoxanneLeaves
+	end
+
+RustboroCity_EventScript_RoxanneLeaves::
+	msgbox RustboroCity_Text_RoxanneEnjoysTheBattle, MSGBOX_DEFAULT
+	closemessage
+	applymovement 20, Common_Movement_FaceLeft
+	waitmovement 0
+	releaseall
+	end
+
+RustboroCity_EventScript_CuteCouple::
+	lock
+	msgbox RustboroCity_Text_CuteCouple, MSGBOX_DEFAULT
+	closemessage
+	applymovement 18, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox RustboroCity_Text_CuteCoupleThinksYoureWeird, MSGBOX_NPC
+	closemessage
+	applymovement 17, Common_Movement_FaceLeft
+	applymovement 18, Common_Movement_FaceRight
+	waitmovement 0
+	release
+	end
+
+RustboroCity_EventScript_Zigzagoon::
+	lock
+	playmoncry SPECIES_ZIGZAGOON, 2 
+	closemessage
+	applymovement 19, Zigzagoon_Jumps_In_Excitement
+	msgbox RustboroCity_Text_PlayfulZigzagoon, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Zigzagoon_Jumps_In_Excitement:
+	jump_in_place_left
+	jump_in_place_left
+	jump_in_place_right
+	jump_in_place_right
+	jump_in_place_down
+	jump_in_place_up
+	face_player
+	step_end
+
+RustboroCity_Text_RoxannesCity:
+	.string "Oh, Hello there.\p"
+	.string "I'm Roxanne, former gym leader of this\n"
+	.string "beautiful and prospering town.\p"
+	.string "I left because I wanted to expand my\n"
+	.string "horizons a bit and I decided to visit\l"
+	.string	"while exploring.\p"
+	.string "Hmmm What's that?\p"
+	.string "You want to battle?\p"
+	.string "Sure, but only if you already have\n"
+	.string "the first gym badge.$"
+
+RustboroCity_Text_No1stBadgeYetRoxanne:
+	.string "Sorry.\n"
+	.string "You don't have your first gym badge yet.\p"
+	.string "Come back when you receive it.\n"
+	.string "I'll be here waiting.$"
+
+RustboroCity_Text_1stBadgeRoxanne:
+	.string "I see that you're ready.\n"
+	.string "Would you kindly demonstrate how you\l"
+	.string "battle, and with which Pokémon?$"
+
+RustboroCity_Text_RoxanneDefeat:
+	.string "So…\n"
+	.string "I lost…\p"
+	.string "It seems that I still have much more\n"
+	.string "to learn…\p"
+	.string "I understand.$"
+
+RustboroCity_Text_RoxanneEnjoysTheBattle:
+	.string "Since you are so strong, you should\n"
+	.string "challenge the other Ex-Gym Leaders.\p"
+	.string "I enjoyed our battle but I think it's\n"
+	.string "time you left.\p"
+	.string "Goodbye {PLAYER}, I'll see you later.$"
+
+RustboroCity_Text_CuteCouple:
+	.string "MAN: You're so pretty honey.\p"
+	.string "WOMAN: And you're so handsome baby.$"
+
+RustboroCity_Text_CuteCoupleThinksYoureWeird:
+	.string "MAN: Are you listening and watching us!?\n"
+	.string "You're such a goddamn weirdo.$"
+
+RustboroCity_Text_PlayfulZigzagoon:
+	.string "Zigzagoon seems to be in a very\n"
+	.string "playful mood.$"
+	
+	

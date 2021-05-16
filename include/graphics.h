@@ -6637,6 +6637,8 @@ extern const u32 gTrainerFrontPic_Godspeed[];
 extern const u32 gTrainerFrontPic_Mugen[];
 extern const u32 gTrainerFrontPic_Jah[];
 extern const u32 gTrainerFrontPic_Lloyd[];
+extern const u32 gTrainerFrontPic_FemaleBugCatcher[];
+extern const u32 gTrainerFrontPic_Danny[];
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -6738,6 +6740,8 @@ extern const u32 gTrainerPalette_Godspeed[];
 extern const u32 gTrainerPalette_Mugen[];
 extern const u32 gTrainerPalette_Jah[];
 extern const u32 gTrainerPalette_Lloyd[];
+extern const u32 gTrainerPalette_Danny[];
+extern const u32 gTrainerPalette_FemaleBugCatcher[];
 
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];

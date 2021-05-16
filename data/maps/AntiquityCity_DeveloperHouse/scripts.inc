@@ -45,7 +45,7 @@ AntiquityCity_DeveloperHouse_Text_JahPostBattle:
 
 AntiquityCity_DeveloperHouse_Text_JahDefeat:
 	.string "Jah: I'm going to assume you chose\n"
-	.string "death instead of sacrificing your Pokémon...$"
+	.string "death instead of sacrificing yourself...$"
 
 AntiquityCity_DeveloperHouse_Text_AbzolIntro:
 	.string "Abzol: Let's go!$"

@@ -398,8 +398,82 @@ StarterTown_MaleRivalsHouse_2F_EventScript_Commotion::
 	releaseall
 	end
 
+StarterTown_RivalsHouse_2F_EventScript_OnSetSouth::
+	setvar VAR_BIG_COMMOTION, 1
+	goto_if_set FLAG_GOOD_MORNING, StarterTown_RivalsHouse_2F_EventScript_CommotionSouth
+	end
+
+StarterTown_RivalsHouse_2F_EventScript_CommotionSouth::
+	lockall
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq StarterTown_MaleRivalsHouse_2F_EventScript_CommotionSouth
+	addobject 2
+	removeobject 3
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
+	applymovement 2, Common_Movement_ExclamationMark
+	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	waitmovement 0
+	applymovement 2, FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerFaceLeft
+	waitmovement 0
+	msgbox StarterTown_RivalsHouse_2F_Text_RivalHey, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Headed_Towards_PC_With_RivalSouth
+	waitmovement 0
+	msgbox StarterTown_RivalsHouse_2F_Text_RivalMentionsProf, MSGBOX_DEFAULT
+	closemessage
+	msgbox StarterTown_RivalsHouse_2F_Text_MomYells
+	playbgm MUS_HELP, 1
+	applymovement 2, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox StarterTown_RivalsHouse_2F_Text_Curiousity, MSGBOX_DEFAULT
+	applymovement 2, Rival_Moves_Towards_Stairs
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Moves_Towards_Stairs
+	waitmovement 0
+	setvar VAR_DOWNSTAIRS_DANGER, 1
+	setflag FLAG_DOWNSTAIRS_DANGER
+	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
+	waitstate
+	releaseall
+	end
+
+StarterTown_MaleRivalsHouse_2F_EventScript_CommotionSouth::
+	applymovement 3, Common_Movement_ExclamationMark
+	playbgm MUS_ENCOUNTER_MAY, 1
+	waitmovement 0
+	applymovement 3, FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerFaceLeft
+	waitmovement 0
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHey, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Headed_Towards_PC_With_RivalSouth
+	waitmovement 0
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProf, MSGBOX_DEFAULT
+	closemessage
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_MomYells
+	playbgm MUS_HELP, 1
+	applymovement 3, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_Curiousity, MSGBOX_DEFAULT
+	applymovement 3, Rival_Moves_Towards_Stairs
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Moves_Towards_Stairs
+	waitmovement 0
+	setvar VAR_DOWNSTAIRS_DANGER, 1
+	setflag FLAG_DOWNSTAIRS_DANGER
+	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
+	waitstate
+	releaseall
+	end
+	
 FaceRight:
 	face_right
+	step_end
+
+PlayerFaceLeft:
+	face_left
 	step_end
 
 Headed_Towards_PC_With_Rival:
@@ -410,6 +484,18 @@ Headed_Towards_PC_With_Rival:
 	walk_left
 	walk_left
 	step_end
+
+Headed_Towards_PC_With_RivalSouth:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_left
+	step_end
+
 
 Rival_Moves_Towards_Stairs:
 	walk_fast_down

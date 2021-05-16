@@ -72,6 +72,15 @@
       "var": "VAR_BIG_COMMOTION",
       "var_value": "0",
       "script": "StarterTown_RivalsHouse_2F_EventScript_OnSet"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_BIG_COMMOTION",
+      "var_value": "0",
+      "script": "StarterTown_RivalsHouse_2F_EventScript_OnSetSouth"
     }
   ],
   "bg_events": [

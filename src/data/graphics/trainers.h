@@ -309,3 +309,9 @@ const u32 gTrainerPalette_Jah[] = INCBIN_U32("graphics/trainers/palettes/jah.gba
 
 const u32 gTrainerFrontPic_Lloyd[] = INCBIN_U32("graphics/trainers/front_pics/lloyd_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Lloyd[] = INCBIN_U32("graphics/trainers/palettes/lloyd.gbapal.lz");
+
+const u32 gTrainerFrontPic_FemaleBugCatcher[] = INCBIN_U32("graphics/trainers/front_pics/female_bug_catcher_front_pic.4bpp.lz");
+const u32 gTrainerPalette_FemaleBugCatcher[] = INCBIN_U32("graphics/trainers/palettes/female_bug_catcher.gbapal.lz");
+
+const u32 gTrainerFrontPic_Danny[] = INCBIN_U32("graphics/trainers/front_pics/danny_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Danny[] = INCBIN_U32("graphics/trainers/palettes/danny.gbapal.lz");

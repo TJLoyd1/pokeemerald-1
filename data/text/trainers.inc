@@ -4779,3 +4779,80 @@ Route134_Text_HudsonPostBattle: @ 82A4AD8
 	.string "Our boat drifted out to sea.\p"
 	.string "My buddy's a timid fellow, so I'm\n"
 	.string "worried about him.$"
+
+Route13_Text_YoshiIntro:
+	.string "Listen, have you seen me battle\n"
+	.string "before?$"
+
+Route13_Text_YoshiDefeat:
+	.string "Now, that's something!$"
+
+Route13_Text_YoshiPostBattle:
+	.string "I don't even know why I'm here.\p"
+	.string "My buddy is no where to be\n"
+	.string "found and I'm tired of waiting.$"
+
+Route13_Text_NataliaIntro:
+	.string "That boy is kinda cute.\n"
+	.string "Maybe I should talk to him.$"
+
+Route13_Text_NataliaDefeat:
+	.string "I changed my mind!$"
+
+Route13_Text_NataliaPostBattle:
+	.string "He sucks at battling.\p"
+	.string "There's no way I would date someone\n"
+	.string "so bad at POKéMON battles.$"
+
+Route13_Text_KenithIntro:
+	.string "Because our names aren't similar no\n"
+	.string "one believes I'm related to YOUNGSTER\l"
+	.string "Joey.$"
+
+Route13_Text_KenithDefeat:
+	.string "I'm telling you the truth!$"
+
+Route13_Text_KenithPostBattle:
+	.string "You don't believe me either?\p"
+	.string "Of course you don't.$"
+
+Route13_Text_SandfordIntro:
+	.string "I'm glad we no longer have to cross the\n"
+	.string "sea to get to DEWFORD TOWN anymore.$"
+
+Route13_Text_SandfordDefeat:
+	.string "No Moorrree FORTNITE!$"
+
+Route13_Text_SandfordPostBattle:
+	.string "Antiquity City was at first just surrounded\n"
+	.string "by trees with no clear path.$"
+
+Route13_Text_StellaIntro:
+	.string "There's this cute boy by PETALBURG WOODS.\n"
+	.string "I caught him staring before.$"
+
+Route13_Text_StellaDefeat:
+	.string "I'm going to talk to him.$"
+
+Route13_Text_StellaPostBattle:
+	.string "He's actually really sweet.$"
+
+Route13_Text_AniyahIntro:
+	.string "Bug Pokemon are so cute!$"
+
+Route13_Text_AniyahDefeat:
+	.string "Not my bugs!$"
+
+Route13_Text_AniyahPostBattle:
+	.string "I'm going to become the best BUG\n"
+	.string "CATCHER around.$"
+
+Route13_Text_WolfeIntro:
+	.string "I'm going to show you why they call\n"
+	.string "me, The Almighty Wolfe!$"
+
+Route13_Text_WolfeDefeat:
+	.string "My Lycanroc Lost!$"
+
+Route13_Text_WolfePostBattle:
+	.string "I still can't believe I lost.$"

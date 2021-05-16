@@ -649,18 +649,18 @@ DewfordTown_EventScript_PhraseNotTrendyEnough:: @ 81E999E
 	end
 
 DewfordTown_Text_TinyIslandCommunity: @ 81E99A8
-	.string "DEWFORD is a tiny island community.\n"
+	.string "DEWFORD is a tiny desert community.\n"
 	.string "If something gets trendy here,\l"
 	.string "everyone picks up on it right away.$"
 
 DewfordTown_Text_TownSign: @ 81E9A0F
 	.string "DEWFORD TOWN\n"
-	.string "“A tiny island in the blue sea.”$"
+	.string "“A tiny town in the sandy desert.”$"
 
 DewfordTown_Text_GymSign: @ 81E9A3D
 	.string "DEWFORD TOWN POKéMON GYM\n"
-	.string "LEADER: BRAWLY\l"
-	.string "“A big wave in fighting!”$"
+	.string "LEADER: THERA\l"
+	.string "“A great digger in expedition”$"
 
 DewfordTown_Text_HallSign: @ 81E9A7F
 	.string "DEWFORD HALL\n"

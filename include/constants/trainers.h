@@ -114,9 +114,11 @@
 #define TRAINER_PIC_SHEENO				  94
 #define TRAINER_PIC_ABZOL				  95
 #define TRAINER_PIC_GODSPEED			  96
-#define TRAINER_PIC_MUGEN				  97
-#define TRAINER_PIC_JAH					  98
+#define TRAINER_PIC_MUGEN    			  97
+#define TRAINER_PIC_JAH     			  98
 #define TRAINER_PIC_LLOYD			      99
+#define TRAINER_PIC_FEMALE_BUG_CATCHER	 100
+#define TRAINER_PIC_DANNY				 101
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

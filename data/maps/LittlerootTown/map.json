@@ -61,8 +61,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MOM",
-      "x": 5,
-      "y": 8,
+      "x": 11,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -314,6 +314,42 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "LittlerootTown_EventScript_Rivals_Mom"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_RECEIVED_SHINY_CHARM",
+      "var_value": "0",
+      "script": "LittlerootTown_EventScript_GotoShinyCharm"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_RECEIVED_SHINY_CHARM",
+      "var_value": "0",
+      "script": "LittlerootTown_EventScript_GotoShinyCharm2"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var_value": "0",
+      "script": "LittlerootTown_EventScript_NeedPokemonTriggerLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var_value": "0",
+      "script": "LittlerootTown_EventScript_NeedPokemonTriggerRight"
     }
   ],
   "bg_events": [

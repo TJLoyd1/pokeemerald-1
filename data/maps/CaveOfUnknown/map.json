@@ -22,7 +22,97 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 2,
+      "x": 6,
+      "y": 36,
+      "elevation": 0,
+      "var": "VAR_UNKNOWNCAVE",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 28,
+      "elevation": 0,
+      "var": "VAR_NAME_CALLED_TWICE",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript_HearingThingsAgain"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_NAME_CALLED_TWICE",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript_HearingThingsAgain"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_NAME_CALLED_TWICE",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript_HearingThingsAgain"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_AWOKEN_FROM_DREAM",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript_HeadedHome"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_AWOKEN_FROM_DREAM",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript_HeadedHome"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_AWOKEN_FROM_DREAM",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript_HeadedHome"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_NAME_CALLED_ONCE",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript_HearingThings"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_NAME_CALLED_ONCE",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript_HearingThings"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_NAME_CALLED_ONCE",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript_HearingThings"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
       "y": 34,
       "elevation": 0,
       "var": "VAR_UNKNOWNCAVE",
@@ -31,89 +121,8 @@
     },
     {
       "type": "trigger",
-      "x": 4,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_NAME_CALLED_TWICE",
-      "var_value": "0",
-      "script": "CaveofUnknown_EventScript_HearingThingsAgain"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_NAME_CALLED_TWICE",
-      "var_value": "0",
-      "script": "CaveofUnknown_EventScript_HearingThingsAgain"
-    },
-    {
-      "type": "trigger",
-      "x": 2,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_NAME_CALLED_TWICE",
-      "var_value": "0",
-      "script": "CaveofUnknown_EventScript_HearingThingsAgain"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_AWOKEN_FROM_DREAM",
-      "var_value": "0",
-      "script": "CaveofUnknown_EventScript_HeadedHome"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_AWOKEN_FROM_DREAM",
-      "var_value": "0",
-      "script": "CaveofUnknown_EventScript_HeadedHome"
-    },
-    {
-      "type": "trigger",
-      "x": 2,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_AWOKEN_FROM_DREAM",
-      "var_value": "0",
-      "script": "CaveofUnknown_EventScript_HeadedHome"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 28,
-      "elevation": 0,
-      "var": "VAR_NAME_CALLED_ONCE",
-      "var_value": "0",
-      "script": "CaveofUnknown_EventScript_HearingThings"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 28,
-      "elevation": 0,
-      "var": "VAR_NAME_CALLED_ONCE",
-      "var_value": "0",
-      "script": "CaveofUnknown_EventScript_HearingThings"
-    },
-    {
-      "type": "trigger",
-      "x": 2,
-      "y": 28,
-      "elevation": 0,
-      "var": "VAR_NAME_CALLED_ONCE",
-      "var_value": "0",
-      "script": "CaveofUnknown_EventScript_HearingThings"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 34,
+      "x": 6,
+      "y": 35,
       "elevation": 0,
       "var": "VAR_UNKNOWNCAVE",
       "var_value": "0",
@@ -121,8 +130,26 @@
     },
     {
       "type": "trigger",
-      "x": 3,
-      "y": 34,
+      "x": 6,
+      "y": 39,
+      "elevation": 0,
+      "var": "VAR_UNKNOWNCAVE",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_UNKNOWNCAVE",
+      "var_value": "0",
+      "script": "CaveofUnknown_EventScript"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 37,
       "elevation": 0,
       "var": "VAR_UNKNOWNCAVE",
       "var_value": "0",

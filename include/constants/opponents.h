@@ -871,12 +871,20 @@
 #define TRAINER_MUGEN						867
 #define TRAINER_JAH							868
 #define TRAINER_LLOYD						869
+#define TRAINER_RUSTBOROCITY_ROXANNE        870
+#define TRAINER_YOSHI						871
+#define TRAINER_NATALIA						872
+#define TRAINER_KENITH						873
+#define TRAINER_SANDFORD					874
+#define TRAINER_STELLA						875
+#define TRAINER_ANIYAH						876
+#define TRAINER_WOLFE						877
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      870
+#define TRAINERS_COUNT                      878
 #define MAX_TRAINERS_COUNT                  900
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

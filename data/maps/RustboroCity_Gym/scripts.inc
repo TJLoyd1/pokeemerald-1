@@ -28,7 +28,7 @@ RustboroCity_Gym_EventScript_RoxanneDefeated:: @ 8212F66
 	end
 
 RustboroCity_Gym_EventScript_GiveRockTomb:: @ 8212FA4
-	giveitem ITEM_TM39
+	giveitem ITEM_TM01
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM39
@@ -179,13 +179,14 @@ RustboroCity_Gym_Text_MarcPostBattle: @ 82135C0
 	.string "pick the Normal type at his young age.$"
 
 RustboroCity_Gym_Text_RoxanneIntro: @ 821362A
-	.string "Hello, I am Danny, your neighborhood\n"
-	.string "Pokémon Gym Leader.\p"
-	.string "I became a Gym Leader so that I might\n"
-	.string "apply what I learned at the Pokémon\l"
-	.string "Trainer's School in battle.\p"
-	.string "Would you kindly demonstrate how you\n"
-	.string "battle, and with which Pokémon?$"
+	.string "Hello, I am Danny, your Friendly\n"
+	.string "Neighborhood Pokémon Gym Leader.\p"
+	.string "I became a Gym Leader so that I can\n"
+	.string "do what Whitney did to those in\l"
+	.string "the past with her Pokémon.\p"
+	.string "Would you like me to show you how\n"
+	.string "scary that battle was but with\l"
+	.string "my Pokémon instead?$"
 
 RustboroCity_Gym_Text_RoxanneDefeat: @ 821370B
 	.string "So…\n"
@@ -204,21 +205,22 @@ RustboroCity_Gym_Text_ReceivedStoneBadge: @ 82137EC
 	.string "from Danny.$"
 
 RustboroCity_Gym_Text_StoneBadgeInfoTakeThis: @ 8213816
-	.string "The Stone Badge heightens the Attack\n"
+	.string "The Basic Badge heightens the Attack\n"
 	.string "power of your Pokémon.\p"
 	.string "It also enables them to use the HM move\n"
 	.string "CUT outside of battle.\p"
 	.string "Please take this with you, too.$"
 
 RustboroCity_Gym_Text_ExplainRockTomb: @ 82138B1
-	.string "That Technical Machine, TM39,\n"
-	.string "contains Swift.\p"
-	.string "It not only inflicts damage by throwing\n"
-	.string "starts, it also never misses.\p"
+	.string "That Technical Machine, TM01,\n"
+	.string "contains Work Up.\p"
+	.string "The Pokémon using it is roused which\n"
+	.string "causes its Attack and Sp. Atk stat to\l"
+	.string "increase.\p"
 	.string "If you use a TM, it instantly teaches\n"
 	.string "the move to a POKéMON.\p"
-	.string "Remember, a TM can be used infinitely,\n"
-	.string "so think before you use it.$"
+	.string "Remember, a TM can be used indefinitely,\n"
+	.string "so go wild with teaching your Pokémon.$"
 
 RustboroCity_Gym_Text_RoxannePostBattle: @ 82139A7
 	.string "Since you are so strong, you should\n"
@@ -231,15 +233,15 @@ RustboroCity_Gym_Text_GymStatue: @ 8213A21
 
 RustboroCity_Gym_Text_GymStatueCertified: @ 8213A3B
 	.string "RUSTBORO CITY POKéMON GYM\p"
-	.string "ROXANNE'S CERTIFIED TRAINERS:\n"
+	.string "DANNY'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
 
 RustboroCity_Gym_Text_RoxanneRegisterCall: @ 8213A76
 	.string "… … … … … …\n"
 	.string "… … … … … Beep!\p"
-	.string "ROXANNE: Oh, hello, {PLAYER}?\n"
-	.string "This is ROXANNE of RUSTBORO CITY.\p"
-	.string "I heard from BRAWLY that you're\n"
+	.string "DANNY: Oh, hello, {PLAYER}?\n"
+	.string "This is DANNY of RUSTBORO CITY.\p"
+	.string "I heard from THERA that you're\n"
 	.string "moving up through the ranks of\l"
 	.string "TRAINERS at an incredible clip.\p"
 	.string "Well, I'd rather not think that\n"
@@ -252,7 +254,7 @@ RustboroCity_Gym_Text_RoxanneRegisterCall: @ 8213A76
 	.string "… … … … … Click!$"
 
 RustboroCity_Gym_Text_RegisteredRoxanne: @ 8213C01
-	.string "Registered GYM LEADER ROXANNE\n"
+	.string "Registered GYM LEADER DANNY\n"
 	.string "in the POKéNAV.$"
 
 RustboroCity_Gym_Text_RoxannePreRematch: @ 8213C2F

@@ -49,10 +49,10 @@ DewfordTown_House2_Text_ExplainSilkScarf: @ 81FE3D1
 	.string "with almost all POKéMON!$"
 
 DewfordTown_House2_Text_BrawlySoCool: @ 81FE444
-	.string "Wow, you bothered to cross the sea\n"
+	.string "Wow, you bothered to cross the desert\n"
 	.string "to visit DEWFORD?\p"
 	.string "Did you maybe come here because you\n"
-	.string "heard about BRAWLY?\p"
-	.string "He's so cool…\n"
-	.string "Everyone idolizes him.$"
+	.string "heard about THERA?\p"
+	.string "She's so cool…\n"
+	.string "Everyone idolizes her.$"
 
