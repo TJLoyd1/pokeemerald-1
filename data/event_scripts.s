@@ -786,21 +786,6 @@ RusturfTunnel_EventScript_SetRusturfTunnelOpen:: @ 8272216
 	setflag FLAG_RUSTURF_TUNNEL_OPENED
 	return
 
-EventScript_UnusedBoardFerry:: @ 827222B
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
-	waitmovement 0
-	showobjectat OBJ_EVENT_ID_PLAYER, 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_UnusedBoardFerry
-	waitmovement 0
-	delay 30
-	return
-
-Movement_UnusedBoardFerry: @ 827224E
-	walk_up
-	step_end
-
 Common_EventScript_FerryDepartIsland:: @ 8272250
 	compare VAR_FACING, DIR_SOUTH
 	call_if_eq Ferry_EventScript_DepartIslandSouth
@@ -879,10 +864,6 @@ gText_PlayerHouseBootPC:: @ 8272D87
 gText_PokeblockLinkCanceled:: @ 8272D9C
 	.string "The link was canceled.$"
 
-gText_UnusedNicknameReceivedPokemon:: @ 8272DB3
-	.string "Want to give a nickname to\n"
-	.string "the {STR_VAR_2} you received?$"
-
 gText_PlayerWhitedOut:: @ 8272DE3
 	.string "{PLAYER} is out of usable\n"
 	.string "POKéMON!\p{PLAYER} whited out!$"
@@ -927,16 +908,6 @@ gText_UndergoingAdjustments:: @ 82730BC
 	.string "It appears to be undergoing\n"
 	.string "adjustments…$"
 
-@ Unused
-gText_SorryTradeCenterInspections:: @ 82730E5
-	.string "I'm terribly sorry. The TRADE CENTER\n"
-	.string "is undergoing inspections.$"
-
-@ Unused
-gText_SorryRecordCornerPreparation:: @ 8273125
-	.string "I'm terribly sorry. The RECORD CORNER\n"
-	.string "is under preparation.$"
-
 gText_PlayerHandedOverTheItem:: @ 8273161
 	.string "{PLAYER} handed over the\n"
 	.string "{STR_VAR_1}.$"
@@ -970,18 +941,83 @@ EventScript_SelectWithoutRegisteredItem:: @ 82736B3
 Common_EventScript_NopReturn:: @ 827374E
 	return
 
-@ Unused
-EventScript_CableClub_SetVarResult1:: @ 827374F
-	setvar VAR_RESULT, 1
-	return
-
 EventScript_CableClub_SetVarResult0:: @ 8273755
 	setvar VAR_RESULT, 0
 	return
 
-Common_EventScript_UnionRoomAttendant:: @ 827375B
-	call CableClub_EventScript_UnionRoomAttendant
+EventScript_WonderTradeManager::
+	lock
+	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_WirelessClubAdjustements
+	goto_if_unset FLAG_BADGE02_GET, EventScript_WonderTradeManager_Adjustements
+	goto_if_set FLAG_WONDER_TRADE_EXPLAINED, EventScript_WonderTradeManager_MovingOnPreamble
+	msgbox EventScript_WonderTradeManager_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq EventScript_PerformWonderTrade
+	msgbox EventScript_WonderTradeManager_Text_3
+	setflag FLAG_WONDER_TRADE_EXPLAINED
+	goto EventScript_WonderTradeManager_MovingOn
+
+EventScript_WonderTradeManager_Adjustements:
+	msgbox EventScript_WonderTradeManager_Text_Adjustments
+	release
 	end
+
+EventScript_WonderTradeManager_MovingOnPreamble:
+	msgbox EventScript_WonderTradeManager_Text_4
+EventScript_WonderTradeManager_MovingOn:
+	msgbox EventScript_WonderTradeManager_Text_5, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq EventScript_PerformWonderTrade_
+	msgbox EventScript_WonderTradeManager_Text_6
+	release
+	end
+
+EventScript_PerformWonderTrade:
+	msgbox EventScript_WonderTradeManager_Text_2
+EventScript_PerformWonderTrade_:
+	msgbox EventScript_WonderTradeManager_Text_7
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_SIZE
+	goto_if_ge EventScript_WonderTradeEnd
+	copyvar VAR_0x8005, VAR_0x8004
+	special CreateWonderTradePokemon
+	special DoInGameTradeScene
+	waitstate
+	msgbox EventScript_DoWonderTrade_Text_WannaPerformAnotherWonderTrade, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq EventScript_PerformWonderTrade_
+EventScript_WonderTradeEnd:
+	msgbox EventScript_WonderTradeManager_Text_6
+	release
+	end
+
+EventScript_WonderTradeManager_Text_Adjustments:
+	.string "I am terribly sorry, but the WONDER\nCORNER is currently unavailable.\pPlease come back later.$"
+
+EventScript_WonderTradeManager_Text_1:
+	.string "Welcome to the POKéMON WIRELESS\nCLUB's WONDER CORNER.\pHere you can partake in\na WONDER TRADE.\pDo you want me to explain\nmore about it?$"
+
+EventScript_WonderTradeManager_Text_2:
+	.string "Oh, I see.\nAlright then.$"
+
+EventScript_WonderTradeManager_Text_3:
+	.string "You will be asked to put up a\pPokémon of your choice.\pIn return, you will get a Pokémon\nfrom another player.\nThis process is done anonymously.\pIn other words, you can't tell what\nsort of POKéMON you will receive.\pThis is what is called a WONDER TRADE.$"
+
+EventScript_WonderTradeManager_Text_4:
+	.string "Hello there, {PLAYER}!$"
+
+EventScript_WonderTradeManager_Text_5:
+	.string "Do you want to perform a\nWONDER TRADE?$"
+
+EventScript_WonderTradeManager_Text_6:
+	.string "Come back anytime!$"
+
+EventScript_WonderTradeManager_Text_7:
+	.string "Please select a POKéMON.$"
+
+EventScript_DoWonderTrade_Text_WannaPerformAnotherWonderTrade:
+	.string "Do you want to perform\nanother WONDER TRADE?$"
 
 Common_EventScript_WirelessClubAttendant:: @ 8273761
 	call CableClub_EventScript_WirelessClubAttendant
