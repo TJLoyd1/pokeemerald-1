@@ -2082,11 +2082,11 @@ static void DebugAction_Give_Pokemon_SelectAbility(u8 taskId)
     u8 abilityId;
     u8 abilityCount = 0;
     if (gBaseStats[sDebugMonData->mon_speciesId].abilities[1] != ABILITY_NONE)
-        abilityCount++;
-    #ifdef POKEMON_EXPANSION
-        if (gBaseStats[sDebugMonData->mon_speciesId].abilityHidden != ABILITY_NONE)
-            abilityCount++;
-    #endif
+        abilityCount += 1;
+#ifdef POKEMON_EXPANSION
+    if (gBaseStats[sDebugMonData->mon_speciesId].abilityHidden != ABILITY_NONE)
+        abilityCount += 2;
+#endif
     if (gMain.newKeys & DPAD_ANY)
     {
         PlaySE(SE_SELECT);
