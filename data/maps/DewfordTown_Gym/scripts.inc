@@ -181,7 +181,7 @@ DewfordTown_Gym_EventScript_BrawlyDefeated:: @ 81FC7F7
 	end
 
 DewfordTown_Gym_EventScript_GiveBulkUp:: @ 81FC855
-	giveitem ITEM_TM08
+	giveitem ITEM_TM78
 	compare VAR_RESULT, 0
 	goto_if_eq Common_EventScript_BagIsFull
 	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
@@ -189,7 +189,7 @@ DewfordTown_Gym_EventScript_GiveBulkUp:: @ 81FC855
 	return
 
 DewfordTown_Gym_EventScript_GiveBulkUp2: @ 81FC878
-	giveitem ITEM_TM08
+	giveitem ITEM_TM78
 	compare VAR_RESULT, 0
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
@@ -300,15 +300,15 @@ DewfordTown_Gym_EventScript_GymStatue:: @ 81FC9CC
 DewfordTown_Gym_Text_GymGuideAdvice: @ 81FC9D6
 	.string "Hey, how's it going, CHAMPION-\n"
 	.string "bound {PLAYER}?\p"
-	.string "DEWFORD's GYM LEADER BRAWLY commands\n"
-	.string "FIGHTING-type POKéMON.\p"
-	.string "Going against him with NORMAL-type\n"
+	.string "DEWFORD's GYM LEADER THERA commands\n"
+	.string "GROUND-type POKéMON.\p"
+	.string "Going against him with STEEL-type\n"
 	.string "POKéMON is asking for trouble.\p"
-	.string "FIGHTING POKéMON will lay a serious\n"
-	.string "smack down on NORMAL POKéMON,\l"
+	.string "GROUND POKéMON will lay a serious\n"
+	.string "smack down on STEEL POKéMON,\l"
 	.string "so be careful!\p"
 	.string "What's worse, the GYM is as dark as\n"
-	.string "the ocean floor.\p"
+	.string "the dark cave in Jhoto.\p"
 	.string "But it will get brighter after defeating\n"
 	.string "the TRAINERS in your way.\p"
 	.string "Hey, okay, go for it!$"
@@ -329,7 +329,7 @@ DewfordTown_Gym_Text_TakaoPostBattle: @ 81FCBCA
 	.string "Your technique is commendable!$"
 
 DewfordTown_Gym_Text_JocelynIntro: @ 81FCC0A
-	.string "There's no need for BRAWLY to be\n"
+	.string "There's no need for THERA to be\n"
 	.string "involved!\p"
 	.string "I'll crush you!$"
 
@@ -349,14 +349,14 @@ DewfordTown_Gym_Text_LauraIntro: @ 81FCD01
 	.string "It's not my fault if you cry!$"
 
 DewfordTown_Gym_Text_LauraDefeat: @ 81FCD3C
-	.string "Waaaaaaah!\n"
+	.string "Wooooooww!\n"
 	.string "I lost!$"
 
 DewfordTown_Gym_Text_LauraPostBattle: @ 81FCD4F
 	.string "I battle in the dark to make my heart\n"
 	.string "stronger.\p"
 	.string "But because it's so dark, I can never\n"
-	.string "see BRAWLY's face…$"
+	.string "see THERA's face…$"
 
 DewfordTown_Gym_Text_LilithIntro: @ 81FCDB8
 	.string "Ufufu…\n"
@@ -372,7 +372,7 @@ DewfordTown_Gym_Text_LilithPostBattle: @ 81FCE08
 
 DewfordTown_Gym_Text_BrendenIntro: @ 81FCE48
 	.string "I'll show you the gumption of\n"
-	.string "a sailing man!$"
+	.string "a hiking man!$"
 
 DewfordTown_Gym_Text_BrendenDefeat: @ 81FCE75
 	.string "How'd this happen?\n"
@@ -395,28 +395,33 @@ DewfordTown_Gym_Text_CristianPostBattle: @ 81FCF26
 	.string "Go after that BADGE!$"
 
 DewfordTown_Gym_Text_BrawlyIntro: @ 81FCF44
-	.string "I'm BRAWLY!\n"
+	.string "I'm THERA!\n"
 	.string "DEWFORD's GYM LEADER!\p"
-	.string "I've been churned in the rough waves\n"
-	.string "of these parts, and I've grown tough\l"
-	.string "in the pitch-black cave!\p"
-	.string "So you wanted to challenge me?\n"
+	.string "After going on expeditions with Clay\n"
+	.string "from Unova, I decided to go off\l"
+	.string "somewhere else to find some beautiful\p"
+	.string "and rare stones.\p"
+	.string "I came to Hoejinn after hearing about\n"
+	.string "findings made by Steven Stone 10\l"
+	.string "years ago.\p"
+	.string "That's enough about me though.\p"
+	.string "You came to challenge me right?\n"
 	.string "Let me see what you're made of!$"
 
 DewfordTown_Gym_Text_BrawlyDefeat: @ 81FD008
 	.string "Whoah, wow! You made a much bigger\n"
-	.string "splash than I expected!\p"
-	.string "You swamped me!\p"
+	.string "hole than I expected!\p"
+	.string "You stomped me!\p"
 	.string "Okay, you've got me.\n"
 	.string "Take this GYM BADGE!$"
 
 DewfordTown_Gym_Text_ReceivedKnuckleBadge: @ 81FD07D
-	.string "{PLAYER} received the KNUCKLE BADGE\n"
+	.string "{PLAYER} received the BIOTITE BADGE\n"
 	.string "from BRAWLY.$"
 
 DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis: @ 81FD0A8
-	.string "The KNUCKLE BADGE makes all POKéMON\n"
-	.string "up to Level 30, even those you get in\l"
+	.string "The BIOTITE BADGE makes all POKéMON\n"
+	.string "up to Level 40, even those you get in\l"
 	.string "trades, obey without question.\p"
 	.string "And, you'll be able to use the HM move\n"
 	.string "FLASH outside of battle.\p"
@@ -424,13 +429,13 @@ DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis: @ 81FD0A8
 	.string "MACHINE, too.$"
 
 DewfordTown_Gym_Text_ExplainBulkUp: @ 81FD181
-	.string "That TM08 contains BULK UP.\p"
-	.string "It's a move that raises both ATTACK\n"
-	.string "and DEFENSE stats.\p"
+	.string "That TM78 contains BULLDOZE.\p"
+	.string "The user stomps the ground and it\n"
+    .string "lowers the Speed of those hit.\p"
 	.string "… … … … … …$"
 
 DewfordTown_Gym_Text_RegisteredBrawly: @ 81FD1E0
-	.string "Registered GYM LEADER BRAWLY\n"
+	.string "Registered GYM LEADER THERA\n"
 	.string "in the POKéNAV.$"
 
 DewfordTown_Gym_Text_BrawlyPostBattle: @ 81FD20D
@@ -443,7 +448,7 @@ DewfordTown_Gym_Text_GymStatue: @ 81FD272
 
 DewfordTown_Gym_Text_GymStatueCertified: @ 81FD28B
 	.string "DEWFORD TOWN POKéMON GYM\p"
-	.string "BRAWLY'S CERTIFIED TRAINERS:\n"
+	.string "THERA'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
 
 DewfordTown_Gym_Text_BrawlyPreRematch: @ 81FD2C4

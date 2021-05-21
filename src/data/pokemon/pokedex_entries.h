@@ -4992,6 +4992,18 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = 0,
     },
 
+    [NATIONAL_DEX_SECTURION] =
+    {
+        .categoryName = _("Beehive"),
+        .height = 12,
+        .weight = 385,
+        .description = gSecturionPokedexText,
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
     [NATIONAL_DEX_VESPIQUEN] =
     {
         .categoryName = _("Beehive"),

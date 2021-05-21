@@ -898,8 +898,6 @@ Route104_EventScript_Haley:: @ 81ED38D
 	goto_if_eq Route104_EventScript_RematchHaley
 	setvar VAR_0x8004, TRAINER_HALEY_1
 	specialvar VAR_RESULT, IsTrainerRegistered
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route104_EventScript_TryRegisterHaley
 	msgbox Route104_Text_HaleyPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -941,8 +939,6 @@ Route104_EventScript_Winston:: @ 81ED43B
 	goto_if_eq Route104_EventScript_RematchWinston
 	setvar VAR_0x8004, TRAINER_WINSTON_1
 	specialvar VAR_RESULT, IsTrainerRegistered
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route104_EventScript_TryRegisterWinston
 	msgbox Route104_Text_WinstonPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -984,8 +980,6 @@ Route104_EventScript_Cindy:: @ 81ED4E9
 	goto_if_eq Route104_EventScript_RematchCindy
 	setvar VAR_0x8004, TRAINER_CINDY_1
 	specialvar VAR_RESULT, IsTrainerRegistered
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route104_EventScript_TryRegisterCindy
 	msgbox Route104_Text_CindyPostBattle, MSGBOX_DEFAULT
 	release
 	end

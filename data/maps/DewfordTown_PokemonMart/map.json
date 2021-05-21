@@ -2,7 +2,7 @@
   "id": "MAP_DEWFORD_TOWN_POKEMON_MART",
   "name": "DewfordTown_PokemonMart",
   "layout": "LAYOUT_DEWFORD_TOWN_POKEMON_MART",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_POKE_MART",
   "region_map_section": "MAPSEC_DEWFORD_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

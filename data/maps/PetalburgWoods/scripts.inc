@@ -515,7 +515,7 @@ PetalburgWoods_EventScript_IgnesFirstBattle::
 	setvar VAR_MEET_IGNES, 1
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
-	applymovement 16, Ignes_Moves_Towards_Player
+	applymovement 15, Ignes_Moves_Towards_Player
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Face_Ignes
 	waitmovement 0

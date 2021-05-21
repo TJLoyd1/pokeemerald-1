@@ -2494,6 +2494,12 @@ const u8 gCombeePokedexText[] = _(
     "to please Vespiquen. At night, they\n"
     "cluster to form a beehive and sleep.");
 
+const u8 gSecturionPokedexText[] = _(
+    "It protexts its colony with its body\n"
+    "and reacts to various pheromones that\n"
+    "Vespiquen release and does its bidding.\n"
+    "There are multiple in a colony.");
+
 const u8 gVespiquenPokedexText[] = _(
     "It houses its colony in cells in its body\n"
     "and releases various pheromones to\n"

@@ -6173,7 +6173,16 @@ static const u32 sTutorLearnsets[] =
     [SPECIES_COMBEE]        = TUTOR_LEARNSET(TUTOR(MOVE_MUD_SLAP)
                                             | TUTOR(MOVE_SNORE)
                                             | TUTOR(MOVE_SWIFT)),
-
+	
+	[SPECIES_SECTURION]     = TUTOR_LEARNSET(TUTOR(MOVE_ENDURE)
+                                            | TUTOR(MOVE_FURY_CUTTER)
+                                            | TUTOR(MOVE_MUD_SLAP)
+                                            | TUTOR(MOVE_SLEEP_TALK)
+                                            | TUTOR(MOVE_SNORE)
+                                            | TUTOR(MOVE_SUBSTITUTE)
+                                            | TUTOR(MOVE_SWAGGER)
+                                            | TUTOR(MOVE_SWIFT)),
+	
     [SPECIES_VESPIQUEN]     = TUTOR_LEARNSET(TUTOR(MOVE_ENDURE)
                                             | TUTOR(MOVE_FURY_CUTTER)
                                             | TUTOR(MOVE_MUD_SLAP)

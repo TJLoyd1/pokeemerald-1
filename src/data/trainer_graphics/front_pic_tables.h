@@ -102,6 +102,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
 	[TRAINER_PIC_LLOYD] = {.size = 8, .y_offset = 1},
 	[TRAINER_PIC_FEMALE_BUG_CATCHER] = {.size = 8, .y_offset = 1},
 	[TRAINER_PIC_DANNY] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_THERA] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -209,7 +210,9 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
 	TRAINER_SPRITE(JAH, gTrainerFrontPic_Jah, 0x800),
 	TRAINER_SPRITE(LLOYD, gTrainerFrontPic_Lloyd, 0x800),
 	TRAINER_SPRITE(FEMALE_BUG_CATCHER, gTrainerFrontPic_FemaleBugCatcher, 0x800),
+	TRAINER_SPRITE(PROFESSOR_MAY, gTrainerFrontPic_ProfMay, 0x800),
 	TRAINER_SPRITE(DANNY, gTrainerFrontPic_Danny, 0x800),
+	TRAINER_SPRITE(THERA, gTrainerFrontPic_Thera, 0x800),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -317,5 +320,7 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
 	TRAINER_PAL(JAH, gTrainerPalette_Jah),
 	TRAINER_PAL(LLOYD, gTrainerPalette_Lloyd),
 	TRAINER_PAL(FEMALE_BUG_CATCHER, gTrainerPalette_FemaleBugCatcher),
+	TRAINER_PAL(PROFESSOR_MAY, gTrainerPalette_ProfMay),
 	TRAINER_PAL(DANNY, gTrainerPalette_Danny),
+	TRAINER_PAL(THERA, gTrainerPalette_Thera),
 };

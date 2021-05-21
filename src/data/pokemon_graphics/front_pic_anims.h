@@ -5061,6 +5061,14 @@ static const union AnimCmd sAnim_COMBEE_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_SECTURION_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_VESPIQUEN_1[] =
 {
     ANIMCMD_FRAME(0, 30),
@@ -11435,6 +11443,11 @@ static const union AnimCmd *const sAnims_COMBEE[] ={
     sAnim_COMBEE_1,
 };
 
+static const union AnimCmd *const sAnims_SECTURION[] ={
+    sAnim_GeneralFrame0,
+    sAnim_SECTURION_1,
+};
+
 static const union AnimCmd *const sAnims_VESPIQUEN[] ={
     sAnim_GeneralFrame0,
     sAnim_VESPIQUEN_1,
@@ -14854,6 +14867,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(WORMADAM),
     ANIM_CMD(MOTHIM),
     ANIM_CMD(COMBEE),
+	ANIM_CMD(SECTURION),
     ANIM_CMD(VESPIQUEN),
     ANIM_CMD(PACHIRISU),
     ANIM_CMD(BUIZEL),

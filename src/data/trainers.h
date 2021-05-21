@@ -1990,9 +1990,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_DOUGLAS] =
     {
-        .trainerClass = TRAINER_CLASS_SWIMMER_M,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMER_M,
+        .trainerClass = TRAINER_CLASS_HIKER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_HIKER,
         .trainerName = _("DOUGLAS"),
         .items = {},
         .doubleBattle = FALSE,
@@ -2328,9 +2328,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_TAKAO] =
     {
-        .trainerClass = TRAINER_CLASS_BLACK_BELT,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BLACK_BELT,
+        .trainerClass = TRAINER_CLASS_HIKER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_HIKER,
         .trainerName = _("TAKAO"),
         .items = {},
         .doubleBattle = FALSE,
@@ -3460,10 +3460,10 @@ const struct Trainer gTrainers[] = {
     [TRAINER_BRAWLY_1] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_LEADER_BRAWLY,
-        .trainerName = _("BRAWLY"),
-        .items = {ITEM_SUPER_POTION, ITEM_SUPER_POTION, ITEM_NONE, ITEM_NONE},
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_THERA,
+        .trainerName = _("Thera"),
+        .items = {ITEM_SUPER_POTION, ITEM_SUPER_POTION, ITEM_SUPER_POTION, ITEM_SUPER_POTION},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
         .partySize = ARRAY_COUNT(sParty_Brawly1),
@@ -4408,9 +4408,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ELLIOT_1] =
     {
-        .trainerClass = TRAINER_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_FISHERMAN,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC,
         .trainerName = _("ELLIOT"),
         .items = {},
         .doubleBattle = FALSE,
@@ -4421,9 +4421,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_NED] =
     {
-        .trainerClass = TRAINER_CLASS_FISHERMAN,
+        .trainerClass = TRAINER_CLASS_HIKER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_FISHERMAN,
+        .trainerPic = TRAINER_PIC_HIKER,
         .trainerName = _("NED"),
         .items = {},
         .doubleBattle = FALSE,
@@ -5526,10 +5526,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JOCELYN] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("JOCELYN"),
+        .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC,
+        .trainerName = _("AVERY"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -5539,10 +5539,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LAURA] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("LAURA"),
+        .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC,
+        .trainerName = _("TEDDY"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -5760,10 +5760,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_KYLA] =
     {
-        .trainerClass = TRAINER_CLASS_SWIMMER_F,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
-        .trainerPic = TRAINER_PIC_SWIMMER_F,
-        .trainerName = _("KYLA"),
+        .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC,
+        .trainerName = _("KYLE"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -7437,9 +7437,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_BRENDEN] =
     {
-        .trainerClass = TRAINER_CLASS_SAILOR,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_SAILOR,
+        .trainerClass = TRAINER_CLASS_HIKER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_HIKER,
         .trainerName = _("BRENDEN"),
         .items = {},
         .doubleBattle = FALSE,
@@ -7450,9 +7450,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LILITH] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
+        .trainerClass = TRAINER_CLASS_HIKER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_HIKER,
         .trainerName = _("LILITH"),
         .items = {},
         .doubleBattle = FALSE,
@@ -7463,10 +7463,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_CRISTIAN] =
     {
-        .trainerClass = TRAINER_CLASS_BLACK_BELT,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BLACK_BELT,
-        .trainerName = _("CRISTIAN"),
+        .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC,
+        .trainerName = _("CHRISTIAN"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
@@ -11412,5 +11412,135 @@ const struct Trainer gTrainers[] = {
 		.aiFlags = 0,
 		.partySize = ARRAY_COUNT  (sParty_Wolfe),
 		.party = {.TrainerMon = sParty_Wolfe},
+	},
+	
+	[TRAINER_ANDRE] =
+	{
+		.trainerClass = TRAINER_CLASS_CAMPER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+		.trainerPic = TRAINER_PIC_CAMPER,
+		.trainerName = _("Andre"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Andre),
+		.party = {.TrainerMon = sParty_Andre},
+	},
+	
+	[TRAINER_ANGUS] =
+	{
+		.trainerClass = TRAINER_CLASS_RUIN_MANIAC,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+		.trainerPic = TRAINER_PIC_RUIN_MANIAC,
+		.trainerName = _("Angus"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Angus),
+		.party = {.TrainerMon = sParty_Angus},
+	},
+	
+	[TRAINER_ALYSIA] =
+	{
+		.trainerClass = TRAINER_CLASS_PICNICKER,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+		.trainerPic = TRAINER_PIC_PICNICKER,
+		.trainerName = _("Alysia"),
+		.items = {},
+		.doubleBattle = FALSE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Alysia),
+		.party = {.TrainerMon = sParty_Alysia},
+	},
+	
+	[TRAINER_PROF_BIRCH] =
+	{
+		.trainerClass = TRAINER_CLASS_RS_PROTAG,
+		.encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+		.trainerPic = TRAINER_PIC_PROFESSOR_MAY,
+		.trainerName = _("May"),
+		.items = {},
+		.doubleBattle = TRUE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_Prof_May),
+		.party = {.TrainerMon = sParty_Prof_May},
+	},
+	
+	[TRAINER_LITTLEROOTTOWN_ROY_MUDKIP] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerName = _("Roy"),
+		.items = {},
+		.doubleBattle = TRUE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_LittlerootTownRoyMudkip),
+		.party = {.TrainerMon = sParty_LittlerootTownRoyMudkip},
+	},
+	
+	[TRAINER_LITTLEROOTTOWN_ROY_TORCHIC] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerName = _("Roy"),
+		.items = {},
+		.doubleBattle = TRUE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_LittlerootTownRoyTorchic),
+		.party = {.TrainerMon = sParty_LittlerootTownRoyTorchic},
+	},
+	
+	[TRAINER_LITTLEROOTTOWN_ROY_TREECKO] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerName = _("Roy"),
+		.items = {},
+		.doubleBattle = TRUE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_LittlerootTownRoyTreecko),
+		.party = {.TrainerMon = sParty_LittlerootTownRoyTreecko},
+	},
+	
+		[TRAINER_LITTLEROOTTOWN_LUCY_MUDKIP] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Lucy"),
+		.items = {},
+		.doubleBattle = TRUE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_LittlerootTownLucyMudkip),
+		.party = {.TrainerMon = sParty_LittlerootTownLucyMudkip},
+	},
+	
+	[TRAINER_LITTLEROOTTOWN_LUCY_TORCHIC] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Lucy"),
+		.items = {},
+		.doubleBattle = TRUE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_LittlerootTownLucyTorchic),
+		.party = {.TrainerMon = sParty_LittlerootTownLucyTorchic},
+	},
+	
+	[TRAINER_LITTLEROOTTOWN_LUCY_TREECKO] =
+	{
+		.trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Lucy"),
+		.items = {},
+		.doubleBattle = TRUE,
+		.aiFlags = 0,
+		.partySize = ARRAY_COUNT  (sParty_LittlerootTownLucyTreecko),
+		.party = {.TrainerMon = sParty_LittlerootTownLucyTreecko},
 	},
 };

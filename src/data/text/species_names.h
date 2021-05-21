@@ -415,6 +415,7 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_WORMADAM] = _("Wormadam"),
     [SPECIES_MOTHIM] = _("Mothim"),
     [SPECIES_COMBEE] = _("Combee"),
+	[SPECIES_SECTURION] = _("Secturion"),
     [SPECIES_VESPIQUEN] = _("Vespiquen"),
     [SPECIES_PACHIRISU] = _("Pachirisu"),
     [SPECIES_BUIZEL] = _("Buizel"),

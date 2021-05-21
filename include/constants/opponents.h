@@ -879,12 +879,22 @@
 #define TRAINER_STELLA						875
 #define TRAINER_ANIYAH						876
 #define TRAINER_WOLFE						877
+#define TRAINER_ANDRE						878
+#define TRAINER_ANGUS						879
+#define TRAINER_ALYSIA						880
+#define TRAINER_PROF_BIRCH					881
+#define TRAINER_LITTLEROOTTOWN_ROY_MUDKIP   882
+#define TRAINER_LITTLEROOTTOWN_ROY_TORCHIC  883
+#define TRAINER_LITTLEROOTTOWN_ROY_TREECKO  884
+#define TRAINER_LITTLEROOTTOWN_LUCY_MUDKIP  885
+#define TRAINER_LITTLEROOTTOWN_LUCY_TORCHIC 886
+#define TRAINER_LITTLEROOTTOWN_LUCY_TREECKO 887
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      878
+#define TRAINERS_COUNT                      888
 #define MAX_TRAINERS_COUNT                  900
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

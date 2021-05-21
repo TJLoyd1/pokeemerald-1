@@ -560,7 +560,6 @@ gCryTable:: @ 869DCF4
 	cry_not Cry_Dwebble
 	cry_not Cry_Crustle
 	cry_not Cry_Scraggy
-	cry_not Cry_Scragger
 	cry_not Cry_Scrafty
 	cry_not Cry_Sigilyph
 	cry_not Cry_Yamask
@@ -900,6 +899,8 @@ gCryTable:: @ 869DCF4
 	cry_not Cry_Glastrier
 	cry_not Cry_Spectrier
 	cry_not Cry_Calyrex
+	cry_not Cry_Secturion
+	cry_not Cry_Scragger
 	@ Megas
 	cry_not Cry_Venusaur_Mega
 	cry_not Cry_Charizard_Mega_X
@@ -1835,7 +1836,6 @@ gCryTable2:: @ 869EF24
 	cry2_not Cry_Dwebble
 	cry2_not Cry_Crustle
 	cry2_not Cry_Scraggy
-	cry2_not Cry_Scragger
 	cry2_not Cry_Scrafty
 	cry2_not Cry_Sigilyph
 	cry2_not Cry_Yamask
@@ -2175,6 +2175,8 @@ gCryTable2:: @ 869EF24
 	cry2_not Cry_Glastrier
 	cry2_not Cry_Spectrier
 	cry2_not Cry_Calyrex
+	cry2_not Cry_Secturion
+	cry2_not Cry_Scragger
 	@ Megas
 	cry2_not Cry_Venusaur_Mega
 	cry2_not Cry_Charizard_Mega_X

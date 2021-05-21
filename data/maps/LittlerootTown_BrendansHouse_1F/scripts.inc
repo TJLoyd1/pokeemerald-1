@@ -555,7 +555,7 @@ StarterTown_MaleRivalsHouse_1F_EventScript_Downstairs_Danger::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement 5, Common_Movement_ExclamationMark
 	waitmovement 0
-	msgbox StarterTown_RivalsHouse_1F_Text_What_Happened, MSGBOX_DEFAULT
+	msgbox StarterTown_RivalsHouse_1F_Text_What_Happened_Male, MSGBOX_DEFAULT
 	applymovement 2, Rival_Mom_Step_Back
 	applymovement 5, Rival_Move_To_TV
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Move_To_TV
@@ -655,6 +655,12 @@ StarterTown_MaleRivalsHouse_1F_Text_Good_Morning:
 StarterTown_RivalsHouse_1F_Text_What_Happened:
 	.string "{RIVAL}:{COLOR BLUE}What happened Mom!?\n"
 	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Are you okay!?\p"
+	.string "{COLOR DARK_GREY}{RIVAL}'s Mom: I'm okay just come look\n"
+	.string "at this.$"
+
+StarterTown_RivalsHouse_1F_Text_What_Happened_Male:
+	.string "{PLAYER}:{COLOR BLUE}What happened Mom!?\n"
+	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Are you okay!?\p"
 	.string "{COLOR DARK_GREY}{RIVAL}'s Mom: I'm okay just come look\n"
 	.string "at this.$"
 

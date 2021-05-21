@@ -214,8 +214,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 11,
-      "y": 15,
+      "x": 14,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -376,45 +376,45 @@
       "x": 23,
       "y": 20,
       "elevation": 3,
-      "var": "VAR_RUSTBORO_CITY_STATE",
-      "var_value": "1",
-      "script": "RustboroCity_EventScript_StolenGoodsTrigger0"
+      "var": "VAR_RECEIVED_MATCH_CALL",
+      "var_value": "0",
+      "script": "RustboroCity_EventScript_GotoIfFlagSet0"
     },
     {
       "type": "trigger",
       "x": 23,
       "y": 21,
       "elevation": 3,
-      "var": "VAR_RUSTBORO_CITY_STATE",
-      "var_value": "1",
-      "script": "RustboroCity_EventScript_StolenGoodsTrigger1"
+      "var": "VAR_RECEIVED_MATCH_CALL",
+      "var_value": "0",
+      "script": "RustboroCity_EventScript_GotoIfFlagSet1"
     },
     {
       "type": "trigger",
       "x": 23,
       "y": 22,
       "elevation": 3,
-      "var": "VAR_RUSTBORO_CITY_STATE",
-      "var_value": "1",
-      "script": "RustboroCity_EventScript_StolenGoodsTrigger2"
+      "var": "VAR_RECEIVED_MATCH_CALL",
+      "var_value": "0",
+      "script": "RustboroCity_EventScript_GotoIfFlagSet2"
     },
     {
       "type": "trigger",
       "x": 23,
       "y": 23,
       "elevation": 3,
-      "var": "VAR_RUSTBORO_CITY_STATE",
-      "var_value": "1",
-      "script": "RustboroCity_EventScript_StolenGoodsTrigger3"
+      "var": "VAR_RECEIVED_MATCH_CALL",
+      "var_value": "0",
+      "script": "RustboroCity_EventScript_GotoIfFlagSet3"
     },
     {
       "type": "trigger",
       "x": 23,
       "y": 24,
       "elevation": 3,
-      "var": "VAR_RUSTBORO_CITY_STATE",
-      "var_value": "1",
-      "script": "RustboroCity_EventScript_StolenGoodsTrigger4"
+      "var": "VAR_RECEIVED_MATCH_CALL",
+      "var_value": "0",
+      "script": "RustboroCity_EventScript_GotoIfFlagSet4"
     },
     {
       "type": "trigger",
@@ -620,8 +620,8 @@
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 20,
+      "x": 18,
+      "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "RustboroCity_EventScript_DevonCorpSign"

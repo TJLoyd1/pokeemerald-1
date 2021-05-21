@@ -1219,14 +1219,98 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	waitmovement 0
 	msgbox LittlerootTown_Text_Birch_Gives_Starter_Pokemon, MSGBOX_DEFAULT
 	closemessage
-	msgbox LittlerootTown_Text_BirchUsesZigzagoons, MSGBOX_DEFAULT
-	closemessage
 	setflag FLAG_SYS_POKEMON_GET
 	special ChooseStarter
 	bufferleadmonspeciesname 0
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
+	msgbox LittlerootTown_Text_BirchUsesZigzagoons, MSGBOX_DEFAULT
+	closemessage
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_EventScript_StartProfessorBattleMaleRivalMudkip
+	case 1, LittlerootTown_EventScript_StartProfessorBattleMaleRivalTorchic
+	case 2, LittlerootTown_EventScript_StartProfessorBattleMaleRivalTreecko
+	end
+
+LittlerootTown_EventScript_StartProfessorBattleMaleRivalMudkip::
+	multi_fixed_2_vs_1 TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat, TRAINER_LITTLEROOTTOWN_ROY_MUDKIP, TRAINER_BACK_PIC_BRENDAN
 	special HealPlayerParty
+	msgbox LittlerootTown_Text_AfterProfMayBattle, MSGBOX_DEFAULT
+	closemessage
+	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_EventScript_NicknameStarter
+	compare VAR_RESULT, NO
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_Text_ReceivedPokedex
+	waitfanfare
+	setflag FLAG_SYS_POKEDEX_GET
+	special EnableNationalPokedex
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	giveitem ITEM_POKE_BALL, 5
+	msgbox LittlerootTown_Text_GoodLuck, MSGBOX_DEFAULT
+	fadescreen 1
+	removeobject 6
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	fadescreen 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement 8, Common_Movement_QuestionMark
+	waitmovement 0
+	setflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
+	applymovement 8, Rival_Face_Player_Before_Battle
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
+	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	msgbox Littleroot_Town_Text_BrendanLetsBattle, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_EventScript_StartBrendanBattleTreecko
+	case 1, LittlerootTown_EventScript_StartBrendanBattleTorchic
+	case 2, LittlerootTown_EventScript_StartBrendanBattleMudkip
+	end
+
+LittlerootTown_EventScript_StartProfessorBattleMaleRivalTorchic::
+	multi_fixed_2_vs_1 TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat, TRAINER_LITTLEROOTTOWN_ROY_TORCHIC, TRAINER_BACK_PIC_BRENDAN
+	special HealPlayerParty
+	msgbox LittlerootTown_Text_AfterProfMayBattle, MSGBOX_DEFAULT
+	closemessage
+	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_EventScript_NicknameStarter
+	compare VAR_RESULT, NO
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_Text_ReceivedPokedex
+	waitfanfare
+	setflag FLAG_SYS_POKEDEX_GET
+	special EnableNationalPokedex
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	giveitem ITEM_POKE_BALL, 5
+	msgbox LittlerootTown_Text_GoodLuck, MSGBOX_DEFAULT
+	fadescreen 1
+	removeobject 6
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	fadescreen 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement 8, Common_Movement_QuestionMark
+	waitmovement 0
+	setflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
+	applymovement 8, Rival_Face_Player_Before_Battle
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
+	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	msgbox Littleroot_Town_Text_BrendanLetsBattle, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_EventScript_StartBrendanBattleTreecko
+	case 1, LittlerootTown_EventScript_StartBrendanBattleTorchic
+	case 2, LittlerootTown_EventScript_StartBrendanBattleMudkip
+	end
+
+LittlerootTown_EventScript_StartProfessorBattleMaleRivalTreecko::
+	multi_fixed_2_vs_1 TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat, TRAINER_LITTLEROOTTOWN_ROY_TREECKO, TRAINER_BACK_PIC_BRENDAN
+	special HealPlayerParty
+	msgbox LittlerootTown_Text_AfterProfMayBattle, MSGBOX_DEFAULT
+	closemessage
 	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LittlerootTown_EventScript_NicknameStarter
@@ -1428,13 +1512,89 @@ LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
 	waitmovement 0
 	msgbox LittlerootTown_Text_Birch_Gives_Starter_Pokemon, MSGBOX_DEFAULT
 	closemessage
-	msgbox LittlerootTown_Text_BirchUsesZigzagoons, MSGBOX_DEFAULT
-	closemessage
 	setflag FLAG_SYS_POKEMON_GET
 	special ChooseStarter
 	bufferleadmonspeciesname 0
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
+	msgbox LittlerootTown_Text_BirchUsesZigzagoons, MSGBOX_DEFAULT
+	closemessage
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_EventScript_StartProfessorBattleFemaleRivalMudkip
+	case 1, LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTorchic
+	case 2, LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTreecko
+	end
+
+LittlerootTown_EventScript_StartProfessorBattleFemaleRivalMudkip::
+	multi_fixed_2_vs_1 TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat, TRAINER_MAY_ROUTE_103_TREECKO, TRAINER_BACK_PIC_MAY
+	special HealPlayerParty
+	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_EventScript_NicknameStarter
+	compare VAR_RESULT, NO
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_Text_ReceivedPokedex
+	waitfanfare
+	setflag FLAG_SYS_POKEDEX_GET
+	special EnableNationalPokedex
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	giveitem ITEM_POKE_BALL, 5
+	msgbox LittlerootTown_Text_GoodLuck, MSGBOX_DEFAULT
+	fadescreen 1
+	removeobject 6
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	fadescreen 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement 9, Common_Movement_QuestionMark
+	waitmovement 0
+	msgbox LittlerootTown_Text_MayHow_She_Know_Names, MSGBOX_DEFAULT
+	applymovement 9, Rival_Face_Player_Before_Battle
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
+	playbgm MUS_ENCOUNTER_MAY, 1
+	msgbox Littleroot_Town_Text_MayLetsBattle, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_EventScript_StartMayBattleTreecko
+	case 1, LittlerootTown_EventScript_StartMayBattleTorchic
+	case 2, LittlerootTown_EventScript_StartMayBattleMudkip
+	end
+
+LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTorchic::
+	multi_fixed_2_vs_1 TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat, TRAINER_LITTLEROOTTOWN_LUCY_TORCHIC, TRAINER_BACK_PIC_MAY
+	special HealPlayerParty
+	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_EventScript_NicknameStarter
+	compare VAR_RESULT, NO
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_Text_ReceivedPokedex
+	waitfanfare
+	setflag FLAG_SYS_POKEDEX_GET
+	special EnableNationalPokedex
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	giveitem ITEM_POKE_BALL, 5
+	msgbox LittlerootTown_Text_GoodLuck, MSGBOX_DEFAULT
+	fadescreen 1
+	removeobject 6
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
+	fadescreen 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement 9, Common_Movement_QuestionMark
+	waitmovement 0
+	msgbox LittlerootTown_Text_MayHow_She_Know_Names, MSGBOX_DEFAULT
+	applymovement 9, Rival_Face_Player_Before_Battle
+	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
+	playbgm MUS_ENCOUNTER_MAY, 1
+	msgbox Littleroot_Town_Text_MayLetsBattle, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, LittlerootTown_EventScript_StartMayBattleTreecko
+	case 1, LittlerootTown_EventScript_StartMayBattleTorchic
+	case 2, LittlerootTown_EventScript_StartMayBattleMudkip
+	end
+
+LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTreecko::
+	multi_fixed_2_vs_1 TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat, TRAINER_LITTLEROOTTOWN_LUCY_TREECKO, TRAINER_BACK_PIC_MAY
 	special HealPlayerParty
 	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
@@ -1795,13 +1955,20 @@ LittlerootTown_Text_Birch_Gives_Starter_Pokemon:
 	.string "leaders and aim to become the\n"
 	.string "CHAMPION and the best TRAINER around.\p"
 	.string "Make the best of your journey as you\n"
-	.string "stop Team Obsidian.\p"
+	.string "stop Team Obsidian.$"
 
 LittlerootTown_Text_BirchUsesZigzagoons:
 	.string "To test both of your abilities I'm\n"
 	.string "going to have you face off against\p"
 	.string "these Zigzagoons.$"
+
+LittlerootTown_Text_ProfMay_Defeat:
+	.string "You guys make such a good team!$"
 	
+LittlerootTown_Text_AfterProfMayBattle:
+	.string "I can see you both can make great\n"
+	.string "choices while also working together.$"
+
 LittlerootTown_Text_WhyNotGiveNicknameToMon:
 	.string "Prof. May: While you're at it, why not\n"
 	.string "give a nickname to that {STR_VAR_1}?$"

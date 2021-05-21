@@ -2045,6 +2045,10 @@ Cry_Mothim::
 	.align 2
 Cry_Combee::
 	.incbin "sound/direct_sound_samples/cries/cry_not_combee.bin"
+	
+	.align 2
+Cry_Secturion::
+	.incbin "sound/direct_sound_samples/cries/cry_not_Secturion.bin"
 
 	.align 2
 Cry_Vespiquen::

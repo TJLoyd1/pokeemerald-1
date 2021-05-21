@@ -53,3 +53,17 @@ Route107_EventScript_Camron:: @ 81EE672
 	msgbox Route107_Text_CamronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route107_EventScript_EndofBeta::
+	lockall
+	msgbox Route107_Text_EndofBeta, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_PARK_BALL, 1
+	releaseall
+	end
+
+Route107_Text_EndofBeta:
+	.string "Beat it Kid!\p"
+	.string "This is the end of the beta and\n"
+	.string "we're stopping you right here.\p"
+	.string "As a gift for playing though you\n"
+	.string "can have this.$"

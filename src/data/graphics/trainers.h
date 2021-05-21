@@ -313,5 +313,11 @@ const u32 gTrainerPalette_Lloyd[] = INCBIN_U32("graphics/trainers/palettes/lloyd
 const u32 gTrainerFrontPic_FemaleBugCatcher[] = INCBIN_U32("graphics/trainers/front_pics/female_bug_catcher_front_pic.4bpp.lz");
 const u32 gTrainerPalette_FemaleBugCatcher[] = INCBIN_U32("graphics/trainers/palettes/female_bug_catcher.gbapal.lz");
 
+const u32 gTrainerFrontPic_ProfMay[] = INCBIN_U32("graphics/trainers/front_pics/prof_may_front_pic.4bpp.lz");
+const u32 gTrainerPalette_ProfMay[] = INCBIN_U32("graphics/trainers/palettes/prof_may.gbapal.lz");
+
 const u32 gTrainerFrontPic_Danny[] = INCBIN_U32("graphics/trainers/front_pics/danny_front_pic.4bpp.lz");
 const u32 gTrainerPalette_Danny[] = INCBIN_U32("graphics/trainers/palettes/danny.gbapal.lz");
+
+const u32 gTrainerFrontPic_Thera[] = INCBIN_U32("graphics/trainers/front_pics/thera_front_pic.4bpp.lz");
+const u32 gTrainerPalette_Thera[] = INCBIN_U32("graphics/trainers/palettes/thera.gbapal.lz");

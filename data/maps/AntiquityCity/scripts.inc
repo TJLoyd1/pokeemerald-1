@@ -27,6 +27,7 @@ AntiquityCity_EventScript_UptoNoGood::
 	applymovement 4, EntersCave
 	applymovement 5, EntersCave
 	waitmovement 0
+	playse SE_EXIT
 	fadescreen 1
 	removeobject 4
 	removeobject 5
@@ -67,6 +68,7 @@ AntiquityCity_EventScript_UptoNoGood2::
 	applymovement 4, EntersCave
 	applymovement 5, EntersCave
 	waitmovement 0
+	playse SE_EXIT
 	fadescreen 1
 	removeobject 4
 	removeobject 5

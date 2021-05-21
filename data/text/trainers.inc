@@ -535,20 +535,20 @@ Route105_Text_JosuePostBattle: @ 82962EC
 	.string "match than the sea.$"
 
 Route106_Text_ElliotIntro: @ 8296327
-	.string "Which do you prefer, fishing in the\n"
-	.string "sea or a stream?$"
+	.string "Which do you prefer, digging in the\n"
+	.string "cave or in a desert?$"
 
 Route106_Text_ElliotDefeated: @ 829635C
-	.string "Like in deep-sea fishing, I lost\n"
+	.string "Like in critical thinking, I lost\n"
 	.string "spectacularly!$"
 
 Route106_Text_ElliotPostBattle: @ 829638C
-	.string "Fishing is the greatest whether it's\n"
-	.string "in the sea or a stream.\l"
+	.string "Mining is the greatest whether it's\n"
+	.string "in the cave or a desert.\l"
 	.string "You agree with me, right?$"
 
 Route106_Text_ElliotRegister: @ 82963E3
-	.string "Fishing's great, but so is battling.\n"
+	.string "Mining's great, but so is battling.\n"
 	.string "If you don't mind, can we meet again?$"
 
 Route106_Text_ElliotRematchIntro: @ 829642E
@@ -565,7 +565,7 @@ Route106_Text_ElliotRematchPostBattle: @ 8296493
 Route106_Text_NedIntro: @ 82964D4
 	.string "What do people do if they need to go\n"
 	.string "to a washroom?\p"
-	.string "What if my ROD hooks a big one while\n"
+	.string "What if a cave wall collaspes while\n"
 	.string "I'm in the washroom? I just can't go…$"
 
 Route106_Text_NedDefeated: @ 8296553
@@ -573,21 +573,21 @@ Route106_Text_NedDefeated: @ 8296553
 	.string "to the washroom…$"
 
 Route106_Text_NedPostBattle: @ 8296588
-	.string "Oh, no! I've got this feeling I'll hook\n"
+	.string "Oh, no! I've got this feeling I'll find\n"
 	.string "a big one!$"
 
 Route106_Text_DouglasIntro: @ 82965BB
-	.string "Hahahah! I'm a lousy runner, but in\n"
-	.string "the water you can't catch me!$"
+	.string "Hahahah! I'm a lousy hiker, but in\n"
+	.string "caves you can't compare!$"
 
 Route106_Text_DouglasDefeated: @ 82965FD
 	.string "I give up!$"
 
 Route106_Text_DouglasPostBattle: @ 8296608
-	.string "I wouldn't lose in a swim race…$"
+	.string "I wouldn't lose in a digging race…$"
 
 Route106_Text_KylaIntro: @ 8296628
-	.string "The sea is my backyard. I'm not going\n"
+	.string "The cave is my backyard. I'm not going\n"
 	.string "to take it easy because you're a kid!$"
 
 Route106_Text_KylaDefeated: @ 8296674
@@ -595,7 +595,7 @@ Route106_Text_KylaDefeated: @ 8296674
 	.string "chance?$"
 
 Route106_Text_KylaPostBattle: @ 829669E
-	.string "Drifting along with the waves…\n"
+	.string "Mining along the cave walls…\n"
 	.string "I love it! Why don't you give it a try?$"
 
 Route107_Text_DarrinIntro: @ 82966E5
@@ -4824,8 +4824,8 @@ Route13_Text_SandfordDefeat:
 	.string "No Moorrree FORTNITE!$"
 
 Route13_Text_SandfordPostBattle:
-	.string "Antiquity City was at first just surrounded\n"
-	.string "by trees with no clear path.$"
+	.string "Antiquity City was at first just\n"
+	.string "surrounded by trees with no clear path.$"
 
 Route13_Text_StellaIntro:
 	.string "There's this cute boy by PETALBURG WOODS.\n"
@@ -4856,3 +4856,33 @@ Route13_Text_WolfeDefeat:
 
 Route13_Text_WolfePostBattle:
 	.string "I still can't believe I lost.$"
+
+Route106_Text_AndreIntro: @ 8296628
+	.string "This desert is small but cool.$"
+
+Route106_Text_AndreDefeat: @ 8296674
+	.string "I really lost!?$"
+
+Route106_Text_AndrePostBattle: @ 829669E
+	.string "Don't you think this desert is cool?$"
+
+Route106_Text_AngusIntro: @ 8296628
+	.string "Time to bring the Angus Beef!$"
+
+Route106_Text_AngusDefeat: @ 8296674
+	.string "Did you catch the joke?$"
+
+Route106_Text_AngusPostBattle: @ 829669E
+	.string "No one ever catches the joke.$"
+
+Route106_Text_AlysiaIntro: @ 8296628
+	.string "I need some water.\p"
+	.string "Let's battle and if I win, you\n"
+	.string "give me all your water.$"
+
+Route106_Text_AlysiaDefeat: @ 8296674
+	.string "You don't have water either!?$"
+
+Route106_Text_AlysiaPostBattle: @ 829669E
+	.string "I think I'm starting to see Arceus\n"
+	.string "because I'm so thirsty.$"

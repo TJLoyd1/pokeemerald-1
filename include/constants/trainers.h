@@ -118,7 +118,9 @@
 #define TRAINER_PIC_JAH     			  98
 #define TRAINER_PIC_LLOYD			      99
 #define TRAINER_PIC_FEMALE_BUG_CATCHER	 100
-#define TRAINER_PIC_DANNY				 101
+#define TRAINER_PIC_PROFESSOR_MAY		 101
+#define TRAINER_PIC_DANNY				 102
+#define TRAINER_PIC_THERA				 103
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1

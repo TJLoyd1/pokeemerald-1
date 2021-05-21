@@ -17,9 +17,6 @@ Route106_EventScript_Kyla:: @ 81EE4AA
 
 Route106_EventScript_Elliot:: @ 81EE4C1
 	trainerbattle_single TRAINER_ELLIOT_1, Route106_Text_ElliotIntro, Route106_Text_ElliotDefeated, Route106_EventScript_ElliotRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	compare VAR_RESULT, TRUE
-	goto_if_eq Route106_EventScript_ElliotRematch
 	msgbox Route106_Text_ElliotPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -32,14 +29,24 @@ Route106_EventScript_ElliotRegisterMatchCallAfterBattle:: @ 81EE4ED
 	release
 	end
 
-Route106_EventScript_ElliotRematch:: @ 81EE50C
-	trainerbattle_rematch TRAINER_ELLIOT_1, Route106_Text_ElliotRematchIntro, Route106_Text_ElliotRematchDefeated
-	msgbox Route106_Text_ElliotRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route106_EventScript_Ned:: @ 81EE523
 	trainerbattle_single TRAINER_NED, Route106_Text_NedIntro, Route106_Text_NedDefeated
 	msgbox Route106_Text_NedPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route106_EventScript_Andre:: @ 81EE493
+	trainerbattle_single TRAINER_ANDRE, Route106_Text_AndreIntro, Route106_Text_AndreDefeat
+	msgbox Route106_Text_AndrePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route106_EventScript_Angus:: @ 81EE493
+	trainerbattle_single TRAINER_ANGUS, Route106_Text_AngusIntro, Route106_Text_AngusDefeat
+	msgbox Route106_Text_AngusPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route106_EventScript_Alysia:: @ 81EE493
+	trainerbattle_single TRAINER_ALYSIA, Route106_Text_AlysiaIntro, Route106_Text_AlysiaDefeat
+	msgbox Route106_Text_AlysiaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route106_Text_TrainerTips: @ 81EE53A

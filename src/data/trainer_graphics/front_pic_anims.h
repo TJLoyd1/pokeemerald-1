@@ -402,7 +402,15 @@ static const union AnimCmd *const sAnims_FemaleBugCatcher[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_ProfMay[] ={
+    sAnim_GeneralFrame0,
+};
+
 static const union AnimCmd *const sAnims_Danny[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Thera[] ={
     sAnim_GeneralFrame0,
 };
 
@@ -509,5 +517,7 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 	[TRAINER_PIC_JAH] = sAnims_Jah,
 	[TRAINER_PIC_LLOYD] = sAnims_Lloyd,
 	[TRAINER_PIC_FEMALE_BUG_CATCHER] = sAnims_FemaleBugCatcher,
+	[TRAINER_PIC_PROFESSOR_MAY] = sAnims_ProfMay,
 	[TRAINER_PIC_DANNY] = sAnims_Danny,
+	[TRAINER_PIC_THERA] = sAnims_Thera,
 };
