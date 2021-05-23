@@ -2025,6 +2025,7 @@ LittlerootTown_EventScript_GotoShinyCharm2::
 LittlerootTown_EventScript_MomGivesShinyCharm::
 	lockall
 	setvar VAR_RECEIVED_SHINY_CHARM, 1
+	setflag FLAG_SYS_DEXNAV_GET
 	addobject  4
 	msgbox LittlerootTown_Text_MomCallsPlayer, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, FaceMom
@@ -2044,6 +2045,7 @@ LittlerootTown_EventScript_MomGivesShinyCharm::
 LittlerootTown_EventScript_MomGivesShinyCharm2::
 	lockall
 	setvar VAR_RECEIVED_SHINY_CHARM, 1
+	setflag FLAG_SYS_DEXNAV_GET
 	addobject  4
 	msgbox LittlerootTown_Text_MomCallsPlayer, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, FaceMom

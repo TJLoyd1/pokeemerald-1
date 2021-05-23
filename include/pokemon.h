@@ -213,7 +213,7 @@ struct BaseStats
             u8 bodyColor : 7;
             u8 noFlip : 1;
  /* 0x1B */ u8 flags;
-};
+}; /* size = 28 */
 
 #include "constants/battle_config.h"
 struct BattleMove
