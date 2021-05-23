@@ -568,8 +568,10 @@
 #define STRINGID_CURIOUSMEDICINEENTERS           564
 #define STRINGID_CANACTFASTERTHANKSTO            565
 #define STRINGID_MICLEBERRYACTIVATES             566
+#define STRINGID_TARGETTOOHEAVY                  567
+#define STRINGID_PKMNTOOKTARGETHIGH              568
                                                  
-#define BATTLESTRINGS_COUNT                      567
+#define BATTLESTRINGS_COUNT                      569
 
 // The below IDs are all indexes into battle message tables,
 // used to determine which of a set of messages to print.
@@ -620,6 +622,7 @@
 #define B_MSG_TURN1_PHANTOM_FORCE  8
 #define B_MSG_TURN1_GEOMANCY       9
 #define B_MSG_TURN1_FREEZE_SHOCK   10
+#define B_MSG_TURN1_SKY_DROP       11
 
 // gMoveWeatherChangeStringIds
 #define B_MSG_STARTED_RAIN      0
