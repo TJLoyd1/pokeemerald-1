@@ -96,6 +96,7 @@ AntiquityCity_EventScript_Camper::
 
 AntiquityCity_EventScript_OldMan::
 	lock
+	faceplayer
 	msgbox AntiquityCity_Text_Brittlebones, MSGBOX_DEFAULT
 	checkitem ITEM_TM62, 1
 	compare VAR_RESULT, 1

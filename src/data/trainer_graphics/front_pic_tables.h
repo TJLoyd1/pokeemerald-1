@@ -101,6 +101,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
 	[TRAINER_PIC_JAH] = {.size = 8, .y_offset = 1},
 	[TRAINER_PIC_LLOYD] = {.size = 8, .y_offset = 1},
 	[TRAINER_PIC_FEMALE_BUG_CATCHER] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_PROFESSOR_MAY] = {.size = 8, .y_offset = 1},
 	[TRAINER_PIC_DANNY] = {.size = 8, .y_offset = 1},
 	[TRAINER_PIC_THERA] = {.size = 8, .y_offset = 1},
 };
