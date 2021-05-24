@@ -1245,6 +1245,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalMudkip::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1282,6 +1283,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTorchic::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1319,6 +1321,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTreecko::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1382,6 +1385,7 @@ LittlerootTown_EventScript_NicknameStarter::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1536,6 +1540,7 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalMudkip::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1570,6 +1575,7 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTorchic::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1604,6 +1610,7 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTreecko::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
