@@ -1245,6 +1245,8 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalMudkip::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
+	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1282,6 +1284,8 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTorchic::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
+	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1319,6 +1323,8 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTreecko::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
+	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1382,6 +1388,8 @@ LittlerootTown_EventScript_NicknameStarter::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
+	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1536,6 +1544,8 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalMudkip::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
+	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1570,6 +1580,8 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTorchic::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
+	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1604,6 +1616,8 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTreecko::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
+	setflag FLAG_SYS_QUEST_MENU_GET
+	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -1660,6 +1674,8 @@ LittlerootTown_EventScript_AfterMayBattle:: @ 81EC4FC
 	end
 
 LittlerootTown_EventScript_MaleNicknameStarter::
+	setflag FLAG_SYS_QUEST_MENU_GET
+	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	msgbox LittlerootTown_Text_MayHow_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 9, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
@@ -2033,6 +2049,8 @@ LittlerootTown_EventScript_MomGivesShinyCharm::
 	msgbox LittlerootTown_Text_MomGivesShinyCharm, MSGBOX_DEFAULT
 	closemessage
 	giveitem ITEM_SHINY_CHARM
+	setflag FLAG_SYS_DEXNAV_GET
+	setflag FLAG_SYS_DETECTOR_MODE
 	msgbox LittlerootTown_Text_SeeYouLaterHoney, MSGBOX_DEFAULT
 	closemessage
 	applymovement 4, MomWalksAway
@@ -2052,6 +2070,8 @@ LittlerootTown_EventScript_MomGivesShinyCharm2::
 	msgbox LittlerootTown_Text_MomGivesShinyCharm, MSGBOX_DEFAULT
 	closemessage
 	giveitem ITEM_SHINY_CHARM
+	setflag FLAG_SYS_DEXNAV_GET
+	setflag FLAG_SYS_DETECTOR_MODE
 	msgbox LittlerootTown_Text_SeeYouLaterHoney, MSGBOX_DEFAULT
 	closemessage
 	applymovement 4, MomWalksAway
