@@ -75,19 +75,11 @@
           }
         },
         {
-          "type": "land_mons_night",
+          "type": "hidden_mons",
           "encounter_rates": [
-            20,
-            20,
-            10,
-            10,
-            10,
-            5,
-            5,
-            4,
-            4,
-            1,
-            1
+            33,
+            33,
+            34
           ]
         }
       ],
@@ -146,7 +138,7 @@
               {
                 "min_level": 2,
                 "max_level": 2,
-                "species": "SPECIES_RATTATA_ALOLAN"
+                "species": "SPECIES_SPEAROW"
               },
               {
                 "min_level": 3,
