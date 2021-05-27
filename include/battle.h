@@ -887,5 +887,6 @@ extern u8 gNumberOfMovesToChoose;
 extern u8 gBattleControllerData[MAX_BATTLERS_COUNT];
 extern bool8 gHasFetchedBall;
 extern u8 gLastUsedBall;
+extern bool8 gSwapMoveCategory;
 
 #endif // GUARD_BATTLE_H

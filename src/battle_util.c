@@ -7616,6 +7616,11 @@ static u32 CalcAttackStat(u16 move, u8 battlerAtk, u8 battlerDef, u8 moveType, b
         if (gBattleMons[battlerAtk].status1 & STATUS1_ANY && IS_MOVE_PHYSICAL(move))
             MulModifier(&modifier, UQ_4_12(1.5));
         break;
+    case EFFECT_PHOTON_GEYSER:
+        if (GetBattleMoveSplit(move) == SPLIT_SPECIAL
+         && gBattleMons[battlerAtk].attack > gBattleMons[battlerAtk].spAttack)
+            gSwapMoveCategory = 1;
+        break;
     }
 
     // target's abilities
@@ -8495,6 +8500,8 @@ u8 GetBattleMoveSplit(u32 moveId)
     if (IS_MOVE_STATUS(moveId) || B_PHYSICAL_SPECIAL_SPLIT >= GEN_4)
         return gBattleMoves[moveId].split;
     else if (gBattleMoves[moveId].type < TYPE_MYSTERY)
+        return SPLIT_PHYSICAL;
+    else if (gSwapMoveCategory == 1)
         return SPLIT_PHYSICAL;
     else
         return SPLIT_SPECIAL;
