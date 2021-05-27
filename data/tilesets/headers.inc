@@ -841,3 +841,14 @@ gTileset_TestTiles::
 	.4byte gMetatiles_TestTiles
 	.4byte gMetatileAttributes_TestTiles
 	.4byte NULL
+
+	.align 2
+gTileset_Frostvale::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_Frostvale
+	.4byte gTilesetPalettes_Frostvale
+	.4byte gMetatiles_Frostvale
+	.4byte gMetatileAttributes_Frostvale
+	.4byte NULL

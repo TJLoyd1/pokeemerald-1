@@ -264,20 +264,20 @@
     {
       "id": "LAYOUT_ROUTE111",
       "name": "Route111_Layout",
-      "width": 42,
-      "height": 150,
+      "width": 78,
+      "height": 81,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Frostvale",
       "border_filepath": "data/layouts/Route111/border.bin",
       "blockdata_filepath": "data/layouts/Route111/map.bin"
     },
     {
       "id": "LAYOUT_ROUTE112",
       "name": "Route112_Layout",
-      "width": 40,
-      "height": 60,
+      "width": 80,
+      "height": 91,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lavaridge",
+      "secondary_tileset": "gTileset_Frostvale",
       "border_filepath": "data/layouts/Route112/border.bin",
       "blockdata_filepath": "data/layouts/Route112/map.bin"
     },
@@ -285,9 +285,9 @@
       "id": "LAYOUT_ROUTE113",
       "name": "Route113_Layout",
       "width": 100,
-      "height": 20,
+      "height": 23,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Frostvale",
       "border_filepath": "data/layouts/Route113/border.bin",
       "blockdata_filepath": "data/layouts/Route113/map.bin"
     },

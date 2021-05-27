@@ -196,6 +196,15 @@
 #define METATILE_Fortree_WoodBridge1_Bottom                0x29F
 #define METATILE_Fortree_WoodBridge1_Top                   0x297
 
+// gTileset_Frostvale
+#define METATILE_Frostvale_Door               0x2C9
+#define METATILE_Frostvale_Door_Gym           0x2A3
+#define METATILE_Frostvale_Door_PokeMart      0x24A
+#define METATILE_Frostvale_Door_Pokecenter    0x27A
+#define METATILE_Frostvale_Grass_TreeLeft     0x202
+#define METATILE_Frostvale_Grass_TreeRight    0x2D3
+#define METATILE_Frostvale_RockWall_RockBase  0x229
+
 // gTileset_General
 #define METATILE_General_BlueCaveIndent        0x1B0
 #define METATILE_General_BlueCaveOpen          0x1B1

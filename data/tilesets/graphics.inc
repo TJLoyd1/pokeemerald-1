@@ -1749,3 +1749,23 @@ gTilesetPalettes_TestTiles::
 	.align 2
 gTilesetTiles_TestTiles::
 	.incbin "data/tilesets/primary/testtiles/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_Frostvale::
+	.incbin "data/tilesets/secondary/frostvale/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/frostvale/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_Frostvale::
+	.incbin "data/tilesets/secondary/frostvale/tiles.4bpp.lz"

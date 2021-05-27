@@ -565,3 +565,10 @@ gMetatiles_TestTiles::
 	.align 1
 gMetatileAttributes_TestTiles::
 	.incbin "data/tilesets/primary/testtiles/metatile_attributes.bin"
+	.align 1
+gMetatiles_Frostvale::
+	.incbin "data/tilesets/secondary/frostvale/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_Frostvale::
+	.incbin "data/tilesets/secondary/frostvale/metatile_attributes.bin"

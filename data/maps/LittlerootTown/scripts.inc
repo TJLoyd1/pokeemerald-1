@@ -1200,6 +1200,8 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	fadescreen 0
 	playbgm MUS_GSC_ROUTE38, 1
 	applymovement 8, Face_Player_Direction
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
 	msgbox LittlerootTown_Text_ThatWasWeird, MSGBOX_DEFAULT
 	waitmovement 0
 	closemessage

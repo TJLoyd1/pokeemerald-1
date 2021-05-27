@@ -1261,10 +1261,11 @@ RustboroCity_EventScript_CuteCouple::
 	closemessage
 	applymovement 18, Common_Movement_ExclamationMark
 	waitmovement 0
+	faceplayer
 	msgbox RustboroCity_Text_CuteCoupleThinksYoureWeird, MSGBOX_NPC
 	closemessage
-	applymovement 17, Common_Movement_FaceLeft
-	applymovement 18, Common_Movement_FaceRight
+	applymovement 18, Common_Movement_FaceDown
+	applymovement 17, Common_Movement_FaceUp
 	waitmovement 0
 	release
 	end

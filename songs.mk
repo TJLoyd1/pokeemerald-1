@@ -633,6 +633,12 @@ $(MID_SUBDIR)/mus_vs_rayquaza.s: %.s: %.mid
 $(MID_SUBDIR)/mus_encounter_hiker.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G097 -V076
 
+$(MID_SUBDIR)/mus_trainer_battle_dppt.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G119 -V080 -P1
+	
+$(MID_SUBDIR)/mus_vs_trainer_colo.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G194 -V080 -P1
+
 $(MID_SUBDIR)/ph_choice_blend.s: %.s: %.mid
 	$(MID) $< $@ -E -G130 -P4
 

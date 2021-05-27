@@ -5,7 +5,7 @@
   "music": "MUS_ROUTE113",
   "region_map_section": "MAPSEC_ROUTE_113",
   "requires_flash": false,
-  "weather": "WEATHER_SUNNY",
+  "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -15,18 +15,13 @@
   "connections": [
     {
       "direction": "down",
-      "offset": 60,
+      "offset": -16,
       "map": "MAP_ROUTE112"
-    },
-    {
-      "direction": "left",
-      "offset": 0,
-      "map": "MAP_FALLARBOR_TOWN"
     },
     {
       "direction": "right",
       "offset": 0,
-      "map": "MAP_ROUTE111"
+      "map": "MAP_FALLARBOR_TOWN"
     }
   ],
   "object_events": [

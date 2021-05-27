@@ -262,6 +262,7 @@ OldaleTown_PokemonCenter_1F_EventScript_Man::
 	end
 
 OldaleTown_PokemonCenter_1F_Text_MoveRelearnerandDeleter:
-	.string "There's a Move Relearner and Move Deletor in\n"
-	.string "every Pokémon Center across the region now.$"
+	.string "There's a Move Relearner and Move Deleter\n"
+	.string "in every Pokémon Center across the\l"
+	.string "region now.$"
 	
