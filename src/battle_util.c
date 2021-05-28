@@ -7804,6 +7804,51 @@ bool32 CanMegaEvolve(u8 battlerId)
     return FALSE;
 }
 
+bool32 CanUseZMove(u8 battlerId)
+{
+    /*
+    u32 itemId, holdEffect;
+    struct Pokemon *mon;
+    u8 battlerPosition = GetBattlerPosition(battlerId);
+    u8 partnerPosition = GetBattlerPosition(BATTLE_PARTNER(battlerId));
+    struct MegaEvolutionData *mega = &(((struct ChooseMoveStruct*)(&gBattleResources->bufferA[gActiveBattler][4]))->mega);
+
+    // Check if trainer already mega evolved a pokemon.
+    if (mega->alreadyEvolved[battlerPosition])
+        return FALSE;
+    if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+    {
+        if (IsPartnerMonFromSameTrainer(battlerId)
+            && (mega->alreadyEvolved[partnerPosition] || (mega->toEvolve & gBitTable[BATTLE_PARTNER(battlerId)])))
+            return FALSE;
+    }
+
+    // Check if the pokemon holds an appropriate item.
+    if (GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
+        mon = &gEnemyParty[gBattlerPartyIndexes[battlerId]];
+    else
+        mon = &gPlayerParty[gBattlerPartyIndexes[battlerId]];
+
+    itemId = GetMonData(mon, MON_DATA_HELD_ITEM);
+    if (USE_BATTLE_DEBUG && gBattleStruct->debugHoldEffects[battlerId])
+        holdEffect = gBattleStruct->debugHoldEffects[battlerId];
+    else if (itemId == ITEM_ENIGMA_BERRY)
+        holdEffect = gEnigmaBerries[battlerId].holdEffect;
+    else
+        holdEffect = ItemId_GetHoldEffect(itemId);
+
+    if (holdEffect != HOLD_EFFECT_MEGA_STONE)
+        return FALSE;
+
+    // Check if there is an entry in the evolution table.
+    if (GetMegaEvolutionSpecies(GetMonData(mon, MON_DATA_SPECIES), itemId) == SPECIES_NONE)
+        return FALSE;
+
+    // All checks passed, the mon CAN mega evolve.
+    */
+    return TRUE;
+}
+
 void UndoMegaEvolution(u32 monId)
 {
     if (gBattleStruct->mega.evolvedPartyIds[B_SIDE_PLAYER] & gBitTable[monId])

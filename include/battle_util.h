@@ -121,6 +121,7 @@ s32 GetStealthHazardDamage(u8 hazardType, u8 battlerId);
 u16 GetMegaEvolutionSpecies(u16 preEvoSpecies, u16 heldItemId);
 u16 GetWishMegaEvolutionSpecies(u16 preEvoSpecies, u16 moveId1, u16 moveId2, u16 moveId3, u16 moveId4);
 bool32 CanMegaEvolve(u8 battlerId);
+bool32 CanUseZMove(u8 battlerId);
 void UndoMegaEvolution(u32 monId);
 void UndoFormChange(u32 monId, u32 side);
 bool32 DoBattlersShareType(u32 battler1, u32 battler2);

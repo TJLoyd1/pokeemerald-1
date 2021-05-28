@@ -595,6 +595,64 @@ static const u16 sStatusIconColors[] =
 
 static const struct WindowTemplate sHealthboxWindowTemplate = {0, 0, 0, 8, 2, 0, 0}; // width = 8, height = 2
 
+static const u8 sZMoveTriggerGfx[] = INCBIN_U8("graphics/battle_interface/z_move_trigger.4bpp");
+static const u16 sZMoveTriggerPal[] = INCBIN_U16("graphics/battle_interface/z_move_trigger.gbapal");
+
+static const struct SpriteSheet sSpriteSheet_ZMoveTrigger =
+{
+    sZMoveTriggerGfx, sizeof(sZMoveTriggerGfx), TAG_ZMOVE_TRIGGER_TILE
+};
+static const struct SpritePalette sSpritePalette_ZMoveTrigger =
+{
+    sZMoveTriggerPal, TAG_ZMOVE_TRIGGER_PAL
+};
+
+static const struct OamData sOamData_ZMoveTrigger =
+{
+    .y = 0,
+    .affineMode = 0,
+    .objMode = 0,
+    .mosaic = 0,
+    .bpp = 0,
+    .shape = ST_OAM_SQUARE,
+    .x = 0,
+    .matrixNum = 0,
+    .size = 2,
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 0,
+    .affineParam = 0,
+};
+
+static const union AnimCmd sSpriteAnim_ZMoveTriggerOff[] =
+{
+    ANIMCMD_FRAME(0, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_ZMoveTriggerOn[] =
+{
+    ANIMCMD_FRAME(16, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd *const sSpriteAnimTable_ZMoveTrigger[] =
+{
+    sSpriteAnim_ZMoveTriggerOff,
+    sSpriteAnim_ZMoveTriggerOn,
+};
+
+static const struct SpriteTemplate sSpriteTemplate_ZMoveTrigger =
+{
+    .tileTag = TAG_ZMOVE_TRIGGER_TILE,
+    .paletteTag = TAG_ZMOVE_TRIGGER_PAL,
+    .oam = &sOamData_ZMoveTrigger,
+    .anims = sSpriteAnimTable_ZMoveTrigger,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCb_MegaTrigger
+};
+
 static const u8 sMegaTriggerGfx[] = INCBIN_U8("graphics/battle_interface/mega_trigger.4bpp");
 static const u16 sMegaTriggerPal[] = INCBIN_U16("graphics/battle_interface/mega_trigger.gbapal");
 
@@ -1527,6 +1585,103 @@ void DestroyMegaTriggerSprite(void)
     if (gBattleStruct->mega.triggerSpriteId != 0xFF)
         DestroySprite(&gSprites[gBattleStruct->mega.triggerSpriteId]);
     gBattleStruct->mega.triggerSpriteId = 0xFF;
+}
+
+void CreateZMoveTriggerSprite(u8 battlerId, u8 palId)
+{
+    LoadSpritePalette(&sSpritePalette_ZMoveTrigger);
+    if (GetSpriteTileStartByTag(TAG_ZMOVE_TRIGGER_TILE) == 0xFFFF)
+        LoadSpriteSheet(&sSpriteSheet_ZMoveTrigger);
+    if (gBattleStruct->zmove.triggerSpriteId == 0xFF)
+    {
+        if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+            gBattleStruct->zmove.triggerSpriteId = CreateSprite(&sSpriteTemplate_ZMoveTrigger,
+                                                             gSprites[gHealthboxSpriteIds[battlerId]].pos1.x - DOUBLES_MEGA_TRIGGER_POS_X_SLIDE,
+                                                             gSprites[gHealthboxSpriteIds[battlerId]].pos1.y - DOUBLES_MEGA_TRIGGER_POS_Y_DIFF, 0);
+        else
+            gBattleStruct->zmove.triggerSpriteId = CreateSprite(&sSpriteTemplate_ZMoveTrigger,
+                                                             gSprites[gHealthboxSpriteIds[battlerId]].pos1.x - SINGLES_MEGA_TRIGGER_POS_X_SLIDE,
+                                                             gSprites[gHealthboxSpriteIds[battlerId]].pos1.y - SINGLES_MEGA_TRIGGER_POS_Y_DIFF, 0);
+    }
+    gSprites[gBattleStruct->zmove.triggerSpriteId].tBattler = battlerId;
+    gSprites[gBattleStruct->zmove.triggerSpriteId].tHide = FALSE;
+
+    ChangeMegaTriggerSprite(gBattleStruct->zmove.triggerSpriteId, palId);
+}
+
+static void SpriteCb_ZMoveTrigger(struct Sprite *sprite)
+{
+    s32 xSlide, xPriority, xOptimal;
+    s32 yDiff;
+
+    if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+    {
+        xSlide = DOUBLES_MEGA_TRIGGER_POS_X_SLIDE;
+        xPriority = DOUBLES_MEGA_TRIGGER_POS_X_PRIORITY;
+        xOptimal = DOUBLES_MEGA_TRIGGER_POS_X_OPTIMAL;
+        yDiff = DOUBLES_MEGA_TRIGGER_POS_Y_DIFF;
+    }
+    else
+    {
+        xSlide = SINGLES_MEGA_TRIGGER_POS_X_SLIDE;
+        xPriority = SINGLES_MEGA_TRIGGER_POS_X_PRIORITY;
+        xOptimal = SINGLES_MEGA_TRIGGER_POS_X_OPTIMAL;
+        yDiff = SINGLES_MEGA_TRIGGER_POS_Y_DIFF;
+    }
+
+    if (sprite->tHide)
+    {
+        if (sprite->pos1.x != gSprites[gHealthboxSpriteIds[sprite->tBattler]].pos1.x - xSlide)
+            sprite->pos1.x++;
+
+        if (sprite->pos1.x >= gSprites[gHealthboxSpriteIds[sprite->tBattler]].pos1.x - xPriority)
+            sprite->oam.priority = 2;
+        else
+            sprite->oam.priority = 1;
+
+        sprite->pos1.y = gSprites[gHealthboxSpriteIds[sprite->tBattler]].pos1.y - yDiff;
+        sprite->pos2.y = gSprites[gHealthboxSpriteIds[sprite->tBattler]].pos2.y - yDiff;
+        if (sprite->pos1.x == gSprites[gHealthboxSpriteIds[sprite->tBattler]].pos1.x - xSlide)
+            DestroyZMoveTriggerSprite();
+    }
+    else
+    {
+        if (sprite->pos1.x != gSprites[gHealthboxSpriteIds[sprite->tBattler]].pos1.x - xOptimal)
+            sprite->pos1.x--;
+
+        if (sprite->pos1.x >= gSprites[gHealthboxSpriteIds[sprite->tBattler]].pos1.x - xPriority)
+            sprite->oam.priority = 2;
+        else
+            sprite->oam.priority = 1;
+
+        sprite->pos1.y = gSprites[gHealthboxSpriteIds[sprite->tBattler]].pos1.y - yDiff;
+        sprite->pos2.y = gSprites[gHealthboxSpriteIds[sprite->tBattler]].pos2.y - yDiff;
+    }
+}
+
+bool32 IsZMoveTriggerSpriteActive(void)
+{
+    if (GetSpriteTileStartByTag(TAG_ZMOVE_TRIGGER_TILE) == 0xFFFF)
+        return FALSE;
+    else if (IndexOfSpritePaletteTag(TAG_ZMOVE_TRIGGER_PAL) != 0xFF)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+void HideZMoveTriggerSprite(void)
+{
+    ChangeMegaTriggerSprite(gBattleStruct->zmove.triggerSpriteId, 0);
+    gSprites[gBattleStruct->zmove.triggerSpriteId].tHide = TRUE;
+}
+
+void DestroyZMoveTriggerSprite(void)
+{
+    FreeSpritePaletteByTag(TAG_ZMOVE_TRIGGER_PAL);
+    FreeSpriteTilesByTag(TAG_ZMOVE_TRIGGER_TILE);
+    if (gBattleStruct->zmove.triggerSpriteId != 0xFF)
+        DestroySprite(&gSprites[gBattleStruct->zmove.triggerSpriteId]);
+    gBattleStruct->zmove.triggerSpriteId = 0xFF;
 }
 
 static const s8 sIndicatorPosSingles[][2] =

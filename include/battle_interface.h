@@ -41,6 +41,7 @@ enum
 
 #define TAG_MEGA_TRIGGER_TILE			0xD777
 #define TAG_MEGA_INDICATOR_TILE         0xD778
+#define TAG_ZMOVE_TRIGGER_TILE			0xD779
 
 #define TAG_HEALTHBOX_PAL               0xD6FF
 #define TAG_HEALTHBAR_PAL               0xD704
@@ -49,6 +50,7 @@ enum
 
 #define TAG_MEGA_TRIGGER_PAL			0xD777
 #define TAG_MEGA_INDICATOR_PAL			0xD778
+#define TAG_ZMOVE_TRIGGER_PAL			0xD779
 
 enum
 {
@@ -83,6 +85,10 @@ void CreateMegaTriggerSprite(u8 battlerId, u8 palId);
 bool32 IsMegaTriggerSpriteActive(void);
 void HideMegaTriggerSprite(void);
 void DestroyMegaTriggerSprite(void);
+void CreateZMoveTriggerSprite(u8 battlerId, u8 palId);
+void HideZMoveTriggerSprite(void);
+bool32 IsZMoveTriggerSpriteActive(void);
+void DestroyZMoveTriggerSprite(void);
 u32 CreateMegaIndicatorSprite(u32 battlerId, u32 which);
 void DestroyMegaIndicatorSprite(u32 healthboxSpriteId);
 u8 CreatePartyStatusSummarySprites(u8 battler, struct HpAndStatus *partyInfo, u8 arg2, bool8 isBattleStart);

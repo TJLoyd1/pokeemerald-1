@@ -418,6 +418,13 @@ struct MegaEvolutionData
     bool8 isWishMegaEvo;
 };
 
+struct ZMoveData
+{
+    u8 battlerId;
+    bool8 playerSelect;
+    u8 triggerSpriteId;
+};
+
 struct Illusion
 {
     u8 on;
@@ -523,6 +530,7 @@ struct BattleStruct
     u8 abilityPopUpSpriteIds[MAX_BATTLERS_COUNT][2];    // two per battler
     bool8 throwingPokeBall;
     struct MegaEvolutionData mega;
+    struct ZMoveData zmove;
     const u8 *trainerSlideMsg;
     bool8 trainerSlideLowHpMsgDone;
     u8 introState;
