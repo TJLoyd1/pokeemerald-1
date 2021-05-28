@@ -537,3 +537,10 @@ gSpecials:: @ 81DBA64
 	def_special TrySetBattleTowerLinkType
 	def_special SetTotemBoost
 	def_special CreateWonderTradePokemon
+	def_special CheckPartyHasMonWithSurf
+	def_special CheckPartyHasMonWithDive
+	def_special CheckPartyHasMonWithWaterfall
+	def_special CheckPartyHasMonWithCut
+	def_special CheckPartyHasMonWithStreght
+	def_special CheckPartyHasMonWithRockSmash
+	
