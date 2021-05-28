@@ -205,6 +205,7 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_ALTERING_CAVE]              = {6, 8, 1, 1, sMapName_AlteringCave},
     [MAPSEC_ALTERING_CAVE_FRLG]         = {0, 0, 1, 1, sMapName_AlteringCave},
     [MAPSEC_ANCIENT_TOMB]               = {13, 2, 1, 1, sMapName_AncientTomb},
+    [MAPSEC_ANTIQUITY_CITY]             = {2, 7, 1, 1, sMapName_AntiquityCity},
     [MAPSEC_AQUA_HIDEOUT]               = {19, 3, 1, 1, sMapName_AquaHideout},
     [MAPSEC_AQUA_HIDEOUT_OLD]           = {19, 3, 1, 1, sMapName_AquaHideoutOld},
     [MAPSEC_ARTISAN_CAVE]               = {22, 12, 1, 1, sMapName_ArtisanCave},
