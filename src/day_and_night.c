@@ -564,4 +564,4 @@ bool8 IsDayTime()
 bool8 IsNightTime()
 {
     return !IsDayTime();
-} 
+}

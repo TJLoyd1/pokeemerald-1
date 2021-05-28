@@ -287,8 +287,8 @@ u16 GetCurrentMapWildMonHeaderId(void)
 
                 i += alteringCaveId;
             }
-			if ((i == 0 && IsDayTime()) || (i == 1 && IsNightTime()))
-            return i;
+            if ((i == 0 && IsDayTime()) || (i == 1 && IsNightTime()))
+                return i;
         }
     }
 

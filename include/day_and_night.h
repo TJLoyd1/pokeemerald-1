@@ -20,4 +20,4 @@ u8 GetDnsTimeLapse(u8 hour);
 bool8 IsDayTime(void);
 bool8 IsNightTime(void);
 
-#endif 
+#endif

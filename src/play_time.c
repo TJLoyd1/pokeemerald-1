@@ -52,7 +52,7 @@ void PlayTimeCounter_Update(void)
 
     gSaveBlock2Ptr->playTimeSeconds = 0;
     gSaveBlock2Ptr->playTimeMinutes++;
-	RtcCalcLocalTime();
+    RtcCalcLocalTime();
 
     if (gSaveBlock2Ptr->playTimeMinutes < 60)
         return;
