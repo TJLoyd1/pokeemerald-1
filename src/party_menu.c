@@ -2640,7 +2640,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 
     for (j = 0; j < 8; j++)
     {
-        if (FlagGet(sHMsToFlagTable[sHMs[j]]) && CanMonLearnTMHM(&mons[slotId], sHMs[j] - ITEM_TM01_FOCUS_PUNCH)) 
+        if (FlagGet(sHMsToFlagTable[sHMs[j]]) && CanMonLearnTMHM(&mons[slotId], sHMs[j] - ITEM_TM00_CONFIDE)) 
         {
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, sHMsToFieldMoveTable[j] + MENU_FIELD_MOVES);
         }
