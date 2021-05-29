@@ -254,14 +254,14 @@
     },
     {
       "x": 36,
-      "y": 19,
+      "y": 20,
       "elevation": 0,
       "dest_map": "MAP_PETALBURG_WOODS",
       "dest_warp_id": 5
     },
     {
       "x": 46,
-      "y": 17,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_PETALBURG_WOODS",
       "dest_warp_id": 4
@@ -363,7 +363,7 @@
     {
       "type": "sign",
       "x": 47,
-      "y": 18,
+      "y": 19,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PetalburgWoods_EventScript_Sign2"

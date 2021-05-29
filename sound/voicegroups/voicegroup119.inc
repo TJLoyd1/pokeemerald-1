@@ -91,5 +91,4 @@ voicegroup119:: @ 869AC70
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B090
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0  @ 869B09C
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_86B4890, 0, 7, 15, 2  @ 869B0A8
-	voice_directsound 60, 0, DirectSoundWaveData_clarinet72, 255, 0, 255, 127
 
