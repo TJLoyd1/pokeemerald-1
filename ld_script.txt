@@ -331,7 +331,6 @@ SECTIONS {
         src/international_string_util.o(.text);
 			src/dexnav.o(.text);
 			src/quests.o(.text);
-			src/day_and_night.o(.text);
 			src/wonder_trade.o(.text);
 			src/mugshot.o(.text);
     } =0
@@ -698,7 +697,6 @@ SECTIONS {
         data/sound_data.o(.rodata);
 			src/dexnav.o(.rodata);
 			src/quests.o(.rodata);
-			src/day_and_night.o(.rodata);
 			src/mugshot.o(.rodata);
     } =0
 

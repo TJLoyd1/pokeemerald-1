@@ -15,7 +15,6 @@
 #include "berry.h"
 #include "bg.h"
 #include "data.h"
-#include "day_and_night.h"
 #include "decompress.h"
 #include "dma3.h"
 #include "event_data.h"
@@ -1700,7 +1699,10 @@ void BattleMainCB2(void)
     RunTextPrinters();
     UpdatePaletteFade();
     RunTasks();
+<<<<<<< HEAD
     DnsApplyFilters();
+=======
+>>>>>>> parent of 4fdf4c4305 (Day/Night Cycle Added)
 
     if (JOY_HELD(B_BUTTON) && gBattleTypeFlags & BATTLE_TYPE_RECORDED && sub_8186450())
     {

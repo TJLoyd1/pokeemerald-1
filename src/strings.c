@@ -1836,8 +1836,8 @@ const u8 gText_Berries[] = _("BERRIES");
 
 //// side quest data
 //names
-const u8 gText_SideQuestName_1[] = _("Hoejinn Champion");
-const u8 gText_SideQuestName_2[] = _("Catch Them All");
+const u8 gText_SideQuestName_1[] = _("Catch Them All");
+const u8 gText_SideQuestName_2[] = _("Side Quest 2");
 const u8 gText_SideQuestName_3[] = _("Side Quest 3");
 const u8 gText_SideQuestName_4[] = _("Side Quest 4");
 const u8 gText_SideQuestName_5[] = _("Side Quest 5");
@@ -1867,8 +1867,8 @@ const u8 gText_SideQuestName_28[] = _("Side Quest 28");
 const u8 gText_SideQuestName_29[] = _("Side Quest 29");
 const u8 gText_SideQuestName_30[] = _("Greatest Trainer Around");
 //descriptions
-const u8 gText_SideQuestDesc_1[] = _("Become the Champion of the Hoejinn\nRegion");
-const u8 gText_SideQuestDesc_2[] = _("Complete the Pokédex and show\nProf.Birch");
+const u8 gText_SideQuestDesc_1[] = _("Complete the Pokédex and show Prof.Birch");
+const u8 gText_SideQuestDesc_2[] = _("Description 2");
 const u8 gText_SideQuestDesc_3[] = _("Description 3");
 const u8 gText_SideQuestDesc_4[] = _("Description 4");
 const u8 gText_SideQuestDesc_5[] = _("Description 5");
@@ -1876,9 +1876,9 @@ const u8 gText_SideQuestDesc_6[] = _("Description 6");
 const u8 gText_SideQuestDesc_7[] = _("Description 7");
 const u8 gText_SideQuestDesc_8[] = _("Description 8");
 const u8 gText_SideQuestDesc_9[] = _("Description 9");
-const u8 gText_SideQuestDesc_10[] = _("Help the grandchild find their\nlost Pokémon");
+const u8 gText_SideQuestDesc_10[] = _("Help the grandchild find their lost Pokémon");
 const u8 gText_SideQuestDesc_11[] = _("Bring a shiny pokemon to the guy");
-const u8 gText_SideQuestDesc_12[] = _("Bring a human-like female Pokémon\nto the creep");
+const u8 gText_SideQuestDesc_12[] = _("Bring a human-like female Pokémon to the creep");
 const u8 gText_SideQuestDesc_13[] = _("Description 13");
 const u8 gText_SideQuestDesc_14[] = _("Description 14");
 const u8 gText_SideQuestDesc_15[] = _("Description 15");
@@ -1891,15 +1891,15 @@ const u8 gText_SideQuestDesc_21[] = _("Description 21");
 const u8 gText_SideQuestDesc_22[] = _("Description 22");
 const u8 gText_SideQuestDesc_23[] = _("Description 23");
 const u8 gText_SideQuestDesc_24[] = _("Description 24");
-const u8 gText_SideQuestDesc_25[] = _("Show Violet a different fully\nevolved bug Pokémon for 3 days\nin a row");
+const u8 gText_SideQuestDesc_25[] = _("Show Violet a different fully evolved bug Pokémon for 3 days in a row");
 const u8 gText_SideQuestDesc_26[] = _("Description 26");
 const u8 gText_SideQuestDesc_27[] = _("Description 27");
 const u8 gText_SideQuestDesc_28[] = _("Description 28");
 const u8 gText_SideQuestDesc_29[] = _("Description 29");
 const u8 gText_SideQuestDesc_30[] = _("Beat every game protagonist");
 //point of contact
-const u8 gText_SideQuestPOC_1[] = _("Prof. Birch");
-const u8 gText_SideQuestPOC_2[] = _("Prof. Acacia");
+const u8 gText_SideQuestPOC_1[] = _("Prof. Acacia");
+const u8 gText_SideQuestPOC_2[] = _("POC 2");
 const u8 gText_SideQuestPOC_3[] = _("POC 3");
 const u8 gText_SideQuestPOC_4[] = _("POC 4");
 const u8 gText_SideQuestPOC_5[] = _("POC 5");
@@ -1929,8 +1929,8 @@ const u8 gText_SideQuestPOC_28[] = _("POC 28");
 const u8 gText_SideQuestPOC_29[] = _("POC 29");
 const u8 gText_SideQuestPOC_30[] = _("May Birch");
 //map
-const u8 gText_SideQuestMap_1[] = _("Littleroot Town");
-const u8 gText_SideQuestMap_2[] = _("Mauville City");
+const u8 gText_SideQuestMap_1[] = _("Mauville City");
+const u8 gText_SideQuestMap_2[] = _("Map 2");
 const u8 gText_SideQuestMap_3[] = _("Map 3");
 const u8 gText_SideQuestMap_4[] = _("Map 4");
 const u8 gText_SideQuestMap_5[] = _("Map 5");
@@ -1960,7 +1960,7 @@ const u8 gText_SideQuestMap_28[] = _("Map 28");
 const u8 gText_SideQuestMap_29[] = _("Map 29");
 const u8 gText_SideQuestMap_30[] = _("Littleroot Town");
 //rewards
-const u8 gText_SideQuestReward_1[] = _("High Status");
+const u8 gText_SideQuestReward_1[] = _("Reward 1");
 const u8 gText_SideQuestReward_2[] = _("Reward 2");
 const u8 gText_SideQuestReward_3[] = _("Reward 3");
 const u8 gText_SideQuestReward_4[] = _("Reward 4");
