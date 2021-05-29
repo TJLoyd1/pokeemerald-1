@@ -1699,10 +1699,6 @@ void BattleMainCB2(void)
     RunTextPrinters();
     UpdatePaletteFade();
     RunTasks();
-<<<<<<< HEAD
-    DnsApplyFilters();
-=======
->>>>>>> parent of 4fdf4c4305 (Day/Night Cycle Added)
 
     if (JOY_HELD(B_BUTTON) && gBattleTypeFlags & BATTLE_TYPE_RECORDED && sub_8186450())
     {
