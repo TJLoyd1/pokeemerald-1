@@ -21,6 +21,8 @@
 #include "constants/weather.h"
 #endif
 
+extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+
 struct InGameTrade {
     /*0x00*/ u8 name[11];
     /*0x0C*/ u16 species;

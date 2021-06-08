@@ -3990,15 +3990,15 @@ static void LoadDisplayMonGfx(u16 species, u32 pid)
 
     if (species == SPECIES_EGG)
     {
-        pal1 = &gEgg1PaletteTable[sPSSData->field_73C[0]];
-        pal2 = &gEgg2PaletteTable[sPSSData->field_73C[1]];
-        LoadSpecialPokePic(&gMonFrontPicTable[species], sPSSData->field_22C4, species, pid, TRUE);
-        LZ77UnCompWram(pal1->data, sPSSData->field_2244);
+        pal1 = &gEgg1PaletteTable[sStorage->filler2[0]];
+        pal2 = &gEgg2PaletteTable[sStorage->filler2[1]];
+        LoadSpecialPokePic(&gMonFrontPicTable[species], sStorage->tileBuffer, species, pid, TRUE);
+        LZ77UnCompWram(pal1->data, sStorage->displayMonPalBuffer);
         LZ77UnCompWram(pal2->data, gDecompressionBuffer);
-        CpuCopy32(sPSSData->field_22C4, sPSSData->field_223C, MON_PIC_SIZE);
-        LoadPalette(sPSSData->field_2244, sPSSData->field_223A, 0x10);
-        LoadPalette(gDecompressionBuffer, sPSSData->field_223A + 8, 0x10);
-        sPSSData->cursorMonSprite->invisible = FALSE;
+        CpuCopy32(sStorage->tileBuffer, sStorage->displayMonTilePtr, MON_PIC_SIZE);
+        LoadPalette(sStorage->displayMonPalBuffer, sStorage->displayMonPalOffset, 0x10);
+        LoadPalette(gDecompressionBuffer, sStorage->displayMonPalOffset + 8, 0x10);
+        sStorage->displayMonSprite->invisible = FALSE;
     }
     else if (species != SPECIES_NONE)
     {

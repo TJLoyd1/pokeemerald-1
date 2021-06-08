@@ -2090,7 +2090,7 @@ static void DebugAction_Give_Pokemon_SelectAbility(u8 taskId)
     if (gBaseStats[sDebugMonData->mon_speciesId].abilities[1] != ABILITY_NONE)
         abilityCount += 1;
 #ifdef POKEMON_EXPANSION
-    if (gBaseStats[sDebugMonData->mon_speciesId].abilityHidden != ABILITY_NONE)
+    if (gBaseStats[sDebugMonData->mon_speciesId].abilities[2] != ABILITY_NONE)
         abilityCount += 2;
 #endif
     if (gMain.newKeys & DPAD_ANY)
