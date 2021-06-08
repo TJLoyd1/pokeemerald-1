@@ -264,7 +264,6 @@ static bool8 TrainerPicCb_Slide2(struct Sprite *sprite);
 static bool8 TrainerPicCb_Slide3(struct Sprite *sprite);
 
 // iwram bss vars
-static s16 sUnusedRectangularSpiralVar;
 static u8 sTestingTransitionId;
 static u8 sTestingTransitionState;
 static struct StructRectangularSpiral sRectangularSpiralTransition[4];
@@ -277,8 +276,6 @@ static const u32 sBigPokeball_Tileset[] = INCBIN_U32("graphics/battle_transition
 static const u32 sPokeballTrail_Tileset[] = INCBIN_U32("graphics/battle_transitions/pokeball_trail.4bpp");
 static const u8 sPokeball_Gfx[] = INCBIN_U8("graphics/battle_transitions/pokeball.4bpp");
 static const u32 sEliteFour_Tileset[] = INCBIN_U32("graphics/battle_transitions/elite_four_bg.4bpp");
-static const u8 sUnusedBrendan_Gfx[] = INCBIN_U8("graphics/battle_transitions/unused_brendan.4bpp");
-static const u8 sUnusedLass_Gfx[] = INCBIN_U8("graphics/battle_transitions/unused_lass.4bpp");
 static const u32 sShrinkingBoxTileset[] = INCBIN_U32("graphics/battle_transitions/shrinking_box.4bpp");
 static const u16 sEvilTeam_Palette[] = INCBIN_U16("graphics/battle_transitions/evil_team.gbapal");
 static const u32 sTeamAqua_Tileset[] = INCBIN_U32("graphics/battle_transitions/team_aqua.4bpp.lz");
@@ -769,66 +766,6 @@ static const struct SpriteTemplate sSpriteTemplate_Pokeball =
     .callback = sub_814713C
 };
 
-static const struct OamData sOam_UnusedBrendanLass =
-{
-    .y = 0,
-    .affineMode = ST_OAM_AFFINE_OFF,
-    .objMode = ST_OAM_OBJ_NORMAL,
-    .mosaic = 0,
-    .bpp = ST_OAM_4BPP,
-    .shape = SPRITE_SHAPE(64x64),
-    .x = 0,
-    .matrixNum = 0,
-    .size = SPRITE_SIZE(64x64),
-    .tileNum = 0,
-    .priority = 0,
-    .paletteNum = 0,
-    .affineParam = 0,
-};
-
-static const struct SpriteFrameImage sImageTable_UnusedBrendan[] =
-{
-    sUnusedBrendan_Gfx, sizeof(sUnusedBrendan_Gfx)
-};
-
-static const struct SpriteFrameImage sImageTable_UnusedLass[] =
-{
-    sUnusedLass_Gfx, sizeof(sUnusedLass_Gfx)
-};
-
-static const union AnimCmd sSpriteAnim_UnusedBrendanLass[] =
-{
-    ANIMCMD_FRAME(0, 1),
-    ANIMCMD_END
-};
-
-static const union AnimCmd *const sSpriteAnimTable_UnusedBrendanLass[] =
-{
-    sSpriteAnim_UnusedBrendanLass
-};
-
-static const struct SpriteTemplate sSpriteTemplate_UnusedBrendan =
-{
-    .tileTag = 0xFFFF,
-    .paletteTag = 0x100A,
-    .oam = &sOam_UnusedBrendanLass,
-    .anims = sSpriteAnimTable_UnusedBrendanLass,
-    .images = sImageTable_UnusedBrendan,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCb_TrainerPic
-};
-
-static const struct SpriteTemplate sSpriteTemplate_UnusedLass =
-{
-    .tileTag = 0xFFFF,
-    .paletteTag = 0x100A,
-    .oam = &sOam_UnusedBrendanLass,
-    .anims = sSpriteAnimTable_UnusedBrendanLass,
-    .images = sImageTable_UnusedLass,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCb_TrainerPic
-};
-
 static const u16 sFieldEffectPal_Pokeball[] = INCBIN_U16("graphics/field_effects/palettes/pokeball.gbapal");
 
 const struct SpritePalette gSpritePalette_Pokeball = {sFieldEffectPal_Pokeball, FLDEFF_PAL_TAG_POKEBALL};
@@ -861,9 +798,6 @@ static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =
     [MALE] = sMugshotPal_Brendan,
     [FEMALE] = sMugshotPal_May
 };
-
-static const u16 sUnusedTrainerPalette[] = INCBIN_U16("graphics/battle_transitions/unused_trainer.gbapal");
-static const struct SpritePalette sSpritePalette_UnusedTrainer = {sUnusedTrainerPalette, 0x100A};
 
 static const u16 sBigPokeball_Tilemap[] = INCBIN_U16("graphics/battle_transitions/big_pokeball_map.bin");
 static const u16 sMugshotsTilemap[] = INCBIN_U16("graphics/battle_transitions/elite_four_bg_map.bin");
@@ -3015,12 +2949,6 @@ static bool16 sub_8149048(const s16 * const *arg0, struct StructRectangularSpira
     const s16 *array = arg0[arg1->field_0];
     if (array[arg1->field_4] == -1)
         return FALSE;
-
-    // ??
-    sUnusedRectangularSpiralVar = array[0];
-    sUnusedRectangularSpiralVar = array[1];
-    sUnusedRectangularSpiralVar = array[2];
-    sUnusedRectangularSpiralVar = array[3];
 
     switch (array[0])
     {
