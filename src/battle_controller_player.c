@@ -81,7 +81,7 @@ static void PlayerHandleSetUnkVar(void);
 static void PlayerHandleClearUnkFlag(void);
 static void PlayerHandleToggleUnkFlag(void);
 static void PlayerHandleHitAnimation(void);
-static void PlayerHandleCmd42(void);
+static void PlayerHandleCantSwitch(void);
 static void PlayerHandlePlaySE(void);
 static void PlayerHandlePlayFanfareOrBGM(void);
 static void PlayerHandleFaintingCry(void);
@@ -169,7 +169,7 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
     [CONTROLLER_CLEARUNKFLAG]             = PlayerHandleClearUnkFlag,
     [CONTROLLER_TOGGLEUNKFLAG]            = PlayerHandleToggleUnkFlag,
     [CONTROLLER_HITANIMATION]             = PlayerHandleHitAnimation,
-    [CONTROLLER_42]                       = PlayerHandleCmd42,
+    [CONTROLLER_CANTSWITCH]               = PlayerHandleCantSwitch,
     [CONTROLLER_PLAYSE]                   = PlayerHandlePlaySE,
     [CONTROLLER_PLAYFANFAREORBGM]         = PlayerHandlePlayFanfareOrBGM,
     [CONTROLLER_FAINTINGCRY]              = PlayerHandleFaintingCry,
@@ -728,7 +728,7 @@ static u32 HandleMoveInputUnused(void)
     {
         PlaySE(SE_SELECT);
         gBattle_BG0_X = 0;
-        gBattle_BG0_Y = 0x140;
+        gBattle_BG0_Y = DISPLAY_HEIGHT * 2;
         var = 0xFF;
     }
     if (JOY_NEW(DPAD_LEFT) && gMoveSelectionCursor[gActiveBattler] & 1)
@@ -1247,16 +1247,22 @@ static void CompleteOnInactiveTextPrinter(void)
         PlayerBufferExecCompleted();
 }
 
-#define tExpTask_monId      data[0]
-#define tExpTask_gainedExp  data[1]
-#define tExpTask_battler    data[2]
-#define tExpTask_frames     data[10]
+#define tExpTask_monId          data[0]
+#define tExpTask_battler        data[2]
+#define tExpTask_gainedExp_1    data[3]
+#define tExpTask_gainedExp_2    data[4] // Stored as two half-words containing a word.
+#define tExpTask_frames         data[10]
+
+static s32 GetTaskExpValue(u8 taskId)
+{
+    return (u16)(gTasks[taskId].tExpTask_gainedExp_1) | (gTasks[taskId].tExpTask_gainedExp_2 << 16);
+}
 
 static void Task_GiveExpToMon(u8 taskId)
 {
     u32 monId = (u8)(gTasks[taskId].tExpTask_monId);
     u8 battlerId = gTasks[taskId].tExpTask_battler;
-    s16 gainedExp = gTasks[taskId].tExpTask_gainedExp;
+    s32 gainedExp = GetTaskExpValue(taskId);
 
     if (IsDoubleBattle() == TRUE || monId != gBattlerPartyIndexes[battlerId]) // Give exp without moving the expbar.
     {
@@ -1301,7 +1307,7 @@ static void Task_GiveExpToMon(u8 taskId)
 static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
 {
     u8 monIndex = gTasks[taskId].tExpTask_monId;
-    s32 gainedExp = gTasks[taskId].tExpTask_gainedExp;
+    s32 gainedExp = GetTaskExpValue(taskId);
     u8 battlerId = gTasks[taskId].tExpTask_battler;
     struct Pokemon *mon = &gPlayerParty[monIndex];
     u8 level = GetMonData(mon, MON_DATA_LEVEL);
@@ -1326,9 +1332,9 @@ static void Task_GiveExpWithExpBar(u8 taskId)
     else
     {
         u8 monId = gTasks[taskId].tExpTask_monId;
-        s16 gainedExp = gTasks[taskId].tExpTask_gainedExp;
+        s32 gainedExp = GetTaskExpValue(taskId);
         u8 battlerId = gTasks[taskId].tExpTask_battler;
-        s16 newExpPoints;
+        s32 newExpPoints;
 
         newExpPoints = MoveBattleBar(battlerId, gHealthboxSpriteIds[battlerId], EXP_BAR, 0);
         SetHealthboxSpriteVisible(gHealthboxSpriteIds[battlerId]);
@@ -2693,7 +2699,7 @@ static void HandleChooseActionAfterDma3(void)
     if (!IsDma3ManagerBusyWithBgCopy())
     {
         gBattle_BG0_X = 0;
-        gBattle_BG0_Y = 160;
+        gBattle_BG0_Y = DISPLAY_HEIGHT;
         gBattlerControllerFuncs[gActiveBattler] = HandleInputChooseAction;
     }
 }
@@ -2735,7 +2741,7 @@ static void HandleChooseMoveAfterDma3(void)
     if (!IsDma3ManagerBusyWithBgCopy())
     {
         gBattle_BG0_X = 0;
-        gBattle_BG0_Y = 320;
+        gBattle_BG0_Y = DISPLAY_HEIGHT * 2;
         gBattlerControllerFuncs[gActiveBattler] = HandleInputChooseMove;
     }
 }
@@ -2857,6 +2863,7 @@ static void PlayerHandleHealthBarUpdate(void)
 static void PlayerHandleExpUpdate(void)
 {
     u8 monId = gBattleResources->bufferA[gActiveBattler][1];
+    s32 taskId, expPointsToGive;
 
     if (GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL) >= MAX_LEVEL)
     {
@@ -2864,23 +2871,22 @@ static void PlayerHandleExpUpdate(void)
     }
     else
     {
-        s16 expPointsToGive;
-        u8 taskId;
-
         LoadBattleBarGfx(1);
         GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES);  // Unused return value.
-        expPointsToGive = T1_READ_16(&gBattleResources->bufferA[gActiveBattler][2]);
+        expPointsToGive = T1_READ_32(&gBattleResources->bufferA[gActiveBattler][2]);
         taskId = CreateTask(Task_GiveExpToMon, 10);
         gTasks[taskId].tExpTask_monId = monId;
-        gTasks[taskId].tExpTask_gainedExp = expPointsToGive;
+        gTasks[taskId].tExpTask_gainedExp_1 = expPointsToGive;
+        gTasks[taskId].tExpTask_gainedExp_2 = expPointsToGive >> 16;
         gTasks[taskId].tExpTask_battler = gActiveBattler;
         gBattlerControllerFuncs[gActiveBattler] = BattleControllerDummy;
     }
 }
 
 #undef tExpTask_monId
-#undef tExpTask_gainedExp
 #undef tExpTask_battler
+#undef tExpTask_gainedExp_1
+#undef tExpTask_gainedExp_2
 #undef tExpTask_frames
 
 static void PlayerHandleStatusIconUpdate(void)
@@ -3020,7 +3026,7 @@ static void PlayerHandleHitAnimation(void)
     }
 }
 
-static void PlayerHandleCmd42(void)
+static void PlayerHandleCantSwitch(void)
 {
     PlayerBufferExecCompleted();
 }

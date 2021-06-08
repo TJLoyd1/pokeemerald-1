@@ -34,7 +34,7 @@ static const u8 sText_DisplaySpDefStat[] = _("{STR_VAR_5}");
 static const u8 sText_DisplaySpeedStat[] = _("{STR_VAR_6}");
 
 // Groups of strings for infoboxes
-static const struct InfoBox sInfoBoxListPokemonData[] = 
+static const struct InfoBox sInfoBoxListPokemonData[] =
 {
     {sText_DisplayHpStat},
     {sText_DisplayAtkStat},

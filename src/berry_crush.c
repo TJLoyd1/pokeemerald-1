@@ -152,9 +152,9 @@ enum {
 #define PLAY_AGAIN_NO_BERRIES 3
 
 enum {
-    COLORID_GREY,
+    COLORID_GRAY,
     COLORID_BLACK,
-    COLORID_LIGHT_GREY,
+    COLORID_LIGHT_GRAY,
     COLORID_BLUE,
     COLORID_GREEN,
     COLORID_RED,
@@ -457,9 +457,9 @@ static const struct BgTemplate sBgTemplates[4] =
 
 static const u8 sTextColorTable[][3] =
 {
-    [COLORID_GREY]       = {TEXT_COLOR_WHITE,       TEXT_COLOR_DARK_GREY,  TEXT_COLOR_LIGHT_GREY},
-    [COLORID_BLACK]      = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE,      TEXT_COLOR_DARK_GREY},
-    [COLORID_LIGHT_GREY] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_GREY, TEXT_COLOR_RED},
+    [COLORID_GRAY]       = {TEXT_COLOR_WHITE,       TEXT_COLOR_DARK_GRAY,  TEXT_COLOR_LIGHT_GRAY},
+    [COLORID_BLACK]      = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE,      TEXT_COLOR_DARK_GRAY},
+    [COLORID_LIGHT_GRAY] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_GRAY, TEXT_COLOR_RED},
     [COLORID_BLUE]       = {TEXT_COLOR_WHITE,       TEXT_COLOR_BLUE,       TEXT_COLOR_LIGHT_BLUE},
     [COLORID_GREEN]      = {TEXT_COLOR_WHITE,       TEXT_COLOR_GREEN,      TEXT_COLOR_LIGHT_GREEN},
     [COLORID_RED]        = {TEXT_COLOR_WHITE,       TEXT_COLOR_RED,        TEXT_COLOR_LIGHT_RED},
@@ -1628,8 +1628,8 @@ static void PrintResultsText(struct BerryCrushGame * game, u8 page, u8 sp14, u8 
             playerId = results->playerIdsRanked[page][i];
             if (i != 0 && results->stats[page][i] != results->stats[page][i - 1])
                 ranking = i;
-            ConvertIntToDecimalStringN(gStringVar4, results->stats[page][i], STR_CONV_MODE_RIGHT_ALIGN, 4);
-            StringAppend(gStringVar4, sResultsTexts[page]);
+            ConvertIntToDecimalStringN(gStringVar7, results->stats[page][i], STR_CONV_MODE_RIGHT_ALIGN, 4);
+            StringAppend(gStringVar7, sResultsTexts[page]);
             break;
         case RESULTS_PAGE_RANDOM:
             playerId = results->playerIdsRanked[page][i];
@@ -1643,7 +1643,7 @@ static void PrintResultsText(struct BerryCrushGame * game, u8 page, u8 sp14, u8 
                     xOffset += sPressingSpeedConversionTable[j];
             stat = xOffset / 1000000u;
             ConvertIntToDecimalStringN(gStringVar2, stat, STR_CONV_MODE_LEADING_ZEROS, 2);
-            StringExpandPlaceholders(gStringVar4, sResultsTexts[page]);
+            StringExpandPlaceholders(gStringVar7, sResultsTexts[page]);
             break;
         case RESULTS_PAGE_CRUSHING:
             playerId = i;
@@ -1652,19 +1652,19 @@ static void PrintResultsText(struct BerryCrushGame * game, u8 page, u8 sp14, u8 
             if (j >= LAST_BERRY_INDEX - FIRST_BERRY_INDEX + 2)
                 j = 0;
             StringCopy(gStringVar1, gBerries[j].name);
-            StringExpandPlaceholders(gStringVar4, sResultsTexts[page]);
+            StringExpandPlaceholders(gStringVar7, sResultsTexts[page]);
             break;
         }
-        x = GetStringRightAlignXOffset(2, gStringVar4, sp14 - 4);
-        AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GREY], 0, gStringVar4);
+        x = GetStringRightAlignXOffset(2, gStringVar7, sp14 - 4);
+        AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GRAY], 0, gStringVar7);
         if (playerId == game->localId)
             StringCopy(gStringVar3, gText_1DotBlueF700);
         else
             StringCopy(gStringVar3, gText_1DotF700);
         gStringVar3[0] = ranking + CHAR_1;
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, game->players[playerId].name);
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gStringVar3);
-        AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, 4, y, sTextColorTable[COLORID_GREY], 0, gStringVar4);
+        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar7, gStringVar3);
+        AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, 4, y, sTextColorTable[COLORID_GRAY], 0, gStringVar7);
     }
 }
 
@@ -1679,34 +1679,34 @@ static void PrintCrushingResults(struct BerryCrushGame *game)
     FramesToMinSec(&game->gfx, results->time);
 
     // Print time text
-    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GREY], 0, gText_TimeColon);
+    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GRAY], 0, gText_TimeColon);
 
     // Print seconds text
     x = 176 - (u8)GetStringWidth(2, gText_SpaceSec, -1);
-    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GREY], 0, gText_SpaceSec);
+    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GRAY], 0, gText_SpaceSec);
 
     // Print seconds value
     ConvertIntToDecimalStringN(gStringVar1, game->gfx.secondsInt, STR_CONV_MODE_LEADING_ZEROS, 2);
     ConvertIntToDecimalStringN(gStringVar2, game->gfx.secondsFrac, STR_CONV_MODE_LEADING_ZEROS, 2);
-    StringExpandPlaceholders(gStringVar4, gText_XDotY2);
-    x -= GetStringWidth(2, gStringVar4, -1);
-    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GREY], 0, gStringVar4);
+    StringExpandPlaceholders(gStringVar7, gText_XDotY2);
+    x -= GetStringWidth(2, gStringVar7, -1);
+    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GRAY], 0, gStringVar7);
 
     // Print minutes text
     x -= GetStringWidth(2, gText_SpaceMin, -1);
-    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GREY], 0, gText_SpaceMin);
+    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GRAY], 0, gText_SpaceMin);
 
     // Print minutes value
     ConvertIntToDecimalStringN(gStringVar1, game->gfx.minutes, STR_CONV_MODE_LEADING_ZEROS, 1);
-    StringExpandPlaceholders(gStringVar4, gText_StrVar1);
-    x -= GetStringWidth(2, gStringVar4, -1);
-    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GREY], 0, gStringVar4);
+    StringExpandPlaceholders(gStringVar7, gText_StrVar1);
+    x -= GetStringWidth(2, gStringVar7, -1);
+    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GRAY], 0, gStringVar7);
 
     // Print pressing speed text
     y += 14;
-    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, 0, y, sTextColorTable[COLORID_GREY], 0, gText_PressingSpeed);
+    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, 0, y, sTextColorTable[COLORID_GRAY], 0, gText_PressingSpeed);
     x = 176 - (u8)GetStringWidth(2, gText_TimesPerSec, -1);
-    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GREY], 0, gText_TimesPerSec);
+    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GRAY], 0, gText_TimesPerSec);
 
     // Print pressing speed value
     for (i = 0; i < 8; i++)
@@ -1714,22 +1714,22 @@ static void PrintCrushingResults(struct BerryCrushGame *game)
             pressingSpeedFrac += *(i + sPressingSpeedConversionTable); // It's accessed in a different way here for unknown reason
     ConvertIntToDecimalStringN(gStringVar1, game->pressingSpeed >> 8, STR_CONV_MODE_RIGHT_ALIGN, 3);
     ConvertIntToDecimalStringN(gStringVar2, pressingSpeedFrac / 1000000, STR_CONV_MODE_LEADING_ZEROS, 2);
-    StringExpandPlaceholders(gStringVar4, gText_XDotY3);
-    x -= GetStringWidth(2, gStringVar4, -1);
+    StringExpandPlaceholders(gStringVar7, gText_XDotY3);
+    x -= GetStringWidth(2, gStringVar7, -1);
     if (game->newRecord)
-        AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_RED], 0, gStringVar4);
+        AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_RED], 0, gStringVar7);
     else
-        AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GREY], 0, gStringVar4);
+        AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GRAY], 0, gStringVar7);
 
     // Print silkiness text
     y += 14;
-    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, 0, y, sTextColorTable[COLORID_GREY], 0, gText_Silkiness);
+    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, 0, y, sTextColorTable[COLORID_GRAY], 0, gText_Silkiness);
 
     // Print silkiness value
     ConvertIntToDecimalStringN(gStringVar1, results->silkiness, STR_CONV_MODE_RIGHT_ALIGN, 3);
-    StringExpandPlaceholders(gStringVar4, gText_Var1Percent);
-    x = 176 - (u8)GetStringWidth(2, gStringVar4, -1);
-    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GREY], 0, gStringVar4);
+    StringExpandPlaceholders(gStringVar7, gText_Var1Percent);
+    x = 176 - (u8)GetStringWidth(2, gStringVar7, -1);
+    AddTextPrinterParameterized3(game->gfx.resultsWindowId, 2, x, y, sTextColorTable[COLORID_GRAY], 0, gStringVar7);
 }
 
 static bool32 OpenResultsWindow(struct BerryCrushGame *game, struct BerryCrushGame_Gfx *gfx)
@@ -1828,9 +1828,9 @@ static void Task_ShowRankings(u8 taskId)
         {
             ConvertIntToDecimalStringN(gStringVar1, i + 2, STR_CONV_MODE_LEFT_ALIGN, 1);
             StringExpandPlaceholders(gStringVar7, gText_Var1Players);
-            AddTextPrinterParameterized3(tWindowId, 1, 0, yPos, sTextColorTable[COLORID_GREY], 0, gStringVar7);
+            AddTextPrinterParameterized3(tWindowId, 1, 0, yPos, sTextColorTable[COLORID_GRAY], 0, gStringVar7);
             xPos = 192 - (u8)GetStringWidth(1, gText_TimesPerSec, -1);
-            AddTextPrinterParameterized3(tWindowId, 1, xPos, yPos, sTextColorTable[COLORID_GREY], 0, gText_TimesPerSec);
+            AddTextPrinterParameterized3(tWindowId, 1, xPos, yPos, sTextColorTable[COLORID_GRAY], 0, gText_TimesPerSec);
             for (j = 0; j < 8; j++)
             {
                 if (((tPressingSpeeds(i) & 0xFF) >> (7 - j)) & 1)
@@ -1840,7 +1840,7 @@ static void Task_ShowRankings(u8 taskId)
             ConvertIntToDecimalStringN(gStringVar2, score / 1000000, STR_CONV_MODE_LEADING_ZEROS, 2);
             StringExpandPlaceholders(gStringVar7, gText_XDotY3);
             xPos -= GetStringWidth(1, gStringVar7, -1);
-            AddTextPrinterParameterized3(tWindowId, 1, xPos, yPos, sTextColorTable[COLORID_GREY], 0, gStringVar7);
+            AddTextPrinterParameterized3(tWindowId, 1, xPos, yPos, sTextColorTable[COLORID_GRAY], 0, gStringVar7);
             yPos += 16;
             score = 0;
         }
@@ -1936,7 +1936,7 @@ static void DrawPlayerNameWindows(struct BerryCrushGame *game)
                 1,
                 0,
                 0,
-                sTextColorTable[COLORID_LIGHT_GREY],
+                sTextColorTable[COLORID_LIGHT_GRAY],
                 0,
                 game->players[i].name
             );

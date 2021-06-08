@@ -78,5 +78,6 @@ u8 ItemId_GetBattleUsage(u16 itemId);
 ItemUseFunc ItemId_GetBattleFunc(u16 itemId);
 u8 ItemId_GetSecondaryId(u16 itemId);
 void DeserializeTmHmItemSlots(void);
+bool32 IsPinchBerryItemEffect(u16 holdEffect);
 
 #endif // GUARD_ITEM_H

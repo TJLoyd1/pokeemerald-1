@@ -4,4 +4,4 @@
 void PrintInfoBox(u16 number);
 void RemoveInfoBox(void);
 
-#endif //GUARD_INFOBOX_H 
+#endif //GUARD_INFOBOX_H
