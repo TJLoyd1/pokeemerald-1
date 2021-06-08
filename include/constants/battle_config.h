@@ -35,6 +35,8 @@
     #define SPECIES_ZYGARDE                 0     // 50%
     #define SPECIES_ZYGARDE_10              10011 // 10 %
     #define SPECIES_ZYGARDE_COMPLETE        10012 // 100 %
+    #define SPECIES_GRENINJA_BATTLE_BOND    0
+    #define SPECIES_GRENINJA_ASH            10013
 #endif
 
 // Items with peculiar battle effects.
