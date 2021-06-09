@@ -549,3 +549,4 @@ gSpecials:: @ 81DBA64
 	def_special DeleteChosenPartyMon
 	def_special CreateWonderTradePokemon
 	def_special BufferChosenMonStats
+	def_special DoSoftReset
