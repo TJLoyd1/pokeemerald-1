@@ -3082,4 +3082,8 @@ extern const u8 gText_ShinyStar[];
 extern const u8 gText_ShinyStarMale[];
 extern const u8 gText_ShinyStarFemale[];
 
+extern const u8 gMenuText_Move[];
+extern const u8 gText_MoveItemWhere[];
+extern const u8 gText_XsYAndXsYWereSwapped[];
+
 #endif // GUARD_STRINGS_H
