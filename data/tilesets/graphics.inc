@@ -1769,3 +1769,58 @@ gTilesetPalettes_Frostvale::
 	.align 2
 gTilesetTiles_Frostvale::
 	.incbin "data/tilesets/secondary/frostvale/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalOverride_General01::
+	.incbin "data/tilesets/primary/general/palettes/01_over.gbapal"
+
+.align 2
+gTilesetPalOverride_General05::
+	.incbin "data/tilesets/primary/general/palettes/05_over.gbapal"
+
+.align 2
+gTilesetPalOverride_Petalburg06::
+	.incbin "data/tilesets/secondary/petalburg/palettes/06_over.gbapal"
+
+.align 2
+gTilesetPalOverride_Petalburg08::
+	.incbin "data/tilesets/secondary/petalburg/palettes/08_over.gbapal"
+	.align 2
+gTilesetPalettes_Oathwood::
+	.incbin "data/tilesets/secondary/oathwood/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/oathwood/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_Oathwood::
+	.incbin "data/tilesets/secondary/oathwood/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_BuchberryWoods::
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/buchberrywoods/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_BuchberryWoods::
+	.incbin "data/tilesets/secondary/buchberrywoods/tiles.4bpp.lz"

@@ -88,13 +88,6 @@
       "elevation": 4,
       "dest_map": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_2F",
       "dest_warp_id": 0
-    },
-    {
-      "x": 2,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_LAVARIDGE_TOWN",
-      "dest_warp_id": 5
     }
   ],
   "coord_events": [

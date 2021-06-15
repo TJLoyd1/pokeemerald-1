@@ -16,6 +16,7 @@
 #include "constants/coins.h"
 #include "constants/contest.h"
 #include "constants/daycare.h"
+#include "constants/day_night.h"
 #include "constants/decorations.h"
 #include "constants/easy_chat.h"
 #include "constants/event_objects.h"
@@ -1117,3 +1118,39 @@ EventScript_DoWonderTrade_Text_Done:
 	.include "data/maps/DewfordTown_PokemonMart/scripts.inc"
 
 	.include "data/maps/AntiquityCity_Mart/scripts.inc"
+
+	.include "data/maps/BuchberryWoods/scripts.inc"
+
+	.include "data/maps/OatwoodTown/scripts.inc"
+
+	.include "data/maps/LittlerootTown_MaysHouse_Hallway/scripts.inc"
+
+	.include "data/maps/LittlerootTown_MaysHouse_MomsRoom/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_Gym_IlexForest/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_Gym_BugsyRoom/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_Gym_BugsysRoom/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_Gym_ViridianForest/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_Gym_ErikasRoom/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_Gym_EternaForest/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_Gym_VioletsRoom/scripts.inc"
+
+	.include "data/maps/FallarborTown_House/scripts.inc"
+
+	.include "data/maps/FallarborTown_House1/scripts.inc"
+
+	.include "data/maps/PetalburgCity_PokemonSchool_TourneyRoom/scripts.inc"
+
+	.include "data/maps/MauvilleCity_Gym_2F/scripts.inc"
+
+	.include "data/maps/MauvilleCity_Gym_3F/scripts.inc"
+
+	.include "data/maps/MauvilleCity_Gym_4F/scripts.inc"
+
+	.include "data/maps/MauvilleCity_Gym_Elevator/scripts.inc"

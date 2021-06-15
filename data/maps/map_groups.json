@@ -96,7 +96,8 @@
     "Underwater_Route125",
     "OldaleGrotto",
     "Route13",
-    "AntiquityCity"
+    "AntiquityCity",
+    "OatwoodTown"
   ],
   "gMapGroup1": [
     "LittlerootTown_BrendansHouse_1F",
@@ -105,7 +106,9 @@
     "LittlerootTown_MaysHouse_2F",
     "LittlerootTown_ProfessorBirchsLab",
     "LittlerootTown_BerryHouse",
-    "LittlerootTown_PotionHouse"
+    "LittlerootTown_PotionHouse",
+    "LittlerootTown_MaysHouse_Hallway",
+    "LittlerootTown_MaysHouse_MomsRoom"
   ],
   "gMapGroup2": [
     "OldaleTown_House1",
@@ -121,7 +124,8 @@
     "DewfordTown_Gym",
     "DewfordTown_Hall",
     "DewfordTown_House2",
-    "DewfordTown_PokemonMart"
+    "DewfordTown_PokemonMart",
+    "LavaridgeTown_Gym_BugsyRoom"
   ],
   "gMapGroup4": [
     "LavaridgeTown_HerbShop",
@@ -130,7 +134,13 @@
     "LavaridgeTown_House",
     "LavaridgeTown_Mart",
     "LavaridgeTown_PokemonCenter_1F",
-    "LavaridgeTown_PokemonCenter_2F"
+    "LavaridgeTown_PokemonCenter_2F",
+    "LavaridgeTown_Gym_IlexForest",
+    "LavaridgeTown_Gym_BugsysRoom",
+    "LavaridgeTown_Gym_ViridianForest",
+    "LavaridgeTown_Gym_ErikasRoom",
+    "LavaridgeTown_Gym_EternaForest",
+    "LavaridgeTown_Gym_VioletsRoom"
   ],
   "gMapGroup5": [
     "FallarborTown_Mart",
@@ -140,7 +150,9 @@
     "FallarborTown_PokemonCenter_1F",
     "FallarborTown_PokemonCenter_2F",
     "FallarborTown_CozmosHouse",
-    "FallarborTown_MoveRelearnersHouse"
+    "FallarborTown_MoveRelearnersHouse",
+    "FallarborTown_House",
+    "FallarborTown_House1"
   ],
   "gMapGroup6": [
     "VerdanturfTown_BattleTentLobby",
@@ -169,7 +181,8 @@
     "PetalburgCity_House2",
     "PetalburgCity_PokemonCenter_1F",
     "PetalburgCity_PokemonCenter_2F",
-    "PetalburgCity_Mart"
+    "PetalburgCity_Mart",
+    "PetalburgCity_PokemonSchool_TourneyRoom"
   ],
   "gMapGroup9": [
     "SlateportCity_SternsShipyard_1F",
@@ -195,7 +208,11 @@
     "MauvilleCity_House2",
     "MauvilleCity_PokemonCenter_1F",
     "MauvilleCity_PokemonCenter_2F",
-    "MauvilleCity_Mart"
+    "MauvilleCity_Mart",
+    "MauvilleCity_Gym_2F",
+    "MauvilleCity_Gym_3F",
+    "MauvilleCity_Gym_4F",
+    "MauvilleCity_Gym_Elevator"
   ],
   "gMapGroup11": [
     "RustboroCity_DevonCorp_1F",
@@ -441,7 +458,8 @@
     "NewMap1",
     "NewMap2",
     "GraniteCave_B3F",
-    "CaveOfUnknown"
+    "CaveOfUnknown",
+    "BuchberryWoods"
   ],
   "gMapGroup25": [
     "SecretBase_RedCave1",

@@ -1,6 +1,10 @@
 #ifndef GUARD_CONSTANTS_MAP_GROUPS_H
 #define GUARD_CONSTANTS_MAP_GROUPS_H
 
+//
+// DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/map_groups.json
+//
+
 // Map Group 0
 #define MAP_PETALBURG_CITY      (0 | (0 << 8))
 #define MAP_SLATEPORT_CITY      (1 | (0 << 8))
@@ -62,6 +66,7 @@
 #define MAP_OLDALE_GROTTO       (57 | (0 << 8))
 #define MAP_ROUTE13             (58 | (0 << 8))
 #define MAP_ANTIQUITY_CITY      (59 | (0 << 8))
+#define MAP_OATWOOD_TOWN        (60 | (0 << 8))
 
 // Map Group 1
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -71,6 +76,8 @@
 #define MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (4 | (1 << 8))
 #define MAP_LITTLEROOT_TOWN_BERRY_HOUSE          (5 | (1 << 8))
 #define MAP_LITTLEROOT_TOWN_POTION_HOUSE         (6 | (1 << 8))
+#define MAP_LITTLEROOT_TOWN_MAYS_HOUSE_HALLWAY   (7 | (1 << 8))
+#define MAP_LITTLEROOT_TOWN_MAYS_HOUSE_MOMS_ROOM (8 | (1 << 8))
 
 // Map Group 2
 #define MAP_OLDALE_TOWN_HOUSE1            (0 | (2 << 8))
@@ -87,15 +94,22 @@
 #define MAP_DEWFORD_TOWN_HALL              (4 | (3 << 8))
 #define MAP_DEWFORD_TOWN_HOUSE2            (5 | (3 << 8))
 #define MAP_DEWFORD_TOWN_POKEMON_MART      (6 | (3 << 8))
+#define MAP_LAVARIDGE_TOWN_GYM_BUGSY_ROOM  (7 | (3 << 8))
 
 // Map Group 4
-#define MAP_LAVARIDGE_TOWN_HERB_SHOP         (0 | (4 << 8))
-#define MAP_LAVARIDGE_TOWN_GYM_1F            (1 | (4 << 8))
-#define MAP_LAVARIDGE_TOWN_GYM_B1F           (2 | (4 << 8))
-#define MAP_LAVARIDGE_TOWN_HOUSE             (3 | (4 << 8))
-#define MAP_LAVARIDGE_TOWN_MART              (4 | (4 << 8))
-#define MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F (5 | (4 << 8))
-#define MAP_LAVARIDGE_TOWN_POKEMON_CENTER_2F (6 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_HERB_SHOP           (0 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_GYM_1F              (1 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_GYM_B1F             (2 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_HOUSE               (3 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_MART                (4 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F   (5 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_POKEMON_CENTER_2F   (6 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_GYM_ILEX_FOREST     (7 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_GYM_BUGSYS_ROOM     (8 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_GYM_VIRIDIAN_FOREST (9 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_GYM_ERIKAS_ROOM     (10 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_GYM_ETERNA_FOREST   (11 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_GYM_VIOLETS_ROOM    (12 | (4 << 8))
 
 // Map Group 5
 #define MAP_FALLARBOR_TOWN_MART                    (0 | (5 << 8))
@@ -106,6 +120,8 @@
 #define MAP_FALLARBOR_TOWN_POKEMON_CENTER_2F       (5 | (5 << 8))
 #define MAP_FALLARBOR_TOWN_COZMOS_HOUSE            (6 | (5 << 8))
 #define MAP_FALLARBOR_TOWN_MOVE_RELEARNERS_HOUSE   (7 | (5 << 8))
+#define MAP_FALLARBOR_TOWN_HOUSE                   (8 | (5 << 8))
+#define MAP_FALLARBOR_TOWN_HOUSE1                  (9 | (5 << 8))
 
 // Map Group 6
 #define MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY       (0 | (6 << 8))
@@ -128,13 +144,14 @@
 #define MAP_PACIFIDLOG_TOWN_HOUSE5            (6 | (7 << 8))
 
 // Map Group 8
-#define MAP_PETALBURG_CITY_WALLYS_HOUSE      (0 | (8 << 8))
-#define MAP_PETALBURG_CITY_GYM               (1 | (8 << 8))
-#define MAP_PETALBURG_CITY_HOUSE1            (2 | (8 << 8))
-#define MAP_PETALBURG_CITY_HOUSE2            (3 | (8 << 8))
-#define MAP_PETALBURG_CITY_POKEMON_CENTER_1F (4 | (8 << 8))
-#define MAP_PETALBURG_CITY_POKEMON_CENTER_2F (5 | (8 << 8))
-#define MAP_PETALBURG_CITY_MART              (6 | (8 << 8))
+#define MAP_PETALBURG_CITY_WALLYS_HOUSE                (0 | (8 << 8))
+#define MAP_PETALBURG_CITY_GYM                         (1 | (8 << 8))
+#define MAP_PETALBURG_CITY_HOUSE1                      (2 | (8 << 8))
+#define MAP_PETALBURG_CITY_HOUSE2                      (3 | (8 << 8))
+#define MAP_PETALBURG_CITY_POKEMON_CENTER_1F           (4 | (8 << 8))
+#define MAP_PETALBURG_CITY_POKEMON_CENTER_2F           (5 | (8 << 8))
+#define MAP_PETALBURG_CITY_MART                        (6 | (8 << 8))
+#define MAP_PETALBURG_CITY_POKEMON_SCHOOL_TOURNEY_ROOM (7 | (8 << 8))
 
 // Map Group 9
 #define MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F      (0 | (9 << 8))
@@ -161,6 +178,10 @@
 #define MAP_MAUVILLE_CITY_POKEMON_CENTER_1F (5 | (10 << 8))
 #define MAP_MAUVILLE_CITY_POKEMON_CENTER_2F (6 | (10 << 8))
 #define MAP_MAUVILLE_CITY_MART              (7 | (10 << 8))
+#define MAP_MAUVILLE_CITY_GYM_2F            (8 | (10 << 8))
+#define MAP_MAUVILLE_CITY_GYM_3F            (9 | (10 << 8))
+#define MAP_MAUVILLE_CITY_GYM_4F            (10 | (10 << 8))
+#define MAP_MAUVILLE_CITY_GYM_ELEVATOR      (11 | (10 << 8))
 
 // Map Group 11
 #define MAP_RUSTBORO_CITY_DEVON_CORP_1F     (0 | (11 << 8))
@@ -407,6 +428,7 @@
 #define MAP_NEW_MAP2                                 (110 | (24 << 8))
 #define MAP_GRANITE_CAVE_B3F                         (111 | (24 << 8))
 #define MAP_CAVE_OF_UNKNOWN                          (112 | (24 << 8))
+#define MAP_BUCHBERRY_WOODS                          (113 | (24 << 8))
 
 // Map Group 25
 #define MAP_SECRET_BASE_RED_CAVE1           (0 | (25 << 8))

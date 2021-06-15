@@ -2,6 +2,7 @@
 #include "malloc.h"
 #include "battle_pyramid.h"
 #include "berry.h"
+#include "day_night.h"
 #include "decoration.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -437,7 +438,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_LUGIA                   0x1121
 #define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
-#define OBJ_EVENT_PAL_TAG_PROF_BIRCH			  0X1124
+#define OBJ_EVENT_PAL_TAG_PROF_MAY		     	  0X1124
+#define OBJ_EVENT_PAL_TAG_RHYOS					  0X1125
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -484,7 +486,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Lugia,                 OBJ_EVENT_PAL_TAG_LUGIA},
     {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
-	{gObjectEventPal_ProfBirch,			    OBJ_EVENT_PAL_TAG_PROF_BIRCH},	
+	{gObjectEventPal_ProfMay,			    OBJ_EVENT_PAL_TAG_PROF_MAY},
+	{gObjectEventPal_Rhyos,					OBJ_EVENT_PAL_TAG_RHYOS},
     {NULL,                                  0x0000},
 };
 
@@ -2064,6 +2067,7 @@ void Unused_LoadObjectEventPaletteSet(u16 *paletteTags)
     }
 }
 
+// NOTE: Does not use LoadSpritePaletteDayNight because of naming screen
 static u8 sub_808E8F4(const struct SpritePalette *spritePalette)
 {
     if (IndexOfSpritePaletteTag(spritePalette->tag) != 0xFF)
@@ -2077,7 +2081,7 @@ void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
 {
     u8 paletteIndex = FindObjectEventPaletteIndexByTag(paletteTag);
 
-    LoadPalette(sObjectEventSpritePalettes[paletteIndex].data, 16 * paletteSlot + 0x100, 0x20);
+    LoadPaletteDayNight(sObjectEventSpritePalettes[paletteIndex].data, 16 * paletteSlot + 0x100, 0x20);
 }
 
 void PatchObjectPaletteRange(const u16 *paletteTags, u8 minSlot, u8 maxSlot)

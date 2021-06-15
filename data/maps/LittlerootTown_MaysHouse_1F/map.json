@@ -73,8 +73,8 @@
       "x": 2,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
-      "dest_warp_id": 0
+      "dest_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_HALLWAY",
+      "dest_warp_id": 2
     }
   ],
   "coord_events": [

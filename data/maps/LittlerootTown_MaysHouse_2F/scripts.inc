@@ -462,19 +462,70 @@ StarterTown_MayPlayersHouse_2F_EventScript_WakeUp2::
 StarterTown_BrendansPlayersHouse_2F_EventScript_WakeUp::
 	applymovement OBJ_EVENT_ID_PLAYER, Walk_Away_From_Bed
 	waitmovement 0
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
 	msgbox BrendansPlayersHouse_2F_Text_WeirdDream, MSGBOX_DEFAULT
 	closemessage
+	callnative ClearMugshot
 	releaseall
 	end
 
 StarterTown_BrendansPlayersHouse_2F_EventScript_WakeUp2::
 	applymovement OBJ_EVENT_ID_PLAYER, Walk_Around_Bed
 	waitmovement 0
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
 	msgbox BrendansPlayersHouse_2F_Text_WeirdDream, MSGBOX_DEFAULT
 	closemessage
+	callnative ClearMugshot
 	releaseall
 	end
 	
+StarterTown_PlayersHouse_2F_EventScript_Continue::
+	lockall
+	releaseall
+	end
+	
+StarterTown_MayPlayersHouse_2F_EventScript_QuestMenu::
+	lockall
+	goto_if_set FLAG_SYS_QUEST_MENU_GET, StarterTown_PlayersHouse_2F_EventScript_Continue
+	setvar VAR_GOT_QUEST_MENU, 1
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq StarterTown_BrendansPlayersHouse_2F_EventScript_QuestMenu
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL
+	applymovement OBJ_EVENT_ID_PLAYER, Check_For_Notebook
+	waitmovement 0
+	msgbox MayPlayersHouse_2F_Text_CantForgetNotebook, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Walk_Down
+	waitmovement 0
+	releaseall
+	end
+	
+StarterTown_BrendansPlayersHouse_2F_EventScript_QuestMenu::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Check_For_Notebook
+	waitmovement 0
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
+	msgbox BrendansPlayersHouse_2F_Text_CantForgetNotebook, MSGBOX_DEFAULT
+	callnative ClearMugshot
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Walk_Down
+	waitmovement 0
+	releaseall
+	end
+
+PlayersHouse_2F_EventScript_QuestMenu::
+	lockall
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL
+	playbgm MUS_OBTAIN_ITEM, 1
+	msgbox PlayersHouse_2F_Text_GotQuestMenu, MSGBOX_DEFAULT
+	setflag FLAG_SYS_QUEST_MENU_GET
+	releaseall
+	end
+
 Walk_Away_From_Bed:
 	walk_left
 	walk_left
@@ -501,6 +552,23 @@ Walk_Around_Bed:
 	face_up
 	step_end
 
+Check_For_Notebook:
+	face_left
+	delay_8
+	delay_16
+	face_right
+	delay_8
+	delay_16
+	face_down
+	step_end
+
+Walk_Down:
+	walk_down
+	step_end
+
+PlayersHouse_2F_Text_GotQuestMenu:
+	.string "{PLAYER} received the Quest Menu.$"
+	
 MayPlayersHouse_2F_Text_WakeUp:
 	.string "Mom:{PLAYER}.\n"
 	.string "When you get up come downstairs.$"
@@ -513,3 +581,15 @@ BrendansPlayersHouse_2F_Text_WeirdDream:
 	.string "{PLAYER}:{COLOR BLUE}What type of dream was\n"
 	.string "that bullshit.\p"
 	.string "It felt too real.$"
+
+MayPlayersHouse_2F_Text_CantForgetNotebook:
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GREY} Just in case I have to\n"
+	.string "go somewhere let me grab my notebook off of my desk.$"
+
+BrendansPlayersHouse_2F_Text_CantForgetNotebook:
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GREY} I'll grab my notebook\n"
+	.string "off of my desk in case I go somewhere.$"
+
+
+
+

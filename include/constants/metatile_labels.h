@@ -201,7 +201,7 @@
 #define METATILE_Frostvale_Door_Gym           0x2A3
 #define METATILE_Frostvale_Door_PokeMart      0x24A
 #define METATILE_Frostvale_Door_Pokecenter    0x27A
-#define METATILE_Frostvale_Grass_TreeLeft     0x202
+#define METATILE_Frostvale_Grass_TreeLeft     0x2D2
 #define METATILE_Frostvale_Grass_TreeRight    0x2D3
 #define METATILE_Frostvale_RockWall_RockBase  0x229
 

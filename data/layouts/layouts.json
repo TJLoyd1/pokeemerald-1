@@ -17,7 +17,7 @@
       "width": 40,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Slateport",
+      "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/SlateportCity/border.bin",
       "blockdata_filepath": "data/layouts/SlateportCity/map.bin"
     },
@@ -124,20 +124,20 @@
     {
       "id": "LAYOUT_LAVARIDGE_TOWN",
       "name": "LavaridgeTown_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 60,
+      "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lavaridge",
+      "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/LavaridgeTown/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown/map.bin"
     },
     {
       "id": "LAYOUT_FALLARBOR_TOWN",
       "name": "FallarborTown_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 40,
+      "height": 62,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Frostvale",
       "border_filepath": "data/layouts/FallarborTown/border.bin",
       "blockdata_filepath": "data/layouts/FallarborTown/map.bin"
     },
@@ -284,8 +284,8 @@
     {
       "id": "LAYOUT_ROUTE113",
       "name": "Route113_Layout",
-      "width": 100,
-      "height": 23,
+      "width": 127,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Frostvale",
       "border_filepath": "data/layouts/Route113/border.bin",
@@ -294,10 +294,10 @@
     {
       "id": "LAYOUT_ROUTE114",
       "name": "Route114_Layout",
-      "width": 40,
-      "height": 80,
+      "width": 30,
+      "height": 50,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Frostvale",
       "border_filepath": "data/layouts/Route114/border.bin",
       "blockdata_filepath": "data/layouts/Route114/map.bin"
     },
@@ -684,10 +684,10 @@
     {
       "id": "LAYOUT_LAVARIDGE_TOWN_GYM_1F",
       "name": "LavaridgeTown_Gym_1F_Layout",
-      "width": 17,
-      "height": 19,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_LavaridgeGym",
+      "width": 18,
+      "height": 25,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/LavaridgeTown_Gym_1F/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown_Gym_1F/map.bin"
     },
@@ -784,10 +784,10 @@
     {
       "id": "LAYOUT_PETALBURG_CITY_GYM",
       "name": "PetalburgCity_Gym_Layout",
-      "width": 9,
-      "height": 112,
+      "width": 50,
+      "height": 36,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PetalburgGym",
+      "secondary_tileset": "gTileset_PokemonSchool",
       "border_filepath": "data/layouts/PetalburgCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/PetalburgCity_Gym/map.bin"
     },
@@ -885,9 +885,9 @@
       "id": "LAYOUT_MAUVILLE_CITY_GYM",
       "name": "MauvilleCity_Gym_Layout",
       "width": 10,
-      "height": 21,
+      "height": 17,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_MauvilleGym",
+      "secondary_tileset": "gTileset_TrainerHill",
       "border_filepath": "data/layouts/MauvilleCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/MauvilleCity_Gym/map.bin"
     },
@@ -934,10 +934,10 @@
     {
       "id": "LAYOUT_RUSTBORO_CITY_GYM",
       "name": "RustboroCity_Gym_Layout",
-      "width": 11,
-      "height": 20,
+      "width": 9,
+      "height": 40,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_RustboroGym",
+      "secondary_tileset": "gTileset_PetalburgGym",
       "border_filepath": "data/layouts/RustboroCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/RustboroCity_Gym/map.bin"
     },
@@ -4560,6 +4560,186 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/AntiquityCity_Mart/border.bin",
       "blockdata_filepath": "data/layouts/AntiquityCity_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_BUCHBERRY_WOODS",
+      "name": "BuchberryWoods_Layout",
+      "width": 50,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BuchberryWoods",
+      "border_filepath": "data/layouts/BuchberryWoods/border.bin",
+      "blockdata_filepath": "data/layouts/BuchberryWoods/map.bin"
+    },
+    {
+      "id": "LAYOUT_OATWOOD_TOWN",
+      "name": "OatwoodTown_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Oathwood",
+      "border_filepath": "data/layouts/OatwoodTown/border.bin",
+      "blockdata_filepath": "data/layouts/OatwoodTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_LITTLEROOT_TOWN_MAYS_HOUSE_HALLWAY",
+      "name": "LittlerootTown_MaysHouse_Hallway_Layout",
+      "width": 25,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/LittlerootTown_MaysHouse_Hallway/border.bin",
+      "blockdata_filepath": "data/layouts/LittlerootTown_MaysHouse_Hallway/map.bin"
+    },
+    {
+      "id": "LAYOUT_LITTLEROOT_TOWN_MAYS_HOUSE_MOMS_ROOM",
+      "name": "LittlerootTown_MaysHouse_MomsRoom_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/LittlerootTown_MaysHouse_MomsRoom/border.bin",
+      "blockdata_filepath": "data/layouts/LittlerootTown_MaysHouse_MomsRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_GYM_ILEX_FOREST",
+      "name": "LavaridgeTown_Gym_IlexForest_Layout",
+      "width": 36,
+      "height": 53,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/LavaridgeTown_Gym_IlexForest/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Gym_IlexForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_GYM_BUGSY_ROOM",
+      "name": "LavaridgeTown_Gym_BugsyRoom_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LavaridgeTown_Gym_BugsyRoom/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Gym_BugsyRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_GYM_BUGSYS_ROOM",
+      "name": "LavaridgeTown_Gym_BugsysRoom_Layout",
+      "width": 9,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_FortreeGym",
+      "border_filepath": "data/layouts/LavaridgeTown_Gym_BugsysRoom/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Gym_BugsysRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_GYM_VIRIDIAN_FOREST",
+      "name": "LavaridgeTown_Gym_ViridianForest_Layout",
+      "width": 50,
+      "height": 71,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/LavaridgeTown_Gym_ViridianForest/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Gym_ViridianForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_GYM_ERIKAS_ROOM",
+      "name": "LavaridgeTown_Gym_ErikasRoom_Layout",
+      "width": 9,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_FortreeGym",
+      "border_filepath": "data/layouts/LavaridgeTown_Gym_ErikasRoom/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Gym_ErikasRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_GYM_ETERNA_FOREST",
+      "name": "LavaridgeTown_Gym_EternaForest_Layout",
+      "width": 80,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/LavaridgeTown_Gym_EternaForest/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Gym_EternaForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_GYM_VIOLETS_ROOM",
+      "name": "LavaridgeTown_Gym_VioletsRoom_Layout",
+      "width": 9,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_FortreeGym",
+      "border_filepath": "data/layouts/LavaridgeTown_Gym_VioletsRoom/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Gym_VioletsRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_FALLARBOR_TOWN_HOUSE",
+      "name": "FallarborTown_House_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FallarborTown_House/border.bin",
+      "blockdata_filepath": "data/layouts/FallarborTown_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_FALLARBOR_TOWN_HOUSE1",
+      "name": "FallarborTown_House1_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FallarborTown_House1/border.bin",
+      "blockdata_filepath": "data/layouts/FallarborTown_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_CITY_POKEMON_SCHOOL_TOURNEY_ROOM",
+      "name": "PetalburgCity_PokemonSchool_TourneyRoom_Layout",
+      "width": 25,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/PetalburgCity_PokemonSchool_TourneyRoom/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgCity_PokemonSchool_TourneyRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_CITY_GYM_2F",
+      "name": "MauvilleCity_Gym_2F_Layout",
+      "width": 15,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TrainerHill",
+      "border_filepath": "data/layouts/MauvilleCity_Gym_2F/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleCity_Gym_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_CITY_GYM_3F",
+      "name": "MauvilleCity_Gym_3F_Layout",
+      "width": 19,
+      "height": 22,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TrainerHill",
+      "border_filepath": "data/layouts/MauvilleCity_Gym_3F/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleCity_Gym_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_CITY_GYM_4F",
+      "name": "MauvilleCity_Gym_4F_Layout",
+      "width": 25,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TrainerHill",
+      "border_filepath": "data/layouts/MauvilleCity_Gym_4F/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleCity_Gym_4F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_CITY_GYM_ELEVATOR",
+      "name": "MauvilleCity_Gym_Elevator_Layout",
+      "width": 5,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/MauvilleCity_Gym_Elevator/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleCity_Gym_Elevator/map.bin"
     }
   ]
 }

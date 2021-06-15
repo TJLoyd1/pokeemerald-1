@@ -87,7 +87,7 @@ Route111_EventScript_CheckSetSandstorm:: @ 81F0DE6
 	compare VAR_TEMP_0, 8
 	goto_if_lt Route111_EventScript_EndCheckSetSandstorm
 Route111_EventScript_SetSandstorm:: @ 81F0E22
-	setweather WEATHER_SANDSTORM
+	setweather WEATHER_SUNNY
 Route111_EventScript_EndCheckSetSandstorm:: @ 81F0E25
 	return
 

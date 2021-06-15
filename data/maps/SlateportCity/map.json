@@ -19,13 +19,13 @@
       "map": "MAP_ROUTE110"
     },
     {
-      "direction": "down",
-      "offset": 0,
+      "direction": "left",
+      "offset": -1,
       "map": "MAP_ROUTE109"
     },
     {
       "direction": "right",
-      "offset": 0,
+      "offset": 8,
       "map": "MAP_ROUTE134"
     }
   ],

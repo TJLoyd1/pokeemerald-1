@@ -572,3 +572,17 @@ gMetatiles_Frostvale::
 	.align 1
 gMetatileAttributes_Frostvale::
 	.incbin "data/tilesets/secondary/frostvale/metatile_attributes.bin"
+	.align 1
+gMetatiles_Oathwood::
+	.incbin "data/tilesets/secondary/oathwood/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_Oathwood::
+	.incbin "data/tilesets/secondary/oathwood/metatile_attributes.bin"
+	.align 1
+gMetatiles_BuchberryWoods::
+	.incbin "data/tilesets/secondary/buchberrywoods/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_BuchberryWoods::
+	.incbin "data/tilesets/secondary/buchberrywoods/metatile_attributes.bin"

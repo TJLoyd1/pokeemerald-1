@@ -1,10 +1,10 @@
 gText_Birch_Welcome:: @ 82C897B
-	.string "Hey! I was in a bit of a hurry!\p"
-	.string "Sorry for making you wait for a while.\p"
-	.string "Welcome to the world of Pokémon!\p"
+	.string "My, my, my...\p"
+	.string "What do we have here?\p"
+	.string "Welcome to the world of Pokémon.\p"
 	.string "Everyone here calls me Acacia,\p"
 	.string "Sherry Acacia.\l"
-	.string "Some even call me the Pokémon\p"
+	.string "Some even call me a Pokémon\n"
 	.string "Professor.\l"
 	.string "$"
 
@@ -35,30 +35,27 @@ gText_Birch_AndYouAre:: @ 82C8BD0
 	.string "And you are?$"
 
 gText_Birch_BoyOrGirl:: @ 82C8BDD
-	.string "Are you a boy?\n"
-	.string "Or are you a girl?$"
+	.string "Are you a male?\n"
+	.string "Or are you a female?$"
 
 gText_Birch_WhatsYourName:: @ 82C8BFF
-	.string "All right.\n"
-	.string "What's your name?$"
+	.string "Interesting.\n"
+	.string "What do you call yourself?$"
 
 gText_Birch_SoItsPlayer:: @ 82C8C1C
 	.string "So it's {PLAYER}{KUN}?$"
 
 gText_Birch_YourePlayer:: @ 82C8C2A
-	.string "Ah, okay!\p"
-	.string "You're {PLAYER}{KUN} who's moving to my\n"
-	.string "hometown of Littleroot.\l"
-	.string "I get it now!\p"
+	.string "Yare Yare...\p"
+	.string "You're {PLAYER}{KUN}, the one that my\n"
+	.string "boss wants to recruit.\l"
+	.string "I get it now.\p"
 	.string "$"
 
 gText_Birch_AreYouReady:: @ 82C8C7A
-	.string "All right, are you ready?\p"
-	.string "Your very own adventure is about\n"
-	.string "to unfold.\p"
-	.string "Take courage, and leap into the\n"
-	.string "world of Pokémon where dreams,\l"
-	.string "adventure, and friendships await!\p"
-	.string "Well, I'll be expecting you later.\n"
-	.string "Come see me in my Pokémon lab.\p"
+	.string "Not only my hope lies on you, but\n"
+	.string "other as well have faith in you.\p"
+	.string "Now!\p"
+	.string "Go do what you were destined to do\n"
+	.string "for this forsaken region.\l"
 	.string "$"
