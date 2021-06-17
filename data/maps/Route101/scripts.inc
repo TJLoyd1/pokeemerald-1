@@ -26,7 +26,7 @@ Route101_EventScript_Johnny::
 
 Route101_EventScript_StartBirchRescue:: @ 81EBCDE
 	lockall
-	playbgm MUS_HELP, 1
+	playbgm MUS_HELP, TRUE
 	msgbox Route101_Text_HelpMe, MSGBOX_DEFAULT
 	closemessage
 	setobjectxy LOCALID_BIRCH, 9, 31

@@ -35398,7 +35398,7 @@ const u32 gTMHMLearnsets[][4] =
 											| TMHM2(HM05_FLASH)
 											| TMHM2(HM06_ROCK_SMASH)),
 
-    [SPECIES_MAGEARNA_ORIGINAL_COLOR]    = TMHM_LEARNSET(TMHM(TM31_BRICK_BREAK)
+    [SPECIES_MAGEARNA_ORIGINAL_COLOR]  = TMHM_LEARNSET(TMHM(TM31_BRICK_BREAK)
                                             | TMHM(TM04_CALM_MIND)
                                             | TMHM(TM32_DOUBLE_TEAM)
                                             | TMHM(TM21_FRUSTRATION)

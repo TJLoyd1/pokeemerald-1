@@ -2200,7 +2200,7 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x58,
         .y_offset = 6,
     },
-    [SPECIES_MIMEJR] =
+    [SPECIES_MIME_JR] =
     {
         .size = 0x88,
         .y_offset = 1,
@@ -5768,7 +5768,7 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = 0x88,
         .y_offset = 0,
     },
-    [SPECIES_ORICORIO_PA_U] =
+    [SPECIES_ORICORIO_PAU] =
     {
         .size = 0x88,
         .y_offset = 0,

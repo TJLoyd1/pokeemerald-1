@@ -114,7 +114,7 @@ static bool8 CheckFeebas(void)
         if (Random() % 100 > 49) // 50% chance of encountering Feebas
             return FALSE;
 
-        FeebasSeedRng(gSaveBlock1Ptr->easyChatPairs[0].unk2);
+        FeebasSeedRng(gSaveBlock1Ptr->dewfordTrends[0].rand);
         for (i = 0; i != NUM_FEEBAS_SPOTS;)
         {
             feebasSpots[i] = FeebasRandom() % 447;
@@ -667,6 +667,7 @@ bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavi
             {
                 if (TryGenerateWildMon(gWildMonHeaders[headerId].waterMonsInfo, WILD_AREA_WATER, WILD_CHECK_REPEL | WILD_CHECK_KEEN_EYE) == TRUE)
                 {
+                    gIsSurfingEncounter = TRUE;
                     if (TryDoDoubleWildBattle())
                     {
                         struct Pokemon mon1 = gEnemyParty[0];
@@ -678,8 +679,6 @@ bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavi
                     {
                         BattleSetup_StartWildBattle();
                     }
-                    gIsSurfingEncounter = TRUE;
-                    BattleSetup_StartWildBattle();
                     return TRUE;
                 }
 
