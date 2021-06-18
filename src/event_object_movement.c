@@ -1631,7 +1631,7 @@ u8 AddPseudoObjectEvent(u16 graphicsId, void (*callback)(struct Sprite *), s16 x
 
 // Used to create sprite object events instead of a full object event
 // Used when resources are limiting, e.g. for the audience in contests or group members in Union Room
-u8 CreateObjectSprite(u16 graphicsId, u8 a1, s16 x, s16 y, u8 z, u8 direction)
+u8 CreateObjectSprite(u16 graphicsId, u8 objectEventId, s16 x, s16 y, u8 z, u8 direction)
 {
     u8 spriteId;
     struct Sprite *sprite;

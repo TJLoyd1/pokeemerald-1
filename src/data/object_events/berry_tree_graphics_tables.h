@@ -418,7 +418,6 @@ static const struct SpriteFrameImage sPicTable_TamatoBerryTree[] = {
 
 const u8 gBerryTreePaletteSlotTable_Tamato[] = {3, 4, 2, 2, 2};
 
-<<<<<<< HEAD
 static const struct SpriteFrameImage sPicTable_OccaBerryTree[] = {
     overworld_frame(gObjectEventPic_BerryTreeDirtPile, 2, 2, 0),
     overworld_frame(gObjectEventPic_BerryTreeSprout, 2, 2, 0),
