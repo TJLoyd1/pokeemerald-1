@@ -96,7 +96,7 @@
 #define MAP_DEWFORD_TOWN_POKEMON_MART      (6 | (3 << 8))
 #define MAP_LAVARIDGE_TOWN_GYM_BUGSY_ROOM  (7 | (3 << 8))
 
-// Map Group 4
+// gMapGroup_IndoorLavaridge
 #define MAP_LAVARIDGE_TOWN_HERB_SHOP           (0 | (4 << 8))
 #define MAP_LAVARIDGE_TOWN_GYM_1F              (1 | (4 << 8))
 #define MAP_LAVARIDGE_TOWN_GYM_B1F             (2 | (4 << 8))
@@ -143,7 +143,7 @@
 #define MAP_PACIFIDLOG_TOWN_HOUSE4            (5 | (7 << 8))
 #define MAP_PACIFIDLOG_TOWN_HOUSE5            (6 | (7 << 8))
 
-// Map Group 8
+// gMapGroup_IndoorPetalburg
 #define MAP_PETALBURG_CITY_WALLYS_HOUSE                (0 | (8 << 8))
 #define MAP_PETALBURG_CITY_GYM                         (1 | (8 << 8))
 #define MAP_PETALBURG_CITY_HOUSE1                      (2 | (8 << 8))

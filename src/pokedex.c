@@ -53,6 +53,8 @@
 #include "region_map.h"
 #endif
 
+extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+
 enum
 {
     PAGE_MAIN,
@@ -3482,7 +3484,7 @@ static void PrintInfoScreenTextSmall(const u8* str, u8 left, u8 top)
     u8 color[3];
     color[0] = TEXT_COLOR_TRANSPARENT;
     color[1] = TEXT_DYNAMIC_COLOR_6;
-    color[2] = TEXT_COLOR_LIGHT_GREY;
+    color[2] = TEXT_COLOR_LIGHT_GRAY;
 
     AddTextPrinterParameterized4(0, 0, left, top, 0, 0, color, 0, str);
 }
@@ -7083,7 +7085,7 @@ static void PrintMonStatsToggle(u8 taskId)
     #ifdef POKEMON_EXPANSION
     else //Hidden abilities
     {
-        ability0 = gBaseStats[species].abilityHidden;
+        ability0 = gBaseStats[species].abilities[2];
         PrintInfoScreenTextSmallWhite(gAbilityNames[ability0], abilities_x, abilities_y);
         PrintInfoScreenTextSmall(gAbilityDescriptionPointers[ability0], abilities_x, abilities_y + 14);
     }

@@ -3180,7 +3180,6 @@ static void Task_SortFinish(u8 taskId)
     {
         //BagPrintTextOnWindow(ShowBagWindow(6, 3), 2, gStringVar4, 0, 2, 1, 0, 0, 1);
         SortItemsInBag(gBagPositionStruct.pocket, tSortType);
-        BagMenu_RemoveBagItemMessageindow(4);
         DestroyListMenuTask(data[0], scrollPos, cursorPos);
         SetInitialScrollAndCursorPositions(gBagPositionStruct.pocket);
         LoadBagItemListBuffers(gBagPositionStruct.pocket);

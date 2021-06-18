@@ -1262,7 +1262,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalMudkip::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	applymovement 8, Common_Movement_QuestionMark
 	waitmovement 0
-	setflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 8, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
@@ -1301,7 +1301,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTorchic::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	applymovement 8, Common_Movement_QuestionMark
 	waitmovement 0
-	setflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 8, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
@@ -1340,7 +1340,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTreecko::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	applymovement 8, Common_Movement_QuestionMark
 	waitmovement 0
-	setflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 8, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
@@ -1937,20 +1937,20 @@ LittlerootTown_Text_Rhyos_Speech:
 LittlerootTown_Text_ThatWasWeird:
 	.string "{RIVAL}:{COLOR BLUE}That was very 'educational' and\n"
 	.string "especially fucking weird.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Especially what happened to that\n"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Especially what happened to that\n"
 	.string "poor Dusclops.\p"
-	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR BLUE}Well I'm gonna head home and\n"
+	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR BLUE}Well I'm gonna head home and\n"
 	.string "do more research about Professor May.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Alright I'll see you later.$"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Alright I'll see you later.$"
 
 LittlerootTown_Text_MayThatWasWeird:
 	.string "{PLAYER}:{COLOR BLUE}That was very 'educational' and\n"
 	.string "especially fucking weird.\p"
-	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Especially what happened to that\n"
+	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR RED}Especially what happened to that\n"
 	.string "poor Dusclops.\p"
-	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Well I'm gonna head home and\n"
+	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR RED}Well I'm gonna head home and\n"
 	.string "do more research about Professor May.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}Alright see ya later.$"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}Alright see ya later.$"
 
 LittlerootTown_Text_ProfHoldup:
 	.string "PLEASE HOLD ON A SECOND!$"
@@ -2001,37 +2001,37 @@ LittlerootTown_Text_GoodLuck:
 
 LittlerootTown_Text_How_She_Know_Names:
 	.string "{PLAYER}:{COLOR RED}How did she know our name?\p"
-	.string "{COLOR DARK_GREY}...\p"
+	.string "{COLOR DARK_GRAY}...\p"
 	.string "{RIVAL}:{COLOR BLUE}I-I don't know.\n"
 	.string "Well whatever.$"
 
 Littleroot_Town_Text_BrendanLetsBattle:
 	.string "{COLOR BLUE}You already know what's about to\n"
 	.string "happen since we got our own Pokémon.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}It's time to BATTLE!$"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}It's time to BATTLE!$"
 
 LittlerootTown_Text_BrendanTimeToHeadOut:
 	.string "{RIVAL}:{COLOR BLUE}It's time we actually left and\n"
 	.string "got to exporing the region.\l"
 	.string "I'm going ahead.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Yeah.$"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Yeah.$"
 
 LittlerootTown_Text_MayHow_She_Know_Names:
 	.string "{RIVAL}:{COLOR RED}How did she know our name?\p"
-	.string "{COLOR DARK_GREY}...\p"
+	.string "{COLOR DARK_GRAY}...\p"
 	.string "{PLAYER}:{COLOR BLUE}I-I don't know.\n"
 	.string "Well whatever.$"
 
 Littleroot_Town_Text_MayLetsBattle:
 	.string "{RIVAL}:{COLOR RED}You already know what's about to\n"
 	.string "happen since we got our own Pokémon.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}It's time to BATTLE!$"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}It's time to BATTLE!$"
 
 LittlerootTown_Text_MayTimeToHeadOut:
 	.string "{RIVAL}:{COLOR RED}It's about time we're able leave\n"
 	.string "and go explore the region.\l"
 	.string "I'm going ahead.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}Don't let me pass you up.$"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}Don't let me pass you up.$"
 
 LittlerootTown_EventScript_GotoShinyCharm::
 	goto_if_set FLAG_RECEIVED_POKEDEX_FROM_BIRCH, LittlerootTown_EventScript_MomGivesShinyCharm

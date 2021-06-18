@@ -365,7 +365,7 @@ StarterTown_RivalsHouse_2F_EventScript_Commotion::
 	waitmovement 0
 	setvar VAR_DOWNSTAIRS_DANGER, 1
 	setflag FLAG_DOWNSTAIRS_DANGER
-	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
 	waitstate
 	releaseall
@@ -392,7 +392,7 @@ StarterTown_MaleRivalsHouse_2F_EventScript_Commotion::
 	waitmovement 0
 	setvar VAR_DOWNSTAIRS_DANGER, 1
 	setflag FLAG_DOWNSTAIRS_DANGER
-	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
 	waitstate
 	releaseall
@@ -433,7 +433,7 @@ StarterTown_RivalsHouse_2F_EventScript_CommotionSouth::
 	waitmovement 0
 	setvar VAR_DOWNSTAIRS_DANGER, 1
 	setflag FLAG_DOWNSTAIRS_DANGER
-	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
 	waitstate
 	releaseall
@@ -462,7 +462,7 @@ StarterTown_MaleRivalsHouse_2F_EventScript_CommotionSouth::
 	waitmovement 0
 	setvar VAR_DOWNSTAIRS_DANGER, 1
 	setflag FLAG_DOWNSTAIRS_DANGER
-	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
 	waitstate
 	releaseall
@@ -530,10 +530,10 @@ PlayersHouse_2F_Text_WakeUp:
 
 StarterTown_RivalsHouse_2F_Text_RivalHey:
 	.string "{RIVAL}:{COLOR BLUE}I see you made it.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Yea, my mom told me you had\n"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Yea, my mom told me you had\n"
 	.string "to tell me something.\l"
 	.string "It better be important.\p"
-	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR BLUE}You gotta come here so I can\n"
+	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR BLUE}You gotta come here so I can\n"
 	.string "show you how cool this shit is.$"
 
 StarterTown_RivalsHouse_2F_Text_RivalMentionsProf:
@@ -544,30 +544,30 @@ StarterTown_RivalsHouse_2F_Text_RivalMentionsProf:
 	.string "Apparently she's giving away some\n"
 	.string "Pokémon to new trainers like her\l"
 	.string "father used to do.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Does she have some kind of rare\n"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Does she have some kind of rare\n"
 	.string "Pokémon or something?\p"
-	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR BLUE}From what I read online, she\n"
+	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR BLUE}From what I read online, she\n"
 	.string "has three 'unique' Pokémon that was\l"
 	.string "aquired as she traveled across many\p"
 	.string "different regions.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}I think we should go see her\n"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}I think we should go see her\n"
 	.string "so we can get a Pokémon.\l"
 	.string "It's about time we left the house.\p"
-	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR BLUE}Yeah I totally agr-$"
+	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR BLUE}Yeah I totally agr-$"
 
 StarterTown_RivalsHouse_2F_Text_MomYells:
 	.string "KIDS GET DOWN HERE QUICK!!$"
 
 StarterTown_RivalsHouse_2F_Text_Curiousity:
 	.string "{RIVAL}:{COLOR BLUE}Let's go see what's going on.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Okay let's go.$"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Okay let's go.$"
 
 StarterTown_MaleRivalsHouse_2F_Text_RivalHey:
 	.string "{RIVAL}:{COLOR RED}You finally made it.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}I only came because you\n"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}I only came because you\n"
 	.string "had to tell me something.\l"
 	.string "It must be important?\p"
-	.string "{COLOR DARK_GREY}May:{COLOR RED}You gotta come here so I can\n"
+	.string "{COLOR DARK_GRAY}May:{COLOR RED}You gotta come here so I can\n"
 	.string "show you how amazing this is.$"
 
 StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProf:
@@ -578,16 +578,16 @@ StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProf:
 	.string "Apparently she's giving away some\n"
 	.string "Pokémon to new trainers like her\l"
 	.string "father used to do.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}Does she have some kind of rare\n"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}Does she have some kind of rare\n"
 	.string "Pokémon or something?\p"
-	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}From what I read online, she\n"
+	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR RED}From what I read online, she\n"
 	.string "has three 'unique' Pokémon that was\l"
 	.string "aquired as she traveled across many\p"
 	.string "different regions.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR BLUE}we should go see her then\n"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}we should go see her then\n"
 	.string "so we can get a Pokémon.\l"
 	.string "It's about time we left the damn house.\p"
-	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Yeah I actually agr-$"
+	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR RED}Yeah I actually agr-$"
 
 StarterTown_MaleRivalsHouse_2F_Text_MomYells:
 	.string "KIDS GET DOWN HERE QUICK!!$"
@@ -595,4 +595,4 @@ StarterTown_MaleRivalsHouse_2F_Text_MomYells:
 StarterTown_MaleRivalsHouse_2F_Text_Curiousity:
 	.string "{RIVAL}:{COLOR RED}Something happened.\n"
 	.string "Let's Go.\p"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Yeah Yeah.$"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Yeah Yeah.$"

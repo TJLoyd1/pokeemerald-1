@@ -74,7 +74,7 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMay:: @ 81F934A
 	applymovement LOCALID_RIVAL, Common_Movement_Delay48
 	waitmovement 0
 	delay 10
-	playbgm MUS_ENCOUNTER_MAY, TRUE
+	playbgm MUS_ENCOUNTER_MAY, 1
 	compare VAR_FACING, DIR_NORTH
 	call_if_eq LittlerootTown_MaysHouse_2F_EventScript_MeetMayNorth
 	compare VAR_FACING, DIR_SOUTH
@@ -583,11 +583,11 @@ BrendansPlayersHouse_2F_Text_WeirdDream:
 	.string "It felt too real.$"
 
 MayPlayersHouse_2F_Text_CantForgetNotebook:
-	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GREY} Just in case I have to\n"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} Just in case I have to\n"
 	.string "go somewhere let me grab my notebook off of my desk.$"
 
 BrendansPlayersHouse_2F_Text_CantForgetNotebook:
-	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GREY} I'll grab my notebook\n"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} I'll grab my notebook\n"
 	.string "off of my desk in case I go somewhere.$"
 
 

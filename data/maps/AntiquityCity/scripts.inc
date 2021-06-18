@@ -9,7 +9,7 @@ AntiquityCity_EventScript_NoGood_Flagset::
 AntiquityCity_EventScript_UptoNoGood::
 	lockall
 	setvar VAR_CAMERA_MOVEMENT_TEST, 1
-	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	addobject 4
 	addobject 5
 	special SpawnCameraObject
@@ -35,7 +35,7 @@ AntiquityCity_EventScript_UptoNoGood::
 	applymovement OBJ_EVENT_ID_CAMERA, MoveBackToPlayer
 	waitmovement 0
 	special RemoveCameraObject
-	setflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	waitmovement 0
 	msgbox AntiquityCity_Text_FeelLikeSomeone, MSGBOX_DEFAULT
@@ -51,7 +51,7 @@ AntiquityCity_EventScript_NoGood_Flagset2::
 AntiquityCity_EventScript_UptoNoGood2::
 	lockall
 	setvar VAR_CAMERA_MOVEMENT_TEST, 1
-	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	addobject 4
 	addobject 5
 	special SpawnCameraObject
@@ -76,7 +76,7 @@ AntiquityCity_EventScript_UptoNoGood2::
 	applymovement OBJ_EVENT_ID_CAMERA, MoveBackToPlayer
 	waitmovement 0
 	special RemoveCameraObject
-	setflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	waitmovement 0
 	msgbox AntiquityCity_Text_FeelLikeSomeone, MSGBOX_DEFAULT

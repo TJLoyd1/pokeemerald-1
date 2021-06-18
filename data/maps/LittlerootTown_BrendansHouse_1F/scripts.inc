@@ -669,14 +669,14 @@ StarterTown_MaleRivalsHouse_1F_Text_Good_Morning:
 
 StarterTown_RivalsHouse_1F_Text_What_Happened:
 	.string "{RIVAL}:{COLOR BLUE}What happened Mom!?\n"
-	.string "{COLOR DARK_GREY}{PLAYER}:{COLOR RED}Are you okay!?\p"
-	.string "{COLOR DARK_GREY}{RIVAL}'s Mom: I'm okay just come look\n"
+	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Are you okay!?\p"
+	.string "{COLOR DARK_GRAY}{RIVAL}'s Mom: I'm okay just come look\n"
 	.string "at this.$"
 
 StarterTown_RivalsHouse_1F_Text_What_Happened_Male:
 	.string "{PLAYER}:{COLOR BLUE}What happened Mom!?\n"
-	.string "{COLOR DARK_GREY}{RIVAL}:{COLOR RED}Are you okay!?\p"
-	.string "{COLOR DARK_GREY}{RIVAL}'s Mom: I'm okay just come look\n"
+	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR RED}Are you okay!?\p"
+	.string "{COLOR DARK_GRAY}{RIVAL}'s Mom: I'm okay just come look\n"
 	.string "at this.$"
 
 StarterTown_RivalsHouse_1F_Text_Todays_News:

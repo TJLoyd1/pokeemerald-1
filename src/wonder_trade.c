@@ -21,6 +21,8 @@
 #include "constants/weather.h"
 #endif
 
+extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
+
 struct InGameTrade {
     /*0x00*/ u8 name[11];
     /*0x0C*/ u16 species;
@@ -957,7 +959,7 @@ static const u16 returnValidSpecies(u16 input)
         SPECIES_STUNKY,
         SPECIES_BRONZOR,
         SPECIES_BONSLY,
-        SPECIES_MIMEJR,
+        SPECIES_MIME_JR,
         SPECIES_HAPPINY,
         SPECIES_CHATOT,
         SPECIES_SPIRITOMB,

@@ -192,7 +192,7 @@ LittlerootTown_MaysHouse_1F_EventScript_MeetRival:: @ 81F8A8B
 	waitmovement 0
 	compare VAR_0x8008, 1
 	call_if_ne LittlerootTown_MaysHouse_1F_EventScript_PlayerFaceMay
-	playbgm MUS_ENCOUNTER_MAY, TRUE
+	playbgm MUS_ENCOUNTER_MAY, 1
 	compare VAR_0x8008, 0
 	call_if_eq LittlerootTown_MaysHouse_1F_EventScript_MayApproachPlayer0
 	compare VAR_0x8008, 1
@@ -618,26 +618,26 @@ MomWalksToGiveRunningShoes:
 
 MayPlayersHouse_1F_Text_YoureUp:
 	.string "Mom: Honey, It's nice to see you're up.\p"
-	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GREY}Yea Mom, up with a very\n"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Yea Mom, up with a very\n"
 	.string "CRAZY morning.\p"
 	.string "Mom: Aww Honey...$"
 
 MayPlayersHouse_1F_Text_ComeWatchWithMe:
 	.string "Mom: Come and watch TV with me to help\n"
 	.string "ease your mind a bit.\p"
-	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GREY}Sure, I guess a bit of TV will\n"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Sure, I guess a bit of TV will\n"
 	.string "get my mind off everything.$"
 
 MayPlayersHouse_1F_Text_TVTalks:
 	.string "In Today's News, It seems that Team.....\p"
 	.string "Mom: Why don't you go ahead and tell me\n"
 	.string "what happened this morning huh?\p"
-	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GREY}So listen, what happened was...$"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}So listen, what happened was...$"
 
 MayPlayersHouse_1F_Text_ForgotToTell:
 	.string "Mom:I forgot to mention that your friend\n"
 	.string "wanted to see you for something.\p"
-	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GREY}You mean {RIVAL}?\p"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}You mean {RIVAL}?\p"
 	.string "Mom:Yes, you should go see what\n"
 	.string "they wanted.$"
 
@@ -646,7 +646,7 @@ MayPlayersHouse_1F_Text_Wait:
 
 MayPlayersHouse_1F_Text_RunningShoes:
 	.string "Mom:You can't leave without these.\p"
-	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GREY}Thanks Mom.$"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Thanks Mom.$"
 
 MayPlayersHouse_1F_Text_SwitchShoesWithRunningShoes:
 	.string "{PLAYER} switched shoes with the\n"
@@ -654,13 +654,13 @@ MayPlayersHouse_1F_Text_SwitchShoesWithRunningShoes:
 
 MayPlayersHouse_1F_Text_SeeYouLater:
 	.string "Mom:See you later honey.\p"
-	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GREY}Bye Mom.$"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Bye Mom.$"
 
 PlayersHouse_1F_Text_YoureUp:
 	.string "Mom: Honey, It's nice to see you're up.$"
 
 PlayersHouse_1F_Text_ResponseToYoureUp:
-	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GREY}Just had a weird morning to start\n"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Just had a weird morning to start\n"
 	.string "my day.\p"
 	.string "Mom: Aww Honey...$"
 	
@@ -670,7 +670,7 @@ PlayersHouse_1F_Text_ComeWatchWithMe:
 	
 
 PlayersHouse_1F_Text_ResponseToComeWatchWithMe:
-	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GREY}Sure even though it won't get my\n"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Sure even though it won't get my\n"
 	.string "mind off what happened at all.$"
 PlayersHouse_1F_Text_TVTalks:
 	.string "In Today's News, It seems that Team.....\p"
@@ -678,12 +678,12 @@ PlayersHouse_1F_Text_TVTalks:
 	.string "what happened this morning huh?$"
 
 PlayersHouse_1F_Text_ResponseToTVTalks:
-	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GREY}Uhh I guess what happened was...$"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Uhh I guess what happened was...$"
 
 PlayersHouse_1F_Text_ForgotToTell:
 	.string "Mom:I forgot to mention that your friend\n"
 	.string "wanted to see you for something.\p"
-	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GREY}Friend... you talking about {RIVAL}?\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Friend... you talking about {RIVAL}?\p"
 	.string "Mom:Yes, you should go see what\n"
 	.string "they wanted.$"
 
@@ -692,7 +692,7 @@ PlayersHouse_1F_Text_Wait:
 
 PlayersHouse_1F_Text_RunningShoes:
 	.string "Mom:You can't leave without these.\p"
-	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GREY}How could forget about them.$"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}How could forget about them.$"
 
 PlayersHouse_1F_Text_SwitchShoesWithRunningShoes:
 	.string "{PLAYER} switched shoes with the\n"
@@ -700,4 +700,4 @@ PlayersHouse_1F_Text_SwitchShoesWithRunningShoes:
 
 PlayersHouse_1F_Text_SeeYouLater:
 	.string "Mom:See you later honey.\p"
-	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GREY}Yeah see ya.$"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Yeah see ya.$"

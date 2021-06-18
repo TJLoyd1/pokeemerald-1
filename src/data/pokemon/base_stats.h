@@ -1820,6 +1820,9 @@ const struct BaseStats gBaseStats[] =
             .abilities = {ABILITY_MAGIC_GUARD, ABILITY_MAGIC_BOUNCE, ABILITY_STURDY},
         #else
             .abilities = {ABILITY_STURDY, ABILITY_INNER_FOCUS},
+		#endif
+		.bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
     },
 
     [SPECIES_ALAKAZAM] =
@@ -11780,9 +11783,10 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroup1 = EGG_GROUP_BUG,
         .eggGroup2 = EGG_GROUP_BUG,
-        .abilities = {ABILITY_VITAL_SPIRIT, ABILITY_GUTS},
         #ifdef BATTLE_ENGINE
-            .abilityHidden = ABILITY_UNNERVE,
+			.abilities = {ABILITY_VITAL_SPIRIT, ABILITY_GUTS, ABILITY_UNNERVE},
+        #else
+            .abilities = {ABILITY_VITAL_SPIRIT,ABILITY_GUTS, ABILITY_NONE},
         #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
@@ -13761,11 +13765,10 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_SLOW_START, ABILITY_NONE},
+            .abilities = {ABILITY_SLOW_START, ABILITY_NONE, ABILITY_HUGE_POWER},
         #else
             .abilities = {ABILITY_NONE, ABILITY_NONE},
          #endif
-        .abilityHidden = ABILITY_HUGE_POWER,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
@@ -15936,7 +15939,8 @@ const struct BaseStats gBaseStats[] =
 			.abilities = {ABILITY_LEVITATE, ABILITY_IRON_FIST, ABILITY_CURSED_BODY},
         #else
             .abilities = {ABILITY_LEVITATE, ABILITY_NONE, ABILITY_CURSED_BODY},
-        .bodyColor = BODY_COLOR_PURPLE,
+        #endif
+		.bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
     },
 

@@ -27,7 +27,8 @@ void sub_801AFD8(void)
     #ifndef FREE_MYSTERY_EVENT_BUFFERS
     CpuFill32(0, &gSaveBlock1Ptr->unk_322C, sizeof(gSaveBlock1Ptr->unk_322C));
     sub_801B180();
-    InitQuestionnaireWords();
+    sub_811F8BC();
+    #endif
 }
 
 struct WonderNews *GetSavedWonderNews(void)
@@ -60,7 +61,9 @@ struct MysteryEventStruct *sub_801B044(void)
 
 u16 *GetQuestionnaireWordsPtr(void)
 {
-    return gSaveBlock1Ptr->unk_322C.questionnaireWords;
+    #ifndef FREE_MYSTERY_EVENT_BUFFERS
+    return gSaveBlock1Ptr->unk_322C.unk_338;
+    #endif
 }
 
 void DestroyWonderNews(void)
@@ -397,8 +400,9 @@ void sub_801B580(struct MEventStruct_Unk1442CC *data, bool32 a1)
         data->unk_14 = 0;
     }
 
-    for (i = 0; i < NUM_QUESTIONNAIRE_WORDS; i++)
-        data->unk_16[i] = gSaveBlock1Ptr->unk_322C.questionnaireWords[i];
+    #ifndef FREE_MYSTERY_EVENT_BUFFERS
+    for (i = 0; i < 4; i++)
+        data->unk_16[i] = gSaveBlock1Ptr->unk_322C.unk_338[i];
 
     CopyTrainerId(data->unk_4C, gSaveBlock2Ptr->playerTrainerId);
     StringCopy(data->unk_45, gSaveBlock2Ptr->playerName);

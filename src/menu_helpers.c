@@ -70,12 +70,12 @@ static const union AnimCmd *const sAnims_SwapLine[] =
     sAnim_SwapLine_LeftArrow
 };
 
-static const struct CompressedSpriteSheet sSpriteSheet_SwapLine =
+const struct CompressedSpriteSheet gBagSwapSpriteSheet =
 {
     gBagSwapLineGfx, 0x100, TAG_SWAP_LINE
 };
 
-static const struct CompressedSpritePalette sSpritePalette_SwapLine =
+const struct CompressedSpritePalette gBagSwapSpritePalette =
 {
     gBagSwapLinePal, TAG_SWAP_LINE
 };
@@ -407,8 +407,8 @@ void sub_8122298(u16 *arg0, u16 *arg1, u8 arg2, u8 arg3, u8 arg4)
 
 void LoadListMenuSwapLineGfx(void)
 {
-    LoadCompressedSpriteSheet(&sSpriteSheet_SwapLine);
-    LoadCompressedSpritePalette(&sSpritePalette_SwapLine);
+    LoadCompressedSpriteSheet(&gBagSwapSpriteSheet);
+    LoadCompressedSpritePalette(&gBagSwapSpritePalette);
 }
 
 void CreateSwapLineSprites(u8 *spriteIds, u8 count)
