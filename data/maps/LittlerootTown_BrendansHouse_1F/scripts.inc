@@ -659,24 +659,24 @@ StarterTown_RivalsHouse_1F_Text_Good_Morning:
 	.string "{RIVAL}'s Mom:Good Morning Sweetie.\p"
 	.string "{RIVAL} is upstairs if you are looking\n"
 	.string "for them.\p"
-	.string "{PLAYER}:{COLOR RED}Thank you ma'am.$"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Thank you ma'am.$"
 
 StarterTown_MaleRivalsHouse_1F_Text_Good_Morning:
 	.string "{RIVAL}'s Mom:Good Morning Sweetie.\p"
 	.string "{RIVAL} is upstairs if you are looking\n"
 	.string "for them.\p"
-	.string "{PLAYER}:{COLOR BLUE}Thanks ma'am.$"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Thanks ma'am.$"
 
 StarterTown_RivalsHouse_1F_Text_What_Happened:
-	.string "{RIVAL}:{COLOR BLUE}What happened Mom!?\n"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Are you okay!?\p"
-	.string "{COLOR DARK_GRAY}{RIVAL}'s Mom: I'm okay just come look\n"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY}What happened Mom!?\n"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Are you okay!?\p"
+	.string "{RIVAL}'s Mom: I'm okay just come look\n"
 	.string "at this.$"
 
 StarterTown_RivalsHouse_1F_Text_What_Happened_Male:
-	.string "{PLAYER}:{COLOR BLUE}What happened Mom!?\n"
-	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR RED}Are you okay!?\p"
-	.string "{COLOR DARK_GRAY}{RIVAL}'s Mom: I'm okay just come look\n"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}What happened Mom!?\n"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Are you okay!?\p"
+	.string "{RIVAL}'s Mom: I'm okay just come look\n"
 	.string "at this.$"
 
 StarterTown_RivalsHouse_1F_Text_Todays_News:
@@ -688,17 +688,20 @@ StarterTown_RivalsHouse_1F_Text_Todays_News:
 	.string "their goals for the world.$"
 
 StarterTown_RivalsHouse_1F_Text_Outside_Now:
-	.string "{PLAYER}:{COLOR RED}Is this literally happening\n"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Is this literally happening\n"
 	.string "outside right now!?$"
 
 StarterTown_RivalsHouse_1F_Text_Check_It_Out:
-	.string "{RIVAL}:{COLOR BLUE}Seems so.\n"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY}Seems so.\n"
 	.string "Let's go check it out.$"
 
 StarterTown_MaleRivalsHouse_1F_Text_Outside_Now:
-	.string "{PLAYER}:{COLOR BLUE}No way this is happening\n"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}No way this is happening\n"
 	.string "outside right now!?$"
 
 StarterTown_MaleRivalsHouse_1F_Text_Check_It_Out:
-	.string "{RIVAL}:{COLOR RED}One way to find out.\n"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}One way to find out.\n"
 	.string "We got to go check it out.$"
+
+
+

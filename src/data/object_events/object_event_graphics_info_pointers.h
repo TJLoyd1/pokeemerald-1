@@ -246,6 +246,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldM
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfMay;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rhyos;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ObsidianGruntM;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ObsidianGruntF;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -489,6 +491,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
 	[OBJ_EVENT_GFX_PROF_MAY] =                 &gObjectEventGraphicsInfo_ProfMay,
 	[OBJ_EVENT_GFX_RHYOS] =                    &gObjectEventGraphicsInfo_Rhyos,
+	[OBJ_EVENT_GFX_OBSIDIAN_GRUNT_M] =         &gObjectEventGraphicsInfo_ObsidianGruntM,
+	[OBJ_EVENT_GFX_OBSIDIAN_GRUNT_F] =         &gObjectEventGraphicsInfo_ObsidianGruntF,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

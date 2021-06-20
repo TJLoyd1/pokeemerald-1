@@ -376,6 +376,10 @@ const u32 gObjectEventPic_ProfMay[] = INCBIN_U32("graphics/object_events/pics/pe
 const u16 gObjectEventPal_ProfMay[] = INCBIN_U16("graphics/object_events/palettes/prof_may.gbapal");
 const u32 gObjectEventPic_Rhyos[] = INCBIN_U32("graphics/object_events/pics/people/new_overworlds/rhyos.4bpp");
 const u16 gObjectEventPal_Rhyos[] = INCBIN_U16("graphics/object_events/palettes/rhyos.gbapal");
+const u32 gObjectEventPic_ObsidianGruntM[] = INCBIN_U32("graphics/object_events/pics/people/new_overworlds/obsidian_grunt_m.4bpp");
+const u16 gObjectEventPal_ObsidianGruntM[] = INCBIN_U16("graphics/object_events/palettes/obsidian_grunt_m.gbapal");
+const u32 gObjectEventPic_ObsidianGruntF[] = INCBIN_U32("graphics/object_events/pics/people/new_overworlds/obsidian_grunt_f.4bpp");
+const u16 gObjectEventPal_ObsidianGruntF[] = INCBIN_U16("graphics/object_events/palettes/obsidian_grunt_f.gbapal");
 
 const u32 gFieldEffectObjectPic_CaveDust[] = INCBIN_U32("graphics/field_effects/pics/cave_dust.4bpp");
 const u16 gFieldEffectObjectPalette_CaveDust[] = INCBIN_U16("graphics/field_effects/palettes/cave_dust.gbapal");

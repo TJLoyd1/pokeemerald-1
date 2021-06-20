@@ -701,3 +701,6 @@ PlayersHouse_1F_Text_SwitchShoesWithRunningShoes:
 PlayersHouse_1F_Text_SeeYouLater:
 	.string "Mom:See you later honey.\p"
 	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Yeah see ya.$"
+
+
+

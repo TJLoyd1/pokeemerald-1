@@ -51,3 +51,5 @@ OldaleGrotto_Text_RarePokemon:
 	.string "I heard there is a rare Pokemon around\n"
 	.string "Oldale Grotto, so I came to look but\l"
 	.string "it seems that rumor was wrong.$"
+
+

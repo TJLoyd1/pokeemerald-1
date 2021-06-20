@@ -1200,14 +1200,14 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	fadescreen 0
 	playbgm MUS_GSC_ROUTE38, 1
 	applymovement 8, Face_Player_Direction
+	waitmovement 0
 	setvar VAR_0x8000, MUGSHOT_ROY
 	callnative DrawMugshot
 	msgbox LittlerootTown_Text_ThatWasWeird, MSGBOX_DEFAULT
-	waitmovement 0
+	callnative ClearMugshot
 	closemessage
 	applymovement 8, Rival_Headed_Home
 	applymovement OBJ_EVENT_ID_PLAYER, Look_At_Rival
-	callnative ClearMugshot
 	waitmovement 0
 	msgbox LittlerootTown_Text_ProfHoldup, MSGBOX_DEFAULT
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
@@ -1236,7 +1236,7 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	end
 
 LittlerootTown_EventScript_StartProfessorBattleMaleRivalMudkip::
-	multi_fixed_2_vs_1 TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat, TRAINER_LITTLEROOTTOWN_ROY_MUDKIP, TRAINER_BACK_PIC_BRENDAN
+	trainerbattle_no_intro TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat
 	special HealPlayerParty
 	msgbox LittlerootTown_Text_AfterProfMayBattle, MSGBOX_DEFAULT
 	closemessage
@@ -1248,7 +1248,6 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalMudkip::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
-	setflag FLAG_SYS_QUEST_MENU_GET
 	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
@@ -1262,7 +1261,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalMudkip::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	applymovement 8, Common_Movement_QuestionMark
 	waitmovement 0
-	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
+	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
 	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 8, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
@@ -1275,7 +1274,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalMudkip::
 	end
 
 LittlerootTown_EventScript_StartProfessorBattleMaleRivalTorchic::
-	multi_fixed_2_vs_1 TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat, TRAINER_LITTLEROOTTOWN_ROY_TORCHIC, TRAINER_BACK_PIC_BRENDAN
+	trainerbattle_no_intro TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat
 	special HealPlayerParty
 	msgbox LittlerootTown_Text_AfterProfMayBattle, MSGBOX_DEFAULT
 	closemessage
@@ -1287,7 +1286,6 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTorchic::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
-	setflag FLAG_SYS_QUEST_MENU_GET
 	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
@@ -1301,7 +1299,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTorchic::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	applymovement 8, Common_Movement_QuestionMark
 	waitmovement 0
-	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
+	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
 	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 8, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
@@ -1326,7 +1324,6 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTreecko::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
-	setflag FLAG_SYS_QUEST_MENU_GET
 	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
@@ -1340,7 +1337,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTreecko::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	applymovement 8, Common_Movement_QuestionMark
 	waitmovement 0
-	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
+	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
 	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 8, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
@@ -1353,18 +1350,30 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTreecko::
 	end
 
 LittlerootTown_EventScript_StartBrendanBattleTreecko:: @ 81EC4BE
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TREECKO, Route103_Text_BrendanDefeated
-	goto LittlerootTown_EventScript_AfterBrendanBattle
+	trainerbattle_no_intro TRAINER_LITTLEROOTTOWN_ROY_MUDKIP, Route103_Text_BrendanDefeated
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq LittlerootTown_EventScript_PlayerLostTheFightAgainstMaleRival
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq LittlerootTown_EventScript_AfterBrendanBattle
 	end
 
 LittlerootTown_EventScript_StartBrendanBattleTorchic:: @ 81EC4CE
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TORCHIC, Route103_Text_BrendanDefeated
-	goto LittlerootTown_EventScript_AfterBrendanBattle
+	trainerbattle_no_intro TRAINER_LITTLEROOTTOWN_ROY_TORCHIC, Route103_Text_BrendanDefeated
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq LittlerootTown_EventScript_PlayerLostTheFightAgainstMaleRival
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq LittlerootTown_EventScript_AfterBrendanBattle
 	end
 
 LittlerootTown_EventScript_StartBrendanBattleMudkip:: @ 81EC4DE
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_MUDKIP, Route103_Text_BrendanDefeated
-	goto LittlerootTown_EventScript_AfterBrendanBattle
+	trainerbattle_no_intro TRAINER_LITTLEROOTTOWN_ROY_TREECKO, Route103_Text_BrendanDefeated
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq LittlerootTown_EventScript_PlayerLostTheFightAgainstMaleRival
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq LittlerootTown_EventScript_AfterBrendanBattle
 	end
 
 LittlerootTown_EventScript_AfterBrendanBattle:: @ 81EC4FC
@@ -1384,6 +1393,29 @@ LittlerootTown_EventScript_AfterBrendanBattle:: @ 81EC4FC
 	releaseall
 	end
 
+LittlerootTown_EventScript_PlayerLostTheFightAgainstMaleRival::
+	msgbox LittlerootTown_Text_GetGoodPlayerBrendan, MSGBOX_DEFAULT
+	fadescreen 1
+	special HealPlayerParty
+	playfanfare MUS_RG_HEAL
+	waitfanfare
+	fadescreen 0
+	msgbox LittlerootTown_Text_BrendanTimeToHeadOut, MSGBOX_DEFAULT
+	applymovement 8 ,Rival_Headed_To_Route_101
+	waitmovement 0
+	removeobject 8
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_BRENDAN
+	setvar VAR_DOWNSTAIRS_DANGER, 2
+	setflag FLAG_RESCUED_BIRCH
+	setvar VAR_LITTLEROOT_INTRO_STATE, 7
+	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
+	setvar VAR_LITTLEROOT_TOWN_STATE, 4
+	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 2 
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	releaseall
+	end
+	
 LittlerootTown_EventScript_NicknameStarter::
 	setvar VAR_0x8004, 0
 	call Common_EventScript_NameReceivedPartyMon
@@ -1391,7 +1423,6 @@ LittlerootTown_EventScript_NicknameStarter::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
-	setflag FLAG_SYS_QUEST_MENU_GET
 	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
@@ -1504,9 +1535,12 @@ LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
 	playbgm MUS_GSC_ROUTE38, 1
 	applymovement OBJ_EVENT_ID_PLAYER, Face_May_Rival
 	applymovement 9, Face_Player_Direction
-	msgbox LittlerootTown_Text_MayThatWasWeird, MSGBOX_DEFAULT
 	waitmovement 0
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
+	msgbox LittlerootTown_Text_MayThatWasWeird, MSGBOX_DEFAULT	
 	closemessage
+	callnative ClearMugshot
 	applymovement 9, Rival_Headed_Home
 	applymovement OBJ_EVENT_ID_PLAYER, Look_At_Rival
 	waitmovement 0
@@ -1537,7 +1571,7 @@ LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
 	end
 
 LittlerootTown_EventScript_StartProfessorBattleFemaleRivalMudkip::
-	multi_fixed_2_vs_1 TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat, TRAINER_MAY_ROUTE_103_TREECKO, TRAINER_BACK_PIC_MAY
+	trainerbattle_no_intro TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat
 	special HealPlayerParty
 	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
@@ -1547,7 +1581,6 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalMudkip::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
-	setflag FLAG_SYS_QUEST_MENU_GET
 	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
@@ -1573,7 +1606,7 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalMudkip::
 	end
 
 LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTorchic::
-	multi_fixed_2_vs_1 TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat, TRAINER_LITTLEROOTTOWN_LUCY_TORCHIC, TRAINER_BACK_PIC_MAY
+	trainerbattle_no_intro TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat
 	special HealPlayerParty
 	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
@@ -1583,7 +1616,6 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTorchic::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
-	setflag FLAG_SYS_QUEST_MENU_GET
 	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
@@ -1609,7 +1641,7 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTorchic::
 	end
 
 LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTreecko::
-	multi_fixed_2_vs_1 TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat, TRAINER_LITTLEROOTTOWN_LUCY_TREECKO, TRAINER_BACK_PIC_MAY
+	trainerbattle_no_intro TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat
 	special HealPlayerParty
 	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
@@ -1619,7 +1651,6 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTreecko::
 	message LittlerootTown_Text_ReceivedPokedex
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
-	setflag FLAG_SYS_QUEST_MENU_GET
 	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	special EnableNationalPokedex
 	special SetUnlockedPokedexFlags
@@ -1645,18 +1676,30 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTreecko::
 	end
 
 LittlerootTown_EventScript_StartMayBattleTreecko:: @ 81EC48E
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TREECKO, Route103_Text_MayDefeated
-	goto LittlerootTown_EventScript_AfterMayBattle
+	trainerbattle_no_intro TRAINER_LITTLEROOTTOWN_LUCY_MUDKIP, Route103_Text_MayDefeated
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq LittlerootTown_EventScript_PlayerLostTheFightAgainstFemaleRival
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq LittlerootTown_EventScript_AfterMayBattle
 	end
 
 LittlerootTown_EventScript_StartMayBattleTorchic:: @ 81EC49E
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TORCHIC, Route103_Text_MayDefeated
-	goto LittlerootTown_EventScript_AfterMayBattle
+	trainerbattle_no_intro TRAINER_LITTLEROOTTOWN_LUCY_TORCHIC, Route103_Text_MayDefeated
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq LittlerootTown_EventScript_PlayerLostTheFightAgainstFemaleRival
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq LittlerootTown_EventScript_AfterMayBattle
 	end
 
 LittlerootTown_EventScript_StartMayBattleMudkip:: @ 81EC4AE
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_MUDKIP, Route103_Text_MayDefeated
-	goto LittlerootTown_EventScript_AfterMayBattle
+	trainerbattle_no_intro TRAINER_LITTLEROOTTOWN_LUCY_TREECKO, Route103_Text_MayDefeated
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq LittlerootTown_EventScript_PlayerLostTheFightAgainstFemaleRival
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq LittlerootTown_EventScript_AfterMayBattle
 	end
 
 LittlerootTown_EventScript_AfterMayBattle:: @ 81EC4FC
@@ -1677,7 +1720,6 @@ LittlerootTown_EventScript_AfterMayBattle:: @ 81EC4FC
 	end
 
 LittlerootTown_EventScript_MaleNicknameStarter::
-	setflag FLAG_SYS_QUEST_MENU_GET
 	questmenu QUEST_MENU_UNLOCK_QUEST SIDE_QUEST_1
 	msgbox LittlerootTown_Text_MayHow_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 9, Rival_Face_Player_Before_Battle
@@ -1690,6 +1732,29 @@ LittlerootTown_EventScript_MaleNicknameStarter::
 	case 2, LittlerootTown_EventScript_StartMayBattleMudkip
 	end
 
+LittlerootTown_EventScript_PlayerLostTheFightAgainstFemaleRival::
+	msgbox LittlerootTown_Text_GetGoodPlayerMay, MSGBOX_DEFAULT
+	fadescreen 1
+	special HealPlayerParty
+	playfanfare MUS_HEAL
+	waitfanfare
+	fadescreen 0
+	msgbox LittlerootTown_Text_MayTimeToHeadOut, MSGBOX_DEFAULT
+	applymovement 9 ,Rival_Headed_To_Route_101
+	waitmovement 0
+	removeobject 9
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY
+	setvar VAR_DOWNSTAIRS_DANGER, 2
+	setflag FLAG_RESCUED_BIRCH
+	setvar VAR_LITTLEROOT_INTRO_STATE, 7
+	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
+	setvar VAR_LITTLEROOT_TOWN_STATE, 4
+	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 2 
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	releaseall
+	end
+	
 Movement_To_Middle_Littleroot:
 	walk_down
 	walk_down
@@ -1944,13 +2009,13 @@ LittlerootTown_Text_ThatWasWeird:
 	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Alright I'll see you later.$"
 
 LittlerootTown_Text_MayThatWasWeird:
-	.string "{PLAYER}:{COLOR BLUE}That was very 'educational' and\n"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}That was very 'educational' and\n"
 	.string "especially fucking weird.\p"
-	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR RED}Especially what happened to that\n"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}Especially what happened to that\n"
 	.string "poor Dusclops.\p"
-	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR RED}Well I'm gonna head home and\n"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}Well I'm gonna head home and\n"
 	.string "do more research about Professor May.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}Alright see ya later.$"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Alright see ya later.$"
 
 LittlerootTown_Text_ProfHoldup:
 	.string "PLEASE HOLD ON A SECOND!$"
@@ -2000,38 +2065,45 @@ LittlerootTown_Text_GoodLuck:
 	.string "both {PLAYER} and {RIVAL}.$"
 
 LittlerootTown_Text_How_She_Know_Names:
-	.string "{PLAYER}:{COLOR RED}How did she know our name?\p"
-	.string "{COLOR DARK_GRAY}...\p"
-	.string "{RIVAL}:{COLOR BLUE}I-I don't know.\n"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}How did she know our name?\p"
+	.string "...\p"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY}I-I don't know.\n"
 	.string "Well whatever.$"
 
 Littleroot_Town_Text_BrendanLetsBattle:
-	.string "{COLOR BLUE}You already know what's about to\n"
+	.string "You already know what's about to\n"
 	.string "happen since we got our own Pokémon.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}It's time to BATTLE!$"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}It's time to BATTLE!$"
+
+LittlerootTown_Text_GetGoodPlayerBrendan:
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY}I thought you'll be better than that.\p"
+	.string "I'll heal your team for you I guess.$"
 
 LittlerootTown_Text_BrendanTimeToHeadOut:
-	.string "{RIVAL}:{COLOR BLUE}It's time we actually left and\n"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY}It's time we actually left and\n"
 	.string "got to exporing the region.\l"
 	.string "I'm going ahead.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Yeah.$"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Yeah.$"
 
 LittlerootTown_Text_MayHow_She_Know_Names:
-	.string "{RIVAL}:{COLOR RED}How did she know our name?\p"
-	.string "{COLOR DARK_GRAY}...\p"
-	.string "{PLAYER}:{COLOR BLUE}I-I don't know.\n"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}How did she know our name?\p"
+	.string "...\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}I-I don't know.\n"
 	.string "Well whatever.$"
 
 Littleroot_Town_Text_MayLetsBattle:
-	.string "{RIVAL}:{COLOR RED}You already know what's about to\n"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}You already know what's about to\n"
 	.string "happen since we got our own Pokémon.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}It's time to BATTLE!$"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}It's time to BATTLE!$"
 
+LittlerootTown_Text_GetGoodPlayerMay:
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}I thought you were better than that.\p"
+	.string "I'll heal your team for you.$"
 LittlerootTown_Text_MayTimeToHeadOut:
-	.string "{RIVAL}:{COLOR RED}It's about time we're able leave\n"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}It's about time we're able leave\n"
 	.string "and go explore the region.\l"
 	.string "I'm going ahead.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}Don't let me pass you up.$"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Don't let me pass you up.$"
 
 LittlerootTown_EventScript_GotoShinyCharm::
 	goto_if_set FLAG_RECEIVED_POKEDEX_FROM_BIRCH, LittlerootTown_EventScript_MomGivesShinyCharm
@@ -2131,3 +2203,5 @@ LittlerootTown_Text_SeeYouLaterHoney:
 	.string "I'll see you later honey.\p"
 	.string "Don't forget to visit home sometimes\n"
 	.string "either.$"
+
+

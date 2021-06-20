@@ -242,8 +242,10 @@
 #define OBJ_EVENT_GFX_HOOH                       238
 #define OBJ_EVENT_GFX_PROF_MAY                   239
 #define OBJ_EVENT_GFX_RHYOS                      240
+#define OBJ_EVENT_GFX_OBSIDIAN_GRUNT_M           241
+#define OBJ_EVENT_GFX_OBSIDIAN_GRUNT_F           242
 
-#define NUM_OBJ_EVENT_GFX                        241
+#define NUM_OBJ_EVENT_GFX                        243
 
 
 // These are dynamic object gfx ids.

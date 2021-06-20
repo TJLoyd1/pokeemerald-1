@@ -13322,7 +13322,7 @@ static const struct TrainerMon sParty_Prof_May[] = {
 static const struct TrainerMon sParty_LittlerootTownRoyMudkip[] = {
     {
     .iv = 50,
-    .lvl = 5,
+    .lvl = 6,
 	.heldItem = ITEM_ORAN_BERRY,
 	.ability = ABILITY_HIDDEN,
     .species = SPECIES_MUDKIP,
@@ -13332,9 +13332,9 @@ static const struct TrainerMon sParty_LittlerootTownRoyMudkip[] = {
 static const struct TrainerMon sParty_LittlerootTownRoyTorchic[] = {
     {
     .iv = 50,
-    .lvl = 5,
+    .lvl = 6,
 	.heldItem = ITEM_ORAN_BERRY,
-	.ability = ABILITY_HIDDEN,
+	.ability = ABILITY_SLOT_2,
     .species = SPECIES_TORCHIC,
     }
 };
@@ -13342,9 +13342,9 @@ static const struct TrainerMon sParty_LittlerootTownRoyTorchic[] = {
 static const struct TrainerMon sParty_LittlerootTownRoyTreecko[] = {
     {
     .iv = 50,
-    .lvl = 5,
+    .lvl = 6,
 	.heldItem = ITEM_ORAN_BERRY,
-	.ability = ABILITY_HIDDEN,
+	.ability = ABILITY_SLOT_2,
     .species = SPECIES_TREECKO,
     }
 };
@@ -13352,9 +13352,9 @@ static const struct TrainerMon sParty_LittlerootTownRoyTreecko[] = {
 static const struct TrainerMon sParty_LittlerootTownLucyMudkip[] = {
     {
     .iv = 50,
-    .lvl = 5,
+    .lvl = 6,
 	.heldItem = ITEM_ORAN_BERRY,
-	.ability = ABILITY_HIDDEN,
+	.ability = ABILITY_SLOT_1,
     .species = SPECIES_MUDKIP,
     }
 };
@@ -13362,9 +13362,9 @@ static const struct TrainerMon sParty_LittlerootTownLucyMudkip[] = {
 static const struct TrainerMon sParty_LittlerootTownLucyTorchic[] = {
     {
     .iv = 50,
-    .lvl = 5,
+    .lvl = 6,
 	.heldItem = ITEM_ORAN_BERRY,
-	.ability = ABILITY_HIDDEN,
+	.ability = ABILITY_SLOT_1,
     .species = SPECIES_TORCHIC,
     }
 };
@@ -13372,7 +13372,7 @@ static const struct TrainerMon sParty_LittlerootTownLucyTorchic[] = {
 static const struct TrainerMon sParty_LittlerootTownLucyTreecko[] = {
     {
     .iv = 50,
-    .lvl = 5,
+    .lvl = 6,
 	.heldItem = ITEM_ORAN_BERRY,
 	.ability = ABILITY_HIDDEN,
     .species = SPECIES_TREECKO,

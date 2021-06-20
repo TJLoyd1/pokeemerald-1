@@ -86,7 +86,7 @@
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_RIVAL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_MAY",
       "x": 17,
       "y": 10,
       "elevation": 3,
@@ -99,7 +99,7 @@
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCH"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAXIE",
+      "graphics_id": "OBJ_EVENT_GFX_RHYOS",
       "x": 9,
       "y": 4,
       "elevation": 3,
@@ -109,7 +109,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL",
@@ -148,10 +148,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+      "graphics_id": "OBJ_EVENT_GFX_OBSIDIAN_GRUNT_F",
       "x": 12,
       "y": 4,
       "elevation": 3,
@@ -161,10 +161,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_OBSIDIAN_GRUNT_M",
       "x": 11,
       "y": 4,
       "elevation": 3,
@@ -174,10 +174,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
+      "graphics_id": "OBJ_EVENT_GFX_OBSIDIAN_GRUNT_F",
       "x": 8,
       "y": 4,
       "elevation": 3,
@@ -187,10 +187,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
+      "graphics_id": "OBJ_EVENT_GFX_OBSIDIAN_GRUNT_M",
       "x": 7,
       "y": 4,
       "elevation": 3,
@@ -200,7 +200,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
@@ -213,7 +213,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
@@ -226,7 +226,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
@@ -239,7 +239,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
@@ -252,7 +252,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA"
+      "flag": "FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",

@@ -365,7 +365,7 @@ StarterTown_RivalsHouse_2F_EventScript_Commotion::
 	waitmovement 0
 	setvar VAR_DOWNSTAIRS_DANGER, 1
 	setflag FLAG_DOWNSTAIRS_DANGER
-	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
+	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
 	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
 	waitstate
 	releaseall
@@ -377,9 +377,24 @@ StarterTown_MaleRivalsHouse_2F_EventScript_Commotion::
 	waitmovement 0
 	applymovement 3, FaceRight
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHey, MSGBOX_DEFAULT
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHeyResponse, MSGBOX_DEFAULT
+	callnative ClearMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHeyRivalsResponse, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, Headed_Towards_PC_With_Rival
 	waitmovement 0
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProf, MSGBOX_DEFAULT
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfResponse, MSGBOX_DEFAULT
+	callnative ClearMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfRivalResponse2, MSGBOX_DEFAULT
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfResponse2, MSGBOX_DEFAULT
+	callnative ClearMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfRivalsResponse3, MSGBOX_DEFAULT
 	closemessage
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_MomYells
 	playbgm MUS_HELP, 1
@@ -387,12 +402,16 @@ StarterTown_MaleRivalsHouse_2F_EventScript_Commotion::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_Curiousity, MSGBOX_DEFAULT
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_CuriousityResponse, MSGBOX_DEFAULT
+	callnative ClearMugshot
 	applymovement 3, Rival_Moves_Towards_Stairs
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Moves_Towards_Stairs
 	waitmovement 0
 	setvar VAR_DOWNSTAIRS_DANGER, 1
 	setflag FLAG_DOWNSTAIRS_DANGER
-	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
+	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
 	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
 	waitstate
 	releaseall
@@ -433,7 +452,7 @@ StarterTown_RivalsHouse_2F_EventScript_CommotionSouth::
 	waitmovement 0
 	setvar VAR_DOWNSTAIRS_DANGER, 1
 	setflag FLAG_DOWNSTAIRS_DANGER
-	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
+	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
 	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
 	waitstate
 	releaseall
@@ -447,9 +466,24 @@ StarterTown_MaleRivalsHouse_2F_EventScript_CommotionSouth::
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerFaceLeft
 	waitmovement 0
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHey, MSGBOX_DEFAULT
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHeyResponse, MSGBOX_DEFAULT
+	callnative ClearMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHeyRivalsResponse, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, Headed_Towards_PC_With_RivalSouth
 	waitmovement 0
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProf, MSGBOX_DEFAULT
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfResponse, MSGBOX_DEFAULT
+	callnative ClearMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfRivalResponse2, MSGBOX_DEFAULT
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfResponse2, MSGBOX_DEFAULT
+	callnative ClearMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfRivalsResponse3, MSGBOX_DEFAULT
 	closemessage
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_MomYells
 	playbgm MUS_HELP, 1
@@ -457,12 +491,16 @@ StarterTown_MaleRivalsHouse_2F_EventScript_CommotionSouth::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_Curiousity, MSGBOX_DEFAULT
+	setvar VAR_0x8000, MUGSHOT_ROY
+	callnative DrawMugshot
+	msgbox StarterTown_MaleRivalsHouse_2F_Text_CuriousityResponse, MSGBOX_DEFAULT
+	callnative ClearMugshot
 	applymovement 3, Rival_Moves_Towards_Stairs
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Moves_Towards_Stairs
 	waitmovement 0
 	setvar VAR_DOWNSTAIRS_DANGER, 1
 	setflag FLAG_DOWNSTAIRS_DANGER
-	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
+	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
 	warp MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 255, 8, 3
 	waitstate
 	releaseall
@@ -529,70 +567,86 @@ PlayersHouse_2F_Text_WakeUp:
 	.string "When you get up come downstairs.$"
 
 StarterTown_RivalsHouse_2F_Text_RivalHey:
-	.string "{RIVAL}:{COLOR BLUE}I see you made it.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Yea, my mom told me you had\n"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY}I see you made it.\p"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Yea, my mom told me you had\n"
 	.string "to tell me something.\l"
 	.string "It better be important.\p"
-	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR BLUE}You gotta come here so I can\n"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY}You gotta come here so I can\n"
 	.string "show you how cool this shit is.$"
 
 StarterTown_RivalsHouse_2F_Text_RivalMentionsProf:
-	.string "{RIVAL}:{COLOR BLUE}So I found something on the\n"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY}So I found something on the\n"
 	.string "internet about a professor named May\l"
 	.string "who supposedly moved here two days ago\p"
 	.string "because of 'research' reasons.\l"
 	.string "Apparently she's giving away some\n"
 	.string "Pokémon to new trainers like her\l"
 	.string "father used to do.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Does she have some kind of rare\n"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Does she have some kind of rare\n"
 	.string "Pokémon or something?\p"
-	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR BLUE}From what I read online, she\n"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY}From what I read online, she\n"
 	.string "has three 'unique' Pokémon that was\l"
 	.string "aquired as she traveled across many\p"
 	.string "different regions.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}I think we should go see her\n"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}I think we should go see her\n"
 	.string "so we can get a Pokémon.\l"
 	.string "It's about time we left the house.\p"
-	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR BLUE}Yeah I totally agr-$"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY}Yeah I totally agr-$"
 
 StarterTown_RivalsHouse_2F_Text_MomYells:
 	.string "KIDS GET DOWN HERE QUICK!!$"
 
 StarterTown_RivalsHouse_2F_Text_Curiousity:
-	.string "{RIVAL}:{COLOR BLUE}Let's go see what's going on.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Okay let's go.$"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY}Let's go see what's going on.\p"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}Okay let's go.$"
 
 StarterTown_MaleRivalsHouse_2F_Text_RivalHey:
-	.string "{RIVAL}:{COLOR RED}You finally made it.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}I only came because you\n"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}You finally made it.$"
+
+StarterTown_MaleRivalsHouse_2F_Text_RivalHeyResponse:
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}I only came because you\n"
 	.string "had to tell me something.\l"
-	.string "It must be important?\p"
-	.string "{COLOR DARK_GRAY}May:{COLOR RED}You gotta come here so I can\n"
+	.string "It must be important?$"
+
+StarterTown_MaleRivalsHouse_2F_Text_RivalHeyRivalsResponse:
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}You gotta come here so I can\n"
 	.string "show you how amazing this is.$"
 
 StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProf:
-	.string "{RIVAL}:{COLOR RED}So I found something on the\n"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}So I found something on the\n"
 	.string "internet about a professor named May\l"
 	.string "who supposedly moved here two days ago\p"
 	.string "because of 'research' reasons.\l"
 	.string "Apparently she's giving away some\n"
 	.string "Pokémon to new trainers like her\l"
-	.string "father used to do.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}Does she have some kind of rare\n"
-	.string "Pokémon or something?\p"
-	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR RED}From what I read online, she\n"
+	.string "father used to do.$"
+	
+StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfResponse:	
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Does she have some kind of rare\n"
+	.string "Pokémon or something?$"
+	
+StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfRivalResponse2:
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}From what I read online, she\n"
 	.string "has three 'unique' Pokémon that was\l"
 	.string "aquired as she traveled across many\p"
-	.string "different regions.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR BLUE}we should go see her then\n"
+	.string "different regions.$"
+	
+StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfResponse2:
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}we should go see her then\n"
 	.string "so we can get a Pokémon.\l"
-	.string "It's about time we left the damn house.\p"
-	.string "{COLOR DARK_GRAY}{RIVAL}:{COLOR RED}Yeah I actually agr-$"
+	.string "It's about time we left the damn house.$"
+
+StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfRivalsResponse3:
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}Yeah I actually agr-$"
 
 StarterTown_MaleRivalsHouse_2F_Text_MomYells:
 	.string "KIDS GET DOWN HERE QUICK!!$"
 
 StarterTown_MaleRivalsHouse_2F_Text_Curiousity:
-	.string "{RIVAL}:{COLOR RED}Something happened.\n"
-	.string "Let's Go.\p"
-	.string "{COLOR DARK_GRAY}{PLAYER}:{COLOR RED}Yeah Yeah.$"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY}Something happened.\n"
+	.string "Let's Go.$"
+
+StarterTown_MaleRivalsHouse_2F_Text_CuriousityResponse:
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Yeah Yeah.$"
+
+

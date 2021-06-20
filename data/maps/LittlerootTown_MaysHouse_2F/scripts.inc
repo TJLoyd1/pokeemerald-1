@@ -520,8 +520,9 @@ StarterTown_BrendansPlayersHouse_2F_EventScript_QuestMenu::
 PlayersHouse_2F_EventScript_QuestMenu::
 	lockall
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL
-	playbgm MUS_OBTAIN_ITEM, 1
+	playfanfare MUS_OBTAIN_ITEM
 	msgbox PlayersHouse_2F_Text_GotQuestMenu, MSGBOX_DEFAULT
+	waitfanfare
 	setflag FLAG_SYS_QUEST_MENU_GET
 	releaseall
 	end
@@ -587,7 +588,7 @@ MayPlayersHouse_2F_Text_CantForgetNotebook:
 	.string "go somewhere let me grab my notebook off of my desk.$"
 
 BrendansPlayersHouse_2F_Text_CantForgetNotebook:
-	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} I'll grab my notebook\n"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY} I'll grab my notebook\n"
 	.string "off of my desk in case I go somewhere.$"
 
 

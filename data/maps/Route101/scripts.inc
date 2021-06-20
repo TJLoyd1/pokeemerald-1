@@ -317,3 +317,6 @@ Route101_Text_JohnnyDefeated:
 Route101_Text_JohnnyPostBattle:
 	.string "My brother, Joey, would think this\n"
 	.string "is the perfect weather for shorts.$"
+
+
+

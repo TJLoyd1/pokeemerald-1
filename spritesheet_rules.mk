@@ -174,6 +174,12 @@ $(OBJEVENTGFXDIR)/people/rich_boy.4bpp: %.4bpp: %.png
 	
 $(OBJEVENTGFXDIR)/people/new_overworlds/rhyos.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/new_overworlds/obsidian_grunt_m.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/new_overworlds/obsidian_grunt_f.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
 	
 $(OBJEVENTGFXDIR)/people/gameboy_kid.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
