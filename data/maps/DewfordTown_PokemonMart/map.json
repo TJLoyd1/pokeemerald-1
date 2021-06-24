@@ -2,7 +2,7 @@
   "id": "MAP_DEWFORD_TOWN_POKEMON_MART",
   "name": "DewfordTown_PokemonMart",
   "layout": "LAYOUT_DEWFORD_TOWN_POKEMON_MART",
-  "music": "MUS_POKE_MART",
+  "music": "DP_SEQ_FS",
   "region_map_section": "MAPSEC_DEWFORD_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -10,7 +10,7 @@
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [

@@ -32,6 +32,7 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_ItsStarting::
 	setobjectxyperm 1, 23, 8
 	applymovement 1, Common_Movement_FaceLeft
 	waitmovement 0
+	setflag FLAG_HIDE_PETALBURG_CITY_WALLY
 	setvar VAR_PETALBURG_GYM_STATE, 2
 	releaseall
 	end
@@ -49,6 +50,19 @@ HeadingTowardsField:
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
 	step_end
 
 PetalburgCity_PokemonSchool_TourneyRoom_Text_HurryUp:
@@ -78,7 +92,7 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament::
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_GreatBattle, MSGBOX_DEFAULT
 	closemessage
 	fadescreen 1
-	setobjectxy 6, 18, 5
+	setobjectxy 6, 21, 5
 	applymovement 6, Common_Movement_FaceDown
 	waitmovement 0
 	setobjectxy 4, 18, 8
@@ -116,7 +130,7 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament::
 	applymovement OBJ_EVENT_ID_CAMERA, IgnesHeadsToField
 	applymovement 1, IgnesHeadsToField
 	waitmovement 0
-	setobjectxyperm 1, 13, 8
+	setobjectxyperm 1, 14, 8
 	applymovement 1, Common_Movement_FaceLeft
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_CAMERA, MoveBackToCenterFieldFromRight
@@ -172,7 +186,7 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament::
 	releaseall
 	end
 
-PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament::
+PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament2::
 	lockall
 	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
 	setvar VAR_PETALBURG_GYM_STATE, 3
@@ -194,7 +208,7 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament::
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_GreatBattle, MSGBOX_DEFAULT
 	closemessage
 	fadescreen 1
-	setobjectxy 6, 18, 5
+	setobjectxy 6, 21, 5
 	applymovement 6, Common_Movement_FaceDown
 	waitmovement 0
 	setobjectxy 4, 18, 8
@@ -232,7 +246,7 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament::
 	applymovement OBJ_EVENT_ID_CAMERA, IgnesHeadsToField
 	applymovement 1, IgnesHeadsToField
 	waitmovement 0
-	setobjectxyperm 1, 13, 8
+	setobjectxyperm 1, 14, 8
 	applymovement 1, Common_Movement_FaceLeft
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_CAMERA, MoveBackToCenterFieldFromRight
@@ -280,6 +294,123 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament::
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_MakeGoodUse, MSGBOX_DEFAULT
 	closemessage
 	applymovement 2, CommentatorHeadsOffStage
+	waitmovement 0
+	setflag FLAG_HIDE_PETALBURG_CITY_WALLY
+	removeobject 2
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	setvar VAR_PETALBURG_GYM_STATE, 8
+	releaseall
+	end
+
+PetalburgCity_PokemonSchool_TourneyRoom_EventScript_RightSideTournament::
+	lockall
+	setflag FLAG_HIDE_PETALBURG_CITY_WALLY
+	setvar VAR_PETALBURG_GYM_STATE, 3
+	removeobject 6
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_CriticalHit, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	setobjectxy 8, 5, 8
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerHeadTowardsStageRightSide
+	waitmovement 0
+	applymovement 8, TrainerHeadsTowardStageRightSide
+	waitmovement 0
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_NextTwoCompetitors, MSGBOX_DEFAULT
+	closemessage
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_BugPokemon, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_JAMES_2, Corinna_Text_Defeat
+	special HealPlayerParty
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_GreatBattle, MSGBOX_DEFAULT
+	closemessage
+	fadescreen 1
+	setobjectxy 8, 6, 5
+	applymovement 6, Common_Movement_FaceDown
+	waitmovement 0
+	setobjectxy 4, 5, 8
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_IgnesAchievement, MSGBOX_DEFAULT
+	closemessage
+	fadescreen 0
+	applymovement 4, TrainerHeadsTowardStageRightSide
+	waitmovement 0
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_NoMercyPlayer, MSGBOX_DEFAULT
+	closemessage
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_Teddiursa, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_HALEY_2, Crystal_Text_Defeat
+	special HealPlayerParty
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_OnceAgain, MSGBOX_DEFAULT
+	closemessage
+	fadescreen 1
+	setobjectxy 4, 19, 6
+	applymovement 4, Common_Movement_FaceDown
+	waitmovement 0
+	clearflag FLAG_HIDE_PETALBURG_CITY_WALLY
+	setobjectxy 1, 1, 8
+	applymovement 1, Common_Movement_FaceRight
+	waitmovement 0
+	setobjectxy OBJ_EVENT_ID_PLAYER, 23, 8
+	special SpawnCameraObject
+	setobjectxy OBJ_EVENT_ID_CAMERA, 11, 8
+	fadescreen 0
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_Finale, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_CAMERA, MoveLeftTowardsPlayer
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_IgnesBattleIntro, MSGBOX_DEFAULT
+	closemessage
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_CAMERA, PlayerHeadsToField
+	applymovement 1, PlayerHeadsToField
+	waitmovement 0
+	setobjectxyperm 1, 9, 8
+	applymovement 1, Common_Movement_FaceRight
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_CAMERA, MoveBackToCenterFieldFromLeft
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_CAMERA, MoveRightTowardsIgnes
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_PlayerBattleIntro, MSGBOX_DEFAULT
+	closemessage
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_CAMERA, IgnesHeadsToField
+	applymovement OBJ_EVENT_ID_PLAYER, IgnesHeadsToField
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_CAMERA, MoveBackToCenterFieldFromRight
+	waitmovement 0
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_IgnesShitTalking, MSGBOX_DEFAULT
+	closemessage
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_LetTheBattleCommence, MSGBOX_DEFAULT
+	closemessage
+	special RemoveCameraObject
+	trainerbattle_no_intro TRAINER_WALLY_MAUVILLE, TourneyIgnes_Text_Defeat
+	special HealPlayerParty
+	playbgm DP_SEQ_WINGINGA, 1
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_WithTheIncredible, MSGBOX_DEFAULT
+	closemessage
+	fadedefaultbgm 
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_IgnesSoreLoser, MSGBOX_DEFAULT
+	closemessage
+	applymovement 1, WalkOffFieldRightSide
+	waitmovement 0
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_StayForPrize, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_CAMERA, BackToPlayer
+	waitmovement 0
+	fadescreen 1
+	removeobject 3
+	removeobject 4
+	removeobject 5
+	removeobject 6
+	removeobject 7
+	fadescreen 0
+	applymovement 2, CommentatorHeadsTowardsPlayerRightSide
+	waitmovement 0
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_Prize, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_LUCKY_EGG, 1
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_MakeGoodUse, MSGBOX_DEFAULT
+	closemessage
+	applymovement 2, CommentatorHeadsOffStageRightSide
 	waitmovement 0
 	setflag FLAG_HIDE_PETALBURG_CITY_WALLY
 	removeobject 2
@@ -320,12 +451,35 @@ PlayerHeadTowardsStage2:
 	walk_right
 	walk_right
 	step_end
-	
+
+PlayerHeadTowardsStageRightSide:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
 TrainerHeadsTowardStage:
 	walk_left
 	walk_left
 	walk_left
 	walk_left
+	step_end
+
+TrainerHeadsTowardStageRightSide:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
 MoveRightTowardsIgnes:
@@ -399,6 +553,14 @@ WalkOffField:
 	walk_right
 	step_end
 
+WalkOffFieldRightSide:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
 BackToPlayer:
 	walk_fastest_left
 	walk_fastest_left
@@ -408,6 +570,12 @@ CommentatorHeadsTowardsPlayer:
 	walk_down
 	walk_down
 	walk_left
+	step_end
+
+CommentatorHeadsTowardsPlayerRightSide:
+	walk_down
+	walk_down
+	walk_right
 	step_end
 
 CommentatorHeadsOffStage:
@@ -424,6 +592,20 @@ CommentatorHeadsOffStage:
 	walk_left
 	step_end
 
+CommentatorHeadsOffStageRightSide:
+	walk_down
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+	
 PetalburgCity_PokemonSchool_TourneyRoom_Text_CriticalHit:
 	.string "Teddiursa with a Critical Hit Focus Punch\n"
 	.string "finishes not only the Geodude, but also\l"
@@ -500,12 +682,12 @@ PetalburgCity_PokemonSchool_TourneyRoom_Text_PlayerBattleIntro:
 	.string "HERE IS {PLAYER}!!$"
 
 PetalburgCity_PokemonSchool_TourneyRoom_Text_IgnesShitTalking:
-	.string "I've been waiting to stomp you into\n"
-	.string "the fucking ground.\p"
+	.string "Ignes: I've been waiting to stomp you\n"
+	.string "into the fucking ground.\p"
 	.string "I'll show you how to be a REAL TRAINER!$"
 
 PetalburgCity_PokemonSchool_TourneyRoom_Text_LetTheBattleCommence:
-	.string "LET THE BATTLE COMMENCE!!!$"
+	.string "Announcer: LET THE BATTLE COMMENCE!!!$"
 
 TourneyIgnes_Text_Defeat:
 	.string"No-No damn way I actually lost!!$"
@@ -534,3 +716,21 @@ PetalburgCity_PokemonSchool_TourneyRoom_Text_Prize:
 PetalburgCity_PokemonSchool_TourneyRoom_Text_MakeGoodUse:
 	.string "I hope you can make good use of that\n"
 	.string "during your journey.$"
+
+PetalburgCity_PokemonSchool_TourneyRoom_EventScript_RightSideNotAvailable::
+	lockall
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_IgnesIsHere, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, TurnAroundToHeadToLeftSide
+	waitmovement 0
+	releaseall
+	end
+
+TurnAroundToHeadToLeftSide:
+	walk_in_place_fastest_left
+	walk_left
+	step_end
+
+PetalburgCity_PokemonSchool_TourneyRoom_Text_IgnesIsHere:
+	.string "{PLAYER}: I should go to the other side\n"
+	.string "since Ignes is this way.$"

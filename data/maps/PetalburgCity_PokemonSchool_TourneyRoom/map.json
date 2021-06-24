@@ -104,6 +104,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_HIDE_PETALBURG_GYM_WALLY"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+      "x": 5,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_PETALBURG_GYM_WALLY"
     }
   ],
   "warp_events": [
@@ -139,25 +152,25 @@
       "elevation": 0,
       "var": "VAR_PETALBURG_GYM_STATE",
       "var_value": "2",
-      "script": "NULL"
+      "script": "PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament2"
     },
     {
       "type": "trigger",
-      "x": 23,
-      "y": 15,
+      "x": 21,
+      "y": 19,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "PetalburgCity_PokemonSchool_TourneyRoom_EventScript_RightSideNotAvailable"
     },
     {
       "type": "trigger",
-      "x": 24,
-      "y": 15,
+      "x": 21,
+      "y": 20,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "PetalburgCity_PokemonSchool_TourneyRoom_EventScript_RightSideNotAvailable"
     }
   ],
   "bg_events": [

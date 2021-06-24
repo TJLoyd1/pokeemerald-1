@@ -281,13 +281,6 @@ PetalburgWoods_EventScript_Lyle:: @ 822E26D
 
 PetalburgWoods_EventScript_James:: @ 822E284
 	trainerbattle_single TRAINER_JAMES_1, PetalburgWoods_Text_InstantlyPopularWithBugPokemon, PetalburgWoods_Text_CantBePopularIfILose, PetalburgWoods_EventScript_TryRegisterJames
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	compare VAR_RESULT, TRUE
-	goto_if_eq PetalburgWoods_EventScript_JamesRematch
-	setvar VAR_0x8004, TRAINER_JAMES_1
-	specialvar VAR_RESULT, IsTrainerRegistered
-	compare VAR_RESULT, FALSE
-	goto_if_eq PetalburgWoods_EventScript_TryRegisterJames2
 	msgbox PetalburgWoods_Text_PeopleRespectYou, MSGBOX_DEFAULT
 	release
 	end
@@ -448,8 +441,6 @@ PetalburgWoods_Text_HiddenItemsExplanation: @ 822EA8B
 	.string "walking.$"
 
 PetalburgWoods_Text_TryUsingThisItem: @ 822EAFE
-	.string "Oh, neat!\n"
-	.string "That's the BADGE from RUSTBORO GYM!\p"
 	.string "You must be a TRAINER.\n"
 	.string "You should try using this item.$"
 

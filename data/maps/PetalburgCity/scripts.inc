@@ -382,8 +382,6 @@ PetalburgCity_Movement_BoyApproachPlayer2: @ 81DC61D
 	walk_down
 	walk_right
 	walk_right
-	walk_right
-	walk_in_place_fastest_down
 	step_end
 
 PetalburgCity_Movement_BoyApproachPlayer3: @ 81DC622
