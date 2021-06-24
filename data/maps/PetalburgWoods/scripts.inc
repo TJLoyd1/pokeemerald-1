@@ -512,6 +512,7 @@ PetalburgWoods_EventScript_IgnesFirstBattle::
 	waitmovement 0
 	msgbox PetalburgWoods_Text_IgnesNoticesYou, MSGBOX_DEFAULT
 	closemessage
+	setvar VAR_MUGSHOT_ID, MUGSHOT_IGNES
 	trainerbattle_no_intro TRAINER_IGNES_PETALBURGWOODS, PetalburgWoods_Text_NextTime
 	msgbox PetalburgWoods_Text_IgnesNextCity, MSGBOX_DEFAULT
 	closemessage

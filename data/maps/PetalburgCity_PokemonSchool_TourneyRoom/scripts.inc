@@ -265,6 +265,7 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament2::
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_LetTheBattleCommence, MSGBOX_DEFAULT
 	closemessage
 	special RemoveCameraObject
+	setvar VAR_MUGSHOT_ID, MUGSHOT_IGNES
 	trainerbattle_no_intro TRAINER_WALLY_MAUVILLE, TourneyIgnes_Text_Defeat
 	special HealPlayerParty
 	playbgm DP_SEQ_WINGINGA, 1
@@ -382,6 +383,7 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_RightSideTournament::
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_LetTheBattleCommence, MSGBOX_DEFAULT
 	closemessage
 	special RemoveCameraObject
+	setvar VAR_MUGSHOT_ID, MUGSHOT_IGNES
 	trainerbattle_no_intro TRAINER_WALLY_MAUVILLE, TourneyIgnes_Text_Defeat
 	special HealPlayerParty
 	playbgm DP_SEQ_WINGINGA, 1
