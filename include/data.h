@@ -54,7 +54,9 @@ struct Trainer
     bool8 doubleBattle;
     u32 aiFlags;
     u8 partySize;
-    union TrainerMonPtr party;
+    u8 transition:7;
+    u8 hasCustomTransition:1;
+	union TrainerMonPtr party;
 };
 
 #define TRAINER_ENCOUNTER_MUSIC(trainer)((gTrainers[trainer].encounterMusic_gender & 0x7F))
