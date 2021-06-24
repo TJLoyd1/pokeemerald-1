@@ -444,17 +444,11 @@ StarterTown_MayPlayersHouse_1F_EventScript_WatchingTVWithMom::
 
 StarterTown_BrendanPlayersHouse_1F_EventScript_WatchingTVWithMom::
 	msgbox PlayersHouse_1F_Text_YoureUp, MSGBOX_DEFAULT
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox PlayersHouse_1F_Text_ResponseToYoureUp, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	applymovement LOCALID_MOM, MaleWalkTowardsPlayer
 	waitmovement 0
 	msgbox PlayersHouse_1F_Text_ComeWatchWithMe, MSGBOX_DEFAULT
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox PlayersHouse_1F_Text_ResponseToComeWatchWithMe, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	applymovement LOCALID_MOM, MaleWalkTowardsTable
 	applymovement OBJ_EVENT_ID_PLAYER, MaleWalkTowardsTableToo
 	waitmovement 0
@@ -660,8 +654,8 @@ PlayersHouse_1F_Text_YoureUp:
 	.string "Mom: Honey, It's nice to see you're up.$"
 
 PlayersHouse_1F_Text_ResponseToYoureUp:
-	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Just had a weird morning to start\n"
-	.string "my day.\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Just had a weird morning to\n"
+	.string "start my day.\p"
 	.string "Mom: Aww Honey...$"
 	
 PlayersHouse_1F_Text_ComeWatchWithMe:
@@ -672,6 +666,7 @@ PlayersHouse_1F_Text_ComeWatchWithMe:
 PlayersHouse_1F_Text_ResponseToComeWatchWithMe:
 	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Sure even though it won't get my\n"
 	.string "mind off what happened at all.$"
+
 PlayersHouse_1F_Text_TVTalks:
 	.string "In Today's News, It seems that Team.....\p"
 	.string "Mom: Why don't you go ahead and tell me\n"
@@ -683,7 +678,8 @@ PlayersHouse_1F_Text_ResponseToTVTalks:
 PlayersHouse_1F_Text_ForgotToTell:
 	.string "Mom:I forgot to mention that your friend\n"
 	.string "wanted to see you for something.\p"
-	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Friend... you talking about {RIVAL}?\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Friend... are you talking about\n"
+	.string "{RIVAL}?\p"
 	.string "Mom:Yes, you should go see what\n"
 	.string "they wanted.$"
 

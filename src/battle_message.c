@@ -1855,6 +1855,13 @@ static const u8 sText_Opposing1[] = _("The opposing");
 static const u8 sText_Your2[] = _("your");
 static const u8 sText_Opposing2[] = _("the opposing");
 
+static const u8 sText_RoyLastSwitchIn[] = _("Roy:This is amazing!\p");
+static const u8 sText_RoyLastLowHp[] = _("Roy:It's not over yet!\p");
+static const u8 sText_RoyFirstDown[] = _("Roy:You're strong..\p");
+static const u8 sText_LucyLastSwitchIn[] = _("Lucy:This is amazing!\p");
+static const u8 sText_LucyLastLowHp[] = _("Lucy:I won't lose!\p");
+static const u8 sText_LucyFirstDown[] = _("Lucy:You're strong..\p");
+
 // This is four lists of moves which use a different attack string in Japanese
 // to the default. See the documentation for ChooseTypeOfMoveUsedString for more detail.
 static const u16 sGrammarMoveUsedTable[] =
@@ -2549,7 +2556,7 @@ void BufferStringBattle(u16 stringID)
         {
             if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
                 stringPtr = sText_LegendaryPkmnAppeared;
-            else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) // interesting, looks like they had something planned for wild double battles
+            else if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && IsValidForBattle(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler ^ BIT_FLANK]])) // interesting, looks like they had something planned for wild double battles
                 stringPtr = sText_TwoWildPkmnAppeared;
             else if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL)
                 stringPtr = sText_WildPkmnAppearedPause;
@@ -2560,7 +2567,7 @@ void BufferStringBattle(u16 stringID)
     case STRINGID_INTROSENDOUT: // poke first send-out
         if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
         {
-            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && IsValidForBattle(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler ^ BIT_FLANK]]))
             {
                 if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
                     stringPtr = sText_InGamePartnerSentOutZGoN;
@@ -2578,7 +2585,7 @@ void BufferStringBattle(u16 stringID)
         }
         else
         {
-            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && IsValidForBattle(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler ^ BIT_FLANK]]))
             {
                 if (BATTLE_TWO_VS_ONE_OPPONENT)
                     stringPtr = sText_Trainer1SentOutTwoPkmn;
@@ -3785,6 +3792,12 @@ struct TrainerSlide
 static const struct TrainerSlide sTrainerSlides[] =
 {
     {0x291, sText_AarghAlmostHadIt, sText_BoxIsFull, sText_123Poof},
+	{TRAINER_LITTLEROOTTOWN_ROY_MUDKIP, NULL, sText_RoyLastLowHp, NULL},
+	{TRAINER_LITTLEROOTTOWN_ROY_TORCHIC, NULL, sText_RoyLastLowHp, NULL},
+	{TRAINER_LITTLEROOTTOWN_ROY_TREECKO, NULL, sText_RoyLastLowHp, NULL},
+	{TRAINER_LITTLEROOTTOWN_LUCY_MUDKIP, NULL, sText_LucyLastLowHp, NULL},
+	{TRAINER_LITTLEROOTTOWN_LUCY_TORCHIC, NULL, sText_LucyLastLowHp, NULL},
+	{TRAINER_LITTLEROOTTOWN_LUCY_TREECKO, NULL, sText_LucyLastLowHp, NULL},
 };
 
 static u32 GetEnemyMonCount(bool32 onlyAlive)

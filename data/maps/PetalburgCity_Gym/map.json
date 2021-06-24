@@ -2,7 +2,7 @@
   "id": "MAP_PETALBURG_CITY_GYM",
   "name": "PetalburgCity_Gym",
   "layout": "LAYOUT_PETALBURG_CITY_GYM",
-  "music": "MUS_GYM",
+  "music": "MUS_SCHOOL",
   "region_map_section": "MAPSEC_PETALBURG_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -15,29 +15,29 @@
   "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_NORMAN",
-      "x": 13,
-      "y": 5,
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 8,
+      "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PetalburgCity_Gym_EventScript_Norman",
-      "flag": "FLAG_HIDE_PETALBURG_GYM_NORMAN"
+      "script": "PetalburgCity_School_EventScript_Teacher3",
+      "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 43,
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "x": 44,
       "y": 20,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PetalburgCity_Gym_EventScript_Berke",
+      "script": "PetalburgCity_School_EventScript_Teacher3",
       "flag": "0"
     },
     {
@@ -68,7 +68,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
-      "x": 36,
+      "x": 40,
       "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -76,11 +76,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_PETALBURG_GYM_WALLYS_DAD"
+      "script": "PetalburgCity_School_EventScript_Teacher2",
+      "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
       "x": 6,
       "y": 20,
       "elevation": 3,
@@ -89,155 +89,493 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
+      "script": "RustboroCity_PokemonSchool_EventScript_Teacher",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+      "x": 3,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RustboroCity_PokemonSchool_EventScript_SchoolKidM",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
+      "x": 3,
+      "y": 25,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RustboroCity_PokemonSchool_EventScript_RichBoy",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
+      "x": 8,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RustboroCity_PokemonSchool_EventScript_GameboyKid1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
+      "x": 9,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RustboroCity_PokemonSchool_EventScript_GameboyKid2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 10,
+      "y": 25,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_IGNES",
+      "x": 23,
+      "y": 21,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_PETALBURG_CITY_WALLY"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
+      "x": 10,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_Lass",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
+      "x": 11,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_Gamekids_Battling",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
+      "x": 12,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_Gamekids_Battling",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+      "x": 5,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RustboroCity_PokemonSchool_EventScript_SchoolKidM",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
+      "x": 12,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_SchoolBoy2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY_3",
+      "x": 38,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_Students",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+      "x": 43,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_Students",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
+      "x": 38,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_Students",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+      "x": 36,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_Students",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 45,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_Students",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY_3",
+      "x": 41,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_LittleBoy3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
+      "x": 48,
+      "y": 25,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_Gamekids_Battling",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
+      "x": 47,
+      "y": 25,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_Gamekids_Battling",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
+      "x": 46,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_School_EventScript_LittleGirl",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+      "x": 48,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RustboroCity_PokemonSchool_EventScript_SchoolKidM",
       "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 23,
-      "y": 35,
-      "elevation": 0,
-      "dest_map": "MAP_PETALBURG_CITY_GYM",
-      "dest_warp_id": 0
-    },
-    {
       "x": 22,
       "y": 35,
       "elevation": 0,
-      "dest_map": "MAP_PETALBURG_CITY_GYM",
-      "dest_warp_id": 0
+      "dest_map": "MAP_PETALBURG_CITY",
+      "dest_warp_id": 2
     },
     {
-      "x": 24,
-      "y": 0,
+      "x": 23,
+      "y": 35,
       "elevation": 0,
-      "dest_map": "MAP_PETALBURG_CITY_GYM",
-      "dest_warp_id": 0
+      "dest_map": "MAP_PETALBURG_CITY",
+      "dest_warp_id": 6
     },
     {
       "x": 25,
       "y": 0,
       "elevation": 0,
-      "dest_map": "MAP_PETALBURG_CITY_GYM",
+      "dest_map": "MAP_PETALBURG_CITY_POKEMON_SCHOOL_TOURNEY_ROOM",
+      "dest_warp_id": 1
+    },
+    {
+      "x": 24,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_PETALBURG_CITY_POKEMON_SCHOOL_TOURNEY_ROOM",
       "dest_warp_id": 0
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_GYM_STATE",
+      "var_value": "0",
+      "script": "PetalburgCity_School_EventScript_MeetingIgnes"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_GYM_STATE",
+      "var_value": "0",
+      "script": "PetalburgCity_School_EventScript_MeetingIgnes2"
+    }
   ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 1,
-      "y": 105,
-      "elevation": 3,
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_SpeedRoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
       "x": 7,
-      "y": 105,
-      "elevation": 3,
+      "y": 2,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_AccuracyRoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
-      "x": 1,
-      "y": 79,
-      "elevation": 3,
+      "x": 8,
+      "y": 2,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_ConfusionRoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
       "x": 7,
-      "y": 79,
-      "elevation": 3,
+      "y": 19,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_LeftDefenseRoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
-      "x": 1,
-      "y": 92,
-      "elevation": 3,
+      "x": 39,
+      "y": 2,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_RightDefenseRoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 92,
-      "elevation": 3,
+      "x": 40,
+      "y": 2,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_RecoveryRoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 40,
-      "elevation": 3,
+      "x": 41,
+      "y": 2,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_LeftStrengthRoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
-      "x": 1,
-      "y": 53,
-      "elevation": 3,
+      "x": 42,
+      "y": 2,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_RightStrengthRoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 53,
-      "elevation": 3,
+      "x": 42,
+      "y": 19,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_LeftOHKORoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
-      "x": 1,
-      "y": 66,
-      "elevation": 3,
+      "x": 43,
+      "y": 19,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_RightOHKORoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 14,
-      "elevation": 3,
+      "x": 44,
+      "y": 19,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_LeftGymLeadersRoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
-      "x": 1,
-      "y": 27,
-      "elevation": 3,
+      "x": 45,
+      "y": 19,
+      "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_RightGymLeadersRoomDoor"
+      "script": "RustboroCity_PokemonSchool_EventScript_Blackboard"
     },
     {
       "type": "sign",
-      "x": 1,
-      "y": 110,
-      "elevation": 3,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "PetalburgCity_Gym_EventScript_LeftGymStatue"
+      "x": 3,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RustboroCity_PokemonSchool_EventScript_StudentNotebook"
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 110,
-      "elevation": 3,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "PetalburgCity_Gym_EventScript_RightGymStatue"
+      "x": 41,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RustboroCity_PokemonSchool_EventScript_StudentNotebook"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RustboroCity_PokemonSchool_EventScript_StudentNotebook"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "RustboroCity_PokemonSchool_EventScript_StudentNotebook"
     }
   ]
 }

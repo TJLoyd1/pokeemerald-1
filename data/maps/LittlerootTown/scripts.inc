@@ -1102,7 +1102,7 @@ LittlerootTown_EventScript_Rivals_Mom::
 LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	setrespawn 2
 	setflag FLAG_ADVENTURE_STARTED
-	playbgm MUS_ENCOUNTER_MAGMA, 1
+	playbgm BW_SEQ_BGM_E_PLASMA, 1
 	addobject LOCALID_MAXIE
 	removeobject 10
 	addobject 11
@@ -1198,13 +1198,10 @@ LittlerootTown_EventScript_Begin_Obsidian_Movement::
 	removeobject 13
 	removeobject 14
 	fadescreen 0
-	playbgm MUS_GSC_ROUTE38, 1
+	playbgm BW_SEQ_BGM_T_01, 1
 	applymovement 8, Face_Player_Direction
 	waitmovement 0
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox LittlerootTown_Text_ThatWasWeird, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	closemessage
 	applymovement 8, Rival_Headed_Home
 	applymovement OBJ_EVENT_ID_PLAYER, Look_At_Rival
@@ -1265,7 +1262,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalMudkip::
 	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 8, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
-	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	playbgm DP_SEQ_THE_RIV, 1
 	msgbox Littleroot_Town_Text_BrendanLetsBattle, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, LittlerootTown_EventScript_StartBrendanBattleTreecko
@@ -1303,7 +1300,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTorchic::
 	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 8, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
-	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	playbgm DP_SEQ_THE_RIV, 1
 	msgbox Littleroot_Town_Text_BrendanLetsBattle, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, LittlerootTown_EventScript_StartBrendanBattleTreecko
@@ -1341,7 +1338,7 @@ LittlerootTown_EventScript_StartProfessorBattleMaleRivalTreecko::
 	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 8, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
-	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	playbgm DP_SEQ_THE_RIV, 1
 	msgbox Littleroot_Town_Text_BrendanLetsBattle, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, LittlerootTown_EventScript_StartBrendanBattleTreecko
@@ -1442,7 +1439,7 @@ LittlerootTown_EventScript_NicknameStarter::
 	msgbox LittlerootTown_Text_How_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 8, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
-	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	playbgm DP_SEQ_THE_RIV, 1
 	msgbox Littleroot_Town_Text_BrendanLetsBattle, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, LittlerootTown_EventScript_StartBrendanBattleTreecko
@@ -1532,15 +1529,12 @@ LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
 	removeobject 13
 	removeobject 14
 	fadescreen 0
-	playbgm MUS_GSC_ROUTE38, 1
+	playbgm BW_SEQ_BGM_T_01, 1
 	applymovement OBJ_EVENT_ID_PLAYER, Face_May_Rival
 	applymovement 9, Face_Player_Direction
 	waitmovement 0
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox LittlerootTown_Text_MayThatWasWeird, MSGBOX_DEFAULT	
 	closemessage
-	callnative ClearMugshot
 	applymovement 9, Rival_Headed_Home
 	applymovement OBJ_EVENT_ID_PLAYER, Look_At_Rival
 	waitmovement 0
@@ -1573,6 +1567,8 @@ LittlerootTown_EventScript_MaleBegin_Obsidian_Movement::
 LittlerootTown_EventScript_StartProfessorBattleFemaleRivalMudkip::
 	trainerbattle_no_intro TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat
 	special HealPlayerParty
+	msgbox LittlerootTown_Text_AfterProfMayBattle, MSGBOX_DEFAULT
+	closemessage
 	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LittlerootTown_EventScript_NicknameStarter
@@ -1597,7 +1593,7 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalMudkip::
 	msgbox LittlerootTown_Text_MayHow_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 9, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm HG_SEQ_GS_E_SUPPORT_F, 1
 	msgbox Littleroot_Town_Text_MayLetsBattle, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, LittlerootTown_EventScript_StartMayBattleTreecko
@@ -1608,6 +1604,8 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalMudkip::
 LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTorchic::
 	trainerbattle_no_intro TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat
 	special HealPlayerParty
+	msgbox LittlerootTown_Text_AfterProfMayBattle, MSGBOX_DEFAULT
+	closemessage
 	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LittlerootTown_EventScript_NicknameStarter
@@ -1632,7 +1630,7 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTorchic::
 	msgbox LittlerootTown_Text_MayHow_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 9, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm HG_SEQ_GS_E_SUPPORT_F, 1
 	msgbox Littleroot_Town_Text_MayLetsBattle, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, LittlerootTown_EventScript_StartMayBattleTreecko
@@ -1643,6 +1641,8 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTorchic::
 LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTreecko::
 	trainerbattle_no_intro TRAINER_PROF_BIRCH, LittlerootTown_Text_ProfMay_Defeat
 	special HealPlayerParty
+	msgbox LittlerootTown_Text_AfterProfMayBattle, MSGBOX_DEFAULT
+	closemessage
 	msgbox LittlerootTown_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LittlerootTown_EventScript_NicknameStarter
@@ -1667,7 +1667,7 @@ LittlerootTown_EventScript_StartProfessorBattleFemaleRivalTreecko::
 	msgbox LittlerootTown_Text_MayHow_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 9, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm HG_SEQ_GS_E_SUPPORT_F, 1
 	msgbox Littleroot_Town_Text_MayLetsBattle, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, LittlerootTown_EventScript_StartMayBattleTreecko
@@ -1724,7 +1724,7 @@ LittlerootTown_EventScript_MaleNicknameStarter::
 	msgbox LittlerootTown_Text_MayHow_She_Know_Names, MSGBOX_DEFAULT
 	applymovement 9, Rival_Face_Player_Before_Battle
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Face_Rival_Before_Battle
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm HG_SEQ_GS_E_SUPPORT_F, 1
 	msgbox Littleroot_Town_Text_MayLetsBattle, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, LittlerootTown_EventScript_StartMayBattleTreecko

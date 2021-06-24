@@ -42,7 +42,7 @@ PetalburgCity_Gym_EventScript_UnlockAllDoors:: @ 82048FF
 	return
 
 PetalburgCity_Gym_OnTransition: @ 820492D
-	compare VAR_PETALBURG_GYM_STATE, 1
+	compare VAR_PETALBURG_GYM_STATE, 5
 	call_if_eq PetalburgCity_Gym_EventScript_MoveWallyToEntrance
 	compare VAR_PETALBURG_GYM_STATE, 6
 	call_if_lt PetalburgCity_Gym_EventScript_MoveNormanToEntrance
@@ -72,7 +72,7 @@ PetalburgCity_Gym_EventScript_DontMoveNormanToFront:: @ 8204985
 	end
 
 PetalburgCity_Gym_OnWarp: @ 820498B
-	map_script_2 VAR_PETALBURG_GYM_STATE, 1, PetalburgCity_Gym_EventScript_TurnPlayerNorth
+	map_script_2 VAR_PETALBURG_GYM_STATE, 5, PetalburgCity_Gym_EventScript_TurnPlayerNorth
 	.2byte 0
 
 PetalburgCity_Gym_EventScript_TurnPlayerNorth:: @ 8204995
@@ -80,7 +80,7 @@ PetalburgCity_Gym_EventScript_TurnPlayerNorth:: @ 8204995
 	end
 
 PetalburgCity_Gym_OnFrame: @ 820499A
-	map_script_2 VAR_PETALBURG_GYM_STATE, 1, PetalburgCity_Gym_EventScript_ReturnFromWallyTutorial
+	map_script_2 VAR_PETALBURG_GYM_STATE, 5, PetalburgCity_Gym_EventScript_ReturnFromWallyTutorial
 	.2byte 0
 
 PetalburgCity_Gym_EventScript_ReturnFromWallyTutorial:: @ 82049A4
@@ -98,7 +98,7 @@ PetalburgCity_Gym_EventScript_ReturnFromWallyTutorial:: @ 82049A4
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	msgbox PetalburgCity_Gym_Text_DadGoCollectBadges, MSGBOX_DEFAULT
-	setvar VAR_PETALBURG_GYM_STATE, 2
+	setvar VAR_PETALBURG_GYM_STATE, 8
 	releaseall
 	end
 
@@ -113,7 +113,7 @@ PetalburgCity_Gym_EventScript_Norman:: @ 82049F1
 	lock
 	faceplayer
 	switch VAR_PETALBURG_GYM_STATE
-	case 2, PetalburgCity_Gym_EventScript_NormanNoBadges
+	case 3, PetalburgCity_Gym_EventScript_NormanNoBadges
 	case 3, PetalburgCity_Gym_EventScript_NormanOneBadge
 	case 4, PetalburgCity_Gym_EventScript_NormanTwoBadges
 	case 5, PetalburgCity_Gym_EventScript_NormanThreeBadges
@@ -1681,3 +1681,262 @@ PetalburgCity_Gym_Text_NormanRematchNeedTwoMons: @ 820764A
 	.string "Sorry, but you'll have to come back\n"
 	.string "with at least two POKéMON.$"
 
+PetalburgCity_School_EventScript_Teacher2::
+	lockall
+	applymovement 5, Teaching_The_Class
+	waitmovement 0
+	msgbox PetalburgCity_School_Text_BusyTeaching, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+PetalburgCity_School_EventScript_Students::
+	lockall
+	msgbox PetalburgCity_School_Text_BusyLearning, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+PetalburgCity_School_EventScript_Gamekids_Battling::
+	lockall
+	msgbox PetalburgCity_School_Text_BattingKidsInAnotherClass, MSGBOX_NPC
+	releaseall
+	end
+
+PetalburgCity_School_EventScript_LittleBoy3::
+	lockall
+	msgbox PetalburgCity_School_Text_BrotherIsInCatchingClass, MSGBOX_NPC
+	releaseall
+	end
+
+PetalburgCity_School_EventScript_LittleGirl::
+	lockall
+	msgbox PetalburgCity_School_Text_DontWannaBeHere, MSGBOX_NPC
+	releaseall
+	end
+
+PetalburgCity_School_EventScript_Lass::
+	lockall
+	msgbox PetalburgCity_School_Text_ForcedMyLittleSister, MSGBOX_NPC
+	releaseall
+	end
+
+PetalburgCity_School_EventScript_SchoolBoy2::
+	lockall
+	msgbox PetalburgCity_School_Text_CuteGirl, MSGBOX_NPC
+	releaseall
+	end
+
+PetalburgCity_School_EventScript_Teacher3::
+	lockall
+	msgbox PetalburgCity_School_Text_LoveTeaching, MSGBOX_NPC
+	releaseall
+	end
+
+Teaching_The_Class:
+	walk_right
+	walk_in_place_fastest_up
+	delay_16
+	delay_16
+	delay_8
+	walk_left
+	walk_in_place_fastest_up
+	step_end
+
+PetalburgCity_School_Text_BusyTeaching:
+	.string "He seems to be busy teaching the class.$"
+
+PetalburgCity_School_Text_BusyLearning:
+	.string "The student seems to be to invested in\n"
+	.string "writing down notes.$"
+
+PetalburgCity_School_Text_BattingKidsInAnotherClass:
+	.string "We're battling kids from another class in\n"
+	.string "a double battle.$"
+
+PetalburgCity_School_Text_BrotherIsInCatchingClass:
+	.string "My brother is in the class where we\n"
+	.string "learn about catching Pokémon.$"
+
+PetalburgCity_School_Text_CuteGirl:
+	.string "The girl sitting next to me is kinda cute.$"
+
+PetalburgCity_School_Text_DontWannaBeHere:
+	.string "I don't want to be here, but  I\n"
+	.string "was forced by my sister.$"
+
+PetalburgCity_School_Text_ForcedMyLittleSister:
+	.string "If I have to be here today, then so\n"
+	.string "does my little sister.$"
+
+PetalburgCity_School_Text_LoveTeaching:
+	.string "I used to love teaching when I was a\n"
+	.string "teacher back in the day, but now I'm\l"
+	.string "a substitute here.$"
+
+PetalburgCity_School_EventScript_MeetingIgnes::
+	lockall
+	setvar VAR_PETALBURG_GYM_STATE, 1
+	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	addobject 12
+	playbgm HG_SEQ_GS_E_RIVAL1, 1
+	msgbox PetalburgCity_School_Text_ChanceEncounter, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	applymovement 12, RushingToChanceEncounter
+	closemessage
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement 12, Common_Movement_ExclamationMark
+	msgbox PetalburgCity_School_Text_THUD, MSGBOX_DEFAULT
+	waitmovement 0
+	applymovement 12, GettingUpFromCollision
+	waitmovement 0
+	msgbox PetalburgCity_School_Text_IgnesIntroduction, MSGBOX_DEFAULT
+	closemessage
+	applymovement 12, MoveBesidePlayer
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox PetalburgCity_School_Text_TourneyParticipation, MSGBOX_DEFAULT
+	closemessage
+	applymovement 12, RushingToTourneyRoom
+	applymovement OBJ_EVENT_ID_PLAYER, HeadingToTourneyRoom
+	waitmovement 0
+	removeobject 12
+	setflag FLAG_HIDE_PETALBURG_CITY_WALLY
+	warp MAP_PETALBURG_CITY_POKEMON_SCHOOL_TOURNEY_ROOM, 255, 11, 23
+	releaseall
+	end
+
+PetalburgCity_School_EventScript_MeetingIgnes2::
+	lockall
+	setvar VAR_PETALBURG_GYM_STATE, 1
+	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	addobject 12
+	playbgm HG_SEQ_GS_E_RIVAL1, 1
+	msgbox PetalburgCity_School_Text_ChanceEncounter, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	applymovement 12, RushingToChanceEncounter2
+	closemessage
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement 12, Common_Movement_ExclamationMark
+	msgbox PetalburgCity_School_Text_THUD, MSGBOX_DEFAULT
+	waitmovement 0
+	applymovement 12, GettingUpFromCollision
+	waitmovement 0
+	msgbox PetalburgCity_School_Text_IgnesIntroduction, MSGBOX_DEFAULT
+	closemessage
+	applymovement 12, MoveBesidePlayer2
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox PetalburgCity_School_Text_TourneyParticipation, MSGBOX_DEFAULT
+	closemessage
+	applymovement 12, RushingToTourneyRoom
+	fadedefaultbgm
+	applymovement OBJ_EVENT_ID_PLAYER, HeadingToTourneyRoom
+	waitmovement 0
+	removeobject 12
+	setflag FLAG_HIDE_PETALBURG_CITY_WALLY
+	warp MAP_PETALBURG_CITY_POKEMON_SCHOOL_TOURNEY_ROOM, 255, 11, 23
+	releaseall
+	end
+	
+RushingToChanceEncounter:
+	walk_right
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	jump_in_place_up
+	step_end
+
+RushingToChanceEncounter2:
+	walk_right
+	walk_right
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	jump_in_place_up
+	step_end
+	
+GettingUpFromCollision:
+	jump_in_place_up
+	jump_in_place_up
+	step_end
+
+MoveBesidePlayer:
+	walk_right
+	walk_up
+	walk_in_place_fastest_left
+	step_end
+
+MoveBesidePlayer2:
+	walk_left
+	walk_up
+	walk_in_place_fastest_right
+	step_end
+
+RushingToTourneyRoom:
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	walk_fastest_up
+	step_end
+
+HeadingToTourneyRoom:
+	delay_16
+	delay_8
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+PetalburgCity_School_Text_ChanceEncounter:
+	.string "???: I need to hurry up before I miss\n"
+	.string "my chance to show off.$"
+
+PetalburgCity_School_Text_THUD:
+	.string "THUD!!$"
+
+PetalburgCity_School_Text_IgnesIntroduction:
+	.string "???: Watch where you're going!\p"
+	.string "Hmmm?\p"
+	.string "Are you also here to participate in the\n"
+	.string "tourney?\p"
+	.string "You're taking too long to answer so I'm\n"
+	.string "going assume you are.\p"
+	.string "The name's Ignes by the way.\n"
+	.string "You look like a good trainer, but you're\l"
+	.string "going to be no match for me.$"
+
+PetalburgCity_School_Text_TourneyParticipation:
+	.string "Ignes: Be prepared to get shit on when\n"
+	.string "you make it to the finals.\p"
+	.string "IF you can actually make it that far.$"
+	

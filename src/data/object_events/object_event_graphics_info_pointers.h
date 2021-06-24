@@ -493,6 +493,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 	[OBJ_EVENT_GFX_RHYOS] =                    &gObjectEventGraphicsInfo_Rhyos,
 	[OBJ_EVENT_GFX_OBSIDIAN_GRUNT_M] =         &gObjectEventGraphicsInfo_ObsidianGruntM,
 	[OBJ_EVENT_GFX_OBSIDIAN_GRUNT_F] =         &gObjectEventGraphicsInfo_ObsidianGruntF,
+	[OBJ_EVENT_GFX_IGNES] =                    &gObjectEventGraphicsInfo_Ignes,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

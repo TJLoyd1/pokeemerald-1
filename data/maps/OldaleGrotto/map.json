@@ -2,7 +2,7 @@
   "id": "MAP_OLDALE_GROTTO",
   "name": "OldaleGrotto",
   "layout": "LAYOUT_OLDALE_GROTTO",
-  "music": "MUS_ROUTE101",
+  "music": "DP_SEQ_ROAD_A_N",
   "region_map_section": "MAPSEC_OLDALE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

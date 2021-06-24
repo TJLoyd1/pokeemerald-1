@@ -372,11 +372,14 @@ PetalburgCity_Movement_BoyApproachPlayer0: @ 81DC615
 	step_end
 
 PetalburgCity_Movement_BoyApproachPlayer1: @ 81DC61A
+	walk_down
 	walk_right
 	walk_right
 	step_end
 
 PetalburgCity_Movement_BoyApproachPlayer2: @ 81DC61D
+	walk_down
+	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -384,6 +387,7 @@ PetalburgCity_Movement_BoyApproachPlayer2: @ 81DC61D
 	step_end
 
 PetalburgCity_Movement_BoyApproachPlayer3: @ 81DC622
+	walk_down
 	walk_down
 	walk_right
 	walk_right
@@ -448,6 +452,7 @@ PetalburgCity_Movement_BoyWalkToGym3: @ 81DC64C
 	step_end
 
 PetalburgCity_Movement_BoyWalkAway: @ 81DC658
+	walk_down
 	walk_down
 	walk_left
 	walk_left
@@ -730,15 +735,17 @@ PetalburgCity_Text_AreYouRookieTrainer: @ 81DC881
 	.string "A rookie Trainer?\p"
 	.string "Do you know what Pokémon Trainers\n"
 	.string "do when they reach a new town?\p"
-	.string "They first check what kind of Gym\n"
+	.string "They first check if a Trainer School\n"
 	.string "is in the town.$"
 
 PetalburgCity_Text_ThisIsPetalburgGym: @ 81DC91B
-	.string "See? This is Petalburg City's Gym.$"
+	.string "See? This is Petalburg City's Trainer\n"
+	.string "School.$"
 
 PetalburgCity_Text_ThisIsGymSign: @ 81DC93E
-	.string "This is the Gym's sign. Look for it\n"
-	.string "whenever you're looking for a Gym.$"
+	.string "This is the Schools's sign. Look for it\n"
+	.string "whenever you're looking for a important\l"
+	.string "building.$"
 
 PetalburgCity_Text_WaterReflection: @ 81DC985
 	.string "My face is reflected in the mirror.\p"
@@ -754,16 +761,16 @@ PetalburgCity_Text_FullPartyExplanation: @ 81DCA30
 	.string "BOX over a PC connection.$"
 
 PetalburgCity_Text_GymSign: @ 81DCAAA
-	.string "Petalburg City Pokémon Gym\n"
-	.string "Leader: Virgil\l"
-	.string "“A man in pursuit of power!”$"
+	.string "Petalburg City's Trainer School\p"
+	.string "“We'll teach you anything about\n"
+	.string "POKéMON!”$"
 
 PetalburgCity_Text_CitySign: @ 81DCAF1
 	.string "Petalburg City\n"
 	.string "“Where people mingle with nature.”$"
 
 PetalburgCity_Text_WallyHouseSign: @ 81DCB23
-	.string "Wally's House$"
+	.string "Ignes's House$"
 
 PetalburgCity_Text_AreYouATrainer: @ 81DCB31
 	.string "Excuse me!\p"

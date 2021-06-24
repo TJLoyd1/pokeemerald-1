@@ -244,8 +244,9 @@
 #define OBJ_EVENT_GFX_RHYOS                      240
 #define OBJ_EVENT_GFX_OBSIDIAN_GRUNT_M           241
 #define OBJ_EVENT_GFX_OBSIDIAN_GRUNT_F           242
+#define OBJ_EVENT_GFX_IGNES						 243
 
-#define NUM_OBJ_EVENT_GFX                        243
+#define NUM_OBJ_EVENT_GFX                        244
 
 
 // These are dynamic object gfx ids.

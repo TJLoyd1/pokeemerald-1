@@ -15,10 +15,7 @@ CaveofUnknown_EventScript::
 	
 CaveofUnknown_EventScript_ConfusedMale::
 	lock
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox CaveofUnknown_Text_ConfusedMale, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	release
 	end
 
@@ -37,10 +34,7 @@ CaveofUnknown_EventScript_HearingThings::
 CaveofUnknown_EventScript_HearingThingsMale::
 	lock
 	applymovement OBJ_EVENT_ID_PLAYER, CaveofUnknown_DownLeft
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox CaveofUnknown_Text_GoingCrazyMale, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	waitmovement 0
 	release
 	end
@@ -60,10 +54,7 @@ CaveofUnknown_EventScript_HearingThingsAgain::
 CaveofUnknown_EventScript_HearingThingsAgainMale::
 	lock
 	applymovement OBJ_EVENT_ID_PLAYER, CaveofUnknown_RightDown
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox CaveofUnknown_Text_GoingCrazyMale2, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	waitmovement 0
 	release
 	end
@@ -91,13 +82,9 @@ CaveofUnknown_EventScript_HeadedHome::
 	end
 
 CaveofUnknown_EventScript_HeadedHomeMale::
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox CaveofUnknown_Text_HeadedHomeMale, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	fadescreen 3
 	fadescreen 2
-	callnative DrawMugshot
 	msgbox CaveofUnknown_Text_WhatsHappeningMale, MSGBOX_DEFAULT
 	fadescreen 3
 	fadescreen 2
@@ -197,7 +184,7 @@ CaveofUnknown_Text_HeadedHomeFemale:
 	.string "...\p"
 
 CaveofUnknown_Text_WhatsHappening:
-	.string "She...sha.....ve..us...al..\p"
+	.string "she...sha.....ve..us...al..\p"
 	.string "...\p"
 	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY}What the hell's happening to me?\p"
 	.string "WHOOOOOOOOAAAAAAA!!!$"
@@ -208,7 +195,7 @@ CaveofUnknown_Text_HeadedHomeMale:
 	.string "...$"
 
 CaveofUnknown_Text_WhatsHappeningMale:
-	.string "He...sha.....ve..us...al..\p"
+	.string "he...sha.....ve..us...al..\p"
 	.string "...\p"
 	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}Wh-What the fuck is going on right\n" 
 	.string "now?\p"

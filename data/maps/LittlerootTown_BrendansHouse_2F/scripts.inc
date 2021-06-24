@@ -346,7 +346,7 @@ StarterTown_RivalsHouse_2F_EventScript_Commotion::
 	removeobject 3
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
 	applymovement 2, Common_Movement_ExclamationMark
-	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	playbgm DP_SEQ_THE_RIV, 1
 	waitmovement 0
 	applymovement 2, FaceRight
 	msgbox StarterTown_RivalsHouse_2F_Text_RivalHey, MSGBOX_DEFAULT
@@ -373,27 +373,18 @@ StarterTown_RivalsHouse_2F_EventScript_Commotion::
 
 StarterTown_MaleRivalsHouse_2F_EventScript_Commotion::
 	applymovement 3, Common_Movement_ExclamationMark
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm HG_SEQ_GS_E_SUPPORT_F, 1
 	waitmovement 0
 	applymovement 3, FaceRight
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHey, MSGBOX_DEFAULT
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHeyResponse, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHeyRivalsResponse, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, Headed_Towards_PC_With_Rival
 	waitmovement 0
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProf, MSGBOX_DEFAULT
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfResponse, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfRivalResponse2, MSGBOX_DEFAULT
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfResponse2, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfRivalsResponse3, MSGBOX_DEFAULT
 	closemessage
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_MomYells
@@ -402,10 +393,7 @@ StarterTown_MaleRivalsHouse_2F_EventScript_Commotion::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_Curiousity, MSGBOX_DEFAULT
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_CuriousityResponse, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	applymovement 3, Rival_Moves_Towards_Stairs
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Moves_Towards_Stairs
 	waitmovement 0
@@ -431,7 +419,7 @@ StarterTown_RivalsHouse_2F_EventScript_CommotionSouth::
 	removeobject 3
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
 	applymovement 2, Common_Movement_ExclamationMark
-	playbgm MUS_ENCOUNTER_BRENDAN, 1
+	playbgm DP_SEQ_THE_RIV, 1
 	waitmovement 0
 	applymovement 2, FaceRight
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerFaceLeft
@@ -460,29 +448,20 @@ StarterTown_RivalsHouse_2F_EventScript_CommotionSouth::
 
 StarterTown_MaleRivalsHouse_2F_EventScript_CommotionSouth::
 	applymovement 3, Common_Movement_ExclamationMark
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm HG_SEQ_GS_E_SUPPORT_F, 1
 	waitmovement 0
 	applymovement 3, FaceRight
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerFaceLeft
 	waitmovement 0
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHey, MSGBOX_DEFAULT
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHeyResponse, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalHeyRivalsResponse, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, Headed_Towards_PC_With_RivalSouth
 	waitmovement 0
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProf, MSGBOX_DEFAULT
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfResponse, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfRivalResponse2, MSGBOX_DEFAULT
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfResponse2, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_RivalMentionsProfRivalsResponse3, MSGBOX_DEFAULT
 	closemessage
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_MomYells
@@ -491,10 +470,7 @@ StarterTown_MaleRivalsHouse_2F_EventScript_CommotionSouth::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_Curiousity, MSGBOX_DEFAULT
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_MaleRivalsHouse_2F_Text_CuriousityResponse, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	applymovement 3, Rival_Moves_Towards_Stairs
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Moves_Towards_Stairs
 	waitmovement 0

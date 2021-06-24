@@ -462,22 +462,16 @@ StarterTown_MayPlayersHouse_2F_EventScript_WakeUp2::
 StarterTown_BrendansPlayersHouse_2F_EventScript_WakeUp::
 	applymovement OBJ_EVENT_ID_PLAYER, Walk_Away_From_Bed
 	waitmovement 0
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox BrendansPlayersHouse_2F_Text_WeirdDream, MSGBOX_DEFAULT
 	closemessage
-	callnative ClearMugshot
 	releaseall
 	end
 
 StarterTown_BrendansPlayersHouse_2F_EventScript_WakeUp2::
 	applymovement OBJ_EVENT_ID_PLAYER, Walk_Around_Bed
 	waitmovement 0
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox BrendansPlayersHouse_2F_Text_WeirdDream, MSGBOX_DEFAULT
 	closemessage
-	callnative ClearMugshot
 	releaseall
 	end
 	
@@ -507,10 +501,7 @@ StarterTown_BrendansPlayersHouse_2F_EventScript_QuestMenu::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, Check_For_Notebook
 	waitmovement 0
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox BrendansPlayersHouse_2F_Text_CantForgetNotebook, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Walk_Down
 	waitmovement 0
@@ -585,7 +576,8 @@ BrendansPlayersHouse_2F_Text_WeirdDream:
 
 MayPlayersHouse_2F_Text_CantForgetNotebook:
 	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} Just in case I have to\n"
-	.string "go somewhere let me grab my notebook off of my desk.$"
+	.string "go somewhere let me grab my notebook\l"
+	.string "off of my desk.$"
 
 BrendansPlayersHouse_2F_Text_CantForgetNotebook:
 	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY} I'll grab my notebook\n"

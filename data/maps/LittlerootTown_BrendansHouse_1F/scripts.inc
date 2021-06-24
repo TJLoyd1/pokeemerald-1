@@ -503,10 +503,7 @@ StarterTown_RivalsHouse_1F_EventScript_GoodMorning::
 StarterTown_MaleRivalsHouse_1F_EventScript_GoodMorning::
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
 	showobjectat 3, MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_MaleRivalsHouse_1F_Text_Good_Morning, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	waitmovement 0
 	closemessage
 	setvar VAR_GOOD_MORNING_RIVAL, 1
@@ -526,10 +523,7 @@ StarterTown_RivalsHouse_1F_EventScript_Downstairs_Danger::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement 4, Common_Movement_ExclamationMark
 	waitmovement 0
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_RivalsHouse_1F_Text_What_Happened, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	applymovement 2, Rival_Mom_Step_Back
 	applymovement 4, Rival_Move_To_TV
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Move_To_TV
@@ -539,10 +533,7 @@ StarterTown_RivalsHouse_1F_EventScript_Downstairs_Danger::
 	msgbox StarterTown_RivalsHouse_1F_Text_Outside_Now, MSGBOX_DEFAULT
 	closemessage
 	waitmovement 0
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_RivalsHouse_1F_Text_Check_It_Out, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Move_To_Door
 	applymovement 4, Rival_Move_To_Door
 	waitmovement 0
@@ -564,20 +555,14 @@ StarterTown_MaleRivalsHouse_1F_EventScript_Downstairs_Danger::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement 5, Common_Movement_ExclamationMark
 	waitmovement 0
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_RivalsHouse_1F_Text_What_Happened_Male, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	applymovement 2, Rival_Mom_Step_Back
 	applymovement 5, Rival_Move_To_TV
 	applymovement OBJ_EVENT_ID_PLAYER, Player_Move_To_TV
 	msgbox StarterTown_RivalsHouse_1F_Text_Todays_News, MSGBOX_DEFAULT
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER,Look_At_Both_Rival_And_Rival_Mom
-	setvar VAR_0x8000, MUGSHOT_ROY
-	callnative DrawMugshot
 	msgbox StarterTown_MaleRivalsHouse_1F_Text_Outside_Now, MSGBOX_DEFAULT
-	callnative ClearMugshot
 	closemessage
 	waitmovement 0
 	msgbox StarterTown_MaleRivalsHouse_1F_Text_Check_It_Out, MSGBOX_DEFAULT
