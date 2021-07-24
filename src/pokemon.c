@@ -7281,7 +7281,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_MAGMA_ADMIN:
             return MUS_VS_AQUA_MAGMA;
         case TRAINER_CLASS_LEADER:
-            return MUS_VS_GYM_LEADER;
+            return DP_SEQ_BA_GYM;
         case TRAINER_CLASS_CHAMPION:
             return MUS_VS_CHAMPION;
         case TRAINER_CLASS_PKMN_TRAINER_3:
@@ -7319,6 +7319,10 @@ u16 GetBattleBGM(void)
             return MUS_RG_VS_LEGEND;
         case SPECIES_MEW:
             return MUS_VS_MEW;
+		case SPECIES_TEDDIURSA:
+		case SPECIES_SCYTHER:
+		case SPECIES_SNEASEL:
+			return DP_SEQ_BA_POKE;
         case SPECIES_LUGIA:
             return HG_SEQ_GS_VS_LUGIA;
         case SPECIES_HO_OH:
@@ -8037,7 +8041,6 @@ u8 *sub_806F4F8(u8 id, u8 arg1)
     }
 }
 
-<<<<<<< HEAD
 u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);

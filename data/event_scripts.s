@@ -1156,3 +1156,7 @@ EventScript_DoWonderTrade_Text_Done:
 	.include "data/maps/MauvilleCity_Gym_4F/scripts.inc"
 
 	.include "data/maps/MauvilleCity_Gym_Elevator/scripts.inc"
+
+	.include "data/maps/Volcanic_Route116/scripts.inc"
+
+	.include "data/maps/FieryCavern/scripts.inc"

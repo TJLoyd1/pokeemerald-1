@@ -3482,62 +3482,127 @@ static const struct TrainerMon sParty_Brawly1[] = {
 static const struct TrainerMon sParty_Wattson1[] = {
     {
     .iv = 200,
-    .lvl = 20,
-    .species = SPECIES_VOLTORB,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_ROLLOUT, MOVE_SPARK, MOVE_SELF_DESTRUCT, MOVE_SHOCK_WAVE}
+	.evs = {248, 8, 0, 244, 0, 0},
+    .lvl = 31,
+	.gender = MON_FEMALE,
+	.nature = NATURE_QUIET,
+	.ball = ITEM_DREAM_BALL,
+    .species = SPECIES_DUOSION,
+    .heldItem = ITEM_LIFE_ORB,
+	.ability = ABILITY_SLOT_2,
+    .moves = {MOVE_PSYSHOCK, MOVE_ENERGY_BALL, MOVE_SHOCK_WAVE, MOVE_EXPLOSION}
     },
     {
     .iv = 200,
-    .lvl = 20,
-    .species = SPECIES_ELECTRIKE,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_SHOCK_WAVE, MOVE_LEER, MOVE_QUICK_ATTACK, MOVE_HOWL}
+	.evs = {0, 252, 0, 124, 0, 132},
+    .lvl = 30,
+	.gender = MON_MALE,
+	.nature = NATURE_MILD,
+	.ball = ITEM_DREAM_BALL,
+    .species = SPECIES_TOXTRICITY_LOW_KEY,
+    .heldItem = ITEM_BLACK_SLUDGE,
+	.ability = ABILITY_SLOT_1,
+    .moves = {MOVE_BOOMBURST, MOVE_OVERDRIVE, MOVE_SLUDGE_WAVE, MOVE_DRAIN_PUNCH}
     },
     {
     .iv = 220,
-    .lvl = 22,
-    .species = SPECIES_MAGNETON,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_SUPERSONIC, MOVE_SHOCK_WAVE, MOVE_THUNDER_WAVE, MOVE_SONIC_BOOM}
+	.evs = {0, 244, 0, 0, 12, 252},
+    .lvl = 31,
+	.gender = MON_MALE,
+	.nature = NATURE_JOLLY,
+	.ball = ITEM_DREAM_BALL,
+    .species = SPECIES_TOXICROAK,
+    .heldItem = ITEM_BLACK_SLUDGE,
+	.ability = ABILITY_SLOT_2,
+    .moves = {MOVE_RAIN_DANCE, MOVE_POWER_UP_PUNCH, MOVE_POISON_JAB, MOVE_SUCKER_PUNCH}
+    },
+	{
+    .iv = 250,
+	.evs = {0, 0, 0, 252, 4, 252},
+    .lvl = 32,
+	.gender = MON_FEMALE,
+	.nature = NATURE_MODEST,
+	.ball = ITEM_DREAM_BALL,
+    .species = SPECIES_VENUSAUR,
+    .heldItem = ITEM_VENUSAURITE,
+	.ability = ABILITY_HIDDEN,
+    .moves = {MOVE_ENERGY_BALL, MOVE_GROWTH, MOVE_SLUDGE_BOMB, MOVE_EARTH_POWER}
     },
     {
     .iv = 250,
-    .lvl = 24,
-    .species = SPECIES_MANECTRIC,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_QUICK_ATTACK, MOVE_THUNDER_WAVE, MOVE_SHOCK_WAVE, MOVE_HOWL}
+	.evs = {0, 252, 0, 0, 0, 252},
+    .lvl = 31,
+	.gender = MON_FEMALE,
+	.nature = NATURE_JOLLY,
+	.ball = ITEM_DREAM_BALL,
+    .species = SPECIES_BRUXISH,
+    .heldItem = ITEM_SHELL_BELL,
+	.ability = ABILITY_HIDDEN,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_ICE_FANG, MOVE_PSYCHIC_FANGS, MOVE_CRUNCH}
     }
 };
 
 static const struct TrainerMon sParty_Flannery1[] = {
     {
-    .iv = 200,
-    .lvl = 24,
-    .species = SPECIES_NUMEL,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_OVERHEAT, MOVE_TAKE_DOWN, MOVE_MAGNITUDE, MOVE_SUNNY_DAY}
-    },
-    {
-    .iv = 200,
-    .lvl = 24,
-    .species = SPECIES_SLUGMA,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_OVERHEAT, MOVE_SMOG, MOVE_LIGHT_SCREEN, MOVE_SUNNY_DAY}
+    .iv = 250,
+	.evs = {248, 252, 0, 252, 4, 252},
+    .lvl = 40,
+	.gender = MON_FEMALE,
+	.nature = NATURE_BRAVE,
+	.ball = ITEM_FRIEND_BALL,
+    .species = SPECIES_LURANTIS,
+    .heldItem = ITEM_ASSAULT_VEST,
+	.ability = ABILITY_HIDDEN,
+    .moves = {MOVE_LEAF_STORM, MOVE_DUAL_CHOP, MOVE_SUPERPOWER, MOVE_PSYCHO_CUT}
     },
     {
     .iv = 250,
-    .lvl = 26,
-    .species = SPECIES_CAMERUPT,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_OVERHEAT, MOVE_TACKLE, MOVE_SUNNY_DAY, MOVE_ATTRACT}
+	.evs = {0, 252, 0, 0, 4, 252},
+    .lvl = 43,
+	.gender = MON_MALE,
+	.nature = NATURE_JOLLY,
+	.ball = ITEM_FRIEND_BALL,
+    .species = SPECIES_PINSIR,
+	.shiny = TRUE,
+    .heldItem = ITEM_PINSIRITE,
+	.ability = ABILITY_HIDDEN,
+    .moves = {MOVE_CLOSE_COMBAT, MOVE_RETURN, MOVE_EARTHQUAKE, MOVE_DOUBLE_HIT}
     },
     {
     .iv = 250,
-    .lvl = 29,
-    .species = SPECIES_TORKOAL,
-    .heldItem = ITEM_WHITE_HERB,
-    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_BODY_SLAM, MOVE_ATTRACT}
+	.evs = {248, 252, 0, 8, 0, 0},
+    .lvl = 42,
+	.gender = MON_MALE,
+	.nature = NATURE_LONELY,
+	.ball = ITEM_FRIEND_BALL,
+    .species = SPECIES_CENTISKORCH,
+    .heldItem = ITEM_FIRE_GEM,
+	.ability = ABILITY_SLOT_1,
+    .moves = {MOVE_OVERHEAT, MOVE_LEECH_LIFE, MOVE_KNOCK_OFF, MOVE_FIRE_FANG}
+    },
+	{
+	.iv = 250,
+	.evs = {248, 252, 0, 0, 4, 0},
+    .lvl = 41,
+	.gender = MON_FEMALE,
+	.nature = NATURE_ADAMANT,
+	.ball = ITEM_FRIEND_BALL,
+    .species = SPECIES_SCIZOR,
+    .heldItem = ITEM_LEFTOVERS,
+	.ability = ABILITY_SLOT_2,
+    .moves = {MOVE_BULLET_PUNCH, MOVE_QUICK_ATTACK, MOVE_SWORDS_DANCE, MOVE_X_SCISSOR}
+    },
+    {
+    .iv = 250,
+	.evs = {248, 8, 0, 0, 252, 0},
+    .lvl = 43,
+	.gender = MON_FEMALE,
+	.nature = NATURE_CAREFUL,
+	.ball = ITEM_FRIEND_BALL,
+    .species = SPECIES_CRADILY,
+    .heldItem = ITEM_LIFE_ORB,
+	.ability = ABILITY_HIDDEN,
+    .moves = {MOVE_CURSE, MOVE_SEED_BOMB, MOVE_ANCIENT_POWER, MOVE_RECOVER}
     }
 };
 

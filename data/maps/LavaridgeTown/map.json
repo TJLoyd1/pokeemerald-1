@@ -2,7 +2,7 @@
   "id": "MAP_LAVARIDGE_TOWN",
   "name": "LavaridgeTown",
   "layout": "LAYOUT_LAVARIDGE_TOWN",
-  "music": "MUS_OLDALE",
+  "music": "DP_SEQ_CITY04_N",
   "region_map_section": "MAPSEC_OATWOOD_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",

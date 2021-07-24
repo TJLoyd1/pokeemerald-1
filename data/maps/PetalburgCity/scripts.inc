@@ -5,9 +5,21 @@
 .set LOCALID_SCOTT, 9
 
 PetalburgCity_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, AccrentonCity_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PetalburgCity_OnFrame
 	.byte 0
+
+AccrentonCity_OnResume: @ 82396C8
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, AccrentonCity_EventScript_TryRemoveTeddiursa
+	end
+
+AccrentonCity_EventScript_TryRemoveTeddiursa:: @ 82396D2
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_ne Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
 
 PetalburgCity_OnTransition: @ 81DC2D7
 	setflag FLAG_VISITED_PETALBURG_CITY
@@ -379,9 +391,10 @@ PetalburgCity_Movement_BoyApproachPlayer1: @ 81DC61A
 
 PetalburgCity_Movement_BoyApproachPlayer2: @ 81DC61D
 	walk_down
-	walk_down
 	walk_right
 	walk_right
+	walk_right
+	walk_in_place_fastest_down
 	step_end
 
 PetalburgCity_Movement_BoyApproachPlayer3: @ 81DC622
@@ -792,4 +805,73 @@ Route102_Text_IgnesIntro:
 
 Route102_Text_IgnesDefeated:
 	.string "I should've caught more Pokémon.$"
+
+AccrentonCity_EventScript_StaticTeddiursaEncounter::
+	lockall
+	applymovement 19, TeddyLookingForHoney
+	msgbox AccrentonCity_Text_TeddiursaLookingForHoney, MSGBOX_DEFAULT
+	waitmovement 0
+	closemessage
+	applymovement 19, Common_Movement_ExclamationMark
+	waitmovement 0
+	faceplayer
+	playmoncry SPECIES_TEDDIURSA, 2
+	delay 40
+	waitmoncry
+	setcustomwildbattle SPECIES_TEDDIURSA, 12, ITEM_HONEY, NATURE_RELAXED, 1, 0, 252, 4, 252, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_YAWN, MOVE_BELLY_DRUM, MOVE_FURY_SWIPES, MOVE_LICK, FALSE
+	dowildbattle
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq AccrentonCity_EventScript_DefeatedTeddiursa
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq AccrentonCity_EventScript_RanFromTeddiursa
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq AccrentonCity_EventScript_RanFromTeddiursa
+	setflag FLAG_DEFEATED_TEDDIURSA
+	releaseall
+	end
+
+AccrentonCity_EventScript_DefeatedTeddiursa::
+	setflag FLAG_DEFEATED_TEDDIURSA
+	fadescreenswapbuffers FADE_TO_BLACK
+	setflag FLAG_HIDE_ACCRENTON_CITY_TEDDIURSA
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	releaseall
+	end
+
+AccrentonCity_EventScript_RanFromTeddiursa::
+	setvar VAR_0x8004, SPECIES_TEDDIURSA
+	fadescreenswapbuffers FADE_TO_BLACK
+	setflag FLAG_HIDE_ACCRENTON_CITY_TEDDIURSA
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname 0, VAR_0x8004
+	msgbox AccrentonCity_Text_TeddiursaRanAway, MSGBOX_DEFAULT
+	releaseall
+	end
+
+TeddyLookingForHoney:
+	face_up
+	delay_16
+	delay_16
+	face_left
+	delay_16
+	delay_16
+	face_right
+	walk_in_place_right
+	walk_in_place_right
+	walk_in_place_right
+	delay_16
+	delay_16
+	face_up
+	step_end
+
+AccrentonCity_Text_TeddiursaLookingForHoney:
+	.string "Teddiursa seems to be looking for some\n"
+	.string "honey to eat.$"
+
+AccrentonCity_Text_TeddiursaRanAway:
+	.string "The Teddiursa ran away...$"
+
 

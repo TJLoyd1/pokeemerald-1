@@ -15,8 +15,8 @@
   "connections": [
     {
       "direction": "up",
-      "offset": 0,
-      "map": "MAP_OLDALE_TOWN"
+      "offset": -4,
+      "map": "MAP_OLDALE_GROTTO"
     },
     {
       "direction": "down",
@@ -79,10 +79,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 17,
-      "y": 10,
+      "x": 7,
+      "y": 2,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",

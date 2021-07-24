@@ -218,7 +218,8 @@
 #define MAPSEC_ANTIQUITY_CITY				0xD6
 #define MAPSEC_BUCHBERRY_WOODS				0xD7
 #define MAPSEC_OATWOOD_TOWN					0xD8
-#define MAPSEC_NONE                         0xD9
+#define MAPSEC_VOLCANIC_ROUTE_116			0xD9
+#define MAPSEC_NONE                         0xDA
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

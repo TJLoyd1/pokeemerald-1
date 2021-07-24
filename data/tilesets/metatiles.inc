@@ -586,3 +586,17 @@ gMetatiles_BuchberryWoods::
 	.align 1
 gMetatileAttributes_BuchberryWoods::
 	.incbin "data/tilesets/secondary/buchberrywoods/metatile_attributes.bin"
+	.align 1
+gMetatiles_General2::
+	.incbin "data/tilesets/primary/general2/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_General2::
+	.incbin "data/tilesets/primary/general2/metatile_attributes.bin"
+	.align 1
+gMetatiles_Volcanic::
+	.incbin "data/tilesets/secondary/volcanic/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_Volcanic::
+	.incbin "data/tilesets/secondary/volcanic/metatile_attributes.bin"

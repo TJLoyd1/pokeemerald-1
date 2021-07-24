@@ -245,8 +245,24 @@
 #define OBJ_EVENT_GFX_OBSIDIAN_GRUNT_M           241
 #define OBJ_EVENT_GFX_OBSIDIAN_GRUNT_F           242
 #define OBJ_EVENT_GFX_IGNES						 243
-
-#define NUM_OBJ_EVENT_GFX                        244
+#define OBJ_EVENT_GFX_CLAYDOL					 244
+#define OBJ_EVENT_GFX_LAPRAS					 245
+#define OBJ_EVENT_GFX_BELLSPROUT				 246
+#define OBJ_EVENT_GFX_TEDDIURSA					 247
+#define OBJ_EVENT_GFX_GEODUDE					 248
+#define OBJ_EVENT_GFX_PICHU 					 249
+#define OBJ_EVENT_GFX_SCYTHER 					 250
+#define OBJ_EVENT_GFX_ROARK						 251
+#define OBJ_EVENT_GFX_BYRON						 252
+#define OBJ_EVENT_GFX_BUGSY						 253
+#define OBJ_EVENT_GFX_ERIKA						 254
+#define OBJ_EVENT_GFX_DANNY						 255
+#define OBJ_EVENT_GFX_THERA						 256
+#define OBJ_EVENT_GFX_SERENA					 257
+#define OBJ_EVENT_GFX_VIOLET					 258
+#define OBJ_EVENT_GFX_ORANGE_POKEMANIAC			 259
+#define OBJ_EVENT_GFX_GREEN_POKEMANIAC			 260
+#define NUM_OBJ_EVENT_GFX                        261
 
 
 // These are dynamic object gfx ids.

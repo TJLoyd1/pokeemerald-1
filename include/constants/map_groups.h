@@ -67,6 +67,7 @@
 #define MAP_ROUTE13             (58 | (0 << 8))
 #define MAP_ANTIQUITY_CITY      (59 | (0 << 8))
 #define MAP_OATWOOD_TOWN        (60 | (0 << 8))
+#define MAP_VOLCANIC_ROUTE116   (61 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -429,6 +430,7 @@
 #define MAP_GRANITE_CAVE_B3F                         (111 | (24 << 8))
 #define MAP_CAVE_OF_UNKNOWN                          (112 | (24 << 8))
 #define MAP_BUCHBERRY_WOODS                          (113 | (24 << 8))
+#define MAP_FIERY_CAVERN                             (114 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))

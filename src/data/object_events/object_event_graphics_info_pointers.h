@@ -248,6 +248,23 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ProfMay;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rhyos;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ObsidianGruntM;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ObsidianGruntF;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Claydol;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lapras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bellsprout;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Teddiursa;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Geodude;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pichu;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Scyther;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Roark;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Byron;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bugsy;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Erika;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Danny;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Thera;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Serena;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Violet;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OrangePokemaniac;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenPokemaniac;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -494,6 +511,23 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 	[OBJ_EVENT_GFX_OBSIDIAN_GRUNT_M] =         &gObjectEventGraphicsInfo_ObsidianGruntM,
 	[OBJ_EVENT_GFX_OBSIDIAN_GRUNT_F] =         &gObjectEventGraphicsInfo_ObsidianGruntF,
 	[OBJ_EVENT_GFX_IGNES] =                    &gObjectEventGraphicsInfo_Ignes,
+	[OBJ_EVENT_GFX_CLAYDOL] =                  &gObjectEventGraphicsInfo_Claydol,
+	[OBJ_EVENT_GFX_LAPRAS] =                   &gObjectEventGraphicsInfo_Lapras,
+	[OBJ_EVENT_GFX_BELLSPROUT] =               &gObjectEventGraphicsInfo_Bellsprout,
+	[OBJ_EVENT_GFX_TEDDIURSA] =                &gObjectEventGraphicsInfo_Teddiursa,
+	[OBJ_EVENT_GFX_GEODUDE] =                  &gObjectEventGraphicsInfo_Geodude,
+	[OBJ_EVENT_GFX_PICHU] =                    &gObjectEventGraphicsInfo_Pichu,
+	[OBJ_EVENT_GFX_SCYTHER] =                  &gObjectEventGraphicsInfo_Scyther,
+	[OBJ_EVENT_GFX_ROARK] =                    &gObjectEventGraphicsInfo_Roark,
+	[OBJ_EVENT_GFX_BYRON] =                    &gObjectEventGraphicsInfo_Byron,
+	[OBJ_EVENT_GFX_BUGSY] =                    &gObjectEventGraphicsInfo_Bugsy,
+	[OBJ_EVENT_GFX_ERIKA] =                    &gObjectEventGraphicsInfo_Erika,
+	[OBJ_EVENT_GFX_DANNY] =                    &gObjectEventGraphicsInfo_Danny,
+	[OBJ_EVENT_GFX_THERA] =                    &gObjectEventGraphicsInfo_Thera,
+	[OBJ_EVENT_GFX_SERENA] =                   &gObjectEventGraphicsInfo_Serena,
+	[OBJ_EVENT_GFX_VIOLET] =                   &gObjectEventGraphicsInfo_Violet,
+	[OBJ_EVENT_GFX_ORANGE_POKEMANIAC] =        &gObjectEventGraphicsInfo_OrangePokemaniac,
+	[OBJ_EVENT_GFX_GREEN_POKEMANIAC] =         &gObjectEventGraphicsInfo_GreenPokemaniac,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

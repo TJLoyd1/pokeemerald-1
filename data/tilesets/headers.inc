@@ -954,3 +954,25 @@ gTileset_BuchberryWoods::
 	.4byte gMetatiles_BuchberryWoods
 	.4byte gMetatileAttributes_BuchberryWoods
 	.4byte NULL
+
+	.align 2
+gTileset_General2::
+	.byte TRUE @ is compressed
+	.byte FALSE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_General2
+	.4byte gTilesetPalettes_General2
+	.4byte gMetatiles_General2
+	.4byte gMetatileAttributes_General2
+	.4byte NULL
+
+	.align 2
+gTileset_Volcanic::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_Volcanic
+	.4byte gTilesetPalettes_Volcanic
+	.4byte gMetatiles_Volcanic
+	.4byte gMetatileAttributes_Volcanic
+	.4byte NULL

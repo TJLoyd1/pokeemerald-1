@@ -97,7 +97,8 @@
     "OldaleGrotto",
     "Route13",
     "AntiquityCity",
-    "OatwoodTown"
+    "OatwoodTown",
+    "Volcanic_Route116"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -459,7 +460,8 @@
     "NewMap2",
     "GraniteCave_B3F",
     "CaveOfUnknown",
-    "BuchberryWoods"
+    "BuchberryWoods",
+    "FieryCavern"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

@@ -2,7 +2,7 @@
   "id": "MAP_ANTIQUITY_CITY",
   "name": "AntiquityCity",
   "layout": "LAYOUT_ANTIQUITY_CITY",
-  "music": "MUS_RG_CINNABAR",
+  "music": "HG_SEQ_GS_C_TANBA",
   "region_map_section": "MAPSEC_ANTIQUITY_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

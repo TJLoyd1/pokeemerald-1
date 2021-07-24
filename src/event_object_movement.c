@@ -466,6 +466,23 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_OBSIDIAN_GRUNT_M		  0X1126
 #define OBJ_EVENT_PAL_TAG_OBSIDIAN_GRUNT_F		  0X1127
 #define OBJ_EVENT_PAL_TAG_IGNES					  0X1128
+#define OBJ_EVENT_PAL_TAG_CLAYDOL				  0X1129
+#define OBJ_EVENT_PAL_TAG_LAPRAS				  0X1130
+#define OBJ_EVENT_PAL_TAG_BELLSPROUT			  0X1131
+#define OBJ_EVENT_PAL_TAG_TEDDIURSA				  0X1132
+#define OBJ_EVENT_PAL_TAG_GEODUDE				  0X1133
+#define OBJ_EVENT_PAL_TAG_PICHU					  0X1134
+#define OBJ_EVENT_PAL_TAG_SCYTHER				  0X1135
+#define OBJ_EVENT_PAL_TAG_ROARK					  0X1136
+#define OBJ_EVENT_PAL_TAG_BYRON					  0X1137
+#define OBJ_EVENT_PAL_TAG_BUGSY					  0X1138
+#define OBJ_EVENT_PAL_TAG_ERIKA					  0X1139
+#define OBJ_EVENT_PAL_TAG_DANNY					  0X1140
+#define OBJ_EVENT_PAL_TAG_THERA					  0X1141
+#define OBJ_EVENT_PAL_TAG_SERENA				  0X1142
+#define OBJ_EVENT_PAL_TAG_VIOLET				  0X1143
+#define OBJ_EVENT_PAL_TAG_ORANGE_POKEMANIAC		  0X1144
+#define OBJ_EVENT_PAL_TAG_GREEN_POKEMANIAC		  0X1145
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -517,6 +534,23 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
 	{gObjectEventPal_ObsidianGruntM,		OBJ_EVENT_PAL_TAG_OBSIDIAN_GRUNT_M},
 	{gObjectEventPal_ObsidianGruntF,		OBJ_EVENT_PAL_TAG_OBSIDIAN_GRUNT_F},
 	{gObjectEventPal_Ignes,					OBJ_EVENT_PAL_TAG_IGNES},
+	{gObjectEventPal_Claydol,				OBJ_EVENT_PAL_TAG_CLAYDOL},
+	{gObjectEventPal_Lapras,				OBJ_EVENT_PAL_TAG_LAPRAS},
+	{gObjectEventPal_Bellsprout,			OBJ_EVENT_PAL_TAG_BELLSPROUT},
+	{gObjectEventPal_Teddiursa,				OBJ_EVENT_PAL_TAG_TEDDIURSA},
+	{gObjectEventPal_Geodude,				OBJ_EVENT_PAL_TAG_GEODUDE},
+	{gObjectEventPal_Pichu,					OBJ_EVENT_PAL_TAG_PICHU},
+	{gObjectEventPal_Scyther,				OBJ_EVENT_PAL_TAG_SCYTHER},
+	{gObjectEventPal_Roark,					OBJ_EVENT_PAL_TAG_ROARK},
+	{gObjectEventPal_Byron,					OBJ_EVENT_PAL_TAG_BYRON},
+	{gObjectEventPal_Bugsy,					OBJ_EVENT_PAL_TAG_BUGSY},
+	{gObjectEventPal_Erika,					OBJ_EVENT_PAL_TAG_ERIKA},
+	{gObjectEventPal_Danny,					OBJ_EVENT_PAL_TAG_DANNY},
+	{gObjectEventPal_Thera,					OBJ_EVENT_PAL_TAG_THERA},
+	{gObjectEventPal_Serena,				OBJ_EVENT_PAL_TAG_SERENA},
+	{gObjectEventPal_Violet,				OBJ_EVENT_PAL_TAG_VIOLET},
+	{gObjectEventPal_OrangePokemaniac,		OBJ_EVENT_PAL_TAG_ORANGE_POKEMANIAC},
+	{gObjectEventPal_GreenPokemaniac,		OBJ_EVENT_PAL_TAG_GREEN_POKEMANIAC},
     {NULL,                                  0x0000},
 };
 
