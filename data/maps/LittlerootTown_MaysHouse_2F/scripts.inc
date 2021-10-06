@@ -510,11 +510,19 @@ StarterTown_BrendansPlayersHouse_2F_EventScript_QuestMenu::
 
 PlayersHouse_2F_EventScript_QuestMenu::
 	lockall
+	goto_if_set FLAG_SYS_QUEST_MENU_GET, PlayersHouse_2F_EventScript_GotQuestMenu
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox PlayersHouse_2F_Text_GotQuestMenu, MSGBOX_DEFAULT
 	waitfanfare
 	setflag FLAG_SYS_QUEST_MENU_GET
+	releaseall
+	end
+
+PlayersHouse_2F_EventScript_GotQuestMenu::
+	lockall
+	msgbox PlayersHouse_2F_Text_IGotQuestMenu, MSGBOX_DEFAULT
+	closemessage
 	releaseall
 	end
 
@@ -566,13 +574,13 @@ MayPlayersHouse_2F_Text_WakeUp:
 	.string "When you get up come downstairs.$"
 
 MayPlayersHouse_2F_Text_WeirdDream:
-	.string "{PLAYER}:{COLOR RED}That was such a weird\n"
-	.string "realistic dream.$"
+	.string "{COLOR RED}{PLAYER}: {COLOR DARK_GRAY}That was such a weird\n"
+	.string "video game vibe for a dream.$"
 
 BrendansPlayersHouse_2F_Text_WeirdDream:
-	.string "{PLAYER}:{COLOR BLUE}What type of dream was\n"
+	.string "{COLOR BLUE}{PLAYER}: {COLOR DARK_GRAY}What type of dream was\n"
 	.string "that bullshit.\p"
-	.string "It felt too real.$"
+	.string "It felt too much like a video game.$"
 
 MayPlayersHouse_2F_Text_CantForgetNotebook:
 	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} Just in case I have to\n"
@@ -583,6 +591,7 @@ BrendansPlayersHouse_2F_Text_CantForgetNotebook:
 	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY} I'll grab my notebook\n"
 	.string "off of my desk in case I go somewhere.$"
 
-
-
+PlayersHouse_2F_Text_IGotQuestMenu:
+	.string "I already have my notebook so I can\n"
+	.string "just go see what my Mom wants now.$"
 

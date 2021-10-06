@@ -2628,7 +2628,7 @@ Cry_Scraggy::
 
 	.align 2
 Cry_Scragger::
-	.incbin "sound/direct_sound_samples/cries/cry_not_scragger.bin"
+	.incbin "sound/direct_sound_samples/cries/scragger.bin"
 	
 	.align 2
 Cry_Scrafty::

@@ -4,7 +4,12 @@
 
 MauvilleCity_MapScripts:: @ 81DF385
 	map_script MAP_SCRIPT_ON_TRANSITION, MauvilleCity_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, EnsioCity_OnFrame
 	.byte 0
+
+EnsioCity_OnFrame:
+	map_script_2 VAR_RECEIVED_RIVALS_CALL, 0, EnsioCity_EventScript_GOTOPhoneCallFromRival
+	.2byte 0
 
 MauvilleCity_OnTransition: @ 81DF38B
 	setflag FLAG_VISITED_MAUVILLE_CITY
@@ -642,13 +647,13 @@ MauvilleCity_Text_PokemonCanJumpYouOnBike: @ 81E044A
 	.string "wild POKéMON could jump you.$"
 
 MauvilleCity_Text_CitySign: @ 81E0485
-	.string "MAUVILLE CITY\n"
+	.string "ENSIO CITY\n"
 	.string "“The bright and shiny city of fun!”$"
 
 MauvilleCity_Text_GymSign: @ 81E04B7
-	.string "MAUVILLE CITY POKéMON GYM\n"
-	.string "LEADER: WATTSON\l"
-	.string "“The cheerfully electrifying man!”$"
+	.string "ENSIO CITY POKéMON GYM\n"
+	.string "LEADER: SERENA\l"
+	.string "“The cheerfully excited young lady!”$"
 
 MauvilleCity_Text_BikeShopSign: @ 81E0504
 	.string "“Ride in gravel and shake up your\n"
@@ -657,7 +662,7 @@ MauvilleCity_Text_BikeShopSign: @ 81E0504
 
 MauvilleCity_Text_GameCornerSign: @ 81E053C
 	.string "“The play spot for all!”\n"
-	.string "MAUVILLE GAME CORNER$"
+	.string "ENSIO GAME CORNER$"
 
 MauvilleCity_Text_ExplainTV: @ 81E056A
 	.string "Hi, do you check out TV at all?\p"
@@ -673,3 +678,95 @@ MauvilleCity_Text_ExplainTV: @ 81E056A
 
 MauvilleCity_Text_BeenCheckingOutTV: @ 81E0699
 	.string "Hi, have you been checking out TVs?$"
+
+EnsioCity_EventScript_GOTOPhoneCallFromRival::
+	goto_if_set FLAG_BADGE03_GET, EnsioCity_EventScript_PhoneCallFromRoy
+	end
+
+EnsioCity_EventScript_PhoneCallFromRoy::
+	lockall
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq EnsioCity_EventScript_PhoneCallFromLucy
+	pokenavcall EnsioCity_Text_LucyAtlantiaIsStillBlocked
+	waitmessage
+	delay 30
+	playfanfare MUS_REGISTER_MATCH_CALL
+	msgbox RustboroCity_Text_RegisteredBrendan, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
+	setvar VAR_RECEIVED_RIVALS_CALL, 1
+	releaseall
+	end
+
+EnsioCity_EventScript_PhoneCallFromLucy::
+	pokenavcall EnsioCity_Text_RoyAtlantiaIsStillBlocked
+	waitmessage
+	delay 30
+	playfanfare MUS_REGISTER_MATCH_CALL
+	msgbox RustboroCity_Text_RegisteredMay, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
+	setvar VAR_RECEIVED_RIVALS_CALL, 1
+	releaseall
+	end
+
+EnsioCity_Text_LucyAtlantiaIsStillBlocked:
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY} Hello {PLAYER}?\p"
+	.string "Can you hear me?\p"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} {RIVAL}, I can hear you loud and\n"
+	.string "clear my guy.\p"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY} Good because I've got some news from\n"
+	.string "the Professor that I was told to pass to you.\p"
+	.string "She said Team Obsidian still has Atlantia City blocked\n"
+	.string "off and to head North of Ensio City instead.\p"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} Why don't we just take out Obsidian now\n"
+	.string "while we have the chance?\p"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY} I asked the same thing and she said that\n"
+	.string "she's gonna try to secretly listen in on their plans to\l"
+	.string "figure out why they have Atlantia blocked off and\p"
+	.string "where they're headed to next so we can interrupt\n"
+	.string "their plan unexpectedly.\p"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} I've got time to get stronger then...\p"
+	.string "You said North of Ensio Right?\p"
+	.string "{COLOR BLUE}{RIVAL}:{COLOR DARK_GRAY} Yep but, I'm telling you now it's a pretty\n"
+	.string "huge mountain if I say so myself.\p"
+	.string "There's also apparently a forest town located on top\n"
+	.string "of the mountain somewhere in which the 4th Gym\l"
+	.string "is located.\p"
+	.string "Anyway we'll meet up after we both beat the\n"
+	.string "4th Gym alright?\p"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} Alright, I'll see you there then.$"
+	
+EnsioCity_Text_RoyAtlantiaIsStillBlocked:
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY} Hey {PLAYER}?\p"
+	.string "Are you able to hear me?\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY} {RIVAL}, is that you and yeah I can\n"
+	.string "hear you loud and clear.\p"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY} Yeah, it's me and great because I've got some news\n"
+	.string "from the Professor that I was told to pass\l"
+	.string "to you.\p"
+	.string "She said Team Obsidian still has Atlantia City blocked\n"
+	.string "off and to head North of Ensio City instead.\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY} Why don't we just take Obsidian head on\n"
+	.string "while we have the chance?\p"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY} I asked the same thing and she said that\n"
+	.string "she's gonna try to secretly listen in on their plans to\l"
+	.string "figure out why they have Atlantia blocked off and\p"
+	.string "where they're headed to next so we can do a\n"
+	.string "surprise attack and interfer with their plan.\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY} I've got time to surpass my limits then...\p"
+	.string "You said North of Ensio Right?\p"
+	.string "{COLOR RED}{RIVAL}:{COLOR DARK_GRAY} Yeah but, up ahead is a huge mountain with\n"
+	.string "snow filled at the peak.\p"
+	.string "There's also a forest town located on top\n"
+	.string "of the mountain somewhere and the 4th Gym\l"
+	.string "is located there.\p"
+	.string "Anyway we'll meet up after we both beat the\n"
+	.string "4th Gym alright?\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY} Alright, I'll see you there then.$"
+	

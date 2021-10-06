@@ -2560,6 +2560,16 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x45,
         .y_offset = 4,
     },
+	[SPECIES_PURRLOIN_HOEJINNIAN] =
+    {
+        .size = 0x45,
+        .y_offset = 11,
+    },
+    [SPECIES_LIEPARD_HOEJINNIAN] =
+    {
+        .size = 0x45,
+        .y_offset = 4,
+    },
     [SPECIES_PANSAGE] =
     {
         .size = 0x45,

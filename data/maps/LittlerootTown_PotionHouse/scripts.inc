@@ -4,10 +4,10 @@ LittlerootTown_PotionHouse_MapScripts::
 LittlerootTown_House4_Script_FirstAdventure::
 	lock
 	faceplayer
+	goto_if_ge Script_HasPotionsAlready2
 	msgbox Text_JourneyStarts, MSGBOX_DEFAULT
 	checkitem ITEM_POTION, 1
 	compare VAR_RESULT, 1
-	goto_if_ge Script_HasPotionsAlready2
 	msgbox Text_GivingPotion2, MSGBOX_DEFAULT
 	giveitem ITEM_POTION, 1
 	compare VAR_RESULT, 0

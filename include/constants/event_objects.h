@@ -262,7 +262,18 @@
 #define OBJ_EVENT_GFX_VIOLET					 258
 #define OBJ_EVENT_GFX_ORANGE_POKEMANIAC			 259
 #define OBJ_EVENT_GFX_GREEN_POKEMANIAC			 260
-#define NUM_OBJ_EVENT_GFX                        261
+#define OBJ_EVENT_GFX_MORELULL					 261
+#define OBJ_EVENT_GFX_SNEASEL					 262
+#define OBJ_EVENT_GFX_SNORUNT					 263
+#define OBJ_EVENT_GFX_SNOVER					 264
+#define OBJ_EVENT_GFX_STUFFUL					 265
+#define OBJ_EVENT_GFX_SWINUB					 266
+#define OBJ_EVENT_GFX_ALOLAN_SANDSHREW			 267
+#define OBJ_EVENT_GFX_ALOLAN_GEODUDE			 268
+#define OBJ_EVENT_GFX_HOUNDOOM					 269
+#define OBJ_EVENT_GFX_CLAWITZER					 270
+#define OBJ_EVENT_GFX_METTAO    				 271
+#define NUM_OBJ_EVENT_GFX                        272
 
 
 // These are dynamic object gfx ids.

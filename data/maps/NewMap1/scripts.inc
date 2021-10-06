@@ -56,4 +56,4 @@ NewMap1_Text_Stones:
 	.string "Come this way for some good ole\n"
 	.string "stones..yep just stones and a rare\n"
 	.string "item from Alola.\n"
-	.string "Aww yea head DOWN to find me.$"	
+	.string "Aww yea head DOWN to find me.$"

@@ -994,6 +994,8 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_DARMANITAN_GALARIAN] = _("Darmanitan"),
     [SPECIES_YAMASK_GALARIAN] = _("Yamask"),
     [SPECIES_STUNFISK_GALARIAN] = _("Stunfisk"),
+	[SPECIES_PURRLOIN_HOEJINNIAN] = _("Purrloin"),
+    [SPECIES_LIEPARD_HOEJINNIAN] = _("Liepard"),
 
     // Cosplay Pikachu
     [SPECIES_PIKACHU_COSPLAY] = _("Pikachu"),

@@ -2,7 +2,7 @@
   "id": "MAP_FALLARBOR_TOWN_HOUSE",
   "name": "FallarborTown_House",
   "layout": "LAYOUT_FALLARBOR_TOWN_HOUSE",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "DP_SEQ_CITY09_N",
   "region_map_section": "MAPSEC_FALLARBOR_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

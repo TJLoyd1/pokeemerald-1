@@ -41,9 +41,10 @@ SCRIPT_SelfTrade_Text_YouDontWantToThatsOkay:
     .string "Okay come back anytime.$"
 
 OldaleTown_House2_Text_PokemonLevelUp: @ 81FBF6D
-	.string "This son of mine somehow received a 'gift'\n"
-	.string "from Arceus called 'the power of God and\l"
-	.string "Anime is on my side'... Oh what to do with him.$"
+	.string "This son of mine claims he received\n"
+	.string "a gift from Arceus called 'the power\l"
+	.string "of Arceus and Anime is on my side'...\p"
+	.string "Oh what to do with him.$"
 
 OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon: @ 81FBFB0
 	.string "This son of mine somehow received a 'gift'\n"

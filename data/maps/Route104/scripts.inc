@@ -345,7 +345,7 @@ Route104_EventScript_Boy2:: @ 81ED057
 	faceplayer
 	goto_if_set FLAG_RECEIVED_TM09, Route104_EventScript_ReceivedBulletSeed
 	msgbox Route104_Text_LikeFillingMouthWithSeedsTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_TM09
+	giveitem ITEM_TM58
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM09
@@ -436,26 +436,6 @@ Route104_EventScript_DeliverLetterReminder:: @ 81ED1B4
 Route104_EventScript_LandedInDewford:: @ 81ED1BE
 	msgbox DewfordTown_Text_BrineyLandedInDewford, MSGBOX_DEFAULT
 	releaseall
-	end
-
-Route104_EventScript_Grunt1:: @ 82334F8
-	trainerbattle_single TRAINER_OBSIDIAN_GRUNT1_ROUTE_104, Route104_Text_Grunt1Intro, Route104_Text_Grunt1Defeat, Route104_EventScript_Grunt1Defeated
-	msgbox Route104_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route104_EventScript_Grunt1Defeated:: @ 8233513
-	msgbox Route104_Text_Grunt1PostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route104_EventScript_Grunt2:: @ 82334F8
-	trainerbattle_single TRAINER_OBSIDIAN_GRUNT2_ROUTE_104, Route104_Text_Grunt2Intro, Route104_Text_Grunt2Defeat, Route104_EventScript_Grunt2Defeated
-	msgbox Route104_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route104_EventScript_Grunt2Defeated:: @ 8233513
-	msgbox Route104_Text_Grunt2PostBattle, MSGBOX_DEFAULT
-	release
 	end
 
 Route104_Movement_SailToDewfordBeforeDadCalls: @ 81ED1C8
@@ -1214,3 +1194,4 @@ Route104_Text_Grunt2Defeat:
 Route104_Text_Grunt2PostBattle:
 	.string "I lost because i had weak pokemon,\n"
 	.string "but I did my job…$"
+

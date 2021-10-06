@@ -5,23 +5,36 @@ AntiquityCity_EventScript_NoGood_Flagset::
 	goto_if_set FLAG_BADGE01_GET, AntiquityCity_EventScript_UptoNoGood
 	release
 	end
-
+	
 AntiquityCity_EventScript_UptoNoGood::
 	lockall
 	setvar VAR_CAMERA_MOVEMENT_TEST, 1
 	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
+	setflag FLAG_HIDE_GRANITE_CAVE_GRUNTS
+	clearflag FLAG_HIDE_ANTIQUITY_CITY_GRUNT
 	addobject 4
 	addobject 5
+	setobjectxyperm 6, 27, 15
+	setobjectxyperm 7, 30, 15
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, MovetoObsidianAdminsTalking
 	waitmovement 0
-	playbgm MUS_ENCOUNTER_MAGMA, 1
+	playbgm BW_SEQ_BGM_E_SAGE, 1
+	applymovement 6, Common_Movement_FaceUp
+	applymovement 7, Common_Movement_FaceUp
+	waitmovement 0
 	applymovement 4, RhyosLooksatMettao
 	waitmovement 0
 	msgbox AntiquityCity_Text_Rhyos_Speaking, MSGBOX_DEFAULT
 	closemessage
 	msgbox AntiquityCity_Text_Mettao_Speaking, MSGBOX_DEFAULT
 	closemessage
+	applymovement 4, Common_Movement_FaceDown
+	waitmovement 0
+	msgbox AntiquityCity_Text_RhyosCommandsGrunts, MSGBOX_DEFAULT
+	closemessage
+	applymovement 4, Common_Movement_FaceRight
+	waitmovement 0
 	msgbox AntiquityCity_Text_LetsGetThisOverWith, MSGBOX_DEFAULT
 	closemessage
 	applymovement 4, EntersCave
@@ -32,9 +45,16 @@ AntiquityCity_EventScript_UptoNoGood::
 	removeobject 4
 	removeobject 5
 	fadescreen 0
+	applymovement 6, BlocksCaveEntranceLeft
+	applymovement 7, BlocksCaveEntranceRight
+	waitmovement 0
+	setobjectxyperm 6, 28, 10
+	setobjectxyperm 7, 29, 10
 	applymovement OBJ_EVENT_ID_CAMERA, MoveBackToPlayer
 	waitmovement 0
 	special RemoveCameraObject
+	savebgm MUS_DUMMY
+	fadedefaultbgm
 	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	waitmovement 0
@@ -52,10 +72,18 @@ AntiquityCity_EventScript_UptoNoGood2::
 	lockall
 	setvar VAR_CAMERA_MOVEMENT_TEST, 1
 	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
+	setflag FLAG_HIDE_GRANITE_CAVE_GRUNTS
+	clearflag FLAG_HIDE_ANTIQUITY_CITY_GRUNT
 	addobject 4
 	addobject 5
+	setobjectxyperm 6, 27, 15
+	setobjectxyperm 7, 30, 15
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, MovetoObsidianAdminsTalking2
+	waitmovement 0
+	playbgm BW_SEQ_BGM_E_SAGE, 1
+	applymovement 6, Common_Movement_FaceUp
+	applymovement 7, Common_Movement_FaceUp
 	waitmovement 0
 	applymovement 4, RhyosLooksatMettao
 	waitmovement 0
@@ -63,6 +91,12 @@ AntiquityCity_EventScript_UptoNoGood2::
 	closemessage
 	msgbox AntiquityCity_Text_Mettao_Speaking, MSGBOX_DEFAULT
 	closemessage
+	applymovement 4, Common_Movement_FaceDown
+	waitmovement 0
+	msgbox AntiquityCity_Text_RhyosCommandsGrunts, MSGBOX_DEFAULT
+	closemessage
+	applymovement 4, Common_Movement_FaceRight
+	waitmovement 0
 	msgbox AntiquityCity_Text_LetsGetThisOverWith, MSGBOX_DEFAULT
 	closemessage
 	applymovement 4, EntersCave
@@ -73,13 +107,113 @@ AntiquityCity_EventScript_UptoNoGood2::
 	removeobject 4
 	removeobject 5
 	fadescreen 0
-	applymovement OBJ_EVENT_ID_CAMERA, MoveBackToPlayer
+	applymovement 6, BlocksCaveEntranceLeft
+	applymovement 7, BlocksCaveEntranceRight
+	waitmovement 0
+	setobjectxyperm 6, 28, 10
+	setobjectxyperm 7, 29, 10
+	applymovement 6, Common_Movement_FaceDown
+	applymovement 7, Common_Movement_FaceDown
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_CAMERA, MoveBackToPlayer2
 	waitmovement 0
 	special RemoveCameraObject
+	savebgm MUS_DUMMY
+	fadedefaultbgm
 	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	waitmovement 0
 	msgbox AntiquityCity_Text_FeelLikeSomeone, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+ 
+AntiquityCity_EventScript_GruntGuardsFemale::
+	lockall
+	playbgm BW_SEQ_BGM_E_PLASMA, 1
+	applymovement 6, Common_Movement_QuestionMark
+	applymovement 7, Common_Movement_QuestionMark
+	waitmovement 0
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq AntiquityCity_EventScript_GruntGuardsMale
+	msgbox AntiquityCity_Text_GruntGuardsPrepareToBattleFemale, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_ANTIQUITY_CITY_GRUNT_1, AntiquityCity_Text_Grunt1_Defeated
+	applymovement 6, Common_Movement_ExclamationMark
+	msgbox AntiquityCity_Text_Grunt1_Lost, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_ANTIQUITY_CITY_GRUNT_2, AntiquityCity_Text_Grunt2_Defeated
+	msgbox AntiquityCity_Text_Grunt2_Lost, MSGBOX_DEFAULT
+	closemessage
+	applymovement 6, Grunt1Moves
+	applymovement 7, Grunt2Moves
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerBacksAwayFromGrunts
+	waitmovement 0
+	setobjectxyperm 6, 27, 12
+	setobjectxyperm 7, 30, 12
+	msgbox AntiquityCity_Text_PlayerTauntsGruntsFemale
+	clearflag FLAG_HIDE_GRANITE_CAVE_GRUNTS
+	setflag FLAG_HIDE_ANTIQUITY_CITY_GRUNT
+	closemessage
+	setvar VAR_ANTIQUITY_CITY_GRUNTS, 1
+	setflag FLAG_ANTIQUITY_CITY_GRUNT_DEFEATED
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	releaseall
+	end
+
+AntiquityCity_EventScript_GruntGuardsMale::
+	msgbox AntiquityCity_Text_GruntGuardsPrepareToBattleMale, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_ANTIQUITY_CITY_GRUNT_1, AntiquityCity_Text_Grunt1_Defeated
+	msgbox AntiquityCity_Text_Grunt1_Lost, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_ANTIQUITY_CITY_GRUNT_2, AntiquityCity_Text_Grunt2_Defeated
+	msgbox AntiquityCity_Text_Grunt2_Lost, MSGBOX_DEFAULT
+	closemessage
+	applymovement 6, Grunt1Moves
+	applymovement 7, Grunt2Moves
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerBacksAwayFromGrunts
+	waitmovement 0
+	setobjectxyperm 6, 27, 12
+	setobjectxyperm 7, 30, 12
+	msgbox AntiquityCity_Text_PlayerTauntsGruntsMale
+	clearflag FLAG_HIDE_GRANITE_CAVE_GRUNTS
+	setflag FLAG_HIDE_ANTIQUITY_CITY_GRUNT
+	closemessage
+	setvar VAR_ANTIQUITY_CITY_GRUNTS, 1
+	setflag FLAG_ANTIQUITY_CITY_GRUNT_DEFEATED
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	releaseall
+	end
+
+AntiquityCity_EventScript_GruntGuard1::
+	lockall
+	setobjectxyperm 6, 27, 12
+	goto_if_set FLAG_ANTIQUITY_CITY_GRUNT_DEFEATED, AntiquityCity_EventScript_GruntGuardsScaredOfJobLoss1
+	releaseall
+	end
+
+AntiquityCity_EventScript_GruntGuardsScaredOfJobLoss1::
+	faceplayer
+	msgbox AntiquityCity_Text_OldPlasmaMember, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+AntiquityCity_EventScript_GruntGuard2::
+	lockall
+	setobjectxyperm 7, 30, 12
+	goto_if_set FLAG_ANTIQUITY_CITY_GRUNT_DEFEATED, AntiquityCity_EventScript_GruntGuardsScaredOfJobLoss2
+	releaseall
+	end
+
+AntiquityCity_EventScript_GruntGuardsScaredOfJobLoss2::
+	faceplayer
+	msgbox AntiquityCity_Text_OldGalacticMember, MSGBOX_DEFAULT
 	closemessage
 	releaseall
 	end
@@ -97,10 +231,10 @@ AntiquityCity_EventScript_Camper::
 AntiquityCity_EventScript_OldMan::
 	lock
 	faceplayer
+	goto_if_ge AntiquityCity_EventScript_BadMemory
 	msgbox AntiquityCity_Text_Brittlebones, MSGBOX_DEFAULT
 	checkitem ITEM_TM62, 1
 	compare VAR_RESULT, 1
-	goto_if_ge AntiquityCity_EventScript_BadMemory
 	msgbox AntiquityCity_Text_Acrobatics, MSGBOX_DEFAULT
 	giveitem ITEM_TM62, 1
 	compare VAR_RESULT, 0
@@ -173,6 +307,28 @@ MoveBackToPlayer:
 	walk_diag_northwest
 	walk_diag_northwest
 	walk_diag_northwest
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	step_end
+	
+MoveBackToPlayer2:
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_left
 	walk_left
 	walk_left
 	walk_left
@@ -373,3 +529,124 @@ Text_HasPotionsAlready6:
 
 Text_BagIsFullDev6:
 	.string "Your BAG is full.$"
+
+AntiquityCity_Text_RhyosCommandsGrunts:
+	.string "Rhyos: I need you two to guard the\n"
+	.string "entrance.\p"
+	.string "Do your job good for once in your\n"
+	.string "damn life...$"
+
+BlocksCaveEntranceLeft:
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	face_down
+	step_end
+
+BlocksCaveEntranceRight:
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	face_down
+	step_end
+
+AntiquityCity_Text_GruntGuardsPrepareToBattleFemale:
+	.string "You have no reason being here kid, so\n"
+	.string "leave before we force you.\p"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} How about no...\p"
+	.string "I need to get through and your blocking my way.\p"
+	.string "Grunt 2: So we have to force you huh?\n"
+	.string "Grunt 1: Good since I've been looking for a\l"
+	.string "battle all day.\p"
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} Let's go then!$"
+
+AntiquityCity_Text_GruntGuardsPrepareToBattleMale:
+	.string "You have no reason being here kid, so\n"
+	.string "leave before we force you.\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY} Why should I?\p"
+	.string "Instead, how about you move before I\n"
+	.string "have to force you to move.\p"
+	.string "Grunt 2: You? Force Us? Nice joke kid\n"
+	.string "Grunt 1: I'd like to see you try since\l"
+	.string "I've been looking for a battle all day.\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY} En Garde, Criminals!$"
+	
+AntiquityCity_Text_Grunt1_Defeated:
+	.string "I-I actually was defeated...$"
+
+AntiquityCity_Text_Grunt1_Lost:
+	.string "Grunt 1:I-I lost...\p"
+	.string "I demand a rematch you little shit!\p"
+	.string "{PLAYER}: You just suck.\n"
+	.string "Accept it...\p"
+	.string "Grunt 2: You may have beat her but I\n"
+	.string "won't be so easy to beat.\p"
+	.string" {PLAYER}: Yeah ight...$"
+
+AntiquityCity_Text_Grunt2_Defeated:
+	.string "No Way!\n"
+	.string "Me too!?$"
+
+AntiquityCity_Text_Grunt2_Lost:
+	.string "Grunt 2: There's no way we both lost...\p"
+	.string "Fine we'll move for now but if you\n"
+	.string "run into our bosses prepare for a\l"
+	.string "world of trouble kid.\p"
+	.string "I'll beat them as easily as I did you.$"
+	
+Grunt1Moves:
+	walk_down
+	walk_down
+	walk_left
+	face_right
+	step_end
+
+Grunt2Moves:
+	walk_down
+	walk_down
+	walk_right
+	face_left
+	step_end
+
+PlayerBacksAwayFromGrunts:
+	lock_facing_direction
+	walk_down
+	walk_down
+	unlock_facing_direction
+	step_end
+
+AntiquityCity_Text_PlayerTauntsGruntsFemale:
+	.string "{COLOR RED}{PLAYER}:{COLOR DARK_GRAY} If Roy was here, he'll say\n"
+	.string "something like your shit at Pokemon battles and\l"
+	.string "Get good you fucking scumbags.\p"
+	.string "Grunt 1: ...\n"
+	.string "Grunt 2: ...\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}: That worked wonders huh?$"
+
+AntiquityCity_Text_PlayerTauntsGruntsMale:
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY} Imagine talking shit and 1v1ing\n"
+	.string "someone and losing not once but TWICE!\l"
+	.string "Get good you fucking scumbags.\p"
+	.string "Grunt 1: ...\n"
+	.string "Grunt 2: ...\p"
+	.string "{COLOR BLUE}{PLAYER}:{COLOR DARK_GRAY}: Quiet now huh?$"
+	
+	
+AntiquityCity_Text_OldPlasmaMember:
+	.string "I still can't believe I lost against\n"
+	.string "a runt.\p"
+	.string "I used to be apart of the greatest evil\n"
+	.string "organization, Team Fucking Plasma.$"
+
+AntiquityCity_Text_OldGalacticMember:
+	.string "You don't deserve to celebrate since\n"
+	.string "I let you win.\p"
+	.string "After all, I used to be apart of the world\n"
+	.string "changing evil organization, Team Goddamn\l"
+	.string "Galactic.$"

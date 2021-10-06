@@ -967,22 +967,22 @@ RustboroCity_Text_HaveYouChallengedGym: @ 81E130D
 	.string "realize what is required of them.$"
 
 RustboroCity_Text_HeyThatsRustborosGymBadge: @ 81E139E
-	.string "Hey, that's RUSTBORO's GYM BADGE!\p"
+	.string "Hey, that's HILLFORD's GYM BADGE!\p"
 	.string "Out of all the POKéMON GYM BADGES,\n"
-	.string "RUSTBORO's is the coolest, I'd say.$"
+	.string "HILLFORD's is the coolest, I'd say.$"
 
 RustboroCity_Text_YoureNewAroundHere: @ 81E1407
 	.string "Oh? Who might you be?\n"
 	.string "You're a new face around these parts.\p"
-	.string "Have you just transferred into the\n"
+	.string "Have you just transferred from the\n"
 	.string "POKéMON TRAINER'S SCHOOL?$"
 
 RustboroCity_Text_GymLeaderIsntEasyWithFire: @ 81E1480
 	.string "I challenged the GYM LEADER, but…\p"
 	.string "It's not going to be easy winning with\n"
-	.string "my FIRE-type POKéMON…\p"
-	.string "FIRE-type POKéMON don't match up\n"
-	.string "well against ROCK-type POKéMON…$"
+	.string "my GHOST-type POKéMON…\p"
+	.string "GHOST-type POKéMON don't match up\n"
+	.string "well against NORMAL-type POKéMON…$"
 
 RustboroCity_Text_MrBrineyWalksInTheTunnel: @ 81E1520
 	.string "The old sailor MR. BRINEY lives in\n"
@@ -1070,7 +1070,7 @@ RustboroCity_Text_MayHiLetsRegister: @ 81E1A49
 	.string "… … … … … …$"
 
 RustboroCity_Text_RegisteredMay: @ 81E1ADB
-	.string "Registered MAY\n"
+	.string "Registered LUCY\n"
 	.string "in the POKéNAV.$"
 
 RustboroCity_Text_MayPassedBrineyWantToBattle: @ 81E1AFA
@@ -1117,7 +1117,7 @@ RustboroCity_Text_BrendanHiLetsRegister: @ 81E1D7D
 	.string "… … … … … …$"
 
 RustboroCity_Text_RegisteredBrendan: @ 81E1E11
-	.string "Registered BRENDAN\n"
+	.string "Registered ROY\n"
 	.string "in the POKéNAV.$"
 
 RustboroCity_Text_BrendanPassedBrineyWantToBattle: @ 81E1E34
@@ -1167,9 +1167,9 @@ RustboroCity_Text_DevonCorpSign: @ 81E2128
 	.string "it all.”$"
 
 RustboroCity_Text_GymSign: @ 81E2167
-	.string "RUSTBORO CITY POKéMON GYM\n"
-	.string "LEADER: ROXANNE\p"
-	.string "“The ROCK-loving honors student!”$"
+	.string "HILLFORD CITY POKéMON GYM\n"
+	.string "LEADER: DANNY\p"
+	.string "“The NORMAL-loving neighborhood trainer!”$"
 
 RustboroCity_Text_DevonCorpBranchOfficeSign: @ 81E21B3
 	.string "DEVON CORP. BRANCH OFFICE\p"
@@ -1177,9 +1177,9 @@ RustboroCity_Text_DevonCorpBranchOfficeSign: @ 81E21B3
 	.string "and authorized personnel.”$"
 
 RustboroCity_Text_CitySign: @ 81E220B
-	.string "RUSTBORO CITY\p"
+	.string "HILLFORD CITY\p"
 	.string "“The city probing the integration of\n"
-	.string "nature and science.”$"
+	.string "nature.”$"
 
 RustboroCity_Text_TrainersSchoolSign: @ 81E2253
 	.string "POKéMON TRAINER'S SCHOOL\p"
@@ -1194,7 +1194,7 @@ RustboroCity_Text_DevelopedNewPokenavFeature: @ 81E22A5
 	.string "for the POKéNAV…\p"
 	.string "And it turned out great!\p"
 	.string "{PLAYER}, may I see that POKéNAV?\n"
-	.string "The one our PRESIDENT gave you?$"
+	.string "The one your parent gave you?$"
 
 RustboroCity_Text_AddedMatchCallPleaseCallMrStone: @ 81E2331
 	.string "There you go, {PLAYER}!\p"
@@ -1274,7 +1274,7 @@ RustboroCity_EventScript_Zigzagoon::
 	lock
 	playmoncry SPECIES_ZIGZAGOON, 2 
 	closemessage
-	applymovement 19, Zigzagoon_Jumps_In_Excitement
+	applymovement 16, Zigzagoon_Jumps_In_Excitement
 	msgbox RustboroCity_Text_PlayfulZigzagoon, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -1368,8 +1368,8 @@ RustboroCity_EventScript_ObtaingMatchCall0::
 	lockall
 	setvar VAR_RECEIVED_MATCH_CALL, 1
 	clearflag FLAG_HIDE_RUSTBORO_CITY_SCIENTIST
-	addobject 15
-	applymovement 15, ScientistApproachPlayer0
+	addobject 12
+	applymovement 12, ScientistApproachPlayer0
 	waitmovement 0
 	playse SE_PIN
 	msgbox RustboroCity_Text_DevelopedNewPokenavFeature, MSGBOX_DEFAULT
@@ -1430,8 +1430,8 @@ RustboroCity_EventScript_ObtaingMatchCall1::
 	lockall
 	setvar VAR_RECEIVED_MATCH_CALL, 1
 	clearflag FLAG_HIDE_RUSTBORO_CITY_SCIENTIST
-	addobject 15
-	applymovement 15, ScientistApproachPlayer1
+	addobject 12
+	applymovement 12, ScientistApproachPlayer1
 	waitmovement 0
 	playse SE_PIN
 	msgbox RustboroCity_Text_DevelopedNewPokenavFeature, MSGBOX_DEFAULT
@@ -1458,8 +1458,8 @@ RustboroCity_EventScript_ObtaingMatchCall2::
 	lockall
 	setvar VAR_RECEIVED_MATCH_CALL, 1
 	clearflag FLAG_HIDE_RUSTBORO_CITY_SCIENTIST
-	addobject 15
-	applymovement 15, ScientistApproachPlayer2
+	addobject 12
+	applymovement 12, ScientistApproachPlayer2
 	waitmovement 0
 	playse SE_PIN
 	msgbox RustboroCity_Text_DevelopedNewPokenavFeature, MSGBOX_DEFAULT
@@ -1486,8 +1486,8 @@ RustboroCity_EventScript_ObtaingMatchCall3::
 	lockall
 	setvar VAR_RECEIVED_MATCH_CALL, 1
 	clearflag FLAG_HIDE_RUSTBORO_CITY_SCIENTIST
-	addobject 15
-	applymovement 15, ScientistApproachPlayer3
+	addobject 12
+	applymovement 12, ScientistApproachPlayer3
 	waitmovement 0
 	playse SE_PIN
 	msgbox RustboroCity_Text_DevelopedNewPokenavFeature, MSGBOX_DEFAULT
@@ -1514,8 +1514,8 @@ RustboroCity_EventScript_ObtaingMatchCall4::
 	lockall
 	setvar VAR_RECEIVED_MATCH_CALL, 1
 	clearflag FLAG_HIDE_RUSTBORO_CITY_SCIENTIST
-	addobject 15
-	applymovement 15, ScientistApproachPlayer4
+	addobject 12
+	applymovement 12, ScientistApproachPlayer4
 	waitmovement 0
 	playse SE_PIN
 	msgbox RustboroCity_Text_DevelopedNewPokenavFeature, MSGBOX_DEFAULT
@@ -1539,51 +1539,49 @@ RustboroCity_EventScript_ObtaingMatchCall4::
 	goto RustboroCity_EventScript_MatchCallTutorial
 
 ScientistApproachPlayer0:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_up
-	walk_right
-	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
 	step_end
 
 ScientistApproachPlayer1:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
 	step_end
 
 ScientistApproachPlayer2:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
 	walk_down
-	walk_right
-	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
 	step_end
 
 ScientistApproachPlayer3:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
 	walk_down
 	walk_down
-	walk_right
-	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
 	step_end
 
 ScientistApproachPlayer4:
@@ -1611,3 +1609,14 @@ ScientistLeave:
 	walk_left
 	walk_left
 	step_end
+
+AccrentonCity_EventScript_Stufful::
+	lockall
+	playmoncry SPECIES_STUFFUL, 2
+	msgbox HillfordCity_Text_Stufful, MSGBOX_DEFAULT
+	waitmoncry
+	releaseall
+	end
+
+HillfordCity_Text_Stufful:
+	.string "Fuuuu!$"

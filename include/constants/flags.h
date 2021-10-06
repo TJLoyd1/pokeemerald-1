@@ -510,7 +510,7 @@
 #define FLAG_DEFEATED_HO_OH                  0x1DC
 #define FLAG_DEFEATED_LUGIA                  0x1DD
 
-#define FLAG_UNUSED_0x1DE                    0x1DE // Unused Flag
+#define FLAG_DEFEATED_SCYTHER                0x1DE
 #define FLAG_UNUSED_0x1DF                    0x1DF // Unused Flag
 #define FLAG_UNUSED_0x1E0                    0x1E0 // Unused Flag
 #define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
@@ -1217,20 +1217,20 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
-#define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
-#define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
+#define FLAG_HIDE_ACCRENTON_WOODS_SCYTHER							0X493
+#define FLAG_HIDE_ROUTE_110_IGNES					     			0X494
+#define FLAG_TRAINER_SCHOOL_COMPLETED                               0x495
+#define FLAG_HIDE_OATWOOD_TOWN_HOUNDOOM                             0x496
+#define FLAG_HIDE_OATWOOD_TOWN_CLAWITZER                            0x497
+#define FLAG_HIDE_OATWOOD_TOWN_CLAYDOL                              0x498
+#define FLAG_HIDE_TOURNEY_ROOM_POKEMON                              0x499
+#define FLAG_DEFEATED_LLOYD                                         0x49A
+#define FLAG_HIDE_GRANITE_CAVE_GRUNTS                               0x49B
+#define FLAG_HIDE_ROUTE_106_ADMINS                                  0x49C
+#define FLAG_ANTIQUITY_CITY_GRUNT_DEFEATED                          0x49D
+#define FLAG_HIDE_ANTIQUITY_CITY_GRUNT                              0x49E
+#define FLAG_HIDE_ROUTE_606_IGNES                                   0x49F
+#define FLAG_REMOVE_WARP_FADE                                       0x4A0
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
 #define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
 #define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag

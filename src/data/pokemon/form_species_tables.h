@@ -615,6 +615,18 @@ static const u16 sArceusFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 
+static const u16 sPurrloinFormSpeciesIdTable[] = {
+    SPECIES_PURRLOIN,
+    SPECIES_PURRLOIN_HOEJINNIAN,
+    FORM_SPECIES_END,
+};
+
+static const u16 sLiepardFormSpeciesIdTable[] = {
+    SPECIES_LIEPARD,
+    SPECIES_LIEPARD_HOEJINNIAN,
+    FORM_SPECIES_END,
+};
+
 static const u16 sAudinoFormSpeciesIdTable[] = {
     SPECIES_AUDINO,
     SPECIES_AUDINO_MEGA,

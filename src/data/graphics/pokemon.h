@@ -988,6 +988,8 @@ const u32 gMonFrontPic_DarumakaGalarian[] = INCBIN_U32("graphics/pokemon/darumak
 const u32 gMonFrontPic_DarmanitanGalarian[] = INCBIN_U32("graphics/pokemon/darmanitan/galarian/front.4bpp.lz");
 const u32 gMonFrontPic_YamaskGalarian[] = INCBIN_U32("graphics/pokemon/yamask/galarian/front.4bpp.lz");
 const u32 gMonFrontPic_StunfiskGalarian[] = INCBIN_U32("graphics/pokemon/stunfisk/galarian/front.4bpp.lz");
+const u32 gMonFrontPic_PurrloinHoejinnian[] = INCBIN_U32("graphics/pokemon/hoejinn_purrloin/anim_front.4bpp.lz");
+const u32 gMonFrontPic_LiepardHoejinnian[] = INCBIN_U32("graphics/pokemon/hoejinn_liepard/anim_front.4bpp.lz");
 const u32 gMonFrontPic_PikachuCosplay[] = INCBIN_U32("graphics/pokemon/pikachu/cosplay/front.4bpp.lz");
 const u32 gMonFrontPic_PikachuRockStar[] = INCBIN_U32("graphics/pokemon/pikachu/rock_star/front.4bpp.lz");
 const u32 gMonFrontPic_PikachuBelle[] = INCBIN_U32("graphics/pokemon/pikachu/belle/front.4bpp.lz");
@@ -2128,6 +2130,8 @@ const u32 gMonBackPic_DarumakaGalarian[] = INCBIN_U32("graphics/pokemon/darumaka
 const u32 gMonBackPic_DarmanitanGalarian[] = INCBIN_U32("graphics/pokemon/darmanitan/galarian/back.4bpp.lz");
 const u32 gMonBackPic_YamaskGalarian[] = INCBIN_U32("graphics/pokemon/yamask/galarian/back.4bpp.lz");
 const u32 gMonBackPic_StunfiskGalarian[] = INCBIN_U32("graphics/pokemon/stunfisk/galarian/back.4bpp.lz");
+const u32 gMonBackPic_PurrloinHoejinnian[] = INCBIN_U32("graphics/pokemon/hoejinn_purrloin/back.4bpp.lz");
+const u32 gMonBackPic_LiepardHoejinnian[] = INCBIN_U32("graphics/pokemon/hoejinn_liepard/back.4bpp.lz");
 const u32 gMonBackPic_PikachuCosplay[] = INCBIN_U32("graphics/pokemon/pikachu/cosplay/back.4bpp.lz");
 const u32 gMonBackPic_PikachuRockStar[] = INCBIN_U32("graphics/pokemon/pikachu/rock_star/back.4bpp.lz");
 const u32 gMonBackPic_PikachuBelle[] = INCBIN_U32("graphics/pokemon/pikachu/belle/back.4bpp.lz");
@@ -3266,6 +3270,8 @@ const u32 gMonPalette_DarumakaGalarian[] = INCBIN_U32("graphics/pokemon/darumaka
 const u32 gMonPalette_DarmanitanGalarian[] = INCBIN_U32("graphics/pokemon/darmanitan/galarian/normal.gbapal.lz");
 const u32 gMonPalette_YamaskGalarian[] = INCBIN_U32("graphics/pokemon/yamask/galarian/normal.gbapal.lz");
 const u32 gMonPalette_StunfiskGalarian[] = INCBIN_U32("graphics/pokemon/stunfisk/galarian/normal.gbapal.lz");
+const u32 gMonPalette_PurrloinHoejinnian[] = INCBIN_U32("graphics/pokemon/hoejinn_purrloin/normal.gbapal.lz");
+const u32 gMonPalette_LiepardHoejinnian[] = INCBIN_U32("graphics/pokemon/hoejinn_liepard/normal.gbapal.lz");
 const u32 gMonPalette_PikachuCosplay[] = INCBIN_U32("graphics/pokemon/pikachu/cosplay/normal.gbapal.lz");
 const u32 gMonPalette_PikachuRockStar[] = INCBIN_U32("graphics/pokemon/pikachu/rock_star/normal.gbapal.lz");
 const u32 gMonPalette_PikachuBelle[] = INCBIN_U32("graphics/pokemon/pikachu/belle/normal.gbapal.lz");
@@ -4489,6 +4495,8 @@ const u32 gMonShinyPalette_DarumakaGalarian[] = INCBIN_U32("graphics/pokemon/dar
 const u32 gMonShinyPalette_DarmanitanGalarian[] = INCBIN_U32("graphics/pokemon/darmanitan/galarian/shiny.gbapal.lz");
 const u32 gMonShinyPalette_YamaskGalarian[] = INCBIN_U32("graphics/pokemon/yamask/galarian/shiny.gbapal.lz");
 const u32 gMonShinyPalette_StunfiskGalarian[] = INCBIN_U32("graphics/pokemon/stunfisk/galarian/shiny.gbapal.lz");
+const u32 gMonShinyPalette_PurrloinHoejinnian[] = INCBIN_U32("graphics/pokemon/hoejinn_purrloin/shiny.gbapal.lz");
+const u32 gMonShinyPalette_LiepardHoejinnian[] = INCBIN_U32("graphics/pokemon/hoejinn_liepard/shiny.gbapal.lz");
 const u32 gMonShinyPalette_PikachuCosplay[] = INCBIN_U32("graphics/pokemon/pikachu/cosplay/shiny.gbapal.lz");
 const u32 gMonShinyPalette_PikachuRockStar[] = INCBIN_U32("graphics/pokemon/pikachu/rock_star/shiny.gbapal.lz");
 const u32 gMonShinyPalette_PikachuBelle[] = INCBIN_U32("graphics/pokemon/pikachu/belle/shiny.gbapal.lz");
@@ -5648,6 +5656,8 @@ const u8 gMonIcon_DarumakaGalarian[] = INCBIN_U8("graphics/pokemon/darumaka/gala
 const u8 gMonIcon_DarmanitanGalarian[] = INCBIN_U8("graphics/pokemon/darmanitan/galarian/icon.4bpp");
 const u8 gMonIcon_YamaskGalarian[] = INCBIN_U8("graphics/pokemon/yamask/galarian/icon.4bpp");
 const u8 gMonIcon_StunfiskGalarian[] = INCBIN_U8("graphics/pokemon/stunfisk/galarian/icon.4bpp");
+const u8 gMonIcon_PurrloinHoejinnian[] = INCBIN_U8("graphics/pokemon/hoejinn_purrloin/icon.4bpp");
+const u8 gMonIcon_LiepardHoejinnian[] = INCBIN_U8("graphics/pokemon/hoejinn_liepard/icon.4bpp");
 const u8 gMonIcon_PikachuCosplay[] = INCBIN_U8("graphics/pokemon/pikachu/cosplay/icon.4bpp");
 const u8 gMonIcon_PikachuRockStar[] = INCBIN_U8("graphics/pokemon/pikachu/rock_star/icon.4bpp");
 const u8 gMonIcon_PikachuBelle[] = INCBIN_U8("graphics/pokemon/pikachu/belle/icon.4bpp");
@@ -6466,3 +6476,11 @@ const u8 gMonFootprint_Kyurem[] = INCBIN_U8("graphics/pokemon/kyurem/footprint.1
 const u8 gMonFootprint_Keldeo[] = INCBIN_U8("graphics/pokemon/keldeo/footprint.1bpp");
 const u8 gMonFootprint_Meloetta[] = INCBIN_U8("graphics/pokemon/meloetta/footprint.1bpp");
 const u8 gMonFootprint_Genesect[] = INCBIN_U8("graphics/pokemon/genesect/footprint.1bpp");
+const u8 gMonFootprint_PurrloinHoejinnian[] = INCBIN_U8("graphics/pokemon/hoejinn_purrloin/footprint.1bpp");
+const u8 gMonFootprint_LiepardHoejinnian[] = INCBIN_U8("graphics/pokemon/hoejinn_liepard/footprint.1bpp");
+
+
+
+
+
+

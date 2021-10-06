@@ -414,6 +414,50 @@ static const union AnimCmd *const sAnims_Thera[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Serena[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Violet[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Roark[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Byron[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Bugsy[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Erika[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_OrangePokemaniac[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_GreenPokemaniac[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Cynthia[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_ByronAndRoark[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Youngsters[] ={
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -520,4 +564,15 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 	[TRAINER_PIC_PROFESSOR_MAY] = sAnims_ProfMay,
 	[TRAINER_PIC_DANNY] = sAnims_Danny,
 	[TRAINER_PIC_THERA] = sAnims_Thera,
+	[TRAINER_PIC_SERENA] = sAnims_Serena,
+	[TRAINER_PIC_VIOLET] = sAnims_Violet,
+	[TRAINER_PIC_ROARK] = sAnims_Roark,
+	[TRAINER_PIC_BYRON] = sAnims_Byron,
+	[TRAINER_PIC_BUGSY] = sAnims_Bugsy,
+	[TRAINER_PIC_ERIKA] = sAnims_Erika,
+	[TRAINER_PIC_ORANGE_POKEMANIAC] = sAnims_OrangePokemaniac,
+	[TRAINER_PIC_GREEN_POKEMANIAC] = sAnims_GreenPokemaniac,
+	[TRAINER_PIC_CYNTHIA] = sAnims_Cynthia,
+	[TRAINER_PIC_BYRON_AND_ROARK] = sAnims_ByronAndRoark,
+	[TRAINER_PIC_YOUNGSTERS] = sAnims_Youngsters,
 };

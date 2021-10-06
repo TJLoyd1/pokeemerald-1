@@ -518,7 +518,8 @@ static const TransitionStateFunc sPhase2_Mugshot_Funcs[] =
 
 static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
 {
-    [MUGSHOT_IGNES] = TRAINER_PIC_IGNES,
+    [MUGSHOT_BRENDAN]    = TRAINER_PIC_BRENDAN,
+	[MUGSHOT_IGNES] = TRAINER_PIC_IGNES,
 	[MUGSHOT_MAY]    = TRAINER_PIC_MAY,
     [MUGSHOT_SIDNEY] = TRAINER_PIC_ELITE_FOUR_SIDNEY,
     [MUGSHOT_PHOEBE] = TRAINER_PIC_ELITE_FOUR_PHOEBE,
@@ -528,7 +529,8 @@ static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
 };
 static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
 {
-    [MUGSHOT_IGNES]	 =	 {0x200, 0x200},
+    [MUGSHOT_BRENDAN]    =   {0x200, 0x200},
+	[MUGSHOT_IGNES]	 =	 {0x200, 0x200},
 	[MUGSHOT_MAY]    =   {0x200, 0x200},
     [MUGSHOT_SIDNEY] =   {0x200, 0x200},
     [MUGSHOT_PHOEBE] =   {0x200, 0x200},
@@ -538,7 +540,8 @@ static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
 };
 static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
 {
-    [MUGSHOT_IGNES]	   = {0,	 0},
+    [MUGSHOT_BRENDAN]      = {0,     0},
+	[MUGSHOT_IGNES]	   = {0,	 0},
 	[MUGSHOT_MAY]      = {0,     0},
     [MUGSHOT_SIDNEY] =   {0,     0},
     [MUGSHOT_PHOEBE] =   {0,     0},
@@ -840,8 +843,9 @@ static const u16 sMugshotPal_May[] = INCBIN_U16("graphics/battle_transitions/may
 
 static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
 {
-    [MUGSHOT_IGNES] = sMugshotPal_Drake,
-	[MUGSHOT_MAY]    = sMugshotPal_Glacia,
+    [MUGSHOT_BRENDAN]    = sMugshotPal_Phoebe,
+	[MUGSHOT_IGNES] = sMugshotPal_Drake,
+	[MUGSHOT_MAY]    = sMugshotPal_Sidney,
     [MUGSHOT_SIDNEY] = sMugshotPal_Sidney,
     [MUGSHOT_PHOEBE] = sMugshotPal_Phoebe,
     [MUGSHOT_GLACIA] = sMugshotPal_Glacia,

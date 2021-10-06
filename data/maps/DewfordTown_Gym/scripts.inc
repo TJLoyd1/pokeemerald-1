@@ -300,9 +300,9 @@ DewfordTown_Gym_EventScript_GymStatue:: @ 81FC9CC
 DewfordTown_Gym_Text_GymGuideAdvice: @ 81FC9D6
 	.string "Hey, how's it going, CHAMPION-\n"
 	.string "bound {PLAYER}?\p"
-	.string "DEWFORD's GYM LEADER THERA commands\n"
+	.string "DESSATA's GYM LEADER THERA commands\n"
 	.string "GROUND-type POKéMON.\p"
-	.string "Going against him with STEEL-type\n"
+	.string "Going against her with STEEL-type\n"
 	.string "POKéMON is asking for trouble.\p"
 	.string "GROUND POKéMON will lay a serious\n"
 	.string "smack down on STEEL POKéMON,\l"
@@ -396,14 +396,14 @@ DewfordTown_Gym_Text_CristianPostBattle: @ 81FCF26
 
 DewfordTown_Gym_Text_BrawlyIntro: @ 81FCF44
 	.string "I'm THERA!\n"
-	.string "DEWFORD's GYM LEADER!\p"
+	.string "DESSATA's GYM LEADER!\p"
 	.string "After going on expeditions with Clay\n"
 	.string "from Unova, I decided to go off\l"
 	.string "somewhere else to find some beautiful\p"
 	.string "and rare stones.\p"
-	.string "I came to Hoejinn after hearing about\n"
-	.string "findings made by Steven Stone 10\l"
-	.string "years ago.\p"
+	.string "I came to Hoejinn after hearing\n"
+	.string "about findings made by Steven\l"
+	.string "Stone 10 years ago.\p"
 	.string "That's enough about me though.\p"
 	.string "You came to challenge me right?\n"
 	.string "Let me see what you're made of!$"
@@ -417,7 +417,7 @@ DewfordTown_Gym_Text_BrawlyDefeat: @ 81FD008
 
 DewfordTown_Gym_Text_ReceivedKnuckleBadge: @ 81FD07D
 	.string "{PLAYER} received the BIOTITE BADGE\n"
-	.string "from BRAWLY.$"
+	.string "from THERA.$"
 
 DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis: @ 81FD0A8
 	.string "The BIOTITE BADGE makes all POKéMON\n"
@@ -444,10 +444,10 @@ DewfordTown_Gym_Text_BrawlyPostBattle: @ 81FD20D
 	.string "among TRAINERS one day!$"
 
 DewfordTown_Gym_Text_GymStatue: @ 81FD272
-	.string "DEWFORD TOWN POKéMON GYM$"
+	.string "DESSATA TOWN POKéMON GYM$"
 
 DewfordTown_Gym_Text_GymStatueCertified: @ 81FD28B
-	.string "DEWFORD TOWN POKéMON GYM\p"
+	.string "DESSATA TOWN POKéMON GYM\p"
 	.string "THERA'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
 

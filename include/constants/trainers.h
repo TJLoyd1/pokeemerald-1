@@ -121,6 +121,17 @@
 #define TRAINER_PIC_PROFESSOR_MAY		 101
 #define TRAINER_PIC_DANNY				 102
 #define TRAINER_PIC_THERA				 103
+#define TRAINER_PIC_SERENA				 104
+#define TRAINER_PIC_VIOLET				 105
+#define TRAINER_PIC_ROARK				 106
+#define TRAINER_PIC_BYRON				 107
+#define TRAINER_PIC_BUGSY				 108
+#define TRAINER_PIC_ERIKA				 109
+#define TRAINER_PIC_ORANGE_POKEMANIAC	 110
+#define TRAINER_PIC_GREEN_POKEMANIAC	 111
+#define TRAINER_PIC_CYNTHIA				 112
+#define TRAINER_PIC_BYRON_AND_ROARK		 113
+#define TRAINER_PIC_YOUNGSTERS			 114
 
 #define TRAINER_BACK_PIC_BRENDAN                0
 #define TRAINER_BACK_PIC_MAY                    1
@@ -130,6 +141,7 @@
 #define TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY      5
 #define TRAINER_BACK_PIC_WALLY                  6
 #define TRAINER_BACK_PIC_STEVEN                 7
+#define TRAINER_BACK_PIC_IGNES                  8
 
 #define FACILITY_CLASS_HIKER                 0x0
 #define FACILITY_CLASS_AQUA_GRUNT_M          0x1

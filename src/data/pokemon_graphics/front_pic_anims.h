@@ -5910,6 +5910,22 @@ static const union AnimCmd sAnim_LIEPARD_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_PURRLOIN_HOEJINNIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_LIEPARD_HOEJINNIAN_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_PANSAGE_1[] =
 {
     ANIMCMD_FRAME(0, 30),
@@ -11948,6 +11964,16 @@ static const union AnimCmd *const sAnims_LIEPARD[] ={
     sAnim_LIEPARD_1,
 };
 
+static const union AnimCmd *const sAnims_PURRLOIN_HOEJINNIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_PURRLOIN_HOEJINNIAN_1,
+};
+
+static const union AnimCmd *const sAnims_LIEPARD_HOEJINNIAN[] ={
+    sAnim_GeneralFrame0,
+    sAnim_LIEPARD_HOEJINNIAN_1,
+};
+
 static const union AnimCmd *const sAnims_PANSAGE[] ={
     sAnim_GeneralFrame0,
     sAnim_PANSAGE_1,
@@ -14963,6 +14989,8 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(STOUTLAND),
     ANIM_CMD(PURRLOIN),
     ANIM_CMD(LIEPARD),
+	ANIM_CMD(PURRLOIN_HOEJINNIAN),
+    ANIM_CMD(LIEPARD_HOEJINNIAN),
     ANIM_CMD(PANSAGE),
     ANIM_CMD(SIMISAGE),
     ANIM_CMD(PANSEAR),

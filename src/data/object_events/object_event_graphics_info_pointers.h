@@ -253,6 +253,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lapras;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bellsprout;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Teddiursa;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Geodude;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AlolanGeodude;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pichu;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Scyther;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Roark;
@@ -265,6 +266,16 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Serena;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Violet;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OrangePokemaniac;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenPokemaniac;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Morelull;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Snover;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Snorunt;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sneasel;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Stufful;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Swinub;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AlolanSandshrew;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Houndoom;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Clawitzer;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mettao;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -516,6 +527,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 	[OBJ_EVENT_GFX_BELLSPROUT] =               &gObjectEventGraphicsInfo_Bellsprout,
 	[OBJ_EVENT_GFX_TEDDIURSA] =                &gObjectEventGraphicsInfo_Teddiursa,
 	[OBJ_EVENT_GFX_GEODUDE] =                  &gObjectEventGraphicsInfo_Geodude,
+	[OBJ_EVENT_GFX_ALOLAN_GEODUDE] =           &gObjectEventGraphicsInfo_AlolanGeodude,
 	[OBJ_EVENT_GFX_PICHU] =                    &gObjectEventGraphicsInfo_Pichu,
 	[OBJ_EVENT_GFX_SCYTHER] =                  &gObjectEventGraphicsInfo_Scyther,
 	[OBJ_EVENT_GFX_ROARK] =                    &gObjectEventGraphicsInfo_Roark,
@@ -528,6 +540,16 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
 	[OBJ_EVENT_GFX_VIOLET] =                   &gObjectEventGraphicsInfo_Violet,
 	[OBJ_EVENT_GFX_ORANGE_POKEMANIAC] =        &gObjectEventGraphicsInfo_OrangePokemaniac,
 	[OBJ_EVENT_GFX_GREEN_POKEMANIAC] =         &gObjectEventGraphicsInfo_GreenPokemaniac,
+	[OBJ_EVENT_GFX_MORELULL] =                 &gObjectEventGraphicsInfo_Morelull,
+	[OBJ_EVENT_GFX_SNEASEL] =                  &gObjectEventGraphicsInfo_Sneasel,
+	[OBJ_EVENT_GFX_SNORUNT] =                  &gObjectEventGraphicsInfo_Snorunt,
+	[OBJ_EVENT_GFX_SNOVER] =                   &gObjectEventGraphicsInfo_Snover,
+	[OBJ_EVENT_GFX_STUFFUL] =                  &gObjectEventGraphicsInfo_Stufful,
+	[OBJ_EVENT_GFX_SWINUB] =                   &gObjectEventGraphicsInfo_Swinub,
+	[OBJ_EVENT_GFX_ALOLAN_SANDSHREW] =         &gObjectEventGraphicsInfo_AlolanSandshrew,
+	[OBJ_EVENT_GFX_HOUNDOOM] =                 &gObjectEventGraphicsInfo_Houndoom,
+	[OBJ_EVENT_GFX_CLAWITZER] =                &gObjectEventGraphicsInfo_Clawitzer,
+	[OBJ_EVENT_GFX_METTAO] =                   &gObjectEventGraphicsInfo_Mettao,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

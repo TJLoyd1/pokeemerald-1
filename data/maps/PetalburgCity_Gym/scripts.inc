@@ -1787,7 +1787,9 @@ PetalburgCity_School_EventScript_MeetingIgnes::
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement 12, Common_Movement_ExclamationMark
+	playse SE_M_HEADBUTT
 	msgbox PetalburgCity_School_Text_THUD, MSGBOX_DEFAULT
+	waitse
 	waitmovement 0
 	applymovement 12, GettingUpFromCollision
 	waitmovement 0
@@ -1820,7 +1822,9 @@ PetalburgCity_School_EventScript_MeetingIgnes2::
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement 12, Common_Movement_ExclamationMark
+	playse SE_M_HEADBUTT
 	msgbox PetalburgCity_School_Text_THUD, MSGBOX_DEFAULT
+	waitse
 	waitmovement 0
 	applymovement 12, GettingUpFromCollision
 	waitmovement 0
@@ -1939,4 +1943,3 @@ PetalburgCity_School_Text_TourneyParticipation:
 	.string "Ignes: Be prepared to get shit on when\n"
 	.string "you make it to the finals.\p"
 	.string "IF you can actually make it that far.$"
-	

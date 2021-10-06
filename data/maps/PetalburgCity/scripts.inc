@@ -34,7 +34,7 @@ PetalburgCity_OnTransition: @ 81DC2D7
 	end
 
 PetalburgCity_EventScript_MoveGymBoyToWestEntrance:: @ 81DC307
-	setobjectxyperm LOCALID_GYM_BOY, 5, 11
+	setobjectxyperm LOCALID_GYM_BOY, 3, 48
 	return
 
 PetalburgCity_EventScript_DisableMapNameAndMusic:: @ 81DC30F
@@ -258,14 +258,19 @@ PetalburgCity_EventScript_WallyHouseSign:: @ 81DC491
 
 PetalburgCity_EventScript_ShowGymToPlayer0:: @ 81DC49A
 	lockall
+	goto_if_set FLAG_TRAINER_SCHOOL_COMPLETED, PetalburgCity_EventScript_SkipThis
 	setvar VAR_0x8008, 0
 	goto PetalburgCity_EventScript_ShowGymToPlayer
 	end
 
 PetalburgCity_EventScript_ShowGymToPlayer1:: @ 81DC4A6
 	lockall
+	goto_if_set FLAG_TRAINER_SCHOOL_COMPLETED, PetalburgCity_EventScript_SkipThis
 	setvar VAR_0x8008, 1
 	goto PetalburgCity_EventScript_ShowGymToPlayer
+	end
+
+PetalburgCity_EventScript_SkipThis::
 	end
 
 PetalburgCity_EventScript_ShowGymToPlayer2:: @ 81DC4B2
@@ -322,12 +327,14 @@ PetalburgCity_EventScript_ShowGymToPlayer:: @ 81DC4CA
 PetalburgCity_EventScript_BoyApproachPlayer0:: @ 81DC57F
 	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyApproachPlayer0
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestDown
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	return
 
 PetalburgCity_EventScript_BoyApproachPlayer1:: @ 81DC594
 	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyApproachPlayer1
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	return
 
@@ -378,15 +385,18 @@ PetalburgCity_Movement_Delay48:: @ 81DC611
 
 PetalburgCity_Movement_BoyApproachPlayer0: @ 81DC615
 	walk_right
-	walk_right
-	walk_right
-	walk_in_place_fastest_up
+	walk_down
+	walk_left
+	walk_in_place_fastest_left
 	step_end
 
 PetalburgCity_Movement_BoyApproachPlayer1: @ 81DC61A
+	
+	walk_right
 	walk_down
-	walk_right
-	walk_right
+	walk_down
+	walk_left
+	walk_in_place_fastest_left
 	step_end
 
 PetalburgCity_Movement_BoyApproachPlayer2: @ 81DC61D
@@ -408,18 +418,16 @@ PetalburgCity_Movement_BoyApproachPlayer3: @ 81DC622
 
 PetalburgCity_Movement_BoyWalkToGym0: @ 81DC628
 	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_right
 	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_up
-	walk_right
-	walk_in_place_fastest_up
-	step_end
-
-PetalburgCity_Movement_BoyWalkToGym1: @ 81DC633
 	walk_down
 	walk_right
 	walk_right
@@ -429,8 +437,46 @@ PetalburgCity_Movement_BoyWalkToGym1: @ 81DC633
 	walk_right
 	walk_right
 	walk_right
-	walk_up
-	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_in_place_fastest_up
+	step_end
+
+PetalburgCity_Movement_BoyWalkToGym1: @ 81DC633
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_right
 	walk_in_place_fastest_up
 	step_end
@@ -463,22 +509,31 @@ PetalburgCity_Movement_BoyWalkToGym3: @ 81DC64C
 	step_end
 
 PetalburgCity_Movement_BoyWalkAway: @ 81DC658
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
 PetalburgCity_Movement_PlayerWalkToGym0: @ 81DC665
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_down
 	walk_down
 	walk_right
 	walk_right
@@ -487,12 +542,30 @@ PetalburgCity_Movement_PlayerWalkToGym0: @ 81DC665
 	walk_right
 	walk_right
 	walk_right
-	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_in_place_fastest_up
 	step_end
 
 PetalburgCity_Movement_PlayerWalkToGym1: @ 81DC66F
-	delay_16
-	delay_16
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
 	walk_down
 	walk_right
 	walk_right
@@ -501,8 +574,17 @@ PetalburgCity_Movement_PlayerWalkToGym1: @ 81DC66F
 	walk_right
 	walk_right
 	walk_right
-	walk_up
-	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_in_place_fastest_up
 	step_end
 
 PetalburgCity_Movement_PlayerWalkToGym2: @ 81DC67C
@@ -750,7 +832,7 @@ PetalburgCity_Text_AreYouRookieTrainer: @ 81DC881
 	.string "is in the town.$"
 
 PetalburgCity_Text_ThisIsPetalburgGym: @ 81DC91B
-	.string "See? This is Petalburg City's Trainer\n"
+	.string "See? This is Accrenton City's Trainer\n"
 	.string "School.$"
 
 PetalburgCity_Text_ThisIsGymSign: @ 81DC93E
@@ -772,12 +854,12 @@ PetalburgCity_Text_FullPartyExplanation: @ 81DCA30
 	.string "BOX over a PC connection.$"
 
 PetalburgCity_Text_GymSign: @ 81DCAAA
-	.string "Petalburg City's Trainer School\p"
+	.string "Accrenton City's Trainer School\p"
 	.string "“We'll teach you anything about\n"
 	.string "POKéMON!”$"
 
 PetalburgCity_Text_CitySign: @ 81DCAF1
-	.string "Petalburg City\n"
+	.string "Accrenton City\n"
 	.string "“Where people mingle with nature.”$"
 
 PetalburgCity_Text_WallyHouseSign: @ 81DCB23
@@ -814,12 +896,15 @@ AccrentonCity_EventScript_StaticTeddiursaEncounter::
 	closemessage
 	applymovement 19, Common_Movement_ExclamationMark
 	waitmovement 0
+	delay 40
 	faceplayer
 	playmoncry SPECIES_TEDDIURSA, 2
 	delay 40
 	waitmoncry
 	setcustomwildbattle SPECIES_TEDDIURSA, 12, ITEM_HONEY, NATURE_RELAXED, 1, 0, 252, 4, 252, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_YAWN, MOVE_BELLY_DRUM, MOVE_FURY_SWIPES, MOVE_LICK, FALSE
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq AccrentonCity_EventScript_DefeatedTeddiursa
@@ -860,8 +945,8 @@ TeddyLookingForHoney:
 	delay_16
 	face_right
 	walk_in_place_right
-	walk_in_place_right
-	walk_in_place_right
+	jump_in_place_right
+	jump_in_place_right
 	delay_16
 	delay_16
 	face_up
@@ -874,4 +959,46 @@ AccrentonCity_Text_TeddiursaLookingForHoney:
 AccrentonCity_Text_TeddiursaRanAway:
 	.string "The Teddiursa ran away...$"
 
+AccrentonCity_EventScript_Bellsprout::
+	lockall
+	faceplayer
+	playmoncry SPECIES_BELLSPROUT, 2
+	msgbox AccrentonCity_Text_Bellsprout, MSGBOX_DEFAULT
+	waitmoncry
+	releaseall
+	end
+	
+AccrentonCity_EventScript_Pichu::
+	lockall
+	faceplayer
+	playmoncry SPECIES_PICHU, 2
+	msgbox AccrentonCity_Text_Pichu, MSGBOX_DEFAULT
+	waitmoncry
+	releaseall
+	end
+	
+AccrentonCity_EventScript_Lapras::
+	lockall
+	faceplayer
+	playmoncry SPECIES_LAPRAS, 2
+	waitmoncry
+	releaseall
+	end
 
+AccrentonCity_EventScript_Geodude::
+	lockall
+	faceplayer
+	playmoncry SPECIES_GEODUDE, 2
+	msgbox AccrentonCity_Text_Geodude, MSGBOX_DEFAULT
+	waitmoncry
+	releaseall
+	end
+
+AccrentonCity_Text_Bellsprout:
+	.string "Bellsprout: Sprooout!$"
+
+AccrentonCity_Text_Geodude:
+	.string "Geodude: Geooo!$"
+
+AccrentonCity_Text_Pichu:
+	.string "Pichu: Pi-Piichuu!$"

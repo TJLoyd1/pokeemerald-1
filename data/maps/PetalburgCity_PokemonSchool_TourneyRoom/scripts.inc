@@ -72,10 +72,47 @@ PetalburgCity_PokemonSchool_TourneyRoom_Text_HurryUp:
 
 PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament::
 	lockall
+	clearflag FLAG_HIDE_TOURNEY_ROOM_POKEMON
 	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	clearflag FLAG_HIDE_PETALBURG_GYM_WALLYS_DAD
 	setvar VAR_PETALBURG_GYM_STATE, 3
+	waitmovement 0
+	setobjectxy 5, 14, 8
+	applymovement 5, Common_Movement_FaceLeft
+	waitmovement 0
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Camera_Moves_Center_Stage
+	waitmovement 0
+	playse SE_SUPER_EFFECTIVE
+	applymovement 8, Geodude_Gets_Knocked_Back
+	waitse
+	playmoncry SPECIES_GEODUDE, 2
+	waitmoncry
+	waitmovement 0
+	playse SE_APPLAUSE
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_CriticalHit, MSGBOX_DEFAULT
 	closemessage
+	waitse
+	fadescreen 1
+	playmoncry SPECIES_TEDDIURSA, 2
+	waitmoncry
+	removeobject 9
+	removeobject 8
+	removeobject 10
+	applymovement 5, Common_Movement_FaceDown
+	setobjectxy 5, 4, 6
+	fadescreen 0
+	applymovement OBJ_EVENT_ID_CAMERA, Camera_Moves_Back_To_Player
+	waitmovement 0
+	special RemoveCameraObject
+	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLYS_DAD
+	setobjectxyperm 10, 6, 6
+	addobject 2
+	addobject 3
+	addobject 4
+	addobject 5
+	addobject 6
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	setobjectxy 6, 18, 8
@@ -127,9 +164,11 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament::
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_IgnesBattleIntro, MSGBOX_DEFAULT
 	closemessage
 	waitmovement 0
+	playse SE_APPLAUSE
 	applymovement OBJ_EVENT_ID_CAMERA, IgnesHeadsToField
 	applymovement 1, IgnesHeadsToField
 	waitmovement 0
+	waitse
 	setobjectxyperm 1, 14, 8
 	applymovement 1, Common_Movement_FaceLeft
 	waitmovement 0
@@ -139,9 +178,11 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament::
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_PlayerBattleIntro, MSGBOX_DEFAULT
 	closemessage
 	waitmovement 0
+	playse SE_APPLAUSE
 	applymovement OBJ_EVENT_ID_CAMERA, PlayerHeadsToField
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerHeadsToField
 	waitmovement 0
+	waitse
 	applymovement OBJ_EVENT_ID_CAMERA, MoveBackToCenterFieldFromLeft
 	waitmovement 0
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_IgnesShitTalking, MSGBOX_DEFAULT
@@ -149,49 +190,54 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament::
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_LetTheBattleCommence, MSGBOX_DEFAULT
 	closemessage
 	special RemoveCameraObject
-	trainerbattle_no_intro TRAINER_WALLY_MAUVILLE, TourneyIgnes_Text_Defeat
-	special HealPlayerParty
-	playbgm DP_SEQ_WINGINGA, 1
-	fadedefaultbgm 
-	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_WithTheIncredible, MSGBOX_DEFAULT
-	closemessage
-	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_IgnesSoreLoser, MSGBOX_DEFAULT
-	closemessage
-	applymovement 1, WalkOffField
-	waitmovement 0
-	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_StayForPrize, MSGBOX_DEFAULT
-	closemessage
-	applymovement OBJ_EVENT_ID_CAMERA, BackToPlayer
-	waitmovement 0
-	fadescreen 1
-	removeobject 3
-	removeobject 4
-	removeobject 5
-	removeobject 6
-	removeobject 7
-	fadescreen 0
-	applymovement 2, CommentatorHeadsTowardsPlayer
-	waitmovement 0
-	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_Prize, MSGBOX_DEFAULT
-	closemessage
-	giveitem ITEM_LUCKY_EGG, 1
-	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_MakeGoodUse, MSGBOX_DEFAULT
-	closemessage
-	applymovement 2, CommentatorHeadsOffStage
-	waitmovement 0
-	setflag FLAG_HIDE_PETALBURG_CITY_WALLY
-	removeobject 2
-	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
-	setvar VAR_PETALBURG_GYM_STATE, 8
-	releaseall
+	setvar VAR_MUGSHOT_ID, MUGSHOT_IGNES
+	trainerbattle_continue_after_lose TRAINER_WALLY_MAUVILLE, TourneyIgnes_Text_Defeat, TourneyIgnes_Text_Defeat,PetalburgCity_PokemonSchool_TourneyRoom_EventScript_EndOfIgnesBattle
 	end
+
 
 PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament2::
 	lockall
+	clearflag FLAG_HIDE_TOURNEY_ROOM_POKEMON
 	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	clearflag FLAG_HIDE_PETALBURG_GYM_WALLYS_DAD
 	setvar VAR_PETALBURG_GYM_STATE, 3
+	waitmovement 0
+	setobjectxy 5, 14, 8
+	applymovement 5, Common_Movement_FaceLeft
+	waitmovement 0
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Camera_Moves_Center_Stage
+	waitmovement 0
+	playse SE_SUPER_EFFECTIVE
+	applymovement 8, Geodude_Gets_Knocked_Back
+	waitse
+	playmoncry SPECIES_GEODUDE, 2
+	waitmoncry
+	waitmovement 0
+	playse SE_APPLAUSE
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_CriticalHit, MSGBOX_DEFAULT
 	closemessage
+	waitse
+	fadescreen 1
+	playmoncry SPECIES_TEDDIURSA, 2
+	waitmoncry
+	removeobject 9
+	removeobject 8
+	removeobject 10
+	applymovement 5, Common_Movement_FaceDown
+	setobjectxy 5, 4, 6
+	fadescreen 0
+	applymovement OBJ_EVENT_ID_CAMERA, Camera_Moves_Back_To_Player
+	waitmovement 0
+	special RemoveCameraObject
+	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLYS_DAD
+	setobjectxyperm 10, 6, 6
+	addobject 2
+	addobject 3
+	addobject 4
+	addobject 5
+	addobject 6
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	setobjectxy 6, 18, 8
@@ -266,7 +312,18 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament2::
 	closemessage
 	special RemoveCameraObject
 	setvar VAR_MUGSHOT_ID, MUGSHOT_IGNES
-	trainerbattle_no_intro TRAINER_WALLY_MAUVILLE, TourneyIgnes_Text_Defeat
+	trainerbattle_continue_after_lose TRAINER_WALLY_MAUVILLE, TourneyIgnes_Text_Defeat, TourneyIgnes_Text_Defeat,PetalburgCity_PokemonSchool_TourneyRoom_EventScript_EndOfIgnesBattle
+	end
+
+PetalburgCity_PokemonSchool_TourneyRoom_EventScript_EndOfIgnesBattle::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq PetalburgCity_PokemonSchool_TourneyRoom_EventScript_TournamentContinuationLost
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq PetalburgCity_PokemonSchool_TourneyRoom_EventScript_TournamentContinuation
+	end
+	
+PetalburgCity_PokemonSchool_TourneyRoom_EventScript_TournamentContinuation::
 	special HealPlayerParty
 	playbgm DP_SEQ_WINGINGA, 1
 	fadedefaultbgm 
@@ -291,7 +348,7 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament2::
 	waitmovement 0
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_Prize, MSGBOX_DEFAULT
 	closemessage
-	giveitem ITEM_LUCKY_EGG, 1
+	giveitem ITEM_TM27, 1
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_MakeGoodUse, MSGBOX_DEFAULT
 	closemessage
 	applymovement 2, CommentatorHeadsOffStage
@@ -299,7 +356,29 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_Tournament2::
 	setflag FLAG_HIDE_PETALBURG_CITY_WALLY
 	removeobject 2
 	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	setflag FLAG_TRAINER_SCHOOL_COMPLETED
 	setvar VAR_PETALBURG_GYM_STATE, 8
+	releaseall
+	end
+
+PetalburgCity_PokemonSchool_TourneyRoom_EventScript_TournamentContinuationLost::
+	special HealPlayerParty
+	playbgm DP_SEQ_WINGINGA, 1
+	fadedefaultbgm 
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_WithTheIncredibleIgnesWon, MSGBOX_DEFAULT
+	closemessage
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_StayForPrizeIgnes, MSGBOX_DEFAULT
+	closemessage
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_PlayerAcceptsDefeat, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerWalkOffField
+	waitmovement 0
+	fadescreen 1
+	setflag FLAG_REMOVE_WARP_FADE
+	setflag FLAG_TRAINER_SCHOOL_COMPLETED
+	setvar VAR_PETALBURG_GYM_STATE, 8
+	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_GottaTrainHarder, MSGBOX_AUTOCLOSE
+	warp MAP_PETALBURG_CITY_POKEMON_CENTER_1F, 255, 7, 13
 	releaseall
 	end
 
@@ -409,7 +488,7 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_RightSideTournament::
 	waitmovement 0
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_Prize, MSGBOX_DEFAULT
 	closemessage
-	giveitem ITEM_LUCKY_EGG, 1
+	giveitem ITEM_TM27, 1
 	msgbox PetalburgCity_PokemonSchool_TourneyRoom_Text_MakeGoodUse, MSGBOX_DEFAULT
 	closemessage
 	applymovement 2, CommentatorHeadsOffStageRightSide
@@ -417,9 +496,59 @@ PetalburgCity_PokemonSchool_TourneyRoom_EventScript_RightSideTournament::
 	setflag FLAG_HIDE_PETALBURG_CITY_WALLY
 	removeobject 2
 	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	setflag FLAG_TRAINER_SCHOOL_COMPLETED
 	setvar VAR_PETALBURG_GYM_STATE, 8
 	releaseall
 	end
+
+Camera_Moves_Center_Stage:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+	
+Geodude_Gets_Knocked_Back:
+	walk_fast_right
+	walk_in_place_fastest_down
+	delay_16
+	walk_in_place_fastest_up
+	delay_16
+	walk_in_place_fastest_right
+	step_end
+
+Camera_Moves_Back_To_Player:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
 
 PlayerHeadTowardsStage:
 	walk_up
@@ -509,7 +638,6 @@ IgnesHeadsToField:
 	walk_left
 	walk_left
 	walk_left
-	walk_left
 	step_end
 
 MoveBackToCenterFieldFromRight:
@@ -539,12 +667,27 @@ PlayerHeadsToField:
 	walk_right
 	walk_right
 	walk_right
-	walk_right
 	step_end
 	
 MoveBackToCenterFieldFromLeft:
 	walk_fast_right
 	walk_fast_right
+	step_end
+
+PlayerWalkOffField:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 WalkOffField:
@@ -609,9 +752,9 @@ CommentatorHeadsOffStageRightSide:
 	step_end
 	
 PetalburgCity_PokemonSchool_TourneyRoom_Text_CriticalHit:
-	.string "Teddiursa with a Critical Hit Focus Punch\n"
-	.string "finishes not only the Geodude, but also\l"
-	.string "the battle!!$"
+	.string "Teddiursa with a Super Effective\n"
+	.string "Focus Punch finishes off both the\l"
+	.string "Geodude and also the battle!!$"
 
 PetalburgCity_PokemonSchool_TourneyRoom_Text_NextTwoCompetitors:
 	.string "It seems the next two competitors have\n"
@@ -620,8 +763,8 @@ PetalburgCity_PokemonSchool_TourneyRoom_Text_NextTwoCompetitors:
 	.string "with this battle!$"
 
 PetalburgCity_PokemonSchool_TourneyRoom_Text_BugPokemon:
-	.string "My Bug Pokémon and I are gonna win\n"
-	.string "this and no one will stop us!$"
+	.string "Corinna: My Bug Pokémon and I are gonna\n"
+	.string "win this and no one will stop us!$"
 
 Corinna_Text_Defeat:
 	.string "I can't believe I lost...$"
@@ -637,7 +780,7 @@ PetalburgCity_PokemonSchool_TourneyRoom_Text_IgnesAchievement:
 
 PetalburgCity_PokemonSchool_TourneyRoom_Text_NoMercyPlayer:
 	.string "It seems the next competitor is ready,\n"
-	.string "however {PLAYER} looks like their ready\l"
+	.string "however {PLAYER} looks like they're ready\l"
 	.string "to take her out with no mercy!$"
 
 PetalburgCity_PokemonSchool_TourneyRoom_Text_Teddiursa:
@@ -718,6 +861,32 @@ PetalburgCity_PokemonSchool_TourneyRoom_Text_Prize:
 PetalburgCity_PokemonSchool_TourneyRoom_Text_MakeGoodUse:
 	.string "I hope you can make good use of that\n"
 	.string "during your journey.$"
+
+PetalburgCity_PokemonSchool_TourneyRoom_Text_WithTheIncredibleIgnesWon:
+	.string "With that, This INCREDIBLE BATTLE comes\n"
+	.string "to an exciting end!\p"
+	.string "And the Winner is...\p"
+	.string "IGNES!!!$"
+
+PetalburgCity_PokemonSchool_TourneyRoom_Text_StayForPrizeIgnes:
+	.string "Ignes, I need you to stay for\n"
+	.string "the reward for winning the tournament.$"
+
+PetalburgCity_PokemonSchool_TourneyRoom_Text_PlayerAcceptsDefeat:
+	.string "{PLAYER}: I'll let you have this one but,\n"
+	.string "next time I see you, I'll be stronger\l"
+	.string "than you'll ever be.\p"
+	.string "Ignes: Whatever you fucking loser.\p"
+	.string "Go back home and cry about it to\n"
+	.string "mommy.\p"
+	.string "HAHAHAHAHA...$"
+	
+PetalburgCity_PokemonSchool_TourneyRoom_Text_GottaTrainHarder:
+	.string "If I can't beat a simple trainer like\n"
+	.string "Ignes, there's no way I'm beating\l"
+	.string "the 1st Gym.\p"
+	.string "I don't have an option anymore.\p"
+	.string "I NEED to train harder than before...$"
 
 PetalburgCity_PokemonSchool_TourneyRoom_EventScript_RightSideNotAvailable::
 	lockall

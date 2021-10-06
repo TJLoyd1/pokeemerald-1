@@ -266,4 +266,3 @@ OldaleTown_PokemonCenter_1F_Text_MoveRelearnerandDeleter:
 	.string "in every Pokémon Center across the\l"
 	.string "region now.$"
 
-	

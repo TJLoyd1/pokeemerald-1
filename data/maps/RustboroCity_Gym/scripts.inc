@@ -56,6 +56,11 @@ RustboroCity_Gym_EventScript_Marc:: @ 8213011
 	msgbox RustboroCity_Gym_Text_MarcPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+RustboroCity_Gym_EventScript_Lewis:: @ 8213011
+	trainerbattle_single TRAINER_LEWIS, RustboroCity_Gym_Text_LewisIntro, RustboroCity_Gym_Text_LewisDefeat
+	msgbox RustboroCity_Gym_Text_LewisPostBattle, MSGBOX_AUTOCLOSE
+	end
+
 RustboroCity_Gym_EventScript_GymGuide:: @ 8213028
 	lock
 	faceplayer
@@ -178,6 +183,18 @@ RustboroCity_Gym_Text_MarcPostBattle: @ 82135C0
 	.string "It took smarts and sense for him to\n"
 	.string "pick the Normal type at his young age.$"
 
+RustboroCity_Gym_Text_LewisIntro:
+	.string "Time to let my Normal Pokémon go\n"
+	.string "wild in here!$"
+
+RustboroCity_Gym_Text_LewisDefeat:
+	.string "You didn't need to stop my\n"
+	.string "madness kid...$"
+
+RustboroCity_Gym_Text_LewisPostBattle:
+	.string "If I would've had more Pokémon\n"
+	.string "you would've lost.$"
+
 RustboroCity_Gym_Text_RoxanneIntro: @ 821362A
 	.string "Hello, I am Danny, your Friendly\n"
 	.string "Neighborhood Pokémon Gym Leader.\p"
@@ -229,10 +246,10 @@ RustboroCity_Gym_Text_RoxannePostBattle: @ 82139A7
 	.string "learn many things.$"
 
 RustboroCity_Gym_Text_GymStatue: @ 8213A21
-	.string "RUSTBORO CITY POKéMON GYM$"
+	.string "HILLFORD CITY POKéMON GYM$"
 
 RustboroCity_Gym_Text_GymStatueCertified: @ 8213A3B
-	.string "RUSTBORO CITY POKéMON GYM\p"
+	.string "HILLFORD CITY POKéMON GYM\p"
 	.string "DANNY'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
 
@@ -240,7 +257,7 @@ RustboroCity_Gym_Text_RoxanneRegisterCall: @ 8213A76
 	.string "… … … … … …\n"
 	.string "… … … … … Beep!\p"
 	.string "DANNY: Oh, hello, {PLAYER}?\n"
-	.string "This is DANNY of RUSTBORO CITY.\p"
+	.string "This is DANNY of HILLFORD CITY.\p"
 	.string "I heard from THERA that you're\n"
 	.string "moving up through the ranks of\l"
 	.string "TRAINERS at an incredible clip.\p"

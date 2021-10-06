@@ -104,6 +104,17 @@ const struct MonCoords gTrainerFrontPicCoords[] =
 	[TRAINER_PIC_PROFESSOR_MAY] = {.size = 8, .y_offset = 1},
 	[TRAINER_PIC_DANNY] = {.size = 8, .y_offset = 1},
 	[TRAINER_PIC_THERA] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_SERENA] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_VIOLET] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_ROARK] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_BYRON] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_BUGSY] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_ERIKA] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_ORANGE_POKEMANIAC] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_GREEN_POKEMANIAC] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_CYNTHIA] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_BYRON_AND_ROARK] = {.size = 8, .y_offset = 1},
+	[TRAINER_PIC_YOUNGSTERS] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -214,6 +225,17 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
 	TRAINER_SPRITE(PROFESSOR_MAY, gTrainerFrontPic_ProfMay, 0x800),
 	TRAINER_SPRITE(DANNY, gTrainerFrontPic_Danny, 0x800),
 	TRAINER_SPRITE(THERA, gTrainerFrontPic_Thera, 0x800),
+	TRAINER_SPRITE(SERENA, gTrainerFrontPic_Serena, 0x800),
+	TRAINER_SPRITE(VIOLET, gTrainerFrontPic_Violet, 0x800),
+	TRAINER_SPRITE(ROARK, gTrainerFrontPic_Roark, 0x800),
+	TRAINER_SPRITE(BYRON, gTrainerFrontPic_Byron, 0x800),
+	TRAINER_SPRITE(BUGSY, gTrainerFrontPic_Bugsy, 0x800),
+	TRAINER_SPRITE(ERIKA, gTrainerFrontPic_Erika, 0x800),
+	TRAINER_SPRITE(ORANGE_POKEMANIAC, gTrainerFrontPic_OrangePokemaniac, 0x800),
+	TRAINER_SPRITE(GREEN_POKEMANIAC, gTrainerFrontPic_GreenPokemaniac, 0x800),
+	TRAINER_SPRITE(CYNTHIA, gTrainerFrontPic_Cynthia, 0x800),
+	TRAINER_SPRITE(BYRON_AND_ROARK, gTrainerFrontPic_ByronAndRoark, 0x800),
+	TRAINER_SPRITE(YOUNGSTERS, gTrainerFrontPic_Youngsters, 0x800),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -324,4 +346,15 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
 	TRAINER_PAL(PROFESSOR_MAY, gTrainerPalette_ProfMay),
 	TRAINER_PAL(DANNY, gTrainerPalette_Danny),
 	TRAINER_PAL(THERA, gTrainerPalette_Thera),
+	TRAINER_PAL(SERENA, gTrainerPalette_Serena),
+	TRAINER_PAL(VIOLET, gTrainerPalette_Violet),
+	TRAINER_PAL(ROARK, gTrainerPalette_Roark),
+	TRAINER_PAL(BYRON, gTrainerPalette_Byron),
+	TRAINER_PAL(BUGSY, gTrainerPalette_Bugsy),
+	TRAINER_PAL(ERIKA, gTrainerPalette_Erika),
+	TRAINER_PAL(ORANGE_POKEMANIAC, gTrainerPalette_OrangePokemaniac),
+	TRAINER_PAL(GREEN_POKEMANIAC, gTrainerPalette_GreenPokemaniac),
+	TRAINER_PAL(CYNTHIA, gTrainerPalette_Cynthia),
+	TRAINER_PAL(BYRON_AND_ROARK, gTrainerPalette_ByronAndRoark),
+	TRAINER_PAL(YOUNGSTERS, gTrainerPalette_Youngsters),
 };

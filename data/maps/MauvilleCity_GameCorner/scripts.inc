@@ -9,8 +9,8 @@ MauvilleCity_GameCorner_MapScripts:: @ 820FBB8
 	.set TM13_COINS,  4000
 	.set DOLL_COINS,  1000
 
-	.set COINS_PRICE_50,  1000
-	.set COINS_PRICE_500, 10000
+	.set COINS_PRICE_50,  100
+	.set COINS_PRICE_500, 1000
 
 MauvilleCity_GameCorner_EventScript_CoinsClerk:: @ 820FBB9
 	lock
@@ -670,7 +670,7 @@ MauvilleCity_GameCorner_EventScript_NoCoinCase:: @ 8210456
 	end
 
 MauvilleCity_GameCorner_Text_ThisIsMauvilleGameCorner: @ 8210460
-	.string "This is MAUVILLE GAME CORNER.$"
+	.string "This is ENSIO GAME CORNER.$"
 
 MauvilleCity_GameCorner_Text_NeedCoinCaseForCoins: @ 821047E
 	.string "Okay, you wanted some COINS for\n"
@@ -770,7 +770,7 @@ MauvilleCity_GameCorner_Text_LuckOnlyLastSoLongTakeCoins: @ 82108A0
 	.string "Here, take some COINS!$"
 
 MauvilleCity_GameCorner_Text_MauvilleSomethingForEveryone: @ 82108EF
-	.string "MAUVILLE has something for\n"
+	.string "ENSIO has something for\n"
 	.string "everyone.\p"
 	.string "For me, it's the GAME CORNER.$"
 

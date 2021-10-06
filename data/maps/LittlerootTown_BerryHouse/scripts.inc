@@ -4,10 +4,10 @@ LittlerootTown_BerryHouse_MapScripts::
 LittlerootTown_BerryHouse_Script_FreeBerries::
 	lock
 	faceplayer
+	goto_if_ge Script_HasBerriesAlready
 	msgbox Text_OranBerries, MSGBOX_DEFAULT
 	checkitem ITEM_ORAN_BERRY, 3
 	compare VAR_RESULT, 1
-	goto_if_ge Script_HasBerriesAlready
 	msgbox Text_GivingBerries, MSGBOX_DEFAULT
 	giveitem ITEM_ORAN_BERRY, 3
 	compare VAR_RESULT, 0

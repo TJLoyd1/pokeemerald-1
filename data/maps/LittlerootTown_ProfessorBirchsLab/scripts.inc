@@ -715,7 +715,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall:: @ 81FA4D6
 	end
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork: @ 81FA4E2
-	.string "Hunh? Prof. Acacia?\p"
+	.string "Hunh? Prof. May?\p"
 	.string "The Prof's away on fieldwork.\n"
 	.string "Ergo, she isn't here.\p"
 	.string "Oh, let me explain what fieldwork is.\p"
@@ -734,9 +734,9 @@ LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork: @ 81FA641
 	.string "things than read about them here.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo: @ 81FA6CE
-	.string "Prof. Acacia is studying the habitats\n"
+	.string "Prof. May is studying the habitats\n"
 	.string "and distribution of Pokémon.\p"
-	.string "The Prof enjoys {RIVAL}'s help, too.\n"
+	.string "The Prof enjoys Prof. Acacia's help, too.\n"
 	.string "There's a lot of love there.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_LikeYouToHavePokemon: @ 81FA74D

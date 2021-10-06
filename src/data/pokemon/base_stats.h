@@ -1784,7 +1784,7 @@ const struct BaseStats gBaseStats[] =
         .genderRatio = PERCENT_FEMALE(25),
         .eggCycles = 20,
         .friendship = 70,
-        .growthRate = GROWTH_MEDIUM_SLOW,
+        .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
         #ifdef BATTLE_ENGINE
@@ -1813,7 +1813,7 @@ const struct BaseStats gBaseStats[] =
         .genderRatio = PERCENT_FEMALE(25),
         .eggCycles = 20,
         .friendship = 70,
-        .growthRate = GROWTH_MEDIUM_SLOW,
+        .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
         #ifdef BATTLE_ENGINE
@@ -1846,7 +1846,7 @@ const struct BaseStats gBaseStats[] =
         .genderRatio = PERCENT_FEMALE(25),
         .eggCycles = 20,
         .friendship = 70,
-        .growthRate = GROWTH_MEDIUM_SLOW,
+        .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_HUMAN_LIKE,
         .eggGroup2 = EGG_GROUP_HUMAN_LIKE,
         #ifdef BATTLE_ENGINE
@@ -1965,7 +1965,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_GRASS,
         .eggGroup2 = EGG_GROUP_GRASS,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_CHLOROPHYLL, ABILITY_NONE, ABILITY_GLUTTONY},
+            .abilities = {ABILITY_CHLOROPHYLL, ABILITY_GLUTTONY, ABILITY_POISON_TOUCH},
         #else
             .abilities = {ABILITY_CHLOROPHYLL, ABILITY_NONE},
         #endif
@@ -1993,7 +1993,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_GRASS,
         .eggGroup2 = EGG_GROUP_GRASS,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_CHLOROPHYLL, ABILITY_NONE, ABILITY_GLUTTONY},
+            .abilities = {ABILITY_CHLOROPHYLL, ABILITY_GLUTTONY, ABILITY_POISON_TOUCH},
         #else
             .abilities = {ABILITY_CHLOROPHYLL, ABILITY_NONE},
         #endif
@@ -2025,7 +2025,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_GRASS,
         .eggGroup2 = EGG_GROUP_GRASS,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_CHLOROPHYLL, ABILITY_NONE, ABILITY_GLUTTONY},
+            .abilities = {ABILITY_CHLOROPHYLL, ABILITY_GLUTTONY, ABILITY_POISON_TOUCH},
         #else
             .abilities = {ABILITY_CHLOROPHYLL, ABILITY_NONE},
         #endif
@@ -7338,7 +7338,7 @@ const struct BaseStats gBaseStats[] =
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_WATER_1,
         #ifdef BATTLE_ENGINE
-            .abilities = {ABILITY_SLUSH_RUSH, ABILITY_ICE_BODY, ABILITY_SNOW_WARNING},
+            .abilities = {ABILITY_CUTE_CHARM, ABILITY_ICE_BODY, ABILITY_SNOW_WARNING},
         #else
             .abilities = {ABILITY_CUTE_CHARM, ABILITY_ICE_BODY},
         #endif
@@ -10536,7 +10536,7 @@ const struct BaseStats gBaseStats[] =
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 40,
         .friendship = 35,
-        .growthRate = GROWTH_MEDIUM_SLOW,
+        .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_DRAGON,
         .eggGroup2 = EGG_GROUP_DRAGON,
         #ifdef BATTLE_ENGINE
@@ -14420,6 +14420,62 @@ const struct BaseStats gBaseStats[] =
         .noFlip = FALSE,
     },
 
+	    [SPECIES_PURRLOIN_HOEJINNIAN] =
+    {
+        .baseHP        = 41,
+        .baseAttack    = 50,
+        .baseDefense   = 37,
+        .baseSpeed     = 66,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 37,
+        .type1 = TYPE_FIRE,
+        .type2 = TYPE_DARK,
+        .catchRate = 255,
+        .expYield = 56,
+        .evYield_Speed     = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        #ifdef BATTLE_ENGINE
+            .abilities = {ABILITY_FLAME_BODY, ABILITY_MAGMA_ARMOR, ABILITY_SPEED_BOOST},
+        #else
+            .abilities = {ABILITY_BLAZE, ABILITY_NONE},
+        #endif
+        .bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
+    },
+
+    [SPECIES_LIEPARD_HOEJINNIAN] =
+    {
+        .baseHP        = 64,
+        .baseAttack    = 88,
+        .baseDefense   = 50,
+        .baseSpeed     = 106,
+        .baseSpAttack  = 88,
+        .baseSpDefense = 50,
+        .type1 = TYPE_FIRE,
+        .type2 = TYPE_DARK,
+        .catchRate = 90,
+        .expYield = 156,
+        .evYield_Speed     = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        #ifdef BATTLE_ENGINE
+            .abilities = {ABILITY_FLAME_BODY, ABILITY_MAGMA_ARMOR, ABILITY_SPEED_BOOST},
+        #else
+            .abilities = {ABILITY_BLAZE, ABILITY_NONE},
+        #endif
+        .bodyColor = BODY_COLOR_PURPLE,
+        .noFlip = FALSE,
+    },
+
     [SPECIES_PANSAGE] =
     {
         .baseHP        = 50,
@@ -15869,7 +15925,7 @@ const struct BaseStats gBaseStats[] =
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 15,
         .friendship = 35,
-        .growthRate = GROWTH_MEDIUM_SLOW,
+        .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_DRAGON,
         #ifdef BATTLE_ENGINE
@@ -15900,7 +15956,7 @@ const struct BaseStats gBaseStats[] =
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 15,
         .friendship = 35,
-        .growthRate = GROWTH_MEDIUM_FAST,
+        .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_DRAGON,
         #ifdef BATTLE_ENGINE
@@ -15932,7 +15988,7 @@ const struct BaseStats gBaseStats[] =
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 15,
         .friendship = 70,
-        .growthRate = GROWTH_MEDIUM_FAST,
+        .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_FIELD,
         .eggGroup2 = EGG_GROUP_DRAGON,
         #ifdef BATTLE_ENGINE

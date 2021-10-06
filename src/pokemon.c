@@ -1306,6 +1306,8 @@ const u16 gSpeciesToNationalPokedexNum[NUM_SPECIES] = // Assigns all species to 
     [SPECIES_DARMANITAN_GALARIAN - 1] = NATIONAL_DEX_DARMANITAN,
     [SPECIES_YAMASK_GALARIAN - 1] = NATIONAL_DEX_YAMASK,
     [SPECIES_STUNFISK_GALARIAN - 1] = NATIONAL_DEX_STUNFISK,
+	[SPECIES_PURRLOIN_HOEJINNIAN - 1] = NATIONAL_DEX_PURRLOIN,
+	[SPECIES_LIEPARD_HOEJINNIAN - 1] = NATIONAL_DEX_LIEPARD,
     // Cosplay Pikachu
     [SPECIES_PIKACHU_COSPLAY - 1] = NATIONAL_DEX_PIKACHU,
     [SPECIES_PIKACHU_ROCK_STAR - 1] = NATIONAL_DEX_PIKACHU,
@@ -2446,6 +2448,8 @@ static const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_STOUTLAND - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_PURRLOIN - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_LIEPARD - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
+	[SPECIES_PURRLOIN_HOEJINNIAN - 1]      = ANIM_SHAKE_GLOW_RED_SLOW,
+    [SPECIES_LIEPARD_HOEJINNIAN - 1]       = ANIM_SHAKE_GLOW_RED_SLOW,
     [SPECIES_PANSAGE - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SIMISAGE - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_PANSEAR - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
@@ -2990,6 +2994,15 @@ static const struct SpriteTemplate sTrainerBackSpriteTemplates[] =
         .oam = &gOamData_BattleSpritePlayerSide,
         .anims = NULL,
         .images = gTrainerBackPicTable_Steven,
+        .affineAnims = gAffineAnims_BattleSpritePlayerSide,
+        .callback = SpriteCB_BattleSpriteStartSlideLeft,
+    },
+	[TRAINER_BACK_PIC_IGNES] = {
+        .tileTag = 0xFFFF,
+        .paletteTag = 0,
+        .oam = &gOamData_BattleSpritePlayerSide,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_Ignes,
         .affineAnims = gAffineAnims_BattleSpritePlayerSide,
         .callback = SpriteCB_BattleSpriteStartSlideLeft,
     },
@@ -7277,9 +7290,10 @@ u16 GetBattleBGM(void)
             return MUS_VS_AQUA_MAGMA_LEADER;
         case TRAINER_CLASS_TEAM_AQUA:
         case TRAINER_CLASS_TEAM_MAGMA:
+			return BW_SEQ_BGM_VS_PLASMA;
         case TRAINER_CLASS_AQUA_ADMIN:
         case TRAINER_CLASS_MAGMA_ADMIN:
-            return MUS_VS_AQUA_MAGMA;
+            return BW_SEQ_BGM_VS_PLASMA;
         case TRAINER_CLASS_LEADER:
             return DP_SEQ_BA_GYM;
         case TRAINER_CLASS_CHAMPION:
@@ -7303,7 +7317,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_FACTORY_HEAD:
         case TRAINER_CLASS_PIKE_QUEEN:
         case TRAINER_CLASS_PYRAMID_KING:
-            return MUS_VS_FRONTIER_BRAIN;
+            return HG_SEQ_GS_VS_GYMREADER_KANTO;
         default:
             return HG_SEQ_GS_VS_TRAINER_KANTO;
         }
@@ -7337,6 +7351,24 @@ u16 GetBattleBGM(void)
             return MUS_VS_KYOGRE_GROUDON;
         case SPECIES_DEOXYS:
             return MUS_RG_VS_DEOXYS;
+		case SPECIES_HEATRAN:
+		case SPECIES_DARKRAI:
+		case SPECIES_CRESSELIA:
+		case SPECIES_SHAYMIN:
+            return DP_SEQ_BA_SECRET2;
+		case SPECIES_DIALGA:
+		case SPECIES_PALKIA:
+            return DP_SEQ_BA_DPOKE2;
+		case SPECIES_MESPRIT:
+		case SPECIES_AZELF:
+		case SPECIES_UXIE:
+            return DP_SEQ_BA_DPOKE1;
+		case SPECIES_REGIGIGAS:
+			return PL_SEQ_PL_VS_REGI;
+		case SPECIES_GIRATINA:
+            return PL_SEQ_PL_BA_GIRA;
+		case SPECIES_ARCEUS:
+            return DP_SEQ_BA_SECRET1;
         default:
             return HG_SEQ_GS_VS_NORAPOKE_KANTO;
         }

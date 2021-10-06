@@ -2,7 +2,19 @@
 .set LOCALID_DEVON_EMPLOYEE, 4
 
 PetalburgWoods_MapScripts:: @ 822DFD6
+	map_script MAP_SCRIPT_ON_RESUME, AccrentonWoods_OnResume
 	.byte 0
+
+AccrentonWoods_OnResume: @ 82396C8
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, AccrentonWoods_EventScript_TryRemoveScyther
+	end
+
+AccrentonWoods_EventScript_TryRemoveScyther:: @ 82396D2
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_ne Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
 
 PetalburgWoods_EventScript_DevonResearcherLeft:: @ 822DFD7
 	lockall
@@ -255,6 +267,8 @@ PetalburgWoods_EventScript_Girl:: @ 822E222
 	goto_if_set FLAG_RECEIVED_MIRACLE_SEED, PetalburgWoods_EventScript_ExplainMiracleSeed
 	msgbox PetalburgWoods_Text_TryUsingThisItem, MSGBOX_DEFAULT
 	giveitem ITEM_MIRACLE_SEED
+	msgbox AccrentonWoods_Text_DroppedMetalCoat, MSGBOX_AUTOCLOSE
+	giveitem ITEM_METAL_COAT
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_MIRACLE_SEED
@@ -494,73 +508,322 @@ PetalburgWoods_EventScript_Rudolph::
 	trainerbattle_single TRAINER_RUDOLPH, PetalburgWoods_Text_RudolphIntro, PetalburgWoods_Text_RudolphDefeated
 	msgbox PetalburgWoods_Text_RudolphPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+PetalburgWoods_EventScript_RivalEncounter::
+	lockall
+	checkplayergender
+	compare VAR_RESULT, MALE
+	call_if_eq PetalburgWoods_EventScript_FemaleRivalCheckFlag
+	compare VAR_RESULT, FEMALE
+	call_if_eq PetalburgWoods_EventScript_MaleRivalCheckFlag
+	end
 	
-PetalburgWoods_EventScript_IgnesCheckFlag::
-	goto_if_set FLAG_BADGE01_GET, PetalburgWoods_EventScript_IgnesFirstBattle
+PetalburgWoods_EventScript_MaleRivalCheckFlag::
+	goto_if_set FLAG_BADGE01_GET, PetalburgWoods_EventScript_MaleRivalFirstBattle
 	release
 	end
 
-PetalburgWoods_EventScript_IgnesFirstBattle::
+PetalburgWoods_EventScript_FemaleRivalCheckFlag::
+	goto_if_set FLAG_BADGE01_GET, PetalburgWoods_EventScript_FemaleRivalFirstBattle
+	release
+	end
+
+PetalburgWoods_EventScript_MaleRivalFirstBattle::
 	addobject 15
 	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
 	setvar VAR_MEET_IGNES, 1
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
-	applymovement 15, Ignes_Moves_Towards_Player
+	applymovement 15, Rival_Moves_Towards_Player
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Face_Ignes
+	applymovement OBJ_EVENT_ID_PLAYER, Face_Rival
 	waitmovement 0
-	msgbox PetalburgWoods_Text_IgnesNoticesYou, MSGBOX_DEFAULT
+	msgbox PetalburgWoods_Text_RoyNoticesYou, MSGBOX_DEFAULT
 	closemessage
-	setvar VAR_MUGSHOT_ID, MUGSHOT_IGNES
-	trainerbattle_no_intro TRAINER_IGNES_PETALBURGWOODS, PetalburgWoods_Text_NextTime
-	msgbox PetalburgWoods_Text_IgnesNextCity, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, PetalburgWoods_EventScript_RoyBattleTreecko
+	case 1, PetalburgWoods_EventScript_RoyBattleTorchic
+	case 2, PetalburgWoods_EventScript_RoyBattleMudkip
+	end
+
+PetalburgWoods_EventScript_RoyBattleTreecko::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_ROY_MUDKIP, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
 	closemessage
 	giveitem ITEM_EXP_SHARE
 	setflag FLAG_RECEIVED_EXP_SHARE
-	msgbox PetalburgWoods_Text_IgnesFigureItOut, MSGBOX_DEFAULT
+	msgbox PetalburgWoods_Text_RoyFigureItOut, MSGBOX_DEFAULT
 	waitfanfare
 	closemessage
-	applymovement 15, Ignes_Heads_To_Antiquity
+	applymovement 15, Rival_Heads_To_Antiquity
 	waitmovement 0
 	removeobject 15
 	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
 	releaseall
 	end
 
-PetalburgWoods_EventScript_IgnesCheckFlag2::
-	goto_if_set FLAG_BADGE01_GET, PetalburgWoods_EventScript_IgnesFirstBattle2
-	release
-	end
-
-PetalburgWoods_EventScript_IgnesFirstBattle2::
-	addobject 15
-	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
-	setvar VAR_MEET_IGNES, 1
-	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
-	applymovement 15, Ignes_Moves_Towards_Player2
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Face_Ignes
-	waitmovement 0
-	msgbox PetalburgWoods_Text_IgnesNoticesYou, MSGBOX_DEFAULT
-	closemessage
-	trainerbattle_no_intro TRAINER_IGNES_PETALBURGWOODS, PetalburgWoods_Text_NextTime
-	msgbox PetalburgWoods_Text_IgnesNextCity, MSGBOX_DEFAULT
+PetalburgWoods_EventScript_RoyBattleTorchic::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_ROY_TORCHIC, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
 	closemessage
 	giveitem ITEM_EXP_SHARE
 	setflag FLAG_RECEIVED_EXP_SHARE
-	msgbox PetalburgWoods_Text_IgnesFigureItOut, MSGBOX_DEFAULT
+	msgbox PetalburgWoods_Text_RoyFigureItOut, MSGBOX_DEFAULT
 	waitfanfare
 	closemessage
-	applymovement 15, Ignes_Heads_To_Antiquity2
+	applymovement 15, Rival_Heads_To_Antiquity
 	waitmovement 0
 	removeobject 15
 	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
 	releaseall
 	end
 
-Ignes_Moves_Towards_Player:
+PetalburgWoods_EventScript_RoyBattleMudkip::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_ROY_TREECKO, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox PetalburgWoods_Text_RoyFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	applymovement 15, Rival_Heads_To_Antiquity
+	waitmovement 0
+	removeobject 15
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+
+PetalburgWoods_EventScript_FemaleRivalFirstBattle::
+	addobject 15
+	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	setvar VAR_MEET_IGNES, 1
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement 15, Rival_Moves_Towards_Player
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Face_Rival
+	waitmovement 0
+	msgbox PetalburgWoods_Text_LucyNoticesYou, MSGBOX_DEFAULT
+	closemessage
+	switch VAR_STARTER_MON
+	case 0, PetalburgWoods_EventScript_LucyBattleTreecko
+	case 1, PetalburgWoods_EventScript_LucyBattleTorchic
+	case 2, PetalburgWoods_EventScript_LucyBattleMudkip
+	end
+
+PetalburgWoods_EventScript_LucyBattleTreecko::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_LUCY_MUDKIP, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox PetalburgWoods_Text_LucyFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	applymovement 15, Rival_Heads_To_Antiquity
+	waitmovement 0
+	removeobject 15
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+
+PetalburgWoods_EventScript_LucyBattleTorchic::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_LUCY_TORCHIC, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox PetalburgWoods_Text_LucyFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	applymovement 15, Rival_Heads_To_Antiquity
+	waitmovement 0
+	removeobject 15
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+
+PetalburgWoods_EventScript_LucyBattleMudkip::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_LUCY_TREECKO, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox PetalburgWoods_Text_LucyFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	applymovement 15, Rival_Heads_To_Antiquity
+	waitmovement 0
+	removeobject 15
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+
+PetalburgWoods_EventScript_RivalEncounter2::
+	lockall
+	checkplayergender
+	compare VAR_RESULT, MALE
+	call_if_eq PetalburgWoods_EventScript_FemaleRivalCheckFlag2
+	compare VAR_RESULT, FEMALE
+	call_if_eq PetalburgWoods_EventScript_MaleRivalCheckFlag2
+	end
+	
+PetalburgWoods_EventScript_MaleRivalCheckFlag2::
+	goto_if_set FLAG_BADGE01_GET, PetalburgWoods_EventScript_MaleRivalFirstBattle2
+	release
+	end
+
+PetalburgWoods_EventScript_FemaleRivalCheckFlag2::
+	goto_if_set FLAG_BADGE01_GET, PetalburgWoods_EventScript_FemaleRivalFirstBattle2
+	release
+	end
+
+PetalburgWoods_EventScript_MaleRivalFirstBattle2::
+	addobject 15
+	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	setvar VAR_MEET_IGNES, 1
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement 15, Rival_Moves_Towards_Player2
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Face_Rival
+	waitmovement 0
+	msgbox PetalburgWoods_Text_RoyNoticesYou, MSGBOX_DEFAULT
+	closemessage
+	switch VAR_STARTER_MON
+	case 0, PetalburgWoods_EventScript_RoyBattleTreecko2
+	case 1, PetalburgWoods_EventScript_RoyBattleTorchic2
+	case 2, PetalburgWoods_EventScript_RoyBattleMudkip2
+	end
+
+PetalburgWoods_EventScript_RoyBattleTreecko2::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_ROY_MUDKIP, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox PetalburgWoods_Text_RoyFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	applymovement 15, Rival_Heads_To_Antiquity2
+	waitmovement 0
+	removeobject 15
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+
+PetalburgWoods_EventScript_RoyBattleTorchic2::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_ROY_TORCHIC, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox PetalburgWoods_Text_RoyFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	applymovement 15, Rival_Heads_To_Antiquity2
+	waitmovement 0
+	removeobject 15
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+
+PetalburgWoods_EventScript_RoyBattleMudkip2::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_BRENDAN
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_ROY_TREECKO, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox PetalburgWoods_Text_RoyFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	applymovement 15, Rival_Heads_To_Antiquity2
+	waitmovement 0
+	removeobject 15
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+
+PetalburgWoods_EventScript_FemaleRivalFirstBattle2::
+	addobject 15
+	clearflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	setvar VAR_MEET_IGNES, 1
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement 15, Rival_Moves_Towards_Player2
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Face_Rival
+	waitmovement 0
+	msgbox PetalburgWoods_Text_LucyNoticesYou, MSGBOX_DEFAULT
+	closemessage
+	switch VAR_STARTER_MON
+	case 0, PetalburgWoods_EventScript_LucyBattleTreecko2
+	case 1, PetalburgWoods_EventScript_LucyBattleTorchic2
+	case 2, PetalburgWoods_EventScript_LucyBattleMudkip2
+	end
+
+PetalburgWoods_EventScript_LucyBattleTreecko2::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_LUCY_MUDKIP, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox PetalburgWoods_Text_LucyFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	applymovement 15, Rival_Heads_To_Antiquity2
+	waitmovement 0
+	removeobject 15
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+
+PetalburgWoods_EventScript_LucyBattleTorchic2::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_LUCY_TORCHIC, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox PetalburgWoods_Text_LucyFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	applymovement 15, Rival_Heads_To_Antiquity2
+	waitmovement 0
+	removeobject 15
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+
+PetalburgWoods_EventScript_LucyBattleMudkip2::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_MAY
+	trainerbattle_no_intro TRAINER_ACCRENTON_WOODS_LUCY_TREECKO, PetalburgWoods_Text_NextTime
+	msgbox PetalburgWoods_Text_RivalNextCity, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_EXP_SHARE
+	setflag FLAG_RECEIVED_EXP_SHARE
+	msgbox PetalburgWoods_Text_LucyFigureItOut, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	applymovement 15, Rival_Heads_To_Antiquity2
+	waitmovement 0
+	removeobject 15
+	setflag FLAG_HIDE_PETALBURG_GYM_WALLY
+	releaseall
+	end
+
+Rival_Moves_Towards_Player:
 	walk_right
 	walk_right
 	walk_down
@@ -572,7 +835,7 @@ Ignes_Moves_Towards_Player:
 	walk_right
 	step_end
 
-Ignes_Heads_To_Antiquity:
+Rival_Heads_To_Antiquity:
 	walk_down
 	walk_left
 	walk_down
@@ -590,7 +853,7 @@ Ignes_Heads_To_Antiquity:
 	walk_down
 	step_end
 
-Ignes_Moves_Towards_Player2:
+Rival_Moves_Towards_Player2:
 	walk_right
 	walk_right
 	walk_down
@@ -603,7 +866,7 @@ Ignes_Moves_Towards_Player2:
 	walk_right
 	step_end
 
-Ignes_Heads_To_Antiquity2:
+Rival_Heads_To_Antiquity2:
 	walk_down
 	walk_left
 	walk_down
@@ -622,7 +885,7 @@ Ignes_Heads_To_Antiquity2:
 	walk_down
 	step_end
 
-Face_Ignes:
+Face_Rival:
 	face_left
 	step_end
 	
@@ -676,28 +939,95 @@ PetalburgWoods_Text_RudolphDefeated:
 PetalburgWoods_Text_RudolphPostBattle:
 	.string "I need a better fishing rod.$"
 
-PetalburgWoods_Text_IgnesNoticesYou:
-	.string "Ignes:Ohh look who it is.\n"
+PetalburgWoods_Text_RoyNoticesYou:
+	.string "{COLOR BLUE}{RIVAL}: {COLOR DARK_GRAY}Ohh look who it is.\n"
 	.string "I noticed you beat the first gym so,\l"
 	.string "I was catching up to you to battle\p"
 	.string "you properly this time.\p"
 	.string "LET'S GO!!!$"
 
+PetalburgWoods_Text_LucyNoticesYou:
+	.string "{COLOR RED}{RIVAL}: {COLOR DARK_GRAY}Ohh look who it is.\n"
+	.string "I noticed you beat the first gym so,\l"
+	.string "I was catching up to you to give\p"
+	.string "you a run for your money.\p"
+	.string "LET'S GO!!!$"
+
 PetalburgWoods_Text_NextTime:
 	.string "Next Time I'll win.$"
 
-PetalburgWoods_Text_IgnesNextCity:
+PetalburgWoods_Text_RivalNextCity:
 	.string "I'm headed to Antiquity since\n"
-	.string "I heard there's a way to Dewford\l"
+	.string "I heard there's a way to Dessata\l"
 	.string "somewhere in the city.\p"
 	.string "If you want to make any progress I\n"
 	.string "suggest you do the same thing.\p"
-	.string "I also ran into {RIVAL} earlier and\n"
-	.string "they wanted me to give you this.$"
+	.string "I also ran into Prof.May earlier\n"
+	.string "and they wanted me to give you this.$"
 	
-PetalburgWoods_Text_IgnesFigureItOut:
-	.string "Ignes: You're smart.\n"
+PetalburgWoods_Text_RoyFigureItOut:
+	.string "{COLOR BLUE}{RIVAL}: {COLOR DARK_GRAY} You're smart.\n"
 	.string "You can figure out how it works\l"
 	.string "yourself.\p"
-	.string "I'm going ahead because I'm just.\n"
-	.string "Built uniquely.$"
+	.string "I'm going ahead because I'm just...\n"
+	.string "BUILT UNIQUELY!$"
+
+PetalburgWoods_Text_LucyFigureItOut:
+	.string "{COLOR RED}{RIVAL}: {COLOR DARK_GRAY}You're smart.\n"
+	.string "You can figure out how it works\l"
+	.string "yourself.\p"
+	.string "I'm going ahead and this time don't\n"
+	.string "pass me again.$"
+
+AccrentonWoods_EventScript_StaticScytherEncounter::
+	lockall
+	applymovement 19, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 40
+	faceplayer
+	playmoncry SPECIES_SCYTHER, 2
+	delay 40
+	waitmoncry
+	setcustomwildbattle SPECIES_SCYTHER, 15, ITEM_METAL_COAT, NATURE_ADAMANT, 2, 0, 252, 0, 252, 0, 4, 0, 0, 0, 0, 0, 0, MOVE_WING_ATTACK, MOVE_SWORDS_DANCE, MOVE_COUNTER, MOVE_BUG_BUZZ, TRUE
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq AccrentonWoods_EventScript_DefeatedScyther
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq AccrentonWoods_EventScript_RanFromScyther
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq AccrentonWoods_EventScript_RanFromScyther
+	setflag FLAG_DEFEATED_SCYTHER
+	releaseall
+	end
+
+AccrentonWoods_EventScript_DefeatedScyther::
+	setflag FLAG_DEFEATED_SCYTHER
+	fadescreenswapbuffers FADE_TO_BLACK
+	setflag FLAG_HIDE_ACCRENTON_WOODS_SCYTHER
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox AccrentonWoods_Text_DroppedMetalCoat, MSGBOX_AUTOCLOSE
+	giveitem ITEM_METAL_COAT, 1
+	releaseall
+	end
+
+AccrentonWoods_EventScript_RanFromScyther::
+	setvar VAR_0x8004, SPECIES_SCYTHER
+	fadescreenswapbuffers FADE_TO_BLACK
+	setflag FLAG_HIDE_ACCRENTON_WOODS_SCYTHER
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname 0, VAR_0x8004
+	msgbox AccrentonWoods_Text_ScytherRanAway, MSGBOX_DEFAULT
+	releaseall
+	end
+
+AccrentonWoods_Text_ScytherRanAway:
+	.string "The Scyther ran away...$"
+
+AccrentonWoods_Text_DroppedMetalCoat:
+	.string "Scyther seems to have dropped\n"
+	.string "something...$"

@@ -483,6 +483,17 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_VIOLET				  0X1143
 #define OBJ_EVENT_PAL_TAG_ORANGE_POKEMANIAC		  0X1144
 #define OBJ_EVENT_PAL_TAG_GREEN_POKEMANIAC		  0X1145
+#define OBJ_EVENT_PAL_TAG_MORELULL				  0X1146
+#define OBJ_EVENT_PAL_TAG_SNEASEL				  0X1147
+#define OBJ_EVENT_PAL_TAG_SNOVER				  0X1148
+#define OBJ_EVENT_PAL_TAG_SNORUNT				  0X1149
+#define OBJ_EVENT_PAL_TAG_SWINUB				  0X1150
+#define OBJ_EVENT_PAL_TAG_STUFFUL				  0X1151
+#define OBJ_EVENT_PAL_TAG_ALOLAN_SANDSHREW		  0X1152
+#define OBJ_EVENT_PAL_TAG_ALOLAN_GEODUDE		  0X1153
+#define OBJ_EVENT_PAL_TAG_HOUNDOOM	        	  0X1154
+#define OBJ_EVENT_PAL_TAG_CLAWITZER  	  	      0X1155
+#define OBJ_EVENT_PAL_TAG_METTAO    	  	      0X1156
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -551,7 +562,18 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
 	{gObjectEventPal_Violet,				OBJ_EVENT_PAL_TAG_VIOLET},
 	{gObjectEventPal_OrangePokemaniac,		OBJ_EVENT_PAL_TAG_ORANGE_POKEMANIAC},
 	{gObjectEventPal_GreenPokemaniac,		OBJ_EVENT_PAL_TAG_GREEN_POKEMANIAC},
-    {NULL,                                  0x0000},
+	{gObjectEventPal_Morelull,				OBJ_EVENT_PAL_TAG_MORELULL},
+	{gObjectEventPal_Sneasel,				OBJ_EVENT_PAL_TAG_SNEASEL},
+	{gObjectEventPal_Snover,				OBJ_EVENT_PAL_TAG_SNOVER},
+	{gObjectEventPal_Snorunt,				OBJ_EVENT_PAL_TAG_SNORUNT},
+	{gObjectEventPal_Swinub,				OBJ_EVENT_PAL_TAG_SWINUB},
+	{gObjectEventPal_Stufful,				OBJ_EVENT_PAL_TAG_STUFFUL},
+	{gObjectEventPal_AlolanSandshrew,		OBJ_EVENT_PAL_TAG_ALOLAN_SANDSHREW},
+    {gObjectEventPal_AlolanGeodude,			OBJ_EVENT_PAL_TAG_ALOLAN_GEODUDE},
+	{gObjectEventPal_Houndoom,				OBJ_EVENT_PAL_TAG_HOUNDOOM},
+	{gObjectEventPal_Clawitzer,				OBJ_EVENT_PAL_TAG_CLAWITZER},
+	{gObjectEventPal_Mettao,				OBJ_EVENT_PAL_TAG_METTAO},
+	{NULL,                                  0x0000},
 };
 
 #include "data/object_events/berry_tree_graphics_tables.h"

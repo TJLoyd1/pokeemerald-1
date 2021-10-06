@@ -810,3 +810,17 @@ DewfordTown_Text_YeahDefinitionOfInRightNow: @ 81EA491
 	.string "Yeah, absolutely right!\p"
 	.string "“{STR_VAR_1}” is the\n"
 	.string "definition of “in” right now.$"
+
+DessataTown_EventScript_Roadblock::
+	lockall
+	msgbox DessataTown_Text_HereByUnknownForces MSGBOX_NPC
+	releaseall
+	end
+
+DessataTown_Text_HereByUnknownForces:
+	.string "The guy behind the screen there has\n"
+	.string "us here for some reason maybe you\l"
+	.string "try beating the 2nd gym and maybe\p"
+	.string "I'll be gone by then.\p"
+	.string "{PLAYER}: HOLY SHIT IT'S A TALKING\n"
+	.string "ALOLAN GEODUDE!$"

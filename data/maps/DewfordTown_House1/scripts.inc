@@ -25,8 +25,8 @@ DewfordTown_House1_Text_LotToBeSaidForLivingOnIsland: @ 81FC3F3
 	.string "POKéMON and the family.$"
 
 DewfordTown_House1_Text_LifeGoesSlowlyOnIsland: @ 81FC45B
-	.string "I left the major port of SLATEPORT\n"
-	.string "CITY when I married my husband here.\p"
+	.string "I left the major port of Alantia\n"
+	.string "City when I married my husband here.\p"
 	.string "Life goes by slowly in this little\n"
 	.string "town. But being surrounded by the\l"
 	.string "eyesore of a desert--that's painful, too.$"

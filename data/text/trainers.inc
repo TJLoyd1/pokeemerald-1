@@ -199,7 +199,7 @@ Route103_Text_MiguelRematchPostBattle: @ 829501E
 
 Route103_Text_PeteIntro: @ 8295063
 	.string "This sort of distance…\n"
-	.string "You should just swim it!$"
+	.string "You should just run it!$"
 
 Route103_Text_PeteDefeated: @ 8295093
 	.string "Oh, that's good going!$"
@@ -208,7 +208,7 @@ Route103_Text_PetePostBattle: @ 82950AA
 	.string "Oh, I understand where you're coming\n"
 	.string "from now.\p"
 	.string "If I had a POKéMON that trusty,\n"
-	.string "I'd want to SURF on it, too!$"
+	.string "I'd want to run with it, too!$"
 
 Route103_Text_IsabelleIntro: @ 8295116
 	.string "Watch where you're going!\n"
@@ -218,7 +218,7 @@ Route103_Text_IsabelleDefeated: @ 8295146
 	.string "Groan…$"
 
 Route103_Text_IsabellePostBattle: @ 829514D
-	.string "I'm a poor swimmer so I was practicing…\n"
+	.string "I'm a poor athlete so I was practicing…\n"
 	.string "Sorry for almost crashing into you.$"
 
 Route103_Text_RhettIntro: @ 8295199
@@ -601,15 +601,15 @@ Route106_Text_KylaPostBattle: @ 829669E
 Route107_Text_DarrinIntro: @ 82966E5
 	.string "Yawn…\p"
 	.string "I must have drifted off to sleep while\n"
-	.string "I was drifting in the waves.$"
+	.string "I was relaxing in the sand.$"
 
 Route107_Text_DarrinDefeated: @ 829672F
 	.string "Ahaha, I lost…\n"
 	.string "I'll take a snooze, I think…$"
 
 Route107_Text_DarrinPostBattle: @ 829675B
-	.string "Floating and being rocked by\n"
-	.string "the waves--it's like sleeping in\l"
+	.string "laying there and being sunken by\n"
+	.string "the sand--it's like sleeping in\l"
 	.string "a plush, comfy bed.$"
 
 Route107_Text_TonyIntro: @ 82967AD
@@ -667,49 +667,48 @@ Route107_Text_BethPostBattle: @ 8296A35
 	.string "better. I'll go for it, too!$"
 
 Route107_Text_LisaIntro: @ 8296A77
-	.string "LISA: We challenge you as a sister\n"
-	.string "and brother!$"
+	.string "Mack: We challenge you as a brothers!$"
 
 Route107_Text_LisaDefeated: @ 8296AA7
-	.string "LISA: Awesome.\n"
+	.string "Mack: Awesome.\n"
 	.string "You're in a different class of tough.$"
 
 Route107_Text_LisaPostBattle: @ 8296ADC
-	.string "LISA: Do you have any friends who\n"
+	.string "Mack: Do you have any friends who\n"
 	.string "would go to the beach with you?$"
 
 Route107_Text_LisaNotEnoughPokemon: @ 8296B1E
-	.string "LISA: If you want to battle with us,\n"
+	.string "Mack: If you want to battle with us,\n"
 	.string "bring more POKéMON.$"
 
 Route107_Text_RayIntro: @ 8296B57
-	.string "RAY: We always battle POKéMON,\n"
-	.string "me and my sister.\p"
+	.string "Ray: We always battle POKéMON,\n"
+	.string "me and my bro.\p"
 	.string "I always lose, but we can beat you\n"
-	.string "2-on-2!$"
+	.string "1-on-2!$"
 
 Route107_Text_RayDefeated: @ 8296BB3
-	.string "RAY: Wowee, you're at a higher level\n"
+	.string "Ray: Wow, you're at a higher level\n"
 	.string "than us!$"
 
 Route107_Text_RayPostBattle: @ 8296BE1
-	.string "RAY: My sister gave me my POKéMON.\n"
-	.string "I raised it, and now it's my important\l"
+	.string "Ray: My bro caught my POKéMON.\n"
+	.string "I raised it, and now it's my super cool\l"
 	.string "partner!$"
 
 Route107_Text_RayNotEnoughPokemon: @ 8296C34
-	.string "RAY: If you want to battle us,\n"
+	.string "Ray: If you want to battle us,\n"
 	.string "go bring some more POKéMON!$"
 
 Route107_Text_CamronIntro: @ 8296C6F
-	.string "I'm in the middle of a triathlon,\n"
-	.string "but I'm nowhere near tired!$"
+	.string "This route isn't as complex as the\n"
+	.string "one to the right of here.$"
 
 Route107_Text_CamronDefeated: @ 8296CAD
 	.string "That exhausted me…$"
 
 Route107_Text_CamronPostBattle: @ 8296CC0
-	.string "I still have swimming and running left\n"
+	.string "I still have some important running left\n"
 	.string "to do after this.\p"
 	.string "Am I going to be okay?$"
 
@@ -1198,7 +1197,7 @@ Route110_Text_TimmyPostBattle: @ 8298579
 	.string "just caught.$"
 
 Route110_Text_AlyssaIntro: @ 82985AB
-	.string "I fell off CYCLING ROAD…\p"
+	.string "I fell off CYCLING ROAD before…\p"
 	.string "I'll get over my embarrassment by\n"
 	.string "battling with you!$"
 

@@ -14,11 +14,17 @@ Route110_OnResume: @ 81EF279
 	end
 
 Route110_OnTransition: @ 81EF27D
+	clearflag FLAG_HIDE_ROUTE_110_IGNES
+	call_if_set FLAG_HIDE_ROUTE_110_RIVAL, Route610_Hide_Ignes
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	compare VAR_CYCLING_CHALLENGE_STATE, 1
 	call_if_eq Route110_EventScript_SaveCyclingMusic
 	end
+	
+Route610_Hide_Ignes::
+	setflag FLAG_HIDE_ROUTE_110_IGNES
+	return
 
 Route110_EventScript_SaveCyclingMusic:: @ 81EF293
 	savebgm MUS_CYCLING
@@ -1020,4 +1026,500 @@ Route110_Text_KeepAnEyeOutForRival: @ 81F0C33
 	.string "… … … … … …\p"
 	.string "Well, I had better get going.\n"
 	.string "See you again, {PLAYER}{KUN}!$"
+
+Route610_EventScript_RivalEncounter::
+	lockall
+	applymovement 27, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 27, Common_Movement_FaceRight
+	clearflag FLAG_HIDE_ROUTE_110_RIVAL
+	checkplayergender
+	compare VAR_RESULT, MALE
+	call_if_eq Route610_EventScript_PlayLucyMusic
+	compare VAR_RESULT, FEMALE
+	call_if_eq Route610_EventScript_PlayRoyMusic
+	end
+
+Route610_EventScript_PlayLucyMusic::
+	playbgm HG_SEQ_GS_E_SUPPORT_F, 1
+	msgbox Route610_Text_FemaleCallingPlayer, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	applymovement 27, ApproachingPlayerRival
+	waitmovement 0
+	msgbox Route610_Text_FemaleSawYouLeaving, MSGBOX_DEFAULT
+	closemessage
+	delay 40
+	playbgm HG_SEQ_GS_E_RIVAL1, 1
+	clearflag FLAG_HIDE_ROUTE_110_IGNES
+	msgbox Route610_Text_IgnesAppears, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement 27, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 26, ApproachingPlayerIgnes
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	applymovement 27, WalkBesidePlayer
+	waitmovement 0
+	msgbox Route610_Text_IgnesDecidesToBattle, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, Route610_EventScript_LucyBattleTreecko
+	case 1, Route610_EventScript_LucyBattleTorchic
+	case 2, Route610_EventScript_LucyBattleMudkip
+	end
+
+Route610_EventScript_PlayRoyMusic::
+	playbgm DP_SEQ_THE_RIV, 1
+	msgbox Route610_Text_MaleCallingPlayer, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	applymovement 27, ApproachingPlayerRival
+	waitmovement 0
+	msgbox Route610_Text_MaleSawYouLeaving, MSGBOX_DEFAULT
+	closemessage
+	delay 40
+	playbgm HG_SEQ_GS_E_RIVAL1, 1
+	clearflag FLAG_HIDE_ROUTE_110_IGNES
+	msgbox Route610_Text_IgnesAppears, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement 27, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 26, ApproachingPlayerIgnes
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	applymovement 27, WalkBesidePlayer
+	waitmovement 0
+	msgbox Route610_Text_IgnesDecidesToBattle, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, Route610_EventScript_RoyBattleTreecko
+	case 1, Route610_EventScript_RoyBattleTorchic
+	case 2, Route610_EventScript_RoyBattleMudkip
+	end
+
+Route610_EventScript_LucyBattleTreecko::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_IGNES
+	multi_fixed_2_vs_1 TRAINER_ROUTE_110_IGNES, Route610_Text_IgnesDefeated, TRAINER_ROUTE_110_LUCY_MUDKIP, TRAINER_BACK_PIC_MAY
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq Route610_EventScript_PlayerLost
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route610_EventScript_IgnesDefeated
+	end
+
+Route610_EventScript_LucyBattleMudkip::
+	multi_fixed_2_vs_1 TRAINER_ROUTE_110_IGNES, Route610_Text_IgnesDefeated, TRAINER_ROUTE_110_LUCY_TREECKO, TRAINER_BACK_PIC_MAY
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq Route610_EventScript_PlayerLost
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route610_EventScript_IgnesDefeated
+	end
+	
+Route610_EventScript_LucyBattleTorchic::
+	multi_fixed_2_vs_1 TRAINER_ROUTE_110_IGNES, Route610_Text_IgnesDefeated, TRAINER_ROUTE_110_LUCY_TORCHIC, TRAINER_BACK_PIC_MAY
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq Route610_EventScript_PlayerLost
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route610_EventScript_IgnesDefeated
+	end
+
+Route610_EventScript_PlayerLost::
+	fadescreen FADE_TO_BLACK
+	special SetCB2WhiteOut
+	waitstate
+
+Route610_EventScript_LucyAfterBattle::
+	applymovement 27, Common_Movement_FaceUp
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	playbgm HG_SEQ_GS_E_SUPPORT_F, 1
+	msgbox Route610_Text_LucyTakeThis, MSGBOX_DEFAULT
+	call Route610_EventScript_GiveItemfinder
+	msgbox Route610_Text_LucyExplainItemfinder, MSGBOX_DEFAULT
+	goto Route610_EventScript_RivalExit
+	end
+
+Route610_EventScript_GiveItemfinder::
+	giveitem ITEM_ITEMFINDER
+	setflag FLAG_SYS_DEXNAV_GET
+	setflag FLAG_SYS_DETECTOR_MODE
+	return
+
+Route610_EventScript_RoyBattleTreecko::
+	setvar VAR_MUGSHOT_ID, MUGSHOT_IGNES
+	multi_fixed_2_vs_1 TRAINER_ROUTE_110_IGNES, Route610_Text_IgnesDefeated, TRAINER_ROUTE_110_ROY_MUDKIP, TRAINER_BACK_PIC_BRENDAN
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq Route610_EventScript_PlayerLost
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route610_EventScript_IgnesDefeated
+	end
+
+Route610_EventScript_RoyBattleMudkip::
+	multi_fixed_2_vs_1 TRAINER_ROUTE_110_IGNES, Route610_Text_IgnesDefeated, TRAINER_ROUTE_110_ROY_TREECKO, TRAINER_BACK_PIC_BRENDAN
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq Route610_EventScript_PlayerLost
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route610_EventScript_IgnesDefeated
+	end
+
+Route610_EventScript_RoyBattleTorchic::
+	multi_fixed_2_vs_1 TRAINER_ROUTE_110_IGNES, Route610_Text_IgnesDefeated, TRAINER_ROUTE_110_ROY_TORCHIC, TRAINER_BACK_PIC_BRENDAN
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq Route610_EventScript_PlayerLost
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route610_EventScript_IgnesDefeated
+	end
+
+Route610_EventScript_RoyAfterBattle::
+	applymovement 27, Common_Movement_FaceUp
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	playbgm DP_SEQ_THE_RIV, 1
+	msgbox Route610_Text_RoyTakeThis, MSGBOX_DEFAULT
+	call Route610_EventScript_GiveItemfinder
+	msgbox Route610_Text_RoyExplainItemfinder, MSGBOX_DEFAULT
+	goto Route610_EventScript_RivalExit
+	end
+
+Route610_EventScript_IgnesDefeated::
+	msgbox Route610_Text_IgnesJustToWin, MSGBOX_DEFAULT
+	setobjectxyperm 27, 12,55
+	setobjectxyperm 26, 13,54
+	closemessage
+	goto Route610_EventScript_CameraMovementToGrunts
+	end
+
+Route610_EventScript_CameraMovementToGrunts::
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, CameraCutsToGrunts
+	waitmovement 0
+	applymovement 18, GruntWalkInPlaceDown
+	msgbox Route610_Text_GruntTellsObjective, MSGBOX_DEFAULT
+	closemessage
+	waitmovement 0
+	applymovement 26, Common_Movement_FaceLeft
+	applymovement 27, Common_Movement_FaceRight
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_CAMERA, CameraCutsToBackToPlayer
+	waitmovement 0
+	special RemoveCameraObject
+	msgbox Route610_Text_AsYouCanSee, MSGBOX_DEFAULT
+	closemessage
+	applymovement 26, IgnesLeaves
+	waitmovement 0
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	removeobject 26
+	setflag FLAG_HIDE_ROUTE_110_IGNES
+	goto Route610_EventScript_RivalAfterBattle
+	end
+
+Route610_EventScript_RivalAfterBattle::
+	checkplayergender
+	compare VAR_RESULT, MALE
+	call_if_eq Route610_EventScript_LucyAfterBattle
+	compare VAR_RESULT, FEMALE
+	call_if_eq Route610_EventScript_RoyAfterBattle
+	end
+	
+Route610_EventScript_RivalExit::
+	applymovement 27, RivalLeaves
+	waitmovement 0
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	setvar VAR_ROUTE110_RIVAL_ENCOUNTER, 1
+	setflag FLAG_HIDE_ROUTE_110_RIVAL
+	releaseall
+	end
+
+ApproachingPlayerRival:
+	walk_up
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_right
+	step_end
+
+ApproachingPlayerIgnes:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_up
+	walk_left
+	step_end
+
+WalkBesidePlayer:
+	walk_down
+	walk_right
+	step_end
+
+CameraCutsToGrunts:
+	walk_fast_down
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+GruntWalkInPlaceDown:
+	walk_in_place_down
+	walk_in_place_down
+	walk_in_place_down
+	step_end
+
+CameraCutsToBackToPlayer:
+	walk_fast_up
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+IgnesLeaves:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+RivalLeaves:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Route610_Text_FemaleCallingPlayer:
+	.string "{COLOR RED}{RIVAL}: {COLOR DARK_GRAY}HEY {PLAYER}!!$"
+
+Route610_Text_FemaleSawYouLeaving:
+	.string "{COLOR RED}{RIVAL}: {COLOR DARK_GRAY}I saw you leaving Dessata Town\n"
+	.string "so I decided to catch up to you.\p"
+	.string "If you made it this far, you're skills\n"
+	.string "should've improved.\l"
+	.string "Let me see how much of a trainer you\p"
+	.string "beca-$"
+
+Route610_Text_IgnesAppears:
+	.string "Ignes: HEY FUCKFACE!!$"
+
+Route610_Text_IgnesDecidesToBattle:
+	.string "{COLOR RED}{RIVAL}: {COLOR DARK_GRAY}Who are you supposed to\n"
+	.string "be?\p"
+	.string "Ignes: I wasn't talking to you...\n"
+	.string "I was talking to this trash ass nobody\l"
+	.string "ass trainer next to you.\p"
+	.string "I'll prove to you how much you should\n"
+	.string "quit being a trainer and become a\p"
+	.string "sidekick for you're little partner here.\n"
+	.string "You can even team up and I'll still win.$"
+
+Route610_Text_IgnesDefeated:
+	.string "NO WAY I LOST!!$"
+
+Route610_Text_IgnesJustToWin:
+	.string "Ignes: NOT AGAIN!\p"
+	.string "You really needed help to win!?\n"
+	.string "You really are a sad excuse for a trainer.\p"
+	.string "I would tell you to go to Atlantia City\n"
+	.string "to get better but there's something\l"
+	.string "going on down there.$"
+
+Route610_Text_GruntTellsObjective:
+	.string "GRUNTS!\p"
+	.string "REMEMBER WE ARE HERE TO BLOCK ALL\n"
+	.string "ACCESS TO ALANTIA CITY UNTIL OUR\l"
+	.string	"ADMINS ARE DONE!$"
+
+Route610_Text_AsYouCanSee:
+	.string "Ignes: As you can see it's off-limits.\p"
+	.string "Maybe you should learn a thing or\n"
+	.string "two from those grunts on becoming\l"
+	.string "stronger then MAYBE, just MAYBE, I\p"
+	.string "might think of you as a good trainer.\p"
+	.string "I expect to see you at Oatwood Town\n"
+	.string "you fucking disappointing living\l"
+	.string "sperm cell.$"
+
+Route610_Text_LucyTakeThis: @ 81EFCF1
+	.string "{COLOR RED}{RIVAL}: {COLOR DARK_GRAY}{PLAYER}{KUN}, you've been busy\n"
+	.string "training, too, haven't you?\p"
+	.string "I think you deserve a reward!\n"
+	.string "This is from me!$"
+
+Route610_Text_LucyExplainItemfinder: @ 81EFD58
+	.string "{COLOR RED}{RIVAL}: {COLOR DARK_GRAY}That's an ITEMFINDER.\p"
+	.string "Try it out. If there is an item that's\n"
+	.string "not visible, it emits a sound.\p"
+	.string "I also gave you the DexNav.\n"
+	.string "I would explain it but it's better if you\l"
+	.string "figure it out yourself.\p"
+	.string "Okay, {PLAYER}{KUN}, let's meet again!\p"
+	.string "I know it's a little silly coming from\n"
+	.string "me, but I think you should train a lot\l"
+	.string "harder for the next time.$"
+
+Route610_Text_MaleCallingPlayer:
+	.string "{COLOR BLUE}{RIVAL}: {COLOR DARK_GRAY}HEY {PLAYER}!!$"
+
+Route610_Text_MaleSawYouLeaving:
+	.string "{COLOR BLUE}{RIVAL}: {COLOR DARK_GRAY}I saw you leaving Dessata Town\n"
+	.string "so I decided to catch up to you.\p"
+	.string "If you made it this far, you're should\n"
+	.string "be a better trainer.\l"
+	.string "Let me see how much your skills have impr-$"
+
+Route610_Text_RoyTakeThis: @ 81EFECD
+	.string "{COLOR BLUE}{RIVAL}: {COLOR DARK_GRAY}{PLAYER}, you've trained\n"
+	.string "without me noticing…\p"
+	.string "Good enough!\n"
+	.string "Here, take this.$"
+
+Route610_Text_RoyExplainItemfinder:
+	.string "{COLOR BLUE}{RIVAL}: {COLOR DARK_GRAY}That's an ITEMFINDER.\p"
+	.string "Use it to root around for items that\n"
+	.string "aren't visible.\p"
+	.string "If it senses something, it emits\n"
+	.string "a sound.\p"
+	.string "I also gave you the DexNav.\n"
+	.string "I would explain it but it's better if you\l"
+	.string "figure it out yourself.\p"
+	.string "Anyway, I'm off to look for new\n"
+	.string "Pokémon.$"
+
+Route610_EventScript_RivalIsntPaying::
+	lockall
+	checkplayergender
+	compare VAR_RESULT, MALE
+	call_if_eq Route610_EventScript_LucyNoAttention
+	compare VAR_RESULT, FEMALE
+	call_if_eq Route610_EventScript_RoyNoAttention
+	end
+
+Route610_EventScript_RoyNoAttention::
+	msgbox Route610_Text_RoyNoAttention, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+	
+Route610_EventScript_LucyNoAttention::
+	msgbox Route610_Text_LucyNoAttention, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+Route610_Text_RoyNoAttention:
+	.string "Roy doesn't seem to have noticed you\n"
+	.string "are there and isn't paying any \l"
+	.string "attention to you.$"
+
+Route610_Text_LucyNoAttention:
+	.string "Lucy doesn't seem to have noticed you\n"
+	.string "are there and isn't paying any \l"
+	.string "attention to you.$"
 

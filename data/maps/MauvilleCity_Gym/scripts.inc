@@ -268,17 +268,17 @@ MauvilleCity_Gym_EventScript_GymStatue:: @ 820E175
 MauvilleCity_Gym_Text_GymGuideAdvice: @ 820E17F
 	.string "Hey, how's it going, CHAMPION-\n"
 	.string "bound {PLAYER}?\p"
-	.string "WATTSON, the LEADER of MAUVILLE\n"
-	.string "GYM, uses ELECTRIC-type POKéMON.\p"
-	.string "If you challenge him with WATER-type\n"
-	.string "POKéMON, he'll zap them! Bzzt!\p"
-	.string "And, he's put in switch-controlled\n"
-	.string "doors all over his GYM! Eccentric!\p"
+	.string "SERENA, the LEADER of ENSIO\n"
+	.string "GYM, uses PSYCHIC-type POKéMON.\p"
+	.string "If you challenge him with FIGHTING-type\n"
+	.string "POKéMON, she'll scramble that brain of yours!\p"
+	.string "And, she's put in psychic-movement\n"
+	.string "controlled pads all over her GYM!\p"
 	.string "Hey, go for it!$"
 
 MauvilleCity_Gym_Text_GymGuidePostVictory: @ 820E283
-	.string "Whoa, you're electrifying!\n"
-	.string "You've powered the door open!$"
+	.string "Whoa, you're pretty shocking!\n"
+	.string "You've passed the pads swiftly!$"
 
 MauvilleCity_Gym_Text_KirkIntro: @ 820E2BC
 	.string "My electric soul, it'll shatter your\n"
@@ -293,17 +293,17 @@ MauvilleCity_Gym_Text_KirkPostBattle: @ 820E336
 	.string "whoa-yeah!$"
 
 MauvilleCity_Gym_Text_ShawnIntro: @ 820E369
-	.string "I trained under WATTSON!\n"
+	.string "I trained under Serena!\n"
 	.string "There ain't no way I'll lose easily!$"
 
 MauvilleCity_Gym_Text_ShawnDefeat: @ 820E3A7
 	.string "Unplugged and turned off…$"
 
 MauvilleCity_Gym_Text_ShawnPostBattle: @ 820E3C1
-	.string "WATTSON, our GYM LEADER, has been\n"
-	.string "around for a long, long time.\p"
-	.string "He was battling even before your\n"
-	.string "daddy was born, that tough coot.$"
+	.string "Serena, our GYM LEADER, hasn't been\n"
+	.string "around for a long time.\p"
+	.string "However, she was battling even before\n"
+	.string "you were born, kiddo.$"
 
 MauvilleCity_Gym_Text_BenIntro: @ 820E443
 	.string "This GYM's got puzzles!\n"
@@ -313,8 +313,8 @@ MauvilleCity_Gym_Text_BenDefeat: @ 820E469
 	.string "It's no fun to lose…$"
 
 MauvilleCity_Gym_Text_BenPostBattle: @ 820E47E
-	.string "WATTSON says he likes setting up\n"
-	.string "little traps with switches.$"
+	.string "Serena says she likes setting up\n"
+	.string "little pads that causes you to travel.$"
 
 MauvilleCity_Gym_Text_VivianIntro: @ 820E4BB
 	.string "With my charm and my POKéMON's moves,\n"
@@ -324,8 +324,8 @@ MauvilleCity_Gym_Text_VivianDefeat: @ 820E4F4
 	.string "I'm shocked by your power!$"
 
 MauvilleCity_Gym_Text_VivianPostBattle: @ 820E50F
-	.string "I've heard that MAUVILLE was founded\n"
-	.string "by WATTSON.\p"
+	.string "I've heard that Ensio was founded\n"
+	.string "by Serena's father.\p"
 	.string "He was a TRAINER long before we\n"
 	.string "became TRAINERS.\l"
 	.string "He must know all sorts of things!$"
@@ -338,21 +338,21 @@ MauvilleCity_Gym_Text_AngeloDefeat: @ 820E5A8
 	.string "My eyes are frazzled…$"
 
 MauvilleCity_Gym_Text_AngeloPostBattle: @ 820E5C2
-	.string "MAUVILLE GYM's WATTSON has a shiny\n"
-	.string "forehead. It makes me happy!$"
+	.string "Ensio GYM's Serena has some shiny\n"
+	.string "hair. It makes me happy!$"
 
 MauvilleCity_Gym_Text_WattsonIntro: @ 820E602
-	.string "I've given up on my plans to convert\n"
-	.string "the city, I have.\p"
+	.string "I've given up on my plans to convince\n"
+	.string "my father.\p"
 	.string "And so, I put my time into making\n"
-	.string "door traps in my GYM.\p"
+	.string "psychic movement pads in my GYM.\p"
 	.string "Oh? Now, what are you doing here?\p"
 	.string "What's that? You say you've gotten\n"
-	.string "past all my rigged doors?\p"
+	.string "past all my movement pads?\p"
 	.string "Wahahahah!\n"
 	.string "Now, that is amusing!\p"
-	.string "Then, I, WATTSON, the LEADER of\n"
-	.string "MAUVILLE GYM, shall electrify you!$"
+	.string "Then, I, SERENA, the LEADER of\n"
+	.string "ENSIO GYM, shall Scramble your brain!$"
 
 MauvilleCity_Gym_Text_WattsonDefeat: @ 820E734
 	.string "Wahahahah!\n"
@@ -361,11 +361,11 @@ MauvilleCity_Gym_Text_WattsonDefeat: @ 820E734
 	.string "Take this BADGE!$"
 
 MauvilleCity_Gym_Text_ReceivedDynamoBadge: @ 820E77F
-	.string "{PLAYER} received the DYNAMO BADGE\n"
-	.string "from WATTSON.$"
+	.string "{PLAYER} received the PSYCHO BADGE\n"
+	.string "from SERENA.$"
 
 MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis: @ 820E7AA
-	.string "With the DYNAMO BADGE, POKéMON can\n"
+	.string "With the PSYCHO BADGE, POKéMON can\n"
 	.string "use ROCK SMASH out of battle.\p"
 	.string "And, it will make your POKéMON a little\n"
 	.string "bit faster, too.\p"
@@ -373,13 +373,14 @@ MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis: @ 820E7AA
 	.string "You should take this, too!$"
 
 MauvilleCity_Gym_Text_ExplainShockWave: @ 820E844
-	.string "That TM34 there contains SHOCK WAVE.\p"
-	.string "It's a trustworthy move that never\n"
-	.string "misses! You can count on it!\p"
+	.string "That TM03 there contains PSYSHOCK.\p"
+	.string "It's a psychic move that will do\n"
+	.string "physical damage instead of special!\p"
+	.string "You can count on it!\p"
 	.string "… … … … … …$"
 
 MauvilleCity_Gym_Text_RegisteredWattson: @ 820E8B5
-	.string "Registered GYM LEADER WATTSON\n"
+	.string "Registered GYM LEADER SERENA\n"
 	.string "in the POKéNAV.$"
 
 MauvilleCity_Gym_Text_WattsonPostBattle: @ 820E8E3
@@ -388,14 +389,14 @@ MauvilleCity_Gym_Text_WattsonPostBattle: @ 820E8E3
 
 MauvilleCity_Gym_Text_WattsonGoForthAndEndeavor: @ 820E925
 	.string "Wahahahah!\n"
-	.string "Go forth and endeavor, youngster!$"
+	.string "Go forth and endeavor, young one!$"
 
 MauvilleCity_Gym_Text_GymStatue: @ 820E952
-	.string "MAUVILLE CITY POKéMON GYM$"
+	.string "ENSIO CITY POKéMON GYM$"
 
 MauvilleCity_Gym_Text_GymStatueCertified: @ 820E96C
-	.string "MAUVILLE CITY POKéMON GYM\p"
-	.string "WATTSON'S CERTIFIED TRAINERS:\n"
+	.string "ENSIO CITY POKéMON GYM\p"
+	.string "SERENA'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
 
 MauvilleCity_Gym_Text_WattsonPreRematch: @ 820E9A7

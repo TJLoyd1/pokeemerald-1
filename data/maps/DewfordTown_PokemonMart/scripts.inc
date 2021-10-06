@@ -21,6 +21,7 @@ DewfordTown_PokemonMart_Pokemart_Basic: @ 81FC260
 	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_ETHER
+	.2byte ITEM_HARBOR_MAIL
 	.2byte ITEM_NONE
 	release
 	end
@@ -46,6 +47,7 @@ DewfordTown_PokemonMart_Pokemart_Expanded: @ 81FC27C
 	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_ETHER
 	.2byte ITEM_X_SPEED
+	.2byte ITEM_HARBOR_MAIL
 	.2byte ITEM_NONE
 	release
 	end
@@ -58,4 +60,4 @@ DewfordTown_PokemonMart_EventScript_Man::
 
 DewfordTown_PokemonMart_Text_NewMart:
 	.string "It's about time they opened a new\n"
-	.string "PokeMart in Dewford Town.$"
+	.string "PokeMart in Dessata Town.$"
